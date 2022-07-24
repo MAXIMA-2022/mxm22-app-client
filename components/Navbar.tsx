@@ -124,16 +124,9 @@ const NavbarButton = () => {
   ];
 
   const routerPath = router.pathname;
-  useEffect(() => {
-    if (routerPath === "/" || routerPath === "/login" || routerPath === "/signup") {
-      setIsLogin(false);
-    } else {
-      setIsLogin(true);
-    }
-  }, [routerPath]);
 
   return (
-    <Stack display={isLogin ? "none" : "flex"} direction={"row"} spacing={7}>
+    <Stack direction={"row"} spacing={7}>
       <Box>
         <Link href={buttonData[0].href}>
           <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
@@ -153,17 +146,6 @@ const NavbarButton = () => {
 };
 
 const Navbar = () => {
-  const [isLogin, setIsLogin] = useState(false);
-  const router = useRouter();
-
-  const routerPath = router.pathname;
-  useEffect(() => {
-    if (routerPath === "/" || routerPath === "/login" || routerPath === "/signup") {
-      setIsLogin(false);
-    } else {
-      setIsLogin(true);
-    }
-  }, [routerPath]);
   return (
     <Flex as="nav" justifyContent="space-between" alignItems="center" p={["2em 1.8em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2.3em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}>
       <Flex
@@ -172,11 +154,11 @@ const Navbar = () => {
         position={"fixed"}
         mx={"-5em"}
         p={["1.8em", "1.8em", "2em", "2em", "2.2em"]}
-        bgColor={isLogin ? "#FF6835" : "#1B4173"}
+        bgColor={"#1B4173"}
         border={"2px solid white"}
         borderRadius={"0em 5em 5em 0em"}
         shadow={"0 4px 4px rgb(0,0,0,0.25)"}
-        opacity={isLogin ? "35%" : "30%"}
+        opacity={"30%"}
       />
       <NavbarIcon />
       <Flex justifyContent={["center", "start", "start", "start"]} flex={{ base: 0, sm: 1 }}>

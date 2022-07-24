@@ -8,57 +8,104 @@ import Navbar from "../components/Navbar";
 import MaximaIconP from "../public/maximaIconP.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, Center, Heading, Text, Button, Stack } from "@chakra-ui/react";
 
 const Welcoming: NextPage = () => {
+  const Header = () => {
+    return (
+      <Center>
+        <Box display={["block", "none"]}>
+          <Center>
+            <Image src={MaximaIconP} alt={"MaximaLogo"} />
+          </Center>
+          <Box>
+            <Text color={"white"} align={"center"} fontSize={"30px"} fontWeight={"bold"} textShadow={["0px 0px 8px  rgb(212,224,173)"]}>
+              SELAMAT DATANG
+            </Text>
+            <Text color={"white"} align={"center"} fontSize={"44px"} fontWeight={"bold"} textShadow={["0px 0px 8px  rgb(212,224,173)"]}>
+              MAXIMERS!
+            </Text>
+          </Box>
+        </Box>
+        <Box display={["none", "block"]}>
+          <Box>
+            <Text color={"white"} align={"center"} fontSize={["6xl", "5xl", "6xl", "6xl", "7xl"]} fontWeight={"bold"} textShadow={["0px 0px 8px  rgb(212,224,173)"]}>
+              SELAMAT DATANG,
+            </Text>
+            <Text mt={"-0.5em"} color={"white"} align={"center"} fontSize={"50px"} fontWeight={"bold"} textShadow={["0px 0px 8px  rgb(212,224,173)"]}>
+              MAXIMERS!
+            </Text>
+          </Box>
+        </Box>
+      </Center>
+    );
+  };
+
+  const FixedButton = () => {
+    const linksData = [
+      {
+        name: "TWIBBON",
+        href: "/twibbon",
+      },
+      {
+        name: "CHALLENGE",
+        href: "/challenge",
+      },
+    ];
+    return (
+      <Flex justifyContent={"end"} alignItems={"center"}>
+        <Stack mt={["6vh", "10vh"]} align={"stretch"} w={["6em", "7em", "9em", "10em", "10.5em"]} spacing={6} zIndex={99}>
+          {linksData.map((link) => (
+            <Link href={link.href} key={link.name}>
+              <Button bgColor={"#F7B70C"} size={["sm", "md", "md", "lg", "lg"]} borderRadius={"10em 0 0 10em"} shadow={"0 4px 4px rgb(0,0,0,0.25)"}>
+                <Text w={"full"} color={"white"} textAlign={"end"} fontSize={["xs", "sm", "md", "lg", "xl"]} fontWeight={"extrabold"}>
+                  {link.name}
+                </Text>
+              </Button>
+            </Link>
+          ))}
+        </Stack>
+      </Flex>
+    );
+  };
+
+  const StartButton = () => {
+    return (
+      <Box position={"absolute"} left={0} bottom={0} right={0} mb={["7vh", "15vh"]}>
+        <Center>
+          <Link href={"/adventureBegin"}>
+            <Button size={"md"} px={"1.8em"} bgColor={"#F7B70C"} outline={"5px  solid rgb(210, 223, 165, 47%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+              <Text color={["#062D5F", "white"]} fontSize={"20px"} fontWeight={["black", "extrabold"]}>
+                START
+              </Text>
+            </Button>
+          </Link>
+        </Center>
+      </Box>
+    );
+  };
+
+  const Footer = () => {
+    return (
+      <Box position={"absolute"} left={0} bottom={0} right={0} mb={"2vh"}>
+        <Center>
+          <Text color={"white"} fontSize={["10px", "14px", "14px", "16px", "20px"]} fontWeight={"normal"} letterSpacing={1}>
+            Ayo berpetualang bersama Maxi dan Xima!
+          </Text>
+        </Center>
+      </Box>
+    );
+  };
+
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["/HoMEWelcomingP.png", "/HoMEWelcomingLs.png", "/HoMEWelcomingLs.png", "/HoMEWelcomingLs.png"]} bgPosition={["center", "bottom", "bottom", "bottom"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgImage={["/HoMEWelcomingP.png", "/HoMEWelcomingLs.png", "/HoMEWelcomingLs.png", "/HoMEWelcomingLs.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
-          <Center>
-            <Box display={["block", "none"]}>
-              <Center>
-                <Image src={MaximaIconP} alt={"MaximaLogo"} />
-              </Center>
-              <Box>
-                <Text color={"white"} align={"center"} fontSize={"30px"} fontWeight={"bold"} textShadow={["2px 0px 2px black "]}>
-                  SELAMAT DATANG
-                </Text>
-                <Text color={"white"} align={"center"} fontSize={"44px"} fontWeight={"bold"} textShadow={["2px 0px 2px black "]}>
-                  MAXIMERS!
-                </Text>
-              </Box>
-            </Box>
-            <Box display={["none", "block"]}>
-              <Box>
-                <Text color={"white"} align={"center"} fontSize={["6xl", "5xl", "6xl", "6xl", "7xl"]} fontWeight={"bold"} textShadow={["2px 0px 2px black "]}>
-                  SELAMAT DATANG
-                </Text>
-                <Text color={"white"} align={"center"} fontSize={"44px"} fontWeight={"bold"} textShadow={["2px 0px 2px black "]}>
-                  MAXIMERS!
-                </Text>
-              </Box>
-            </Box>
-          </Center>
-          <Box position={"absolute"} left={0} bottom={0} right={0} mb={["7vh", "15vh"]}>
-            <Center>
-              <Link href={"/adventureBegin"}>
-                <Button size={"md"} px={"1.8em"} bgColor={"#F7B70C"} outline={"5px  solid rgb(210, 223, 165, 47%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
-                  <Text color={["#062D5F", "white"]} fontSize={"20px"} fontWeight={["black", "extrabold"]}>
-                    START
-                  </Text>
-                </Button>
-              </Link>
-            </Center>
-          </Box>
-          <Box position={"absolute"} left={0} bottom={0} right={0} mb={"2vh"}>
-            <Center>
-              <Text color={"white"} fontSize={"14px"} fontWeight={"normal"} letterSpacing={1}>
-                Ayo berpetualang bersama Maxi dan Xima!
-              </Text>
-            </Center>
-          </Box>
+          <Header />
+          <FixedButton />
+          <StartButton />
+          <Footer />
         </Box>
       </Flex>
     </Layout>
