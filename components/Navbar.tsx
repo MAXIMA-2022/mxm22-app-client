@@ -147,7 +147,7 @@ const NavbarButton = () => {
 
 const Navbar = () => {
   return (
-    <Flex as="nav" justifyContent="space-between" alignItems="center" p={["2em 1.8em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2.3em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}>
+    <Flex as="nav" justifyContent="space-between" alignItems="center" p={["2em 1em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2.3em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}>
       <Flex
         display={["none", "block"]}
         w={["0em", "29.5em", "42em", "50em", "57em"]}

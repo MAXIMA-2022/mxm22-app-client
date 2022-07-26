@@ -209,7 +209,7 @@ const Maps = () => {
           </Box>
         </Link>
         <Link href={MapsTents[4].href}>
-          <Box position={"absolute"} ms={["58rem", "58rem", "90rem", "69.5rem", "69.5rem"]} mt={["240rem", "240rem", "140rem", "108rem", "108rem"]} cursor={"pointer"}>
+          <Box position={"absolute"} ms={["58rem", "58rem", "90rem", "69.5rem", "69.5rem"]} mt={["240rem", "240rem", "140rem", "109rem", "109rem"]} cursor={"pointer"}>
             <Center>
               <Img display={["none", "none", "block", "block", "block"]} src={MapsTents[4].img} width={"119px"} height={"108px"} />
               <Img display={["block", "block", "none", "none", "none"]} src={MapsTents[4].img2} maxWidth={"50rem"} width={"306px"} height={"344px"} />

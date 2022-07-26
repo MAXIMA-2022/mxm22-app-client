@@ -36,7 +36,7 @@ const Home: NextPage = () => {
                   Selamat datang di HoME MAXIMA 2022! Di sini kamu dapat memilih tenda-tenda UKM yang ingin kamu masuki. Selamat memilih, Maximers!
                 </Text>
                 <Flex justifyContent={"end"} alignItems={"center"}>
-                  <Link href={"/maps"}>
+                  <Link href={"/home/maps"}>
                     <Button size={"sm"} px={"1.5em"} bgColor={"#F7B70C"} outline={"5px  solid rgb(210, 223, 165, 47%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
                       <Text color={["#062D5F"]} fontSize={"sm"} fontWeight={["black"]}>
                         LET THE ADVENTURE BEGIN!
