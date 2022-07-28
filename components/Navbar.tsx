@@ -7,6 +7,7 @@ import { useEffect } from "react";
 //importing local components
 import MaximaIcon from "../public/maximaIcon.svg";
 import HamburgerIconz from "../public/hamburgerIcon.svg";
+import MaximaIconP2 from "../public/maximaIconP2.svg";
 
 //importing local files
 import HoMEWelcomingBg from "../public/HoMEWelcomingBg.svg";
@@ -36,6 +37,20 @@ const NavbarIcon = () => {
       </Box>
       <Box display={["none", "block", "none", "none", "none"]} as={"a"} href="/">
         <Image src={MaximaIcon} alt="logo" width={"100px"} />
+      </Box>
+    </Flex>
+  );
+};
+
+const NavbarIconP = () => {
+  const router = useRouter();
+
+  return (
+    <Flex position={"fixed"} justifyContent={"center"} alignItems="center" p={["2em 1.8em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2em 3em"]} color="white" top={0} left={0} right={0} zIndex={1}>
+      <Box display={["block", "none"]}>
+        <Center>
+          <Image src={MaximaIconP2} alt={"MaximaLogo"} />
+        </Center>
       </Box>
     </Flex>
   );
@@ -164,6 +179,7 @@ const Navbar = () => {
       <Flex justifyContent={["center", "start", "start", "start"]} flex={{ base: 0, sm: 1 }}>
         <NavbarLinks />
       </Flex>
+      {/* <NavbarIconP /> */}
       <Box>
         <NavbarButton />
       </Box>

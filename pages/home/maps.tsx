@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 //importing local components
 import Layout from "../../components/Layout";
@@ -126,6 +127,7 @@ const Maps = () => {
               bgColor={"#D01E20"}
               border={["20px solid white", "20px solid white", "4px solid white", "4px solid white", "4px solid white"]}
               borderRadius={"full"}
+              shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
             >
               <Img src={"../expandLeft.svg"} w={["4rem", "4rem", "2.5rem", "2rem", "2rem"]} h={["4rem", "4rem", "3rem", "2rem", "2rem"]} />
             </Center>
@@ -182,7 +184,7 @@ const Maps = () => {
           <Box position={"absolute"} ms={["88.5rem", "88.5rem", "55rem", "42rem", "42rem"]} mt={["285rem", "285rem", "146rem", "115rem", "115rem"]} cursor={"pointer"}>
             <Center>
               <Img display={["none", "none", "block", "block", "block"]} src={MapsTents[2].img} width={"119px"} height={"108px"} />
-              <Img display={["block", "block", "none", "none", "none"]} maxWidth={"50rem"} width={"344px"} height={"306px"} />
+              <Img src={MapsTents[2].img2} display={["block", "block", "none", "none", "none"]} maxWidth={"50rem"} width={"344px"} height={"306px"} />
             </Center>
             <Center display={["none", "none", "block", "block", "block"]}>
               <Box p={"0.2rem 1.3rem"} mt={"0.5rem"} bgColor={"#FF6835"} outline={"3px  solid rgb(255, 255, 255, 0.3)"} borderRadius={"full"} shadow={"3px 5px 4px rgb(0,0,0,0.35)"}>
