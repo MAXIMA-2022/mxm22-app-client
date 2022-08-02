@@ -15,3 +15,44 @@ a {
   box-sizing: border-box;
   font-family: nunito;
 }
+
+.carousel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(calc(1 + var(--abs-offset) * -0.4)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -15rem));
+  filter: brightness(calc(1 - var(--abs-offset) * 1.5));
+  transition: all 0.3s ease-out;
+}
+
+@media screen and (max-width: 1024px) {
+  .carousel {
+    transform: scaleY(calc(1 + var(--abs-offset) * -0.4)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -15rem));
+    filter: brightness(calc(1 - var(--abs-offset) * 1.5));
+    transition: all 0.3s ease-out;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .carousel {
+    transform: scaleY(calc(1 + var(--abs-offset) * -0.4)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -10rem));
+    filter: brightness(calc(1 - var(--abs-offset) * 1.5));
+    transition: all 0.3s ease-out;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .carousel {
+    transform: scaleY(calc(1 + var(--abs-offset) * 0)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -6rem));
+    filter: brightness(calc(1 - var(--abs-offset) * 1.5));
+    transition: all 0.3s ease-out;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .carousel {
+    transform: scaleY(calc(1 + var(--abs-offset) * 0)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -5rem));
+    filter: brightness(calc(1 - var(--abs-offset) * 1.5));
+    transition: all 0.3s ease-out;
+  }
+}

@@ -23,7 +23,7 @@ const Organization: NextPage = () => {
   const Header = () => {
     return (
       <>
-        <Center position={"absolute"} mt={["13rem", "37vh", "71vh", "20.7rem", "35rem"]}>
+        {/* <Center position={"absolute"} mt={["13rem", "37vh", "71vh", "20.7rem", "35rem"]}>
           <Box transform={["scale(0.32)", "scale(0.9)", "scale(0.37)", "scale(0.34)", "scale(0.28)"]} zIndex={"1"}>
             <Img src={`/MapsTents/${mapsID}_pc.png`} />
           </Box>
@@ -40,6 +40,22 @@ const Organization: NextPage = () => {
         </Center>
         <Center mt={["6rem", "6rem", "27vh", "29vh", "27vh"]}>
           <Box position={"absolute"} transform={["scale(0.8)", "scale(0.8)", "scale(0.78)", "scale(0.57)", "scale(0.75)"]} zIndex={"1"}>
+            <Img src={"/organization/shade.png"} />
+          </Box>
+        </Center> */}
+        {/* <Center m={"25vh 25vh"} w={"105.5vh"} h={"85vh"}></Center> */}
+        <Center w={"full"} h={["32.5rem", "50rem", "53rem", "53rem", "67rem"]} />
+        <Center position={"absolute"} left={0} right={0} top={0} bottom={0}>
+          {/* <Box mt={["3", "15rem", "23.5rem", "0rem", "8rem"]} transform={["scale(0.26)", "scale(0.6)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]}>
+            <Img src={`/MapsTents/${mapsID}_pc.png`} />
+          </Box> */}
+          <Box mt={["25vh", "25vh", "23.5rem", "0rem", "8rem"]} position={"absolute"} transform={["scale(0.5)", "scale(0.5)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"2"}>
+            <Img src={"/organization/table.png"} />
+          </Box>
+          <Box mt={["35vh", "35vh", "35rem", "15rem", "25rem"]} position={"absolute"} transform={["scale(0.25)", "scale(0.25)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"3"}>
+            <Img src={"/organization/chair.png"} />
+          </Box>
+          <Box mt={["60vh", "60vh", "50rem", "40rem", "50rem"]} position={"absolute"} transform={["scale(0.55)", "scale(0.55)", "scale(0.65)", "scale(0.7)", "scale(0.75)"]} zIndex={"1"}>
             <Img src={"/organization/shade.png"} />
           </Box>
         </Center>
@@ -128,7 +144,7 @@ const Organization: NextPage = () => {
             <Text display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
               Organisasi dan Himpunan
             </Text>
-            <Text display={["block", "none"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
+            <Text display={["block", "none"]} color={"#062D5F"} fontSize={["3xl"]} fontWeight={["black", "bold"]}>
               Lembaga Kampus
             </Text>
           </Center>
@@ -209,7 +225,15 @@ const Organization: NextPage = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex position={["absolute", "relative"]} mt={["0vh", "-45vh"]} h={["100vh", "200vh"]} bgImage={["/organization/organisatorBgP.png", "/organization/organisatorBgLs.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex
+        position={["absolute", "relative"]}
+        mt={["0vh", "0vh", "-12.5vh", "0vh", "0vh"]}
+        h={["70vh", "70vh", "100vh", "160vh", "160vh"]}
+        bgImage={["/organization/organisatorBgP.png", "/organization/organisatorBgP.png", "/organization/organisatorBgP.png", "/organization/organisatorBgLs3.png", "/organization/organisatorBgLs3.png"]}
+        bgPosition={"center"}
+        bgSize={"cover"}
+        bgRepeat={"no-repeat"}
+      >
         <Box w={"full"} zIndex={"0"}>
           <Header />
           <Body />

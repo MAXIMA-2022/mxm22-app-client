@@ -95,7 +95,7 @@ const OrganizationDesc: NextPage = () => {
     ];
     return (
       <Center mt={["90vh", "185vh"]} mb={"15vh"} zIndex={"4"}>
-        <Box w={["17em", "40em"]}>
+        <Box w={["20em", "60em"]}>
           <Stack my={"3em"} direction={"column"} spacing={"3em"}>
             <Center>
               <Text textAlign={"center"} display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
@@ -105,104 +105,123 @@ const OrganizationDesc: NextPage = () => {
                 UMN Documentation
               </Text>
             </Center>
-            <Center w={"full"} h={["10em", "20em"]} bgColor={"#D9D9D9"} outline={"2px solid #FF6835"} borderRadius={"2xl"}>
-              <Center w={["4em", "5em"]} h={["4em", "5em"]} borderRadius={"full"} bgColor={"white"}></Center>
-            </Center>
+
             <Center>
-              <Text textAlign={"justify"}>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium voluptatum ipsum expedita sunt beatae quo, atque molestiae, esse rem sapiente mollitia ab iste quisquam facere perferendis laborum nobis libero dicta
-                tenetur eum. Numquam eaque laudantium reprehenderit tenetur cupiditate hic ex omnis iure quam, natus error nulla minima? Nam nisi unde asperiores fugiat. Nesciunt quam laboriosam voluptatum iure doloribus architecto dicta
-                explicabo alias et, sint quo neque rerum? Quasi sed impedit, omnis cumque asperiores, quod aliquid assumenda hic fugit facilis earum maiores ab molestiae? Officia autem odio cum doloremque earum ullam accusantium repellendus
-                aliquam praesentium placeat cupiditate facilis dolorem pariatur veritatis, ad quo cumque minima voluptatem, quas et? Dolorem repellat quasi sint, accusamus officiis explicabo natus reprehenderit voluptas amet, eos rerum id.
-                <br />
-                <br />
-                Error expedita quos laudantium veritatis corrupti, nisi officia cumque perspiciatis, possimus rem ducimus repellat quod quibusdam dolore pariatur delectus tenetur perferendis accusamus adipisci, necessitatibus laborum
-                deserunt repudiandae eveniet illum. Nobis dolorum accusantium eligendi, a repellat possimus cum quam quas culpa maiores laboriosam odio quidem nulla dicta similique voluptatibus odit, eos nemo perferendis! Voluptatum
-                aspernatur architecto nulla. Quam eos odit eum architecto consectetur perferendis repellat quidem similique exercitationem debitis a laboriosam possimus minus at saepe ad dolores nobis cupiditate, incidunt accusamus br
-                necessitatibus maxime ducimus esse numquam! Laborum delectus nam aspernatur quas vero, iusto natus aperiam accusamus, minus architecto repudiandae, rem possimus non cum ducimus cumque ad! Repellat maxime eveniet earum ex
-                rerum quis corrupti nihil aliquid tempora deserunt tempore fuga odit quibusdam nulla, iure architecto tenetur excepturi dignissimos sapiente dolorum? Quod autem fuga illum cupiditate qui deserunt, officia provident, a in
-                voluptatibus doloribus itaque quisquam consequuntur perspiciatis! Unde soluta consectetur error vitae hic harum quis quas sequi ullam enim! Repudiandae consectetur sequi ex debitis accusamus quasi recusandae aspernatur
-                quisquam alias doloribus adipisci qui quod exercitationem, reiciendis possimus cupiditate amet perspiciatis.
-              </Text>
+              <Box w={["17em", "40em"]}>
+                <Center w={"full"} h={["10em", "20em"]} mb={"4em"} bgColor={"#D9D9D9"} outline={"5px solid #FF6835"} borderRadius={"2xl"}>
+                  <Center w={["4em", "5em"]} h={["4em", "5em"]} borderRadius={"full"} bgColor={"white"}></Center>
+                </Center>
+                <Text textAlign={"justify"}>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium voluptatum ipsum expedita sunt beatae quo, atque molestiae, esse rem sapiente mollitia ab iste quisquam facere perferendis laborum nobis libero dicta
+                  tenetur eum. Numquam eaque laudantium reprehenderit tenetur cupiditate hic ex omnis iure quam, natus error nulla minima? Nam nisi unde asperiores fugiat. Nesciunt quam laboriosam voluptatum iure doloribus architecto dicta
+                  explicabo alias et, sint quo neque rerum? Quasi sed impedit, omnis cumque asperiores, quod aliquid assumenda hic fugit facilis earum maiores ab molestiae? Officia autem odio cum doloremque earum ullam accusantium
+                  repellendus aliquam praesentium placeat cupiditate facilis dolorem pariatur veritatis, ad quo cumque minima voluptatem, quas et? Dolorem repellat quasi sint, accusamus officiis explicabo natus reprehenderit voluptas amet,
+                  eos rerum id.
+                  <br />
+                  <br />
+                  Error expedita quos laudantium veritatis corrupti, nisi officia cumque perspiciatis, possimus rem ducimus repellat quod quibusdam dolore pariatur delectus tenetur perferendis accusamus adipisci, necessitatibus laborum
+                  deserunt repudiandae eveniet illum. Nobis dolorum accusantium eligendi, a repellat possimus cum quam quas culpa maiores laboriosam odio quidem nulla dicta similique voluptatibus odit, eos nemo perferendis! Voluptatum
+                  aspernatur architecto nulla. Quam eos odit eum architecto consectetur perferendis repellat quidem similique exercitationem debitis a laboriosam possimus minus at saepe ad dolores nobis cupiditate, incidunt accusamus br
+                  necessitatibus maxime ducimus esse numquam! Laborum delectus nam aspernatur quas vero, iusto natus aperiam accusamus, minus architecto repudiandae, rem possimus non cum ducimus cumque ad! Repellat maxime eveniet earum ex
+                  rerum quis corrupti nihil aliquid tempora deserunt tempore fuga odit quibusdam nulla, iure architecto tenetur excepturi dignissimos sapiente dolorum? Quod autem fuga illum cupiditate qui deserunt, officia provident, a in
+                  voluptatibus doloribus itaque quisquam consequuntur perspiciatis! Unde soluta consectetur error vitae hic harum quis quas sequi ullam enim! Repudiandae consectetur sequi ex debitis accusamus quasi recusandae aspernatur
+                  quisquam alias doloribus adipisci qui quod exercitationem, reiciendis possimus cupiditate amet perspiciatis.
+                </Text>
+              </Box>
             </Center>
           </Stack>
-          <Carousel />
+          <Carousel>
+            {[...new Array(CARDS)].map((_, i) => (
+              <Card key={i} images={images[i]} />
+            ))}
+          </Carousel>
           <SocialMedia />
         </Box>
       </Center>
     );
   };
 
-  const Carousel = () => {
-    const [index, setIndex] = useState(0);
-    const timeoutRef = useRef(null);
+  const images = ["/organization/BEM/Bem2.png", "/organization/BEM/Bem1.png", "/organization/BEM/Bem3.png"];
+  const CARDS = images.length;
+  const MAX_VISIBILITY = 2;
 
-    const images = ["/organization/BEM/Bem1.png", "/organization/BEM/Bem2.png", "/organization/BEM/Bem3.png"];
-    const delay = 3000;
+  const Card = ({ images }: any) => (
+    <Center>
+      <Box w={"100%"} h={"100%"} padding={"2rem"} borderRadius={"1rem"} color={"grey"} textAlign={"justify"} transition={"all 0.3 ease-out"}>
+        <Img src={images} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} borderRadius={"2xl"} />
+      </Box>
+    </Center>
+  );
 
-    function resetTimeout() {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    }
+  const Carousel = ({ children }: any) => {
+    const [active, setActive] = useState(1);
+    const count = React.Children.count(children);
 
     useEffect(() => {
-      resetTimeout();
-      timeoutRef.current = setTimeout(() => setIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1)), delay);
+      const interval = setInterval(() => {
+        setActive((active + 1) % count);
+      }, 4000);
+      return () => clearInterval(interval);
+    }, [active, count]);
 
-      return () => {
-        resetTimeout();
-      };
-    }, [index]);
     return (
-      <Box mt={"6em"}>
+      <Box mt={"5em"}>
         <Center>
-          <Text fontSize={"xl"} color={"#062D5F"} fontWeight={"extrabold"}>
+          <Text fontSize={"2xl"} color={"#062D5F"} fontWeight={"extrabold"}>
             Galeri Kami
           </Text>
         </Center>
-        <Flex mt={"2.5em"} mb={"1em"}>
-          <Center
-            display={["none", "flex"]}
-            cursor={"pointer"}
-            onClick={() => {
-              setIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex - 1));
-            }}
-          >
-            <Img src={"/organization/expand_left.svg"} />
+        <Flex justifyContent={"center"} alignItems={"center"} overflow={"hidden"}>
+          <Center flex={1}>
+            {active > 0 && (
+              <Button variant={"none"} onClick={() => setActive((i) => i - 1)} zIndex={"1"}>
+                <Img src={"/organization/expand_left.svg"} display={["none", "block"]} w={["40px", "40px", "35px", "40px", "56px"]} />
+              </Button>
+            )}
           </Center>
-          <Box flex={1}>
-            <Box m={0} w={"full"} overflow={"hidden"}>
-              <Box whiteSpace={"nowrap"} transition={"ease 1s"} style={{ transform: `translate3d(${-index * 100}%, 0, 0)` }}>
-                {images.map((image: any, index: any) => (
-                  <Box display={"inline-block"} w={"full"} h={"17.5em"} borderRadius={"2xl"} key={index} bgImage={image} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} />
-                ))}
-              </Box>
+          <Center mx={["7em", "7em", "2em", "5em", "7em"]}>
+            <Box position={"relative"} w={["18rem", "30rem", "22rem", "30rem", "35rem"]} h={["11em", "22em", "14em", "19em", "22em"]} style={{ perspective: "500px", transformStyle: "preserve-3d" }} flex={1}>
+              {React.Children.map(children, (child, i) => (
+                <Box
+                  className={"carousel"}
+                  cursor={active === i ? "zoom-in" : "default"}
+                  style={{
+                    "--active": i === active ? 1 : 0,
+                    "--offset": (active - i) / 3,
+                    "--direction": Math.sign(active - i),
+                    "--abs-offset": Math.abs(active - i) / 3,
+                    "pointer-events": active === i ? "auto" : "none",
+                    opacity: Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1",
+                    display: Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block",
+                  }}
+                  transition={"all 0.3s ease-out"}
+                >
+                  {child}
+                </Box>
+              ))}
             </Box>
-          </Box>
-          <Center
-            display={["none", "flex"]}
-            cursor={"pointer"}
-            onClick={() => {
-              setIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-            }}
-          >
-            <Img src={"/organization/expand_right.svg"} />
+          </Center>
+          <Center flex={1}>
+            {active < count - 1 && (
+              <Button variant={"none"} onClick={() => setActive((i) => i + 1)} zIndex={"1"}>
+                <Img src={"/organization/expand_right.svg"} display={["none", "none", "block", "block", "block"]} w={["40px", "40px", "35px", "40px", "56px"]} />
+              </Button>
+            )}
           </Center>
         </Flex>
-        <Box textAlign={"center"} mt={"1em"}>
-          {images.map((slider: any, key: any) => (
+        <Box textAlign={"center"} mt={"0em"}>
+          {[...new Array(CARDS)].map((_, i) => (
             <Box
-              key={key}
+              key={i}
               display={"inline-block"}
               w={"1em"}
               h={"1em"}
               borderRadius={"50%"}
               cursor={"pointer"}
               margin={"15px 7px 0px"}
-              bgColor={index === key ? "#F7B70C" : "#D9D9D9"}
+              bgColor={active === i ? "#F7B70C" : "#D9D9D9"}
               onClick={() => {
-                setIndex(key);
+                setActive(i);
               }}
             ></Box>
           ))}
@@ -250,7 +269,7 @@ const OrganizationDesc: NextPage = () => {
     return (
       <Box mt={"6em"}>
         <Center mb={"2em"}>
-          <Text fontSize={"xl"} color={"#062D5F"} fontWeight={"extrabold"}>
+          <Text fontSize={"2xl"} color={"#062D5F"} fontWeight={"extrabold"}>
             Temukan Kami di
           </Text>
         </Center>
