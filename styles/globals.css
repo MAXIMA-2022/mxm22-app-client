@@ -16,6 +16,25 @@ a {
   font-family: nunito;
 }
 
+*::-webkit-scrollbar {
+  width: 0.8em;
+  height: 0.8em;
+  background-color: #f5f5f5;
+}
+
+*::-webkit-scrollbar-track-button {
+  display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #1b4173;
+  border-radius: 1em;
+}
+
+*::-webkit-scrollbar-corner {
+  display: none;
+}
+
 .carousel {
   position: absolute;
   width: 100%;
@@ -54,5 +73,24 @@ a {
     transform: scaleY(calc(1 + var(--abs-offset) * 0)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -5rem));
     filter: brightness(calc(1 - var(--abs-offset) * 1.5));
     transition: all 0.3s ease-out;
+  }
+
+  *::-webkit-scrollbar {
+    width: 0.4em;
+    height: 0.4em;
+    background-color: #ffffff;
+  }
+
+  *::-webkit-scrollbar-track-button {
+    display: none;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #1b4173;
+    border-radius: 1em;
+  }
+
+  *::-webkit-scrollbar-corner {
+    display: none;
   }
 }
