@@ -12,6 +12,7 @@ import MaximaIconP2 from "../../../../../../public/maximaIconP2.svg";
 
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from "@chakra-ui/react";
+import { loadComponents } from "next/dist/server/load-components";
 
 const OrganizationDesc: NextPage = () => {
   const router = useRouter();
@@ -24,9 +25,9 @@ const OrganizationDesc: NextPage = () => {
   const Header = () => {
     return (
       <>
-        <Center position={"absolute"} mt={["6rem", "6rem", "14rem", "14rem", "14rem"]} top={0} bottom={0} left={0} right={0}>
-          <Box transform={["scale(0.6)", "scale(1.2)", "scale(1.2)", "scale(1.2)", "scale(1.5)"]} zIndex={"1"}>
-            <Img src={`/organization/${organizationID}.png`} />
+        <Center position={"absolute"} mt={["6rem", "10rem", "9rem", "14rem", "14rem"]} top={0} bottom={0} left={0} right={0}>
+          <Box transform={["scale(0.35)", "scale(0.5)", "scale(0.8)", "scale(1.2)", "scale(1.5)"]} borderRadius={"xl"} zIndex={"1"}>
+            <Img src={`/organization/${organizationID}.png`} borderRadius={"3em"} />
           </Box>
         </Center>
       </>
@@ -94,8 +95,8 @@ const OrganizationDesc: NextPage = () => {
       },
     ];
     return (
-      <Center mt={["90vh", "185vh"]} mb={"15vh"} zIndex={"4"}>
-        <Box w={["20em", "60em"]}>
+      <Center mt={["60vh", "85vh", "100vw", "185vh", "185vh"]} mb={"15vh"} zIndex={"4"}>
+        <Box w={["20em", "30em", "60em", "60em", "60em"]}>
           <Stack my={"3em"} direction={"column"} spacing={"3em"}>
             <Center>
               <Text textAlign={"center"} display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
@@ -107,7 +108,7 @@ const OrganizationDesc: NextPage = () => {
             </Center>
 
             <Center>
-              <Box w={["17em", "40em"]}>
+              <Box w={["17em", "25em", "40em", "40em", "40em"]}>
                 <Center w={"full"} h={["10em", "20em"]} mb={"4em"} bgColor={"#D9D9D9"} outline={"5px solid #FF6835"} borderRadius={"2xl"}>
                   <Center w={["4em", "5em"]} h={["4em", "5em"]} borderRadius={"full"} bgColor={"white"}></Center>
                 </Center>
@@ -148,7 +149,7 @@ const OrganizationDesc: NextPage = () => {
   const Card = ({ images }: any) => (
     <Center>
       <Box w={"100%"} h={"100%"} padding={"2rem"} borderRadius={"1rem"} color={"grey"} textAlign={"justify"} transition={"all 0.3 ease-out"}>
-        <Img src={images} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} borderRadius={["2xl", "2.5em"]} />
+        <Img src={images} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} borderRadius={["2xl", "xl", "xl", "xl", "xl"]} />
       </Box>
     </Center>
   );
@@ -181,7 +182,7 @@ const OrganizationDesc: NextPage = () => {
             )}
           </Center>
           <Center mx={["7em", "7em", "2em", "5em", "7em"]}>
-            <Box position={"relative"} w={["18rem", "30rem", "22rem", "30rem", "35rem"]} h={["11em", "22em", "14em", "19em", "22em"]} style={{ perspective: "500px", transformStyle: "preserve-3d" }} flex={1}>
+            <Box position={"relative"} w={["18rem", "18rem", "22rem", "30rem", "35rem"]} h={["11em", "11em", "14em", "19em", "22em"]} style={{ perspective: "500px", transformStyle: "preserve-3d" }} flex={1}>
               {React.Children.map(children, (child, i) => (
                 <Box
                   className={"carousel"}
@@ -199,6 +200,14 @@ const OrganizationDesc: NextPage = () => {
                   onClick={() => {
                     if (active === i) {
                       onOpen();
+                    }
+                  }}
+                  onTouchMove={(e) => {
+                    var touch = e.touches[0];
+                    if (touch.pageX < window.innerWidth / 2) {
+                      setActive((i) => i - 1);
+                    } else {
+                      setActive((i) => i + 1);
                     }
                   }}
                 >
@@ -337,9 +346,12 @@ const OrganizationDesc: NextPage = () => {
     <Layout>
       <Navbar />
       <Flex
-        position={["relative", "relative"]}
-        mt={["0vh", "-55vh"]}
-        h={["100vh", "220vh"]}
+        w={"100%"}
+        position={["absolute", "relative"]}
+        // mt={["0vh", "-55vh"]}
+        // h={["100vh", "220vh"]}
+        mt={["0vh", "-15vh", "-15vh", "-55vh", "-55vh"]}
+        h={["70vh", "100vh", "110vw", "220vh", "220vh"]}
         bgImage={["/organization/organizationDescLs.png", "/organization/organizationDescLs.png"]}
         bgPosition={"center"}
         bgSize={"cover"}
