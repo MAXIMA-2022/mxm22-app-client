@@ -19,20 +19,20 @@ const Welcoming: NextPage = () => {
             <Image src={MaximaIconP} alt={"MaximaLogo"} />
           </Center>
           <Box>
-            <Text color={"white"} align={"center"} fontSize={"30px"} fontWeight={"bold"} textShadow={["0px 0px 8px  rgb(212,224,173)"]}>
+            <Text color={"white"} align={"center"} fontSize={"30px"} fontWeight={"bold"} textShadow={["0px 2px 3.5px rgb(0,0,0,0.7)"]}>
               SELAMAT DATANG
             </Text>
-            <Text color={"white"} align={"center"} fontSize={"44px"} fontWeight={"bold"} textShadow={["0px 0px 8px  rgb(212,224,173)"]}>
+            <Text color={"white"} align={"center"} fontSize={"44px"} fontWeight={"bold"} textShadow={["0px 2px 3.5px rgb(0,0,0,0.7)"]}>
               MAXIMERS!
             </Text>
           </Box>
         </Box>
         <Box display={["none", "block"]}>
           <Box>
-            <Text color={"white"} align={"center"} fontSize={["6xl", "5xl", "6xl", "6xl", "7xl"]} fontWeight={"bold"} textShadow={["0px 0px 8px  rgb(212,224,173)"]}>
+            <Text color={"white"} align={"center"} fontSize={["6xl", "5xl", "6xl", "6xl", "7xl"]} fontWeight={"bold"} textShadow={["0px 2px 3.5px rgb(0,0,0,0.7)"]}>
               SELAMAT DATANG,
             </Text>
-            <Text mt={"-0.5em"} color={"white"} align={"center"} fontSize={"50px"} fontWeight={"bold"} textShadow={["0px 0px 8px  rgb(212,224,173)"]}>
+            <Text mt={"-0.5em"} color={"white"} align={"center"} fontSize={"50px"} fontWeight={"bold"} textShadow={["0px 2px 3.5px rgb(0,0,0,0.7)"]}>
               MAXIMERS!
             </Text>
           </Box>
@@ -100,7 +100,7 @@ const Welcoming: NextPage = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["/HoMEWelcomingP.png", "/HoMEWelcomingLs.png", "/HoMEWelcomingLs.png", "/HoMEWelcomingLs.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgImage={["/Welcoming/HoMEWelcomingP.png", "/Welcoming/HoMEWelcomingLs.png", "/Welcoming/HoMEWelcomingLs.png", "/Welcoming/HoMEWelcomingLs.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           <Header />
           <FixedButton />

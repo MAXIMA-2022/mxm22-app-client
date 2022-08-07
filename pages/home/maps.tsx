@@ -23,81 +23,81 @@ const Maps = () => {
     {
       name: "Cattleya",
       href: "maps/cattleya",
-      img: "/tent1.png",
-      img2: "/tent1v2.png",
+      img: "/Maps/tent1.png",
+      img2: "/Maps/tent1v2.png",
       msg: "Kalau kamu tertarik dengan APA YA. Cattleya Camp cocok menjadi tempat singgah kamu.",
     },
     {
       name: "Magnolia",
       href: "maps/magnolia",
-      img: "/tent2.png",
-      img2: "/tent2v2.png",
+      img: "/Maps/tent2.png",
+      img2: "/Maps/tent2v2.png",
     },
     {
       name: "Thyme",
       href: "maps/thyme",
-      img: "/tent3.png",
-      img2: "/tent3v2.png",
+      img: "/Maps/tent3.png",
+      img2: "/Maps/tent3v2.png",
     },
     {
       name: "Bear's Breeches",
       href: "maps/bearsbreeches",
-      img: "/tent4.png",
-      img2: "/tent4v2.png",
+      img: "/Maps/tent4.png",
+      img2: "/Maps/tent4v2.png",
     },
     {
       name: "Chrysanthemum",
       href: "maps/chrysanthemum",
-      img: "/tent5.png",
-      img2: "/tent5v2.png",
+      img: "/Maps/tent5.png",
+      img2: "/Maps/tent5v2.png",
     },
     {
       name: "Gardenia",
       href: "maps/gardenia",
-      img: "/tent6.png",
-      img2: "/tent6v2.png",
+      img: "/Maps/tent6.png",
+      img2: "/Maps/tent6v2.png",
     },
     {
       name: "Xochitl",
       href: "maps/xochitl",
-      img: "/tent7.png",
-      img2: "/tent7v2.png",
+      img: "/Maps/tent7.png",
+      img2: "/Maps/tent7v2.png",
     },
     {
       name: "Amaryllis",
       href: "maps/amaryllis",
-      img: "/tent8.png",
-      img2: "/tent8v2.png",
+      img: "/Maps/tent8.png",
+      img2: "/Maps/tent8v2.png",
     },
     {
       name: "Protea",
       href: "maps/protea",
-      img: "/tent9.png",
-      img2: "/tent9v2.png",
+      img: "/Maps/tent9.png",
+      img2: "/Maps/tent9v2.png",
     },
     {
       name: "Orchid",
       href: "maps/orchid",
-      img: "/tent10.png",
-      img2: "/tent10v2.png",
+      img: "/Maps/tent10.png",
+      img2: "/Maps/tent10v2.png",
     },
     {
       name: "Marigold",
       href: "maps/marigold",
-      img: "/tent11.png",
-      img2: "/tent11v2.png",
+      img: "/Maps/tent11.png",
+      img2: "/Maps/tent11v2.png",
     },
     {
       name: "Azalea",
       href: "maps/azalea",
-      img: "/tent12.png",
-      img2: "/tent12v2.png",
+      img: "/Maps/tent12.png",
+      img2: "/Maps/tent12v2.png",
     },
     {
       name: "Iris",
       href: "maps/iris",
-      img: "/tent13.png",
-      img2: "/tent13v2.png",
+      img: "/Maps/tent13.png",
+      img2: "/Maps/tent13v2.png",
     },
   ];
 
@@ -145,7 +145,7 @@ const Maps = () => {
       <Flex
         width={["1920px", "1920px", "1920px", "1920px", "1920px"]}
         height={["5429px", "5429px", "2885px", "2267px", "2267px"]}
-        bgImage={["../mhr3.jpg", "../mhr3.jpg", "../maps2.png", "../maps2.png", "../maps2.png"]}
+        bgImage={["../Maps/mhr3.jpg", "../Maps/mhr3.jpg", "../Maps/maps2.png", "../Maps/maps2.png", "../Maps/maps2.png"]}
         bgSize={"cover"}
         bgRepeat={"no-repeat"}
       >

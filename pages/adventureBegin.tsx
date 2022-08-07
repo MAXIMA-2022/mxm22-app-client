@@ -12,7 +12,13 @@ import { Box, Flex, Center, Heading, Text, Button } from "@chakra-ui/react";
 const AdventureBegin: NextPage = () => {
   return (
     <Layout>
-      <Flex minH={"100vh"} bgImage={["/AdventureBeginLs.png", "/AdventureBeginLs.png", "/AdventureBeginLs.png", "/AdventureBeginLs.png"]} bgPosition={["center", "bottom", "bottom", "bottom"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex
+        minH={"100vh"}
+        bgImage={["/HoME/AdventureBeginLs.png", "/HoME/AdventureBeginLs.png", "/HoME/AdventureBeginLs.png", "/HoME/AdventureBeginLs.png"]}
+        bgPosition={["center", "bottom", "bottom", "bottom"]}
+        bgSize={"cover"}
+        bgRepeat={"no-repeat"}
+      >
         <Box w={"full"} mt={"20vh"}>
           <Box position={"absolute"} bottom={0} right={0} me={"5vh"} mb={"7vh"}>
             <Center>

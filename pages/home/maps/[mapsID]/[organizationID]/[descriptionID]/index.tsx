@@ -11,7 +11,7 @@ import MaximaIconP from "../../../../../../public/maximaIconP.svg";
 import MaximaIconP2 from "../../../../../../public/maximaIconP2.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem } from "@chakra-ui/react";
+import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from "@chakra-ui/react";
 
 const OrganizationDesc: NextPage = () => {
   const router = useRouter();
@@ -148,7 +148,7 @@ const OrganizationDesc: NextPage = () => {
   const Card = ({ images }: any) => (
     <Center>
       <Box w={"100%"} h={"100%"} padding={"2rem"} borderRadius={"1rem"} color={"grey"} textAlign={"justify"} transition={"all 0.3 ease-out"}>
-        <Img src={images} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} borderRadius={"2xl"} />
+        <Img src={images} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} borderRadius={["2xl", "2.5em"]} />
       </Box>
     </Center>
   );
@@ -156,6 +156,7 @@ const OrganizationDesc: NextPage = () => {
   const Carousel = ({ children }: any) => {
     const [active, setActive] = useState(1);
     const count = React.Children.count(children);
+    const { isOpen, onOpen, onClose } = useDisclosure();
 
     useEffect(() => {
       const interval = setInterval(() => {
@@ -195,8 +196,19 @@ const OrganizationDesc: NextPage = () => {
                     display: Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block",
                   }}
                   transition={"all 0.3s ease-out"}
+                  onClick={() => {
+                    if (active === i) {
+                      onOpen();
+                    }
+                  }}
                 >
                   {child}
+                  <Modal size={["xs", "3xl"]} onClose={onClose} isOpen={isOpen} isCentered>
+                    <ModalOverlay />
+                    <ModalContent borderRadius={"2.5em"}>
+                      <Img src={images[active]} />
+                    </ModalContent>
+                  </Modal>
                 </Box>
               ))}
             </Box>

@@ -50,7 +50,7 @@ const Organization: NextPage = () => {
             <Img src={`/MapsTents/${mapsID}_pc.png`} />
           </Box> */}
           <Box mt={["25vh", "25vh", "23.5rem", "0rem", "8rem"]} position={"absolute"} transform={["scale(0.5)", "scale(0.5)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"2"}>
-            <Img src={"/organization/table.png"} />
+            <Img src={`/organization/Computers/${mapsID}.png`} />
           </Box>
           <Box mt={["35vh", "35vh", "35rem", "15rem", "25rem"]} position={"absolute"} transform={["scale(0.25)", "scale(0.25)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"3"}>
             <Img src={"/organization/chair.png"} />

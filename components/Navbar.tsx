@@ -160,23 +160,43 @@ const NavbarButton = () => {
   );
 };
 
+const HalfBorder = () => {
+  return (
+    <Flex
+      display={["none", "block"]}
+      w={["0em", "29.5em", "42em", "50em", "57em"]}
+      position={"fixed"}
+      mx={"-5em"}
+      p={["1.8em", "1.8em", "2em", "2em", "2.2em"]}
+      bgColor={"#1B4173"}
+      border={"2px solid white"}
+      borderRadius={"0em 5em 5em 0em"}
+      shadow={"0 4px 4px rgb(0,0,0,0.25)"}
+      opacity={"30%"}
+    />
+  );
+};
+
+const FullBorder = () => {
+  return <Flex display={["block"]} w={"150%"} position={"fixed"} mx={"-5em"} p={["3.3em"]} bgColor={"#1B4173"} border={"2px solid white"} shadow={"0 4px 4px rgb(0,0,0,0.25)"} opacity={"30%"} />;
+};
+
+{
+  /* <Flex as="nav" justifyContent="space-between" alignItems="center" p={["2em 1em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2.3em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}></Flex> */
+}
+
+{
+  /* <Flex justifyContent={["center", "start", "start", "start"]} flex={{ base: 0, sm: 1 }}>
+<NavbarLinks />
+</Flex> */
+}
+
 const Navbar = () => {
   return (
-    <Flex as="nav" justifyContent="space-between" alignItems="center" p={["2em 1em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2.3em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}>
-      <Flex
-        display={["none", "block"]}
-        w={["0em", "29.5em", "42em", "50em", "57em"]}
-        position={"fixed"}
-        mx={"-5em"}
-        p={["1.8em", "1.8em", "2em", "2em", "2.2em"]}
-        bgColor={"#1B4173"}
-        border={"2px solid white"}
-        borderRadius={"0em 5em 5em 0em"}
-        shadow={"0 4px 4px rgb(0,0,0,0.25)"}
-        opacity={"30%"}
-      />
+    <Flex as="nav" justifyContent="space-between" alignItems="center" p={["2em 1em", "1em 0.5em", "1em 1.5em", "1em 1.5em", "1em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}>
+      <FullBorder />
       <NavbarIcon />
-      <Flex justifyContent={["center", "start", "start", "start"]} flex={{ base: 0, sm: 1 }}>
+      <Flex justifyContent={["center", "center", "center", "start", "start"]} flex={{ base: 0, sm: 1 }}>
         <NavbarLinks />
       </Flex>
       {/* <NavbarIconP /> */}
