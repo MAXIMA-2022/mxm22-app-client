@@ -11,33 +11,70 @@ import MaximaIconP from "../../../public/maximaIconP.svg";
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack } from "@chakra-ui/react";
 
-// export const getStaticPaths = async () => {
-//   const res = await fetch("https://jsonplaceholder.typicode.com/users");
-//   const data = await res.json();
+export const getStaticPaths = async () => {
+  const data = [
+    {
+      name: "cattleya",
+    },
+    {
+      name: "magnolia",
+    },
+    {
+      name: "thyme",
+    },
+    {
+      name: "bearsbreeches",
+    },
+    {
+      name: "chrysanthemum",
+    },
+    {
+      name: "gardenia",
+    },
+    {
+      name: "xochitl",
+    },
+    {
+      name: "amaryllis",
+    },
+    {
+      name: "protea",
+    },
+    {
+      name: "orchid",
+    },
+    {
+      name: "marigold",
+    },
+    {
+      name: "azalea",
+    },
+    {
+      name: "iris",
+    },
+  ];
 
-//   const paths = data.map((mapsID: any) => {
-//     return {
-//       params: {
-//         mapsID: mapsID.name.toString(),
-//       },
-//     };
-//   });
+  const paths = data.map((mapsID: any) => {
+    return {
+      params: {
+        mapsID: mapsID.name.toString(),
+      },
+    };
+  });
 
-//   return {
-//     paths,
-//     fallback: false,
-//   };
-// };
+  return {
+    paths,
+    fallback: false,
+  };
+};
 
-// export const getStaticProps = async ({ params }: any) => {
-//   const res = await fetch(`https://jsonplaceholder.typicode.com/users?name=${params.mapsID}`);
-//   const data = await res.json();
-//   return {
-//     props: {
-//       dataMAPS: data,
-//     },
-//   };
-// };
+export const getStaticProps = async () => {
+  return {
+    props: {
+      dataMAPS: "",
+    },
+  };
+};
 
 const MapsItems: NextPage = ({ dataMAPS }: any) => {
   const router = useRouter();
