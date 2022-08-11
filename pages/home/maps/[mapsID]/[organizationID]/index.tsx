@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 //importing local components
 import Layout from "../../../../../components/Layout";
@@ -11,6 +12,12 @@ import MaximaIconP2 from "../../../../../public/maximaIconP2.svg";
 
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem } from "@chakra-ui/react";
+import axios from "axios";
+
+interface ListOrganization {
+  id: number;
+  name: string;
+}
 
 const Organization: NextPage = () => {
   const router = useRouter();
@@ -19,6 +26,23 @@ const Organization: NextPage = () => {
   const capitalize = (s: any) => {
     return s.charAt(0).toUpperCase() + s.slice(1);
   };
+
+  const [organizationData, setOrganizationData] = useState<ListOrganization[]>([]);
+  const [error, setError] = useState(undefined);
+  const headers = {};
+
+  useEffect(() => {
+    try {
+      const fetchHoME = async () => {
+        const response = await axios.get(`${process.env.API_URL}/api/state_activities`);
+        setOrganizationData(response.data);
+        console.log(response.data);
+      };
+      fetchHoME();
+    } catch (err: any) {
+      console.log(err);
+    }
+  }, []);
 
   const Header = () => {
     return (
@@ -64,79 +88,80 @@ const Organization: NextPage = () => {
   };
 
   const Body = () => {
-    const organizationData = [
-      {
-        img: "/organization/umnDocumentation.png",
-        title: "UMN Documentation",
-        href: `/home/maps/${mapsID}/organization/umndocumentation`,
-      },
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
-      {
-        img: "/organization/umnDocumentation.png",
-        title: "UMN Documentation",
-        href: `/home/maps/${mapsID}/organization/umndocumentation`,
-      },
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
-      {
-        img: "/organization/umnDocumentation.png",
-        title: "UMN Documentation",
-        href: `/home/maps/${mapsID}/organization/umndocumentation`,
-      },
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
-      {
-        img: "/organization/umnDocumentation.png",
-        title: "UMN Documentation",
-        href: `/home/maps/${mapsID}/organization/umndocumentation`,
-      },
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
+    // const organizationData = [
+    //   {
+    //     img: "/organization/umnDocumentation.png",
+    //     title: "UMN Documentation",
+    //     href: `/home/maps/${mapsID}/organization/umndocumentation`,
+    //   },
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
+    //   {
+    //     img: "/organization/umnDocumentation.png",
+    //     title: "UMN Documentation",
+    //     href: `/home/maps/${mapsID}/organization/umndocumentation`,
+    //   },
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
+    //   {
+    //     img: "/organization/umnDocumentation.png",
+    //     title: "UMN Documentation",
+    //     href: `/home/maps/${mapsID}/organization/umndocumentation`,
+    //   },
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
+    //   {
+    //     img: "/organization/umnDocumentation.png",
+    //     title: "UMN Documentation",
+    //     href: `/home/maps/${mapsID}/organization/umndocumentation`,
+    //   },
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
 
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
-      {
-        img: "/organization/campusVisit.png",
-        title: "Campus Visit",
-        href: `/home/maps/${mapsID}/organization/campusvisit`,
-      },
-    ];
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
+    //   {
+    //     img: "/organization/campusVisit.png",
+    //     title: "Campus Visit",
+    //     href: `/home/maps/${mapsID}/organization/campusvisit`,
+    //   },
+    // ];
+
     return (
       <Center mt={["10vh", "25vh"]} mb={"15vh"} zIndex={"4"}>
         <Box w={["30em", "40em"]}>
@@ -149,9 +174,9 @@ const Organization: NextPage = () => {
             </Text>
           </Center>
           <Wrap spacing={"2em"} justify="center" py={"0.5em"}>
-            {organizationData.map((item: any, index: number) => {
+            {organizationData.map((item: any) => {
               return (
-                <Link href={item.href} key={index}>
+                <Link href={`/home/maps/${mapsID}/organization/${item.name.replace(/\s/g, "").toLowerCase()}`} key={item.id}>
                   <WrapItem
                     p={["auto", "0.8em"]}
                     bgColor={"white"}
@@ -172,7 +197,7 @@ const Organization: NextPage = () => {
                         </Center>
                         <Center w={"10em"} my={["0.5em", "1em"]}>
                           <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                            {item.title}
+                            {item.name}
                           </Text>
                         </Center>
                       </Box>

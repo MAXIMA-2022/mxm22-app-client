@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 
 //importing local components
 import Layout from "../../../../../../components/Layout";
@@ -13,10 +14,61 @@ import MaximaIconP2 from "../../../../../../public/maximaIconP2.svg";
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure } from "@chakra-ui/react";
 import { loadComponents } from "next/dist/server/load-components";
+import Home from "../../../../../home";
+
+// export const getStaticPaths = async () => {
+//   const res = await axios.get(`${process.env.API_URL}/api/state_activities`);
+//   const data = await res.data;
+
+//   const paths = data.map((organization: any) => {
+//     return {
+//       params: {
+//         organizationID: organization.name.toString().replace(/\s/g, "").toLowerCase(),
+//       },
+//     };
+//   });
+
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
+
+interface HoMEDescription {
+  chapter: string;
+  chapterName: string;
+  homeID: number;
+  instagram: string;
+  lineID: string;
+  linkLogo: string;
+  linkYoutube: string;
+  shortDesc: string;
+  longDesc: string;
+  media: any;
+  name: string;
+  search_key: string;
+}
 
 const OrganizationDesc: NextPage = () => {
   const router = useRouter();
   const organizationID = router.query.descriptionID;
+
+  const [HoMEInfo, setHoMEInfo] = useState<HoMEDescription[]>([]);
+  const [error, setError] = useState(undefined);
+  const headers = {};
+
+  useEffect(() => {
+    try {
+      const fetchHoME = async () => {
+        const response = await axios.get(`${process.env.API_URL}/api/homeInfo`);
+        setHoMEInfo(response.data);
+        console.log(response.data);
+      };
+      fetchHoME();
+    } catch (err: any) {
+      console.log(err);
+    }
+  }, []);
 
   const capitalize = (s: any) => {
     return s.charAt(0).toUpperCase() + s.slice(1);
@@ -27,7 +79,9 @@ const OrganizationDesc: NextPage = () => {
       <>
         <Center position={"absolute"} mt={["6rem", "10rem", "9rem", "14rem", "14rem"]} top={0} bottom={0} left={0} right={0}>
           <Box transform={["scale(0.35)", "scale(0.5)", "scale(0.8)", "scale(1.2)", "scale(1.5)"]} borderRadius={"xl"} zIndex={"1"}>
-            <Img src={`/organization/${organizationID}.png`} borderRadius={"3em"} />
+            {/* {HoMEInfo.map((item: any) => {
+              return <Img key={item.homeID} src={item.linkLogo} borderRadius={"3em"} />;
+            })} */}
           </Box>
         </Center>
       </>
@@ -95,50 +149,59 @@ const OrganizationDesc: NextPage = () => {
       },
     ];
     return (
-      <Center mt={["60vh", "85vh", "100vw", "185vh", "185vh"]} mb={"15vh"} zIndex={"4"}>
-        <Box w={["20em", "30em", "60em", "60em", "60em"]}>
-          <Stack my={"3em"} direction={"column"} spacing={"3em"}>
-            <Center>
-              <Text textAlign={"center"} display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
-                UMN Documentation
-              </Text>
-              <Text textAlign={"center"} display={["block", "none"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
-                UMN Documentation
-              </Text>
-            </Center>
+      <>
+        {HoMEInfo.map((item: any) => {
+          return (
+            <>
+              <Center mt={["60vh", "85vh", "100vw", "185vh", "185vh"]} mb={"15vh"} zIndex={"4"}>
+                <Box w={["20em", "30em", "60em", "60em", "60em"]}>
+                  <Stack my={"3em"} direction={"column"} spacing={"3em"}>
+                    <Center>
+                      <Text textAlign={"center"} display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
+                        {item.name}
+                      </Text>
+                      <Text textAlign={"center"} display={["block", "none"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
+                        {item.name}
+                      </Text>
+                    </Center>
 
-            <Center>
-              <Box w={["17em", "25em", "40em", "40em", "40em"]}>
-                <Center w={"full"} h={["10em", "20em"]} mb={"4em"} bgColor={"#D9D9D9"} outline={"5px solid #FF6835"} borderRadius={"2xl"}>
-                  <Center w={["4em", "5em"]} h={["4em", "5em"]} borderRadius={"full"} bgColor={"white"}></Center>
-                </Center>
-                <Text textAlign={"justify"}>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium voluptatum ipsum expedita sunt beatae quo, atque molestiae, esse rem sapiente mollitia ab iste quisquam facere perferendis laborum nobis libero dicta
-                  tenetur eum. Numquam eaque laudantium reprehenderit tenetur cupiditate hic ex omnis iure quam, natus error nulla minima? Nam nisi unde asperiores fugiat. Nesciunt quam laboriosam voluptatum iure doloribus architecto dicta
-                  explicabo alias et, sint quo neque rerum? Quasi sed impedit, omnis cumque asperiores, quod aliquid assumenda hic fugit facilis earum maiores ab molestiae? Officia autem odio cum doloremque earum ullam accusantium
-                  repellendus aliquam praesentium placeat cupiditate facilis dolorem pariatur veritatis, ad quo cumque minima voluptatem, quas et? Dolorem repellat quasi sint, accusamus officiis explicabo natus reprehenderit voluptas amet,
-                  eos rerum id.
-                  <br />
-                  <br />
-                  Error expedita quos laudantium veritatis corrupti, nisi officia cumque perspiciatis, possimus rem ducimus repellat quod quibusdam dolore pariatur delectus tenetur perferendis accusamus adipisci, necessitatibus laborum
-                  deserunt repudiandae eveniet illum. Nobis dolorum accusantium eligendi, a repellat possimus cum quam quas culpa maiores laboriosam odio quidem nulla dicta similique voluptatibus odit, eos nemo perferendis! Voluptatum
-                  aspernatur architecto nulla. Quam eos odit eum architecto consectetur perferendis repellat quidem similique exercitationem debitis a laboriosam possimus minus at saepe ad dolores nobis cupiditate, incidunt accusamus br
-                  necessitatibus maxime ducimus esse numquam! Laborum delectus nam aspernatur quas vero, iusto natus aperiam accusamus, minus architecto repudiandae, rem possimus non cum ducimus cumque ad! Repellat maxime eveniet earum ex
-                  rerum quis corrupti nihil aliquid tempora deserunt tempore fuga odit quibusdam nulla, iure architecto tenetur excepturi dignissimos sapiente dolorum? Quod autem fuga illum cupiditate qui deserunt, officia provident, a in
-                  voluptatibus doloribus itaque quisquam consequuntur perspiciatis! Unde soluta consectetur error vitae hic harum quis quas sequi ullam enim! Repudiandae consectetur sequi ex debitis accusamus quasi recusandae aspernatur
-                  quisquam alias doloribus adipisci qui quod exercitationem, reiciendis possimus cupiditate amet perspiciatis.
-                </Text>
-              </Box>
-            </Center>
-          </Stack>
-          <Carousel>
-            {[...new Array(CARDS)].map((_, i) => (
-              <Card key={i} images={images[i]} />
-            ))}
-          </Carousel>
-          <SocialMedia />
-        </Box>
-      </Center>
+                    <Center>
+                      <Box w={["17em", "25em", "40em", "40em", "40em"]}>
+                        <Center w={"full"} h={["10em", "20em"]} mb={"4em"} bgColor={"#D9D9D9"} outline={"5px solid #FF6835"} borderRadius={"2xl"}>
+                          <Center w={["4em", "5em"]} h={["4em", "5em"]} borderRadius={"full"} bgColor={"white"}></Center>
+                        </Center>
+                        <Text textAlign={"justify"}>
+                          {/* Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium voluptatum ipsum expedita sunt beatae quo, atque molestiae, esse rem sapiente mollitia ab iste quisquam facere perferendis laborum nobis libero
+                          dicta tenetur eum. Numquam eaque laudantium reprehenderit tenetur cupiditate hic ex omnis iure quam, natus error nulla minima? Nam nisi unde asperiores fugiat. Nesciunt quam laboriosam voluptatum iure doloribus
+                          architecto dicta explicabo alias et, sint quo neque rerum? Quasi sed impedit, omnis cumque asperiores, quod aliquid assumenda hic fugit facilis earum maiores ab molestiae? Officia autem odio cum doloremque earum
+                          ullam accusantium repellendus aliquam praesentium placeat cupiditate facilis dolorem pariatur veritatis, ad quo cumque minima voluptatem, quas et? Dolorem repellat quasi sint, accusamus officiis explicabo natus
+                          reprehenderit voluptas amet, eos rerum id.
+                          <br />
+                          <br />
+                          Error expedita quos laudantium veritatis corrupti, nisi officia cumque perspiciatis, possimus rem ducimus repellat quod quibusdam dolore pariatur delectus tenetur perferendis accusamus adipisci, necessitatibus
+                          laborum deserunt repudiandae eveniet illum. Nobis dolorum accusantium eligendi, a repellat possimus cum quam quas culpa maiores laboriosam odio quidem nulla dicta similique voluptatibus odit, eos nemo perferendis!
+                          Voluptatum aspernatur architecto nulla. Quam eos odit eum architecto consectetur perferendis repellat quidem similique exercitationem debitis a laboriosam possimus minus at saepe ad dolores nobis cupiditate,
+                          incidunt accusamus br necessitatibus maxime ducimus esse numquam! Laborum delectus nam aspernatur quas vero, iusto natus aperiam accusamus, minus architecto repudiandae, rem possimus non cum ducimus cumque ad!
+                          Repellat maxime eveniet earum ex rerum quis corrupti nihil aliquid tempora deserunt tempore fuga odit quibusdam nulla, iure architecto tenetur excepturi dignissimos sapiente dolorum? Quod autem fuga illum
+                          cupiditate qui deserunt, officia provident, a in voluptatibus doloribus itaque quisquam consequuntur perspiciatis! Unde soluta consectetur error vitae hic harum quis quas sequi ullam enim! Repudiandae consectetur
+                          sequi ex debitis accusamus quasi recusandae aspernatur quisquam alias doloribus adipisci qui quod exercitationem, reiciendis possimus cupiditate amet perspiciatis. */}
+                          {item.longDesc}
+                        </Text>
+                      </Box>
+                    </Center>
+                  </Stack>
+                  <Carousel>
+                    {[...new Array(CARDS)].map((_, i) => (
+                      <Card key={i} images={images[i]} />
+                    ))}
+                  </Carousel>
+                  <SocialMedia />
+                </Box>
+              </Center>
+            </>
+          );
+        })}
+      </>
     );
   };
 
@@ -255,35 +318,34 @@ const OrganizationDesc: NextPage = () => {
     const SocialMediaData = [
       {
         icon: "/organization/facebook.svg",
-        link: "https://www.facebook.com/",
+        link: `https://www.instagram.com/${HoMEInfo[0].instagram}`,
       },
       {
         icon: "/organization/twitter.svg",
-        link: "https://www.twitter.com/",
+        link: `https://www.instagram.com/${HoMEInfo[0].instagram}`,
       },
       {
         icon: "/organization/linkedin.svg",
-        link: "https://www.linkedin.com/",
+        link: `https://www.instagram.com/${HoMEInfo[0].instagram}`,
       },
       {
         icon: "/organization/youtube.svg",
-        link: "https://www.youtube.com/",
+        link: HoMEInfo[0].linkYoutube,
       },
       {
         icon: "/organization/instagram.svg",
-        link: "https://www.instagram.com/",
+        link: `https://www.instagram.com/${HoMEInfo[0].instagram}`,
       },
       {
         icon: "/organization/google.svg",
-        link: "https://www.google.com/",
+        link: `https://www.instagram.com/${HoMEInfo[0].instagram}`,
       },
       {
         icon: "/organization/tiktok.svg",
-        link: "https://www.tiktok.com/",
+        link: `https://www.instagram.com/${HoMEInfo[0].instagram}`,
       },
       // {
       //   icon: "/organization/line.svg",
-      //   link: "https://www.line.com/",
       // },
     ];
 
@@ -295,11 +357,13 @@ const OrganizationDesc: NextPage = () => {
           </Text>
         </Center>
         <Center>
-          <Wrap w={"full"} justify={"center"} spacing={["0.5em", "2em"]}>
+          <Wrap w={"full"} justify={"center"} spacing={["0em", "0.2em"]}>
             {SocialMediaData.map((socialMedia: any, key: any) => (
-              <Center key={key} w={["2em", "3.5em"]} h={["2em", "3.5em"]}>
-                <Img src={socialMedia.icon} />
-              </Center>
+              <a key={key} href={`${socialMedia.link}.com`} target={"_blank"} rel="noreferrer">
+                <Center w={"auto"} transition={"0.1s ease-in-out"} transform={"scale(0.7)"} _hover={{ transform: "scale(0.8)", cursor: "pointer" }}>
+                  <Img src={socialMedia.icon} w={["2.8em", "5.2em"]} />
+                </Center>
+              </a>
             ))}
           </Wrap>
         </Center>
@@ -311,7 +375,7 @@ const OrganizationDesc: NextPage = () => {
     const router = useRouter();
     return (
       <>
-        <Flex m={["3.7rem 0rem", "3rem 1rem"]} position={"fixed"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+        <Flex m={["3.7rem 0rem", "6.7rem 1rem"]} position={"fixed"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
           <Button
             variant={"none"}
             onClick={() => {

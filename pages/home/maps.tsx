@@ -21,19 +21,9 @@ const Maps = () => {
   const [HoME, setDataHoME] = useState([]);
   const [error, setError] = useState(undefined);
   const headers = {};
+  
   useEffect(() => {
     window.scrollTo(0, 9999);
-
-    try {
-      const fetchHoME = async () => {
-        const response = await axios.get("https://maxima2022.herokuapp.com/api/homeInfo");
-        setDataHoME(response.data);
-        console.log(response.data);
-      };
-      fetchHoME();
-    } catch (err: any) {
-      console.log(err);
-    }
   }, []);
 
   const MapsTents = [
