@@ -29,12 +29,11 @@ const Organization: NextPage = () => {
 
   const [organizationData, setOrganizationData] = useState<ListOrganization[]>([]);
   const [error, setError] = useState(undefined);
-  const headers = {};
 
   useEffect(() => {
     try {
       const fetchHoME = async () => {
-        const response = await axios.get(`${process.env.API_URL}/api/state_activities`);
+        const response = await axios.get(`${process.env.API_URL}/api/homeInfo`);
         setOrganizationData(response.data);
         console.log(response.data);
       };
@@ -192,7 +191,7 @@ const Organization: NextPage = () => {
                       <Box>
                         <Center>
                           <Box w={["9em", "10em"]} h={["9em", "10em"]}>
-                            <Img src={item.img} borderRadius={["2xl", "none"]} />
+                            <Img src={item.linkLogo} borderRadius={["2xl", "none"]} />
                           </Box>
                         </Center>
                         <Center w={"10em"} my={["0.5em", "1em"]}>
@@ -261,7 +260,7 @@ const Organization: NextPage = () => {
       >
         <Box w={"full"} zIndex={"0"}>
           <Header />
-          <Body />
+          <Body/>
           <Footer />
         </Box>
       </Flex>
