@@ -48,8 +48,8 @@ const Welcoming: NextPage = () => {
         href: "/twibbon",
       },
       {
-        name: "CHALLENGE",
-        href: "/challenge",
+        name: "CAMPAIGN",
+        href: "/campaign",
       },
     ];
     return (
