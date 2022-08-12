@@ -28,13 +28,17 @@ const Organization: NextPage = () => {
   };
 
   const [organizationData, setOrganizationData] = useState<ListOrganization[]>([]);
+  const [media, setMedia] = useState<any>([])
   const [error, setError] = useState(undefined);
 
   useEffect(() => {
     try {
       const fetchHoME = async () => {
         const response = await axios.get(`${process.env.API_URL}/api/homeInfo`);
+        const res = await axios.get(`${process.env.API_URL}/api/homeMedia`)
+        setMedia(res.data)
         setOrganizationData(response.data);
+        console.log(res.data)
         console.log(response.data);
       };
       fetchHoME();
