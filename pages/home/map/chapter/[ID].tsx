@@ -33,7 +33,7 @@ const Organization = ({ ID }: { ID: string }) => {
   const Header = () => {
     return (
       <>
-        <Center w={"full"} h={["32.5rem", "50rem", "53rem", "53rem", "67rem"]} />
+        <Center w={"full"} h={["32.5rem", "32.5rem", "53rem", "53rem", "67rem"]} />
         <Center position={"absolute"} left={0} right={0} top={0} bottom={0}>
           <Box mt={["25vh", "25vh", "23.5rem", "0rem", "8rem"]} position={"absolute"} transform={["scale(0.5)", "scale(0.5)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"2"}>
             <Img src={`/organization/Computers/${ID.toLowerCase()}.png`} />
@@ -41,7 +41,7 @@ const Organization = ({ ID }: { ID: string }) => {
           <Box mt={["35vh", "35vh", "35rem", "15rem", "25rem"]} position={"absolute"} transform={["scale(0.25)", "scale(0.25)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"3"}>
             <Img src={"/organization/chair.png"} />
           </Box>
-          <Box mt={["60vh", "60vh", "50rem", "40rem", "50rem"]} position={"absolute"} transform={["scale(0.55)", "scale(0.55)", "scale(0.65)", "scale(0.7)", "scale(0.75)"]} zIndex={"1"}>
+          <Box mt={["55vh", "60vh", "50rem", "40rem", "50rem"]} position={"absolute"} transform={["scale(0.55)", "scale(0.55)", "scale(0.65)", "scale(0.7)", "scale(0.75)"]} zIndex={"1"}>
             <Img src={"/organization/shade.png"} />
           </Box>
         </Center>
@@ -52,14 +52,14 @@ const Organization = ({ ID }: { ID: string }) => {
   const Body = () => {
     return (
       <Center 
-      //mt={["10vh", "25vh"]} mb={"15vh"} 
+      mt={["10vh","0vh","25vh", "25vh", "25vh"]} mb={"15vh"} 
       zIndex={"4"} bgColor={'white'}>
         <Box w={["30em", "40em"]}>
           <Center my={"3em"}>
-            <Text display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
+            <Text display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["extrabold", "bold"]}>
               Organisasi dan Himpunan
             </Text>
-            <Text display={["block", "none"]} color={"#062D5F"} fontSize={["3xl"]} fontWeight={["black", "bold"]}>
+            <Text display={["block", "none"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["extrabold", "bold"]}>
               Lembaga Kampus
             </Text>
           </Center>
