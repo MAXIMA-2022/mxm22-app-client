@@ -7,7 +7,7 @@ import Layout from "../../../../../components/Layout";
 import Navbar from "../../../../../components/Navbar";
 
 //importing chakra ui components
-import { Box, Flex, Center, Text, Button, Stack, Img, Wrap, Modal, ModalOverlay, ModalContent, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, Center, Text, Button, Stack, Img, Wrap, Modal, ModalOverlay, ModalContent, useDisclosure, AspectRatio } from "@chakra-ui/react";
 
 interface HoMEDescription {
     chapter: string;
@@ -69,19 +69,21 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
                 <Box w={["20em", "30em", "60em", "60em", "60em"]}>
                   <Stack my={"3em"} direction={"column"} spacing={"3em"}>
                     <Center>
-                      <Text textAlign={"center"} display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
-                        {item.name}
+                      <Text textAlign={"center"} display={["none", "block"]} color={"#062D5F"} fontSize={["lg", "lg", "2xl", "2xl", "3xl"]} fontWeight={["black", "bold"]}>
+                        Badan Executive Mahasiswa UMN
                       </Text>
                       <Text textAlign={"center"} display={["block", "none"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
                         {item.name}
                       </Text>
                     </Center>
                     <Center>
-                      <Box w={["17em", "25em", "40em", "40em", "40em"]}>
-                        <Center w={"full"} h={["10em", "20em"]} mb={"4em"} bgColor={"#000"} outline={"5px solid #FF6835"} borderRadius={"2xl"}>
-                          <iframe width="560" height="315" src={item.linkYoutube} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                      <Box w={["17em", "25em", "40em", "40em", "40em"]} mb={"4em"}>
+                        <Center w={"full"}  mb={"4em"}>
+                          <AspectRatio w={"full"} h={["10em", "20em"]} maxH={"20em"} bgColor={"#000"} outline={"5px solid #FF6835"} borderRadius={"2xl"} ratio={1} overflow={"hidden"}>
+                            <iframe  src={item.linkYoutube} title={"YouTube video player"}      style={{borderRadius:"1em"}} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full" ></iframe>
+                          </AspectRatio>
                         </Center>
-                        <Text textAlign={"justify"}>
+                        <Text fontSize={["md", "md", "xl", "xl", "xl"]} textAlign={"justify"} color={"#062D5F"} >
                           {item.longDesc}
                         </Text>
                       </Box>
@@ -146,17 +148,20 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
               {React.Children.map(children, (child, i) => (
                 <Box
                   className={"carousel"}
-                  cursor={active === i ? "zoom-in" : "default"}
+                  cursor={active === i ? "pointer" : "default"}
                   style={{
-                    "--active": i === active ? 1 : 0,
+                    // "--active": i === active ? 1 : 0,
                     "--offset": (active - i) / 3,
                     "--direction": Math.sign(active - i),
                     "--abs-offset": Math.abs(active - i) / 3,
-                    "pointer-events": active === i ? "auto" : "none",
-                    opacity: Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1",
-                    display: Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block",
+                    // "pointer-events": active === i ? "auto" : "none",
+                    // opacity: Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1",
+                    // display: Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block",
+                    // pointerEvents: i === active ? "auto" : "none",
                   }}
-                  transition={"all 0.3s ease-out"}
+                  pointerEvents={active === i ? "auto" : "none"}
+                  opacity={Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1"}
+                  display={Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block"}
                   onClick={() => {
                     if (active === i) {
                       onOpen();
@@ -281,15 +286,15 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
             }}
           >
             <Center
-              w={["2.5rem", "5rem", "4rem", "4rem", "4rem"]}
-              h={["2.5rem", "5rem", "4rem", "4rem", "4rem"]}
+              w={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
+              h={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
               mt={["0rem", "0rem", "0rem", "0rem", "0rem"]}
               bgColor={"#D01E20"}
               border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
               borderRadius={"full"}
               shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
             >
-              <Img src={"/expandLeft.svg"} w={["1rem", "2rem", "2rem", "2rem", "2rem"]} h={["1rem", "2rem", "2rem", "2rem", "2rem"]} />
+              <Img src={"/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
             </Center>
           </Button>
         </Flex>
