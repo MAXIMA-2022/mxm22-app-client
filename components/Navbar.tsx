@@ -89,7 +89,7 @@ const NavbarLinks = ({ pathName }: LinksProps) => {
     <Box>
       <Flex mx={["0", "0", "1.5em", "4em", "4em"]}>
         <Box>
-          <IconButton display={["block", "none"]} icon={<HamburgerIcon w={8} h={8} />} variant={"none"} onClick={navbarController} />
+          <IconButton display={["block", "none"]} icon={<HamburgerIcon w={8} h={8} />} variant={"none"} onClick={navbarController} aria-label={""} />
           <Box ms={[isOpen ? "0em" : "-10em", "0em"]} transition={"0.2s ease-in-out"}>
             <Stack
               position={["absolute", "relative"]}
@@ -141,7 +141,7 @@ const NavbarButton = () => {
   const routerPath = router.pathname;
 
   return (
-    <Stack direction={"row"} spacing={7}>
+    <Stack direction={"row"} spacing={[3,3,3,7,7]}>
       <Box>
         <Link href={buttonData[0].href}>
           <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
@@ -149,9 +149,9 @@ const NavbarButton = () => {
           </Button>
         </Link>
       </Box>
-      <Box display={{ base: "none", lg: "block" }}>
+      <Box >
         <Link href={buttonData[1].href}>
-          <Button size={["xs", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
+          <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
             <Text>{buttonData[1].name}</Text>
           </Button>
         </Link>
@@ -178,7 +178,7 @@ const HalfBorder = () => {
 };
 
 const FullBorder = () => {
-  return <Flex display={["block"]} w={"150%"} position={"fixed"} mx={"-5em"} p={["3.3em"]} bgColor={"#1B4173"} border={"2px solid white"} shadow={"0 4px 4px rgb(0,0,0,0.25)"} opacity={"30%"} />;
+  return <Flex display={["block"]} w={"150%"} position={"fixed"} mx={"-5em"} p={["3em","3.2em"]} bgColor={"#1B4173"} border={"2px solid white"} shadow={"0 4px 4px rgb(0,0,0,0.25)"} opacity={"30%"} />;
 };
 
 {
@@ -193,11 +193,11 @@ const FullBorder = () => {
 
 const Navbar = () => {
   return (
-    <Flex as="nav" justifyContent="space-between" alignItems="center" p={["2em 1em", "1em 0.5em", "1em 1.5em", "1em 1.5em", "1em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}>
+    <Flex as="nav" justifyContent="space-between" alignItems="center" p={["1.5em 1em", "1em 0.5em", "1em 1.5em", "1em 1.5em", "1em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}>
       <FullBorder />
       <NavbarIcon />
       <Flex justifyContent={["center", "center", "center", "start", "start"]} flex={{ base: 0, sm: 1 }}>
-        <NavbarLinks />
+        <NavbarLinks pathName={""} />
       </Flex>
       {/* <NavbarIconP /> */}
       <Box>
