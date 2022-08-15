@@ -113,7 +113,7 @@ const FAQ: NextPage = () => {
                   <Center display={["none", "block"]}>
                     <Tabs variant="soft-rounded" isFitted>
                       <TabList w={"auto"} p={[" 0.5em 0.5em", " 0.5em 0.5em", " 0.5em 2em", " 0.5em 1em", " 0.5em 2em"]} bgColor={"rgb(247,183,21,0.21)"} borderRadius={"full"}>
-                        <Tab mx={["0.2em", "0.5em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "sm", "md", , "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
+                        <Tab mx={["0.2em", "0.5em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "sm", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
                           HoME
                         </Tab>
                         <Tab mx={["0.2em", "0.5em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "sm", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
