@@ -17,7 +17,7 @@ const NotFound = () => {
   
     return (
         <Layout>
-          <Flex minH={"100vh"} bgImage={["/404/ERROR404-mobile.jpg", "/404/ERROR404-mobile.jpg","/404/ERROR404.jpg", "/404/ERROR404.jpg", "/404/ERROR404.jpg"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+          <Flex minH={"100vh"} bgImage={["/404/ERROR404-mobile.jpg", "/404/ERROR404-mobile.jpg","/404/ERROR404-mobile.jpg", "/404/ERROR404.jpg", "/404/ERROR404.jpg"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
             <Box w={"full"} mt={"20vh"}>
                 <Footer/>
             </Box>
