@@ -47,7 +47,7 @@ a {
 
 @media screen and (max-width: 1024px) {
   .carousel {
-    transform: scaleY(calc(1 + var(--abs-offset) * -0.4)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -15rem));
+    transform: scaleY(calc(1 + var(--abs-offset) * -0.4)) translateZ(calc(var(--abs-offset) * -30rem)) translateX(calc(var(--direction) * -10rem));
     filter: brightness(calc(1 - var(--abs-offset) * 1.5));
     transition: all 0.3s ease-out;
   }

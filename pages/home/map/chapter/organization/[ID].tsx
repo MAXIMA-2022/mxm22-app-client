@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
-import axios from "axios"
+import axios from "axios";
 
 //importing local components
 import Layout from "../../../../../components/Layout";
@@ -9,28 +9,29 @@ import Navbar from "../../../../../components/Navbar";
 //importing chakra ui components
 import { Box, Flex, Center, Text, Button, Stack, Img, Wrap, Modal, ModalOverlay, ModalContent, useDisclosure, AspectRatio } from "@chakra-ui/react";
 
+//importing react-slick components
 interface HoMEDescription {
-    chapter: string;
-    chapterName: string;
-    homeID: number;
-    instagram: string;
-    lineID: string;
-    linkLogo: string;
-    linkFacebook: string
-    linkInstagram: string
-    linkLine: string
-    linkLinkedIn: string
-    linkTiktok: string
-    linkTwitter: string
-    linkYoutube: string
-    shortDesc: string;
-    longDesc: string;
-    media: any;
-    name: string;
-    search_key: string;
+  chapter: string;
+  chapterName: string;
+  homeID: number;
+  instagram: string;
+  lineID: string;
+  linkLogo: string;
+  linkFacebook: string;
+  linkInstagram: string;
+  linkLine: string;
+  linkLinkedIn: string;
+  linkTiktok: string;
+  linkTwitter: string;
+  linkYoutube: string;
+  shortDesc: string;
+  longDesc: string;
+  media: any;
+  name: string;
+  search_key: string;
 }
 
-const OrganizationDesc = ({ID}: {ID: string}) => {
+const OrganizationDesc = ({ ID }: { ID: string }) => {
   const [HoMEInfo, setHoMEInfo] = useState<HoMEDescription[]>([]);
 
   useEffect(() => {
@@ -51,7 +52,7 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
         <Center position={"absolute"} mt={["6rem", "10rem", "9rem", "14rem", "14rem"]} top={0} bottom={0} left={0} right={0}>
           <Box transform={["scale(0.35)", "scale(0.5)", "scale(0.8)", "scale(1.2)", "scale(1.5)"]} borderRadius={"xl"} zIndex={"1"}>
             {HoMEInfo.map((item: any) => {
-              return <Img key={item.homeID} src={item.linkLogo} borderRadius={"3em"} w={'430px'} h={'300px'} />;
+              return <Img key={item.homeID} src={item.linkLogo} borderRadius={"3em"} w={"430px"} h={"300px"} />;
             })}
           </Box>
         </Center>
@@ -78,12 +79,12 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
                     </Center>
                     <Center>
                       <Box w={["17em", "25em", "40em", "40em", "40em"]} mb={"4em"}>
-                        <Center w={"full"}  mb={"4em"}>
+                        <Center w={"full"} mb={"4em"}>
                           <AspectRatio w={"full"} h={["10em", "20em"]} maxH={"20em"} bgColor={"#000"} outline={"5px solid #FF6835"} borderRadius={"2xl"} ratio={1} overflow={"hidden"}>
-                            <iframe  src={item.linkYoutube} title={"YouTube video player"}      style={{borderRadius:"1em"}} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full" ></iframe>
+                            <iframe src={item.linkYoutube} title={"YouTube video player"} style={{ borderRadius: "1em" }} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture full"></iframe>
                           </AspectRatio>
                         </Center>
-                        <Text fontSize={["md", "md", "xl", "xl", "xl"]} textAlign={"justify"} color={"#062D5F"} >
+                        <Text fontSize={["md", "md", "xl", "xl", "xl"]} textAlign={"justify"} color={"#062D5F"}>
                           {item.longDesc}
                         </Text>
                       </Box>
@@ -149,16 +150,14 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
                 <Box
                   className={"carousel"}
                   cursor={active === i ? "pointer" : "default"}
-                  style={{
-                    // "--active": i === active ? 1 : 0,
-                    "--offset": (active - i) / 3,
-                    "--direction": Math.sign(active - i),
-                    "--abs-offset": Math.abs(active - i) / 3,
-                    // "pointer-events": active === i ? "auto" : "none",
-                    // opacity: Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1",
-                    // display: Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block",
-                    // pointerEvents: i === active ? "auto" : "none",
-                  }}
+                  style={
+                    {
+                      "--active": i === active ? 1 : 0,
+                      "--offset": (active - i) / 3,
+                      "--direction": Math.sign(active - i),
+                      "--abs-offset": Math.abs(active - i) / 3,
+                    } as React.CSSProperties
+                  }
                   pointerEvents={active === i ? "auto" : "none"}
                   opacity={Math.abs(active - i) >= MAX_VISIBILITY ? "0" : "1"}
                   display={Math.abs(active - i) > MAX_VISIBILITY ? "none" : "block"}
@@ -179,7 +178,7 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
                   {child}
                   <Modal size={["xs", "3xl"]} onClose={onClose} isOpen={isOpen} isCentered>
                     <ModalOverlay />
-                    <ModalContent borderRadius={"2.5em"}>
+                    <ModalContent>
                       <Img src={images[active]} />
                     </ModalContent>
                   </Modal>
@@ -247,7 +246,7 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
         link: HoMEInfo[0].linkTiktok,
       },
     ];
-    
+
     return (
       <Box mt={"6em"}>
         <Center mb={"2em"}>
@@ -257,16 +256,16 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
         </Center>
         <Center>
           <Wrap w={"full"} justify={"center"} spacing={["0em", "0.2em"]}>
-          {SocialMediaData.map((socialMedia: any, key: any) => (
-            <>
+            {SocialMediaData.map((socialMedia: any, key: any) => (
+              <>
                 {socialMedia.link !== "" && (
-                    <a key={key} href={`${socialMedia.link}.com`} target={"_blank"} rel="noreferrer">
-                        <Center w={"auto"} transition={"0.1s ease-in-out"} transform={"scale(0.7)"} _hover={{ transform: "scale(0.8)", cursor: "pointer" }}>
-                            <Img src={socialMedia.icon} w={["2.8em", "5.2em"]} />
-                        </Center>
-                    </a>
+                  <a key={key} href={`${socialMedia.link}.com`} target={"_blank"} rel="noreferrer">
+                    <Center w={"auto"} transition={"0.1s ease-in-out"} transform={"scale(0.7)"} _hover={{ transform: "scale(0.8)", cursor: "pointer" }}>
+                      <Img src={socialMedia.icon} w={["2.8em", "5.2em"]} />
+                    </Center>
+                  </a>
                 )}
-            </>
+              </>
             ))}
           </Wrap>
         </Center>
@@ -278,7 +277,7 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
     const router = useRouter();
     return (
       <>
-        <Flex m={["3.7rem 0rem", "6.7rem 1rem"]} position={"fixed"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+        <Flex w={"10%"} m={["3.7rem 0rem", "6.7rem 1rem"]} position={"fixed"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
           <Button
             variant={"none"}
             onClick={() => {
@@ -311,37 +310,36 @@ const OrganizationDesc = ({ID}: {ID: string}) => {
 
   return (
     <>
-    <Layout>
-      <Navbar />
-      <Flex
-        w={"100%"}
-        position={["absolute", "relative"]}
-        // mt={["0vh", "-55vh"]}
-        // h={["100vh", "220vh"]}
-        mt={["0vh", "-15vh", "-15vh", "-55vh", "-55vh"]}
-        h={["70vh", "100vh", "110vw", "220vh", "220vh"]}
-        bgImage={["/organization/organizationDescLs.png", "/organization/organizationDescLs.png"]}
-        bgPosition={"center"}
-        bgSize={"cover"}
-        bgRepeat={"no-repeat"}
-      >
-        <Box w={"full"} zIndex={"0"}>
-          <Header />
-          <Body />
-          <Footer />
-        </Box>
-      </Flex>
-    </Layout>
+      <Layout>
+        <Navbar />
+        <Flex
+          w={"100%"}
+          position={["absolute", "relative"]}
+          // mt={["0vh", "-55vh"]}
+          // h={["100vh", "220vh"]}
+          mt={["0vh", "-15vh", "-15vh", "-55vh", "-55vh"]}
+          h={["70vh", "100vh", "110vw", "220vh", "220vh"]}
+          bgImage={["/organization/organizationDescLs.png", "/organization/organizationDescLs.png"]}
+          bgPosition={"center"}
+          bgSize={"cover"}
+          bgRepeat={"no-repeat"}
+        >
+          <Box w={"full"} zIndex={"0"}>
+            <Header />
+            <Body />
+            <Footer />
+          </Box>
+        </Flex>
+      </Layout>
     </>
-    
   );
 };
 
 OrganizationDesc.getInitialProps = async ({ query }: any) => {
-    const { ID } = query;
-    return {
-        ID,
-    };
+  const { ID } = query;
+  return {
+    ID,
+  };
 };
 
 export default OrganizationDesc;
