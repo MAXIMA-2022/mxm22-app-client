@@ -15,20 +15,15 @@ interface IChapter{
   img2: string
 }
 
-const Maps = () => {
+const Maps = (props: any) => {
   const [pos, setPos] = useState({ x: 0, y: 0, scale: 1 });
   const [isLargerThan1900] = useMediaQuery("(min-width: 1900px)");
   const [isLargerThan2900] = useMediaQuery("(min-width: 2900px)");
   const [chapter, setChapter] = useState<IChapter[]>([])
   
   useEffect(() => {
-    try{
-      const fetchChapter = async () => {
-        const res = await axios.get(`${process.env.API_URL}/api/chapter`)
-        setChapter(res.data)
-        console.log(res.data)
-      }
-      fetchChapter()
+    try {
+      setChapter(props.data)
     } catch(err: any) {
       console.log(err)
     }
@@ -288,5 +283,14 @@ const Maps = () => {
     </Layout>
   );
 };
+
+export async function getStaticProps(){
+  const { data } = await axios.get(`${process.env.API_URL}/api/chapter`)
+  return{
+    props:{
+      data: data || {},
+    }
+  }
+}
 
 export default Maps;
