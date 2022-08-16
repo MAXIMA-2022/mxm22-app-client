@@ -84,7 +84,7 @@ const STATE: NextPage = () => {
                       </Center>
                       <Center>
                         <Text w={["50%", "90%", "70%", "60%", "50%"]} fontSize={["md", "md", "2.3vh", "md", "lg"]} color={"#1B4173"} textAlign={"center"}>
-                          <span style={{ fontWeight: "1000" }}>Pelaksanaan STATE </span> <br /> diselenggarakan pada tanggal <br /> 5 September - 14 September 2022
+                          <span style={{ fontWeight: "1000" }}>Pelaksanaan STATE </span> <br /> diselenggarakan pada tanggal <br /> 5 September - 13 September 2022
                         </Text>
                       </Center>
                     </Stack>
