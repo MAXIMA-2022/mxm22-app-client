@@ -54,41 +54,46 @@ const login: NextPage = () => {
 
   const LoginForm = () => {
     return (
-      <Flex w={"full"} maxW={["65em", "65em", "65em", "55em", "65em"]} maxH={"auto"} mx={"3em"}>
-        <Flex w={"full"} h={"auto"} justifyContent={"space-between"}>
-          <Center me={"2em"}>
+      <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} maxW={["65em", "65em", "65em", "55em", "65em"]} maxH={"auto"} mx={"3em"}>
+        <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} h={"auto"} justifyContent={"space-between"}>
+          <Center display={["none", "none", "flex", "flex", "flex"]} me={"2em"}>
             <Img src={"/Login/gambar-masuk.png"} w={["38em", "38em", "30em", "30em", "38em"]} />
           </Center>
           <Box
-            w={["full", "22em"]}
+            w={["full", "full", "22em", "22em", "22em"]}
             h={["full", "auto"]}
-            padding={["0 2em", "1.5em 2.5em 1em 2.5em"]}
-            borderRadius={["none", "lg"]}
-            boxShadow={["none", "-1.2px 5px 4px 0px rgb(0,0,0,0.25)"]}
+            padding={["0 0em", "0 0em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em"]}
+            borderRadius={["none", "none", "lg", "lg", "lg"]}
+            boxShadow={["none", "none", "-1.2px 5px 4px 0px rgb(0,0,0,0.25)"]}
             bgColor={"#fff"}
             justifyContent={"center"}
             alignItems={"center"}
             blur={[0, 15]}
-            border={["none", "1px solid rgb(27, 65, 115, 0.25)"]}
+            border={["none", "none", "1px solid rgb(27, 65, 115, 0.25)"]}
             overflowY={"auto"}
             zIndex={1}
           >
-            <Center>
+            <Center mt={"4vh"}>
               <Text fontSize={["3xl", "3xl", "3xl", "2xl", "3xl"]} fontWeight={"bold"} color={"#1B4173"}>
                 Masuk
               </Text>
             </Center>
-            <Center mb={"1em"}>
-              <Text fontSize={["md", "md", "md", "sm", "md"]} color={"#1B4173"} fontWeight={"medium"}>
-                Belum punya akun? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline" }}>Daftar</span>
-              </Text>
+            <Center mb={["0em", "0em", "1em"]}>
+              <Link href={"/register"}>
+                <Text fontSize={["md", "md", "md", "sm", "md"]} color={"#1B4173"} fontWeight={"medium"}>
+                  Belum punya akun? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Daftar</span>
+                </Text>
+              </Link>
+            </Center>
+            <Center display={["flex", "flex", "none"]} my={"1.5em"}>
+              <Img display={["block", "block", "none"]} src={"/Login/gambar-masuk-mobile.png"} w={"auto"} />
             </Center>
             <Box>
               <form>
                 <FormControl>
                   <Stack direction={["column"]} spacing={[5, 4]}>
                     <Box w={"full"}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                      <FormLabel display={["none", "none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
                         NIM
                       </FormLabel>
                       <InputGroup>
@@ -109,14 +114,14 @@ const login: NextPage = () => {
                       </InputGroup>
                     </Box>
                     <Box w={"full"}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Nama Lengkap
+                      <FormLabel display={["none", "none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                        Password
                       </FormLabel>
                       <InputGroup>
                         <Input
                           size={"md"}
                           borderColor={"#E2E8F0"}
-                          placeholder={"Nama Lengkap"}
+                          placeholder={"Password"}
                           _placeholder={{ opacity: 1, color: "#CBD5E0" }}
                           type={"text"}
                           name={"name"}
@@ -126,14 +131,18 @@ const login: NextPage = () => {
                           _hover={{ border: "solid #CBD5E0" }}
                         />
                       </InputGroup>
-                      <Text fontSize={["sm"]} my={"0.5em"} color={"#1B4173"} fontWeight={"medium"}>
-                        Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline" }}>Klik di sini</span>
-                      </Text>
+                      <Box display={["none", "none", "block"]}>
+                        <Link href={""}>
+                          <Text fontSize={["sm"]} my={"0.5em"} color={"#1B4173"} fontWeight={"medium"}>
+                            Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Klik di sini</span>
+                          </Text>
+                        </Link>
+                      </Box>
                     </Box>
                   </Stack>
                 </FormControl>
                 <Flex w={"100%"} justifyContent={"center"} mt={"2em"} mb={"1em"}>
-                  <Button w={["full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#fff"} colorScheme={"orange"} bgColor={"#F7B70C"}>
+                  <Button w={["full", "full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#fff"} colorScheme={"orange"} bgColor={"#F7B70C"}>
                     MASUK
                   </Button>
                 </Flex>
@@ -148,7 +157,7 @@ const login: NextPage = () => {
   const Footer = () => {
     const router = useRouter();
     return (
-      <Center position={["relative", "absolute"]} left={0} right={0} bottom={["", 0]} mb={["3vh", "5vh"]} mt={["8vh", "0"]}>
+      <Center position={["absolute"]} left={0} right={0} bottom={[0]} mb={["5vh", "5vh"]} mt={["8vh", "0"]}>
         <Text color={"#1B4173"} fontSize={"sm"} fontWeight={"bold"}>
           MAXIMA 2022
         </Text>
@@ -163,7 +172,7 @@ const login: NextPage = () => {
           <Box mt={"9vh"}>
             <MaximaLogo />
           </Box>
-          <Center position={["relative", "absolute"]} left={0} right={0} top={0} bottom={0}>
+          <Center position={["absolute"]} left={0} right={0} top={0} bottom={0}>
             <LoginForm />
           </Center>
           <Footer />
