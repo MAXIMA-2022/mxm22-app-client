@@ -26,10 +26,10 @@ import { useReadLocalStorage } from "usehooks-ts";
 import { isExpired } from "react-jwt";
 import Swal from 'sweetalert2'
 
-const register = ({ID}: {ID: any}) => {
+const register = () => {
   interface RegisData{
     nim: string
-    namaLengkap: string
+    name: string
     tempatLahir: string
     tanggalLahir: string
     jenisKelamin: string
@@ -38,7 +38,8 @@ const register = ({ID}: {ID: any}) => {
     email: string
     whatsapp: string
     idLine: string
-    instagram: string
+    idInstagram: string
+    password: string
   }
 
   const router = useRouter()
@@ -59,16 +60,17 @@ const register = ({ID}: {ID: any}) => {
       setIsButtonLoading(true)
       const formData = new FormData()
       formData.append("nim", data.nim)
-      formData.append("namaLengkap", data.namaLengkap)
+      formData.append("name", data.name)
       formData.append("tempatLahir", data.tempatLahir)
       formData.append("tanggalLahir", data.tanggalLahir)
       formData.append("prodi", data.prodi)
       formData.append("angkatan", data.angkatan)
       formData.append("email", data.email)
+      formData.append("password", data.password)
       formData.append("whatsapp", data.whatsapp)
       formData.append("line", data.idLine)
-      formData.append("instagram", data.instagram)
-      await axios.post(`${process.env.API_URL}/api/stateReg/createSRegis/${ID}`, formData)
+      formData.append("instagram", data.idInstagram)
+      await axios.post(`${process.env.API_URL}/api/mhs/register`, formData)
       Swal.fire(
         'Selamat!',
         'Anda berhasil terdaftar!',
@@ -142,7 +144,7 @@ const register = ({ID}: {ID: any}) => {
                         </FormLabel>
                         <InputGroup>
                           <Input
-                            {...register("namaLengkap", {
+                            {...register("name", {
                               required: "Nama lengkap harap diisi",
                             })}
                             size={"md"}
@@ -150,15 +152,15 @@ const register = ({ID}: {ID: any}) => {
                             placeholder={"Nama lengkap"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
                             type={"text"}
-                            name={"namaLengkap"}
+                            name={"name"}
                             textColor={"black"}
                             border={"solid"}
                             borderRadius={["full", "full"]}
                             _hover={{ border: "solid #CBD5E0" }}
                           />
                         </InputGroup>
-                        {errors.namaLengkap !== undefined && (
-                          <Text textColor={"red"}>{errors.namaLengkap.message}</Text>
+                        {errors.name !== undefined && (
+                          <Text textColor={"red"}>{errors.name.message}</Text>
                         )}
                       </Box>
                       <Box w={["full", "18em"]}>
@@ -249,8 +251,8 @@ const register = ({ID}: {ID: any}) => {
                             {...register("jenisKelamin", {
                               required: "Jenis kelamin harap dipilih",
                             })} size={"md"} name={"jenisKelamin"} placeholder="Pilih jenis kelamin" textColor={"black"} border={"solid"} borderRadius={"full"} _hover={{ border: "solid #CBD5E0" }}>
-                            <option value="Laki-laki">Laki-laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                            <option value="M">Laki-laki</option>
+                            <option value="F">Perempuan</option>
                           </Select>
                         </InputGroup>
                         {errors.jenisKelamin !== undefined && (
@@ -333,6 +335,32 @@ const register = ({ID}: {ID: any}) => {
                           <Text textColor={"red"}>{errors.email.message}</Text>
                         )}
                       </Box>
+                      <Box w={["full"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Password
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            {...register("password", {
+                              required: "Password harap diisi",
+                            })}
+                            size={"md"}
+                            borderRight={"none"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={"Password"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"password"}
+                            name={"password"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={"full"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                        </InputGroup>
+                        {errors.password !== undefined && (
+                          <Text textColor={"red"}>{errors.password.message}</Text>
+                        )}
+                      </Box>
                     </Stack>
                     <Stack direction={["column", "row"]} spacing={[5, 4]}>
                       <Box w={["full", "17em"]}>
@@ -391,7 +419,7 @@ const register = ({ID}: {ID: any}) => {
                         </FormLabel>
                         <InputGroup>
                           <Input
-                            {...register("instagram", {
+                            {...register("idInstagram", {
                               required: "Instagram harap diisi",
                             })}
                             size={"md"}
@@ -399,15 +427,15 @@ const register = ({ID}: {ID: any}) => {
                             placeholder={"Username Instagram"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
                             type={"text"}
-                            name={"instagram"}
+                            name={"idInstagram"}
                             textColor={"black"}
                             border={"solid"}
                             borderRadius={"full"}
                             _hover={{ border: "solid #CBD5E0" }}
                           />
                         </InputGroup>
-                        {errors.instagram !== undefined && (
-                          <Text textColor={"red"}>{errors.instagram.message}</Text>
+                        {errors.idInstagram !== undefined && (
+                          <Text textColor={"red"}>{errors.idInstagram.message}</Text>
                         )}
                       </Box>
                     </Stack>
@@ -450,15 +478,7 @@ const register = ({ID}: {ID: any}) => {
         </Box>
       </Flex>
     </>
-    
   );
-};
-
-register.getInitialProps = async ({ query }: any) => {
-  const { ID } = query;
-  return {
-      ID,
-  };
 };
 
 export default register;
