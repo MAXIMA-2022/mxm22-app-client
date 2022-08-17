@@ -24,8 +24,7 @@ import {
 import axios from "axios";
 import { useReadLocalStorage } from "usehooks-ts";
 import { isExpired } from "react-jwt";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Swal from 'sweetalert2'
 
 const register = ({ID}: {ID: any}) => {
   interface RegisData{
@@ -70,19 +69,18 @@ const register = ({ID}: {ID: any}) => {
       formData.append("line", data.idLine)
       formData.append("instagram", data.instagram)
       await axios.post(`${process.env.API_URL}/api/stateReg/createSRegis/${ID}`, formData)
-      toast.success("Pendaftaran berhasil!", {
-        position: "bottom-left",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      });
+      Swal.fire(
+        'Selamat!',
+        'Anda berhasil terdaftar!',
+        'success'
+      )
       setIsButtonLoading(false);
       //router.push('/login')
     } catch(err: any) {
-      toast.error(err.response.data.message);
+      Swal.fire({
+        icon: 'error',
+        title: `${err.response.data.message}`,
+      })
       console.log(err.response.data.message);
       setError(err.response.data.message);
       setIsButtonLoading(false);
@@ -451,17 +449,6 @@ const register = ({ID}: {ID: any}) => {
           </Center>
         </Box>
       </Flex>
-      <ToastContainer
-        position="bottom-left"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable={false}
-        pauseOnHover
-      />
     </>
     
   );

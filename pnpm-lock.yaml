@@ -20,6 +20,7 @@ specifiers:
   react-jwt: ^1.1.6
   react-player: ^2.10.1
   react-toastify: ^9.0.8
+  sweetalert2: ^11.4.28
   typescript: 4.7.4
   usehooks-ts: ^2.6.0
 
@@ -37,6 +38,7 @@ dependencies:
   react-jwt: 1.1.6_react@18.2.0
   react-player: 2.10.1_react@18.2.0
   react-toastify: 9.0.8_biqbaboplfbrettd7655fr4n2y
+  sweetalert2: 11.4.28
   usehooks-ts: 2.6.0_react@18.2.0
 
 devDependencies:
@@ -3248,6 +3250,10 @@ packages:
   /supports-preserve-symlinks-flag/1.0.0:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
+
+  /sweetalert2/11.4.28:
+    resolution: {integrity: sha512-leCf8Kc/o+R0LNWmLjWXI7l0roMchEHg6X+XibmfTYaOMvOoHXmoxmegHl0it+8vvvZlPIjzyfM6bYBOKTFnRg==}
+    dev: false
 
   /text-table/0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}
