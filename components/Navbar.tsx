@@ -134,7 +134,7 @@ const NavbarButton = () => {
     },
     {
       name: "Sign Up",
-      href: "/signup",
+      href: "/register",
     },
   ];
 

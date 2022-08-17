@@ -1,48 +1,100 @@
 /* eslint-disable react/no-children-prop */
-import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState, useEffect, useRef } from "react";
-
-//importing local components
-import Layout from "../components/Layout";
-import Navbar from "../components/Navbar";
-// import MaximaIcon from "../public/Register/MaximaLogo.svg";
+import React, { useState, useEffect } from "react";
+import { SubmitHandler, useForm } from 'react-hook-form'
 
 //importing chakra ui components
 import {
   Box,
   Flex,
   Center,
-  Heading,
   Text,
   Button,
   Stack,
   Img,
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  Container,
-  List,
-  ListItem,
-  ListIcon,
-  OrderedList,
-  UnorderedList,
   FormControl,
   FormLabel,
-  HStack,
   Input,
   InputGroup,
-  InputLeftElement,
   Select,
   InputLeftAddon,
   InputRightAddon,
 } from "@chakra-ui/react";
+import axios from "axios";
+import { useReadLocalStorage } from "usehooks-ts";
+import { isExpired } from "react-jwt";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const register: NextPage = () => {
+const register = ({ID}: {ID: any}) => {
+  interface RegisData{
+    nim: string
+    namaLengkap: string
+    tempatLahir: string
+    tanggalLahir: string
+    jenisKelamin: string
+    prodi: string
+    angkatan: string
+    email: string
+    whatsapp: string
+    idLine: string
+    instagram: string
+  }
+
+  const router = useRouter()
+  const [isButtonLoading, setIsButtonLoading] = useState(false);
+  const [error, setError] = useState(undefined);
+  const jwt = useReadLocalStorage<string | undefined>("token");
+  const isMyTokenExpired = isExpired(jwt as string);
+
+  useEffect(() => {
+      if (jwt && !isMyTokenExpired) {
+          router.push("/");
+      }
+  }, []);
+
+  const onSubmit: SubmitHandler<any> = async (data: RegisData) => {
+    try{
+      console.log(data)
+      setIsButtonLoading(true)
+      const formData = new FormData()
+      formData.append("nim", data.nim)
+      formData.append("namaLengkap", data.namaLengkap)
+      formData.append("tempatLahir", data.tempatLahir)
+      formData.append("tanggalLahir", data.tanggalLahir)
+      formData.append("prodi", data.prodi)
+      formData.append("angkatan", data.angkatan)
+      formData.append("email", data.email)
+      formData.append("whatsapp", data.whatsapp)
+      formData.append("line", data.idLine)
+      formData.append("instagram", data.instagram)
+      await axios.post(`${process.env.API_URL}/api/stateReg/createSRegis/${ID}`, formData)
+      toast.success("Pendaftaran berhasil!", {
+        position: "bottom-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      setIsButtonLoading(false);
+      //router.push('/login')
+    } catch(err: any) {
+      toast.error(err.response.data.message);
+      console.log(err.response.data.message);
+      setError(err.response.data.message);
+      setIsButtonLoading(false);
+    }
+  }
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<RegisData>();
+
   const MaximaLogo = () => {
     return (
       <Center mt={["-3vh", "5vh"]} position={["relative", "absolute"]} left={0} right={0} top={0}>
@@ -54,263 +106,336 @@ const register: NextPage = () => {
 
   const RegisterForm = () => {
     return (
-      <Flex
-        w={["full", "auto"]}
-        h={["full", "auto"]}
-        // mt={"4vh"}
-        padding={["0 2em", "0.8em 2.5em 2em 2.5em"]}
-        borderRadius={["none", "lg"]}
-        boxShadow={["none", "-1.2px 5px 4px 0px rgb(0,0,0,0.25)"]}
-        bgColor={"#fff"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        blur={[0, 15]}
-        border={["none", "1px solid rgb(27, 65, 115, 0.25)"]}
-        overflowY={"auto"}
-        zIndex={1}
-      >
-        <Box w={"full"}>
-          <Center>
-            <Text fontSize={["3xl", "3xl", "3xl", "2xl", "3xl"]} fontWeight={"bold"} color={"#1B4173"}>
-              Daftar Sekarang
-            </Text>
-          </Center>
-          <Center mb={["2em", "0"]}>
-            <Text fontSize={["md", "md", "md", "sm", "md"]} color={"#1B4173"} fontWeight={"medium"}>
-              Sudah punya akun? <span style={{ color: "#F7B70C", fontWeight: "bold" }}>Masuk</span>
-            </Text>
-          </Center>
-          <Box w={["full", "40em", "40em", "35em", "40.5em"]} mt={"1em"}>
-            <form>
-              <FormControl>
-                <Stack direction={["column"]} spacing={[5, 4]}>
-                  <Stack direction={["column", "row"]} spacing={[5, 4]}>
-                    <Box w={["full", "32em", "32em", "32em", "32em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Nama Lengkap
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                          size={"md"}
-                          borderColor={"#E2E8F0"}
-                          placeholder={"Nama Lengkap"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"text"}
-                          name={"name"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={["full", "full"]}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                      </InputGroup>
-                    </Box>
-                    <Box w={["full", "18em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        NIM
-                      </FormLabel>
-                      <InputGroup>
-                        <InputLeftAddon fontSize={"sm"} m={"auto"} p={2} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
-                        <Input
-                          size={"md"}
-                          borderLeft={"none"}
-                          borderColor={"#E2E8F0"}
-                          placeholder={""}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"text"}
-                          name={"name"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={"full"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                      </InputGroup>
-                    </Box>
-                  </Stack>
-                  <Stack direction={["column", "row"]} spacing={[5, 4]}>
-                    <Box w={["full", "17em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Tempat Lahir
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                          size={"md"}
-                          borderColor={"#E2E8F0"}
-                          placeholder={"Tempat lahir"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"text"}
-                          name={"name"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={"full"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                      </InputGroup>
-                    </Box>
-                    <Box w={["full", "full", "10.5em", "9.5em", "14em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Tanggal Lahir
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                          size={"md"}
-                          borderColor={"#E2E8F0"}
-                          placeholder={"DD/MM/YYYY"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"date"}
-                          name={"name"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={"full"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                      </InputGroup>
-                    </Box>
-                    <Box w={["full", "18em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Jenis Kelamin
-                      </FormLabel>
-                      <InputGroup>
-                        <Select size={"md"} name={"name"} textColor={"black"} border={"solid"} borderRadius={"full"} _hover={{ border: "solid #CBD5E0" }}>
-                          <option value="option1">Option 1</option>
-                          <option value="option2">Option 2</option>
-                          <option value="option3">Option 3</option>
+      <>
+        <Flex
+          w={["full", "auto"]}
+          h={["full", "auto"]}
+          // mt={"4vh"}
+          padding={["0 2em", "0.8em 2.5em 2em 2.5em"]}
+          borderRadius={["none", "lg"]}
+          boxShadow={["none", "-1.2px 5px 4px 0px rgb(0,0,0,0.25)"]}
+          bgColor={"#fff"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          blur={[0, 15]}
+          border={["none", "1px solid rgb(27, 65, 115, 0.25)"]}
+          overflowY={"auto"}
+          zIndex={1}
+        >
+          <Box w={"full"}>
+            <Center>
+              <Text fontSize={["3xl", "3xl", "3xl", "2xl", "3xl"]} fontWeight={"bold"} color={"#1B4173"}>
+                Daftar Sekarang
+              </Text>
+            </Center>
+            <Center mb={["2em", "0"]}>
+              <Text fontSize={["md", "md", "md", "sm", "md"]} color={"#1B4173"} fontWeight={"medium"}>
+                Sudah punya akun? <Link href={'/login'}><span style={{ color: "#F7B70C", fontWeight: "bold" }}>Masuk</span></Link>
+              </Text>
+            </Center>
+            <Box w={["full", "40em", "40em", "35em", "40.5em"]} mt={"1em"}>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <FormControl onSubmit={handleSubmit(onSubmit)}>
+                  <Stack direction={["column"]} spacing={[5, 4]}>
+                    <Stack direction={["column", "row"]} spacing={[5, 4]}>
+                      <Box w={["full", "32em", "32em", "32em", "32em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Nama Lengkap
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            {...register("namaLengkap", {
+                              required: "Nama lengkap harap diisi",
+                            })}
+                            size={"md"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={"Nama lengkap"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"text"}
+                            name={"namaLengkap"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={["full", "full"]}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                        </InputGroup>
+                        {errors.namaLengkap !== undefined && (
+                          <Text textColor={"red"}>{errors.namaLengkap.message}</Text>
+                        )}
+                      </Box>
+                      <Box w={["full", "18em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          NIM
+                        </FormLabel>
+                        <InputGroup>
+                          <InputLeftAddon fontSize={"sm"} m={"auto"} p={2} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
+                          <Input
+                            {...register("nim", {
+                            required: "NIM harap diisi",
+                            })}
+                            size={"md"}
+                            borderLeft={"none"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={""}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"text"}
+                            name={"nim"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={"full"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                        </InputGroup>
+                        {errors.nim !== undefined && (
+                          <Text textColor={"red"}>{errors.nim.message}</Text>
+                        )}
+                      </Box>
+                    </Stack>
+                    <Stack direction={["column", "row"]} spacing={[5, 4]}>
+                      <Box w={["full", "17em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Tempat Lahir
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            {...register("tempatLahir", {
+                              required: "Tempat lahir harap diisi",
+                            })}
+                            size={"md"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={"Tempat lahir"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"text"}
+                            name={"tempatLahir"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={"full"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                        </InputGroup>
+                        {errors.tempatLahir !== undefined && (
+                          <Text textColor={"red"}>{errors.tempatLahir.message}</Text>
+                        )}
+                      </Box>
+                      <Box w={["full", "full", "10.5em", "9.5em", "14em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Tanggal Lahir
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            {...register("tanggalLahir", {
+                              required: "Tanggal lahir harap diisi",
+                            })}
+                            size={"md"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={"DD/MM/YYYY"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"date"}
+                            name={"tanggalLahir"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={"full"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                        </InputGroup>
+                        {errors.tanggalLahir !== undefined && (
+                          <Text textColor={"red"}>{errors.tanggalLahir.message}</Text>
+                        )}
+                      </Box>
+                      <Box w={["full", "18em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Jenis Kelamin
+                        </FormLabel>
+                        <InputGroup>
+                          <Select 
+                            {...register("jenisKelamin", {
+                              required: "Jenis kelamin harap dipilih",
+                            })} size={"md"} name={"jenisKelamin"} placeholder="Pilih jenis kelamin" textColor={"black"} border={"solid"} borderRadius={"full"} _hover={{ border: "solid #CBD5E0" }}>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                          </Select>
+                        </InputGroup>
+                        {errors.jenisKelamin !== undefined && (
+                          <Text textColor={"red"}>{errors.jenisKelamin.message}</Text>
+                        )}
+                      </Box>
+                    </Stack>
+                    <Stack direction={["column", "row"]} spacing={[5, 4]}>
+                      <Box w={["full", "32em", "32em", "32em", "32em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Program Studi
+                        </FormLabel>
+                        <Select
+                          {...register("prodi", {
+                            required: "Program studi harap dipilih",
+                          })} size={"md"} borderColor={"#E2E8F0"} placeholder={"Pilih Program Studi"} name={"prodi"} textColor={"black"} border={"solid"} borderRadius={"full"} _hover={{ border: "solid #CBD5E0" }}>
+                          <option value="Strategic Communication">Strategic Communication</option>
+                          <option value="Jurnalistik">Jurnalistik</option>
+                          <option value="Informatika">Informatika</option>
+                          <option value="Sistem Informasi">Sistem Informasi</option>
+                          <option value="Teknik Fisika">Teknik Fisika</option>
+                          <option value="Teknik Elektro">Teknik Elektro</option>
+                          <option value="Teknik Komputer">Teknik Komputer</option>
+                          <option value="DKV">DKV</option>
+                          <option value="Film dan Animasi">Film dan Animasi</option>
+                          <option value="Arsitektur">Arsitektur</option>
+                          <option value="Manajemen">Manajemen</option>
+                          <option value="Akuntansi">Akuntansi</option>
+                          <option value="Perhotelan">Perhotelan</option>
                         </Select>
-                      </InputGroup>
-                    </Box>
+                        {errors.prodi !== undefined && (
+                          <Text textColor={"red"}>{errors.prodi.message}</Text>
+                        )}
+                      </Box>
+                      <Box w={["full", "18em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Angkatan
+                        </FormLabel>
+                        <InputGroup>
+                          <Select
+                            {...register("angkatan", {
+                              required: "Angkatan harap dipilih",
+                            })} size={"md"} borderColor={"#E2E8F0"} name={"angkatan"} placeholder="Pilih Angkatan" textColor={"black"} border={"solid"} borderRadius={"full"} _hover={{ border: "solid #CBD5E0" }}>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                          </Select>
+                        </InputGroup>
+                        {errors.angkatan !== undefined && (
+                          <Text textColor={"red"}>{errors.angkatan.message}</Text>
+                        )}
+                      </Box>
+                    </Stack>
+                    <Stack direction={["column", "row"]} spacing={[5, 4]}>
+                      <Box w={["full"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Email Student
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            {...register("email", {
+                              required: "Email harap diisi",
+                            })}
+                            size={"md"}
+                            borderRight={"none"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={"Email"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"text"}
+                            name={"email"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={"full"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                          <InputRightAddon fontSize={"sm"} p={3} children={"@student.umn.ac.id"} bgColor={"#F7B70C"} color={"white"} borderRightRadius={"full"} />
+                        </InputGroup>
+                        {errors.email !== undefined && (
+                          <Text textColor={"red"}>{errors.email.message}</Text>
+                        )}
+                      </Box>
+                    </Stack>
+                    <Stack direction={["column", "row"]} spacing={[5, 4]}>
+                      <Box w={["full", "17em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Whatsapp
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            {...register("whatsapp", {
+                              required: "WhatsApp harap diisi",
+                            })}
+                            size={"md"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={"Nomor WhatsApp"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"text"}
+                            name={"whatsapp"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={"full"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                        </InputGroup>
+                        {errors.whatsapp !== undefined && (
+                          <Text textColor={"red"}>{errors.whatsapp.message}</Text>
+                        )}
+                      </Box>
+                      <Box w={["full", "14em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          ID LINE
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            {...register("idLine", {
+                              required: "ID Line harap diisi",
+                            })}
+                            size={"md"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={"ID Line"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"text"}
+                            name={"idLine"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={"full"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                        </InputGroup>
+                        {errors.idLine !== undefined && (
+                          <Text textColor={"red"}>{errors.idLine.message}</Text>
+                        )}
+                      </Box>
+                      <Box w={["full", "18em"]}>
+                        <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Instagram
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            {...register("instagram", {
+                              required: "Instagram harap diisi",
+                            })}
+                            size={"md"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={"Username Instagram"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"text"}
+                            name={"instagram"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={"full"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                        </InputGroup>
+                        {errors.instagram !== undefined && (
+                          <Text textColor={"red"}>{errors.instagram.message}</Text>
+                        )}
+                      </Box>
+                    </Stack>
                   </Stack>
-                  <Stack direction={["column", "row"]} spacing={[5, 4]}>
-                    <Box w={["full", "32em", "32em", "32em", "32em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Program Studi
-                      </FormLabel>
-                      <Select size={"md"} borderColor={"#E2E8F0"} placeholder={"Pilih prodi"} name={"name"} textColor={"black"} border={"solid"} borderRadius={"full"} _hover={{ border: "solid #CBD5E0" }}>
-                        <option value="option1">Option 1</option>
-                        <option value="option2">Option 2</option>
-                        <option value="option3">Option 3</option>
-                      </Select>
-                    </Box>
-                    <Box w={["full", "18em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Angkatan
-                      </FormLabel>
-                      <InputGroup>
-                        <Select size={"md"} borderColor={"#E2E8F0"} placeholder={"2021"} name={"name"} textColor={"black"} border={"solid"} borderRadius={"full"} _hover={{ border: "solid #CBD5E0" }}>
-                          <option value="option1">Option 1</option>
-                          <option value="option2">Option 2</option>
-                          <option value="option3">Option 3</option>
-                        </Select>
-                      </InputGroup>
-                    </Box>
-                  </Stack>
-                  <Stack direction={["column", "row"]} spacing={[5, 4]}>
-                    <Box w={["full"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Email Student
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                          size={"md"}
-                          borderRight={"none"}
-                          borderColor={"#E2E8F0"}
-                          placeholder={"Email"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"text"}
-                          name={"name"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={"full"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                        <InputRightAddon fontSize={"sm"} p={3} children={"@student.umn.ac.id"} bgColor={"#F7B70C"} color={"white"} borderRightRadius={"full"} />
-                      </InputGroup>
-                    </Box>
-                  </Stack>
-                  <Stack direction={["column", "row"]} spacing={[5, 4]}>
-                    <Box w={["full", "17em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Whatsapp
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                          size={"md"}
-                          borderColor={"#E2E8F0"}
-                          placeholder={"Nomor WhatsApp"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"text"}
-                          name={"name"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={"full"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                      </InputGroup>
-                    </Box>
-                    <Box w={["full", "14em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        ID LINE
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                          size={"md"}
-                          borderColor={"#E2E8F0"}
-                          placeholder={"ID LINE"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"text"}
-                          name={"name"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={"full"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                      </InputGroup>
-                    </Box>
-                    <Box w={["full", "18em"]}>
-                      <FormLabel display={["none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Instagram
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                          size={"md"}
-                          borderColor={"#E2E8F0"}
-                          placeholder={"Username Instagram"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"text"}
-                          name={"name"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={"full"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                      </InputGroup>
-                    </Box>
-                  </Stack>
-                </Stack>
-              </FormControl>
-              <Flex w={"100%"} justifyContent={"center"} mt={"2em"}>
-                <Button w={["full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#fff"} colorScheme={"orange"} bgColor={"#F7B70C"}>
-                  DAFTAR
-                </Button>
-              </Flex>
-            </form>
+                </FormControl>
+                <Flex w={"100%"} justifyContent={"center"} mt={"2em"}>
+                  {isButtonLoading === true ? (
+                    <Button isLoading w={["full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#fff"} colorScheme={"orange"} bgColor={"#F7B70C"}>
+                      DAFTAR
+                    </Button>
+                  ) : (
+                    <Button w={["full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#fff"} colorScheme={"orange"} bgColor={"#F7B70C"}>
+                      DAFTAR
+                    </Button>
+                  )}
+                </Flex>
+              </form>
+            </Box>
           </Box>
-        </Box>
-      </Flex>
-    );
-  };
-
-  const Footer = () => {
-    const router = useRouter();
-    return (
-      <Center position={["relative", "absolute"]} left={0} right={0} bottom={["", 0]} mb={["3vh", "5vh"]} mt={["8vh", "0"]}>
-        <Text color={"#1B4173"} fontSize={"sm"} fontWeight={"bold"}>
-          MAXIMA 2022
-        </Text>
-      </Center>
+        </Flex>
+      </>
     );
   };
 
   return (
-    <Layout>
+    <>
       <Flex minH={"100vh"} bgColor={"white"} bgImage={["", "", "", "/Register/register.jpg"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} zIndex={"0"}>
           <Box mt={"9vh"}>
@@ -319,11 +444,34 @@ const register: NextPage = () => {
           <Center position={["relative", "absolute"]} left={0} right={0} top={0} bottom={0}>
             <RegisterForm />
           </Center>
-          <Footer />
+          <Center position={["relative", "absolute"]} left={0} right={0} bottom={["", 0]} mb={["3vh", "5vh"]} mt={["8vh", "0"]}>
+            <Text color={"#1B4173"} fontSize={"sm"} fontWeight={"bold"}>
+              MAXIMA 2022
+            </Text>
+          </Center>
         </Box>
       </Flex>
-    </Layout>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+      />
+    </>
+    
   );
+};
+
+register.getInitialProps = async ({ query }: any) => {
+  const { ID } = query;
+  return {
+      ID,
+  };
 };
 
 export default register;
