@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 //importing local components
 import MaximaIcon from "../public/maximaIcon.svg";
@@ -16,6 +16,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { isExpired } from "react-jwt";
 import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
 import { useUserContext } from "../useContext/UserContext";
+import dynamic from "next/dynamic";
 
 const NavbarIcon = () => {
   return (
@@ -49,15 +50,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { name } = useUserContext();
 
-  // const loginController = () => {
-  //   const [login, setLogin] = useState('')
-  //   if (jwt && !isMyTokenExpired){
-  //     return linksData
-  //   } else {
-  //     return linksnotlog
-  //   }
-  // }
-
   const navbarController = () => {
     if (isOpen) {
       return setIsOpen(false);
@@ -65,55 +57,6 @@ const Navbar = () => {
       return setIsOpen(true);
     }
   };
-  
-  const linksData = [
-    {
-      name: "HoME",
-      href: "/home",
-    },
-    {
-      name: "STATE",
-      href: "/state",
-    },
-    {
-      name: "FAQ",
-      href: "/faq",
-    },
-    {
-      name: "About Us",
-      href: "/aboutus",
-    },
-  ];
-  
-  const linksnotlog = [
-    {
-      name: "HoME",
-      href: "/home",
-    },
-    {
-      name: "FAQ",
-      href: "/faq",
-    },
-    {
-      name: "About Us",
-      href: "/aboutus",
-    },
-  ]
-
-  const buttonData = [
-    {
-      name: "Log In",
-      href: "/login",
-    },
-    {
-      name: "Sign Up",
-      href: "/register",
-    },
-    {
-      name: "Log Out",
-      href: "/",
-    },
-  ];
 
   return (
     <>
@@ -136,82 +79,60 @@ const Navbar = () => {
                     bgColor={["#1B4173", "transparent"]}
                     borderRadius={"0 1.5em 1.5em 0"}
                   >
-                    {jwt && !isMyTokenExpired ? (
-                      <>
-                        {linksData.map((link: any, index: number) => (
-                          <Link href={link.href} key={index}>
-                            <Button
-                              color={"white"}
-                              variant={"none"}
-                              _hover={{
-                                color: "gray.300",
-                              }}
-                            >
-                              <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
-                                {link.name}
-                              </Text>
-                            </Button>
-                          </Link>
-                        ))}
-                      </>
-                    ) : (
-                      <>
-                        {linksnotlog.map((link: any, index: number) => (
-                            <Link href={link.href} key={index}>
-                              <Button
-                                color={"white"}
-                                variant={"none"}
-                                _hover={{
-                                  color: "gray.300",
-                                }}
-                              >
-                                <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
-                                  {link.name}
-                                </Text>
-                              </Button>
-                            </Link>
-                          ))}
-                        {/* <Link href={linksData[0].href}>
-                          <Button
-                            color={"white"}
-                            variant={"none"}
-                            _hover={{
-                              color: "gray.300",
-                            }}
-                          >
-                            <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
-                              {linksData[0].name}
-                            </Text>
-                          </Button>
-                        </Link>
-                        <Link href={linksData[2].href}>
-                          <Button
-                            color={"white"}
-                            variant={"none"}
-                            _hover={{
-                              color: "gray.300",
-                            }}
-                          >
-                            <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
-                              {linksData[2].name}
-                            </Text>
-                          </Button>
-                        </Link>
-                        <Link href={linksData[3].href}>
-                          <Button
-                            color={"white"}
-                            variant={"none"}
-                            _hover={{
-                              color: "gray.300",
-                            }}
-                          >
-                            <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
-                              {linksData[3].name}
-                            </Text>
-                          </Button>
-                        </Link> */}
-                      </>
+                    <Link href={'/home'}>
+                      <Button
+                        color={"white"}
+                        variant={"none"}
+                        _hover={{
+                          color: "gray.300",
+                        }}
+                      >
+                        <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
+                          HoME
+                        </Text>
+                      </Button>
+                    </Link>
+                    {jwt === '' && isMyTokenExpired ? (''):(
+                      <Link href={'/state'}>
+                        <Button
+                          color={"white"}
+                          variant={"none"}
+                          _hover={{
+                            color: "gray.300",
+                          }}
+                        >
+                          <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
+                            STATE
+                          </Text>
+                        </Button>
+                      </Link>
                     )}
+                    <Link href={'/faq'}>
+                      <Button
+                        color={"white"}
+                        variant={"none"}
+                        _hover={{
+                          color: "gray.300",
+                        }}
+                      >
+                        <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
+                          FAQ
+                        </Text>
+                      </Button>
+                    </Link>
+                    <Link href={'/aboutus'}>
+                      <Button
+                        color={"white"}
+                        variant={"none"}
+                        _hover={{
+                          color: "gray.300",
+                        }}
+                      >
+                        <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
+                          About Us
+                        </Text>
+                      </Button>
+                    </Link>
                   </Stack>
                 </Box>
               </Box>
@@ -221,11 +142,10 @@ const Navbar = () => {
         <Box>
           {jwt && !isMyTokenExpired ? (
             <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]} justifyContent={'center'} alignItems={'center'}>
-              <Box>
-                <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>{`${name}`}</Text>
+              <Box fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
+                {name}
               </Box>
-              <Box>
-                <Link href={buttonData[2].href}>
+              <Link href={'/'}>
                   <Button
                     size={["md", "sm", "md", "md", "lg"]}
                     borderRadius={"full"}
@@ -237,27 +157,22 @@ const Navbar = () => {
                       router.push("/");
                     }}
                   >
-                    <Text>{buttonData[2].name}</Text>
+                    Log Out
                   </Button>
                 </Link>
-              </Box>
             </Stack>
           ) : (
             <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]}>
-              <Box>
-                <Link href={buttonData[0].href}>
+              <Link href={'/login'}>
                   <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
-                    <Text>{buttonData[0].name}</Text>
+                    Log In
                   </Button>
                 </Link>
-              </Box>
-              <Box>
-                <Link href={buttonData[1].href}>
+              <Link href={'/register'}>
                   <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
-                    <Text>{buttonData[1].name}</Text>
+                    Sign Up
                   </Button>
                 </Link>
-              </Box>
             </Stack>
           )}
         </Box>
@@ -266,4 +181,6 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default dynamic(() => Promise.resolve(Navbar), { 
+  ssr: false 
+})
