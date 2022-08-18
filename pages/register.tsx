@@ -39,7 +39,6 @@ const register = () => {
   }, []);
 
   const onSubmit: SubmitHandler<any> = async (data: RegisData) => {
-<<<<<<< Updated upstream
     try {
       console.log(data);
       setIsButtonLoading(true);
@@ -58,42 +57,17 @@ const register = () => {
       await axios.post(`${process.env.API_URL}/api/mhs/register`, formData);
       Swal.fire("Selamat!", "Anda berhasil terdaftar!", "success");
       setIsButtonLoading(false);
-      //router.push('/login')
-    } catch (err: any) {
-=======
-    try{
-      setIsButtonLoading(true)
-      const formData = new FormData()
-      formData.append("nim", data.nim)
-      formData.append("name", data.name)
-      formData.append("tempatLahir", data.tempatLahir)
-      formData.append("tanggalLahir", data.tanggalLahir)
-      formData.append("prodi", data.prodi)
-      formData.append("angkatan", data.angkatan)
-      formData.append("email", data.email)
-      formData.append("password", data.password)
-      formData.append("whatsapp", data.whatsapp)
-      formData.append("line", data.idLine)
-      formData.append("instagram", data.idInstagram)
-      await axios.post(`${process.env.API_URL}/api/mhs/register`, formData)
-      Swal.fire(
-        'Selamat!',
-        'Anda berhasil terdaftar!',
-        'success'
-      )
-      setIsButtonLoading(false);
       router.push('/login')
-    } catch(err: any) {
->>>>>>> Stashed changes
+    } catch (err: any) {
       Swal.fire({
         icon: "error",
         title: `${err.response.data.message}`,
-      });
+      })
       console.log(err.response.data.message);
       setError(err.response.data.message);
       setIsButtonLoading(false);
     }
-  };
+  }
 
   const {
     register,
