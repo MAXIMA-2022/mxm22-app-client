@@ -20,6 +20,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import { isExpired } from "react-jwt";
 import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
 import { useUserContext } from "../useContext/UserContext";
+import axios from "axios";
 
 //typescript declaration
 // interface LinksProps {
@@ -234,12 +235,29 @@ const FullBorder = () => {
 }
 
 const Navbar = () => {
+  interface User{
+    nim: string
+    name: string
+  }
   const jwt = useReadLocalStorage<string | undefined>("token")
   const isMyTokenExpired = isExpired(jwt as string)
   const [, deleteToken] = useLocalStorage("token", "");
   const { deleteUserData } = useUserContext();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [user, setUser] = useState<User[]>([])
+
+  // useEffect(()=>{
+  //   try{
+  //     const fetchUser = async () => {
+  //       const res = await axios.get(`${process.env.API_URL}/api/mhs/${ID}`)
+  //       setUser(res.data)
+  //     }
+  //     fetchUser()
+  //   } catch(err: any) {
+  //     console.log(err)
+  //   }
+  // })
 
   const navbarController = () => {
     if (isOpen) {
@@ -281,10 +299,6 @@ const Navbar = () => {
       name: "Log Out",
       href: '/',
     },
-    {
-      name: "Profile",
-      href: '/profile',
-    }
   ];
 
   return (
@@ -292,7 +306,6 @@ const Navbar = () => {
       <FullBorder />
       <NavbarIcon />
       <Flex justifyContent={["center", "center", "center", "start", "start"]} flex={{ base: 0, sm: 1 }}>
-        {/* <NavbarLinks pathName={""} /> */}
         <Box>
           <Flex mx={["0", "0", "1.5em", "4em", "4em"]}>
             <Box>
@@ -379,6 +392,7 @@ const Navbar = () => {
         {jwt && !isMyTokenExpired ? (
           <Stack direction={"row"} spacing={[3,3,3,7,7]}>
             <Box>
+              {/* <Text>{user?.name}</Text> */}
               <Link href={buttonData[3].href}>
                 <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
                   <Text>{buttonData[3].name}</Text>
@@ -420,5 +434,12 @@ const Navbar = () => {
     </Flex>
   );
 };
+
+// Navbar.getInitialProps = async ({ query }: any) => {
+//   const { ID } = query;
+//   return {
+//       ID,
+//   };
+// };
 
 export default Navbar;

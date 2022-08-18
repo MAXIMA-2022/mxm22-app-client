@@ -10,7 +10,7 @@ import MaximaIconP from "../public/maximaIconP.svg";
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack } from "@chakra-ui/react";
 
-const Welcoming: NextPage = () => {
+const Welcoming = ({ID}: {ID: string}) => {
   const Header = () => {
     return (
       <Center>
@@ -111,5 +111,12 @@ const Welcoming: NextPage = () => {
     </Layout>
   );
 };
+
+// Welcoming.getInitialProps = async ({ query }: any) => {
+//   const { ID } = query;
+//   return {
+//       ID,
+//   };
+// };
 
 export default Welcoming;
