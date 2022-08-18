@@ -47,13 +47,14 @@ const register = () => {
       formData.append("name", data.name);
       formData.append("tempatLahir", data.tempatLahir);
       formData.append("tanggalLahir", data.tanggalLahir);
+      formData.append("jenisKelamin", data.jenisKelamin)
       formData.append("prodi", data.prodi);
       formData.append("angkatan", data.angkatan);
       formData.append("email", data.email);
       formData.append("password", data.password);
       formData.append("whatsapp", data.whatsapp);
-      formData.append("line", data.idLine);
-      formData.append("instagram", data.idInstagram);
+      formData.append("idLine", data.idLine);
+      formData.append("idInstagram", data.idInstagram);
       await axios.post(`${process.env.API_URL}/api/mhs/register`, formData);
       Swal.fire("Selamat!", "Anda berhasil terdaftar!", "success");
       setIsButtonLoading(false);
