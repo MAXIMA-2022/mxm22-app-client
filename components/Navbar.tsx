@@ -38,16 +38,6 @@ const NavbarIcon = () => {
 
 const FullBorder = () => {
   return <Flex display={["block"]} w={"150%"} position={"fixed"} mx={"-5em"} p={["3em", "3.2em"]} bgColor={"#1B4173"} border={"2px solid white"} shadow={"0 4px 4px rgb(0,0,0,0.25)"} opacity={"30%"} />;
-};
-
-{
-  /* <Flex as="nav" justifyContent="space-between" alignItems="center" p={["2em 1em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2.3em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}></Flex> */
-}
-
-{
-  /* <Flex justifyContent={["center", "start", "start", "start"]} flex={{ base: 0, sm: 1 }}>
-<NavbarLinks />
-</Flex> */
 }
 
 const Navbar = () => {
@@ -59,6 +49,15 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { name } = useUserContext();
 
+  // const loginController = () => {
+  //   const [login, setLogin] = useState('')
+  //   if (jwt && !isMyTokenExpired){
+  //     return linksData
+  //   } else {
+  //     return linksnotlog
+  //   }
+  // }
+
   const navbarController = () => {
     if (isOpen) {
       return setIsOpen(false);
@@ -66,7 +65,7 @@ const Navbar = () => {
       return setIsOpen(true);
     }
   };
-
+  
   const linksData = [
     {
       name: "HoME",
@@ -85,6 +84,21 @@ const Navbar = () => {
       href: "/aboutus",
     },
   ];
+  
+  const linksnotlog = [
+    {
+      name: "HoME",
+      href: "/home",
+    },
+    {
+      name: "FAQ",
+      href: "/faq",
+    },
+    {
+      name: "About Us",
+      href: "/aboutus",
+    },
+  ]
 
   const buttonData = [
     {
@@ -124,8 +138,8 @@ const Navbar = () => {
                   >
                     {jwt && !isMyTokenExpired ? (
                       <>
-                        {linksData.map((link: any, key: number) => (
-                          <Link href={link.href} key={key}>
+                        {linksData.map((link: any, index: number) => (
+                          <Link href={link.href} key={index}>
                             <Button
                               color={"white"}
                               variant={"none"}
@@ -142,7 +156,22 @@ const Navbar = () => {
                       </>
                     ) : (
                       <>
-                        <Link href={linksData[0].href}>
+                        {linksnotlog.map((link: any, index: number) => (
+                            <Link href={link.href} key={index}>
+                              <Button
+                                color={"white"}
+                                variant={"none"}
+                                _hover={{
+                                  color: "gray.300",
+                                }}
+                              >
+                                <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
+                                  {link.name}
+                                </Text>
+                              </Button>
+                            </Link>
+                          ))}
+                        {/* <Link href={linksData[0].href}>
                           <Button
                             color={"white"}
                             variant={"none"}
@@ -180,7 +209,7 @@ const Navbar = () => {
                               {linksData[3].name}
                             </Text>
                           </Button>
-                        </Link>
+                        </Link> */}
                       </>
                     )}
                   </Stack>
