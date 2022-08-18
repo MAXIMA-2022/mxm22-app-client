@@ -40,7 +40,6 @@ const register = () => {
 
   const onSubmit: SubmitHandler<any> = async (data: RegisData) => {
     try {
-      console.log(data);
       setIsButtonLoading(true);
       const formData = new FormData();
       formData.append("nim", data.nim);

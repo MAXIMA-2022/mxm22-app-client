@@ -8,31 +8,31 @@ const Footer = () => {
   const SocialMediaData = [
     {
       icon: "/organization/facebook.svg",
-      // link: HoMEInfo[0].linkFacebook,
+      link: "https://www.facebook.com/maximaumn",
     },
     {
       icon: "/organization/twitter.svg",
-      // link: HoMEInfo[0].linkTwitter,
+      link: "https://twitter.com/MaximaUMN",
     },
     {
       icon: "/organization/linkedin.svg",
-      // link: HoMEInfo[0].linkLinkedIn,
+      link: "https://www.linkedin.com/company/maxima-2022/",
     },
     {
       icon: "/organization/youtube.svg",
-      // link: HoMEInfo[0].linkYoutube,
+      link: "https://www.youtube.com/channel/UCjCWlaKQHnyhz-0hr7qQPYg",
     },
     {
       icon: "/organization/instagram.svg",
-      // link: HoMEInfo[0].linkInstagram,
+      link: "https://www.instagram.com/maximaumn/",
     },
     {
       icon: "/organization/tiktok.svg",
-      // link: HoMEInfo[0].linkTiktok,
+      link: "https://www.tiktok.com/@maximaumn",
     },
     {
       icon: "/organization/line.svg",
-      // link: HoMEInfo[0].linkLine,
+      link: "https://liff.line.me/1645278921-kWRPP32q/?accountId=vuu3203w",
     },
   ];
 
@@ -91,7 +91,7 @@ const Footer = () => {
                   {SocialMediaData.map((socialMedia: any, key: any) => (
                     <>
                       {socialMedia.link !== "" && (
-                        <a key={key} href={`${socialMedia.link}.com`} target={"_blank"} rel="noreferrer">
+                        <a key={key} href={`${socialMedia.link}`} target={"_blank"} rel="noreferrer">
                           <Center w={"auto"} transition={"0.1s ease-in-out"} transform={"scale(0.7)"} _hover={{ transform: "scale(0.8)", cursor: "pointer" }}>
                             <Img src={socialMedia.icon} w={["2.8em", "5.2em"]} bgColor={"white"} borderRadius={"full"} outline={"5px solid white"} />
                           </Center>
