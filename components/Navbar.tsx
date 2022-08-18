@@ -221,7 +221,7 @@ const NavbarIcon = () => {
 // };
 
 const FullBorder = () => {
-  return <Flex display={["block"]} w={"150%"} position={"fixed"} mx={"-5em"} p={["3em","3.2em"]} bgColor={"#1B4173"} border={"2px solid white"} shadow={"0 4px 4px rgb(0,0,0,0.25)"} opacity={"30%"} />;
+  return <Flex display={["block"]} w={"150%"} position={"fixed"} mx={"-5em"} p={["3em", "3.2em"]} bgColor={"#1B4173"} border={"2px solid white"} shadow={"0 4px 4px rgb(0,0,0,0.25)"} opacity={"30%"} />;
 };
 
 {
@@ -235,17 +235,17 @@ const FullBorder = () => {
 }
 
 const Navbar = () => {
-  interface User{
-    nim: string
-    name: string
+  interface User {
+    nim: string;
+    name: string;
   }
-  const jwt = useReadLocalStorage<string | undefined>("token")
-  const isMyTokenExpired = isExpired(jwt as string)
+  const jwt = useReadLocalStorage<string | undefined>("token");
+  const isMyTokenExpired = isExpired(jwt as string);
   const [, deleteToken] = useLocalStorage("token", "");
   const { deleteUserData } = useUserContext();
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [user, setUser] = useState<User[]>([])
+  const [user, setUser] = useState<User[]>([]);
 
   // useEffect(()=>{
   //   try{
@@ -297,7 +297,7 @@ const Navbar = () => {
     },
     {
       name: "Log Out",
-      href: '/',
+      href: "/",
     },
   ];
 
@@ -380,7 +380,7 @@ const Navbar = () => {
                           </Text>
                         </Button>
                       </Link>
-                    </>      
+                    </>
                   )}
                 </Stack>
               </Box>
@@ -390,7 +390,7 @@ const Navbar = () => {
       </Flex>
       <Box>
         {jwt && !isMyTokenExpired ? (
-          <Stack direction={"row"} spacing={[3,3,3,7,7]}>
+          <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]}>
             <Box>
               {/* <Text>{user?.name}</Text> */}
               <Link href={buttonData[3].href}>
@@ -401,19 +401,24 @@ const Navbar = () => {
             </Box>
             <Box>
               <Link href={buttonData[2].href}>
-                <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"} 
+                <Button
+                  size={["md", "sm", "md", "md", "lg"]}
+                  borderRadius={"full"}
+                  variant={"outline"}
+                  border={"2px solid white"}
                   onClick={() => {
                     deleteToken("");
                     deleteUserData();
                     router.push("/");
-                  }}>
+                  }}
+                >
                   <Text>{buttonData[2].name}</Text>
                 </Button>
               </Link>
             </Box>
           </Stack>
         ) : (
-          <Stack direction={"row"} spacing={[3,3,3,7,7]}>
+          <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]}>
             <Box>
               <Link href={buttonData[0].href}>
                 <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
@@ -421,7 +426,7 @@ const Navbar = () => {
                 </Button>
               </Link>
             </Box>
-            <Box >
+            <Box>
               <Link href={buttonData[1].href}>
                 <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
                   <Text>{buttonData[1].name}</Text>
