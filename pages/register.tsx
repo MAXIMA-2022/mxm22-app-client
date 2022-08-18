@@ -112,7 +112,7 @@ const register = () => {
               <Text fontSize={["md", "md", "md", "sm", "md"]} color={"#1B4173"} fontWeight={"medium"}>
                 Sudah punya akun?{" "}
                 <Link href={"/login"}>
-                  <span style={{ color: "#F7B70C", fontWeight: "bold" }}>Masuk</span>
+                  <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline" }}>Masuk</span>
                 </Link>
               </Text>
             </Center>
