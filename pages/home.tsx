@@ -5,6 +5,7 @@ import Link from "next/link";
 //importing local components
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import MaximaIconP2 from "../public/maximaIconP2.svg";
 
 //importing chakra ui components
@@ -17,13 +18,13 @@ const Home: NextPage = () => {
       <Flex minH={"100vh"} bgImage={["/HoME/HoMEP.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png"]} bgPosition={["center", "bottom", "bottom", "bottom"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"}>
           <Flex justifyContent={"center"} alignItems="center" p={["2em 1.8em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2em 3em"]} color="white" top={0} left={0} right={0} zIndex={1}>
-            <Box display={["block", "none"]}>
+            {/* <Box display={["block", "none"]}>
               <Center>
                 <Image src={MaximaIconP2} alt={"MaximaLogo"} />
               </Center>
-            </Box>
+            </Box> */}
           </Flex>
-          <Flex mt={"2em"} justifyContent={"end"} alignItems={"center"} ps={["4em", "0em", "0em"]} pe={["1.5em", "1.5em", "1.5em", "4.5em"]}>
+          <Flex mt={["5em", "2em"]} justifyContent={"end"} alignItems={"center"} ps={["4em", "0em", "0em"]} pe={["1.5em", "1.5em", "1.5em", "4.5em"]}>
             <Box>
               <Text color={"white"} align={"end"} fontSize={["55px", "7xl", "11vh", "7xl", "8xl"]} fontWeight={"bold"} textShadow={["0px 2px 2.5px rgb(0,0,0,0.7)"]}>
                 HoME
@@ -49,6 +50,9 @@ const Home: NextPage = () => {
           </Flex>
         </Box>
       </Flex>
+      <Box w={"full"} position={"absolute"}>
+        <Footer />
+      </Box>
     </Layout>
   );
 };

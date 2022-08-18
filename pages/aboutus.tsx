@@ -7,8 +7,7 @@ import React, { useState, useEffect, useRef } from "react";
 //importing local components
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
-import MaximaIconP from "../public/maximaIconP.svg";
-import MaximaIconP2 from "../public/maximaIconP2.svg";
+import Footer from "../components/Footer";
 
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Container } from "@chakra-ui/react";
@@ -59,11 +58,11 @@ const AboutUs: NextPage = () => {
     );
   };
 
-  const Footer = () => {
+  const BackButton = () => {
     const router = useRouter();
     return (
       <>
-        <Flex w={"6em"} m={["1rem 0rem", "3rem 1rem"]} position={"fixed"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+        <Flex w={["20%", "15%", "15%", "15%", "15%"]} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
           <Button
             variant={"none"}
             onClick={() => {
@@ -73,7 +72,7 @@ const AboutUs: NextPage = () => {
             <Center
               w={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
               h={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
-              mt={["0rem", "0rem", "0rem", "0rem", "0rem"]}
+              mb={["4.8rem"]}
               bgColor={"#062D5F"}
               border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
               borderRadius={"full"}
@@ -90,17 +89,25 @@ const AboutUs: NextPage = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["/AboutUs/AboutUsP.png", "/AboutUs/AboutUsP.png", "/AboutUs/AboutUsP.png", "/AboutUs/AboutUsLs.png", "/AboutUs/AboutUsLs.png"]} bgPosition={["center"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex
+        minH={"100vh"}
+        bgImage={["/AboutUs/AboutUsP.png", "/AboutUs/AboutUsP.png", "/AboutUs/AboutUsP.png", "/AboutUs/AboutUsLs.png", "/AboutUs/AboutUsLs.png"]}
+        mb={"4.9em"}
+        bgPosition={["center"]}
+        bgSize={"cover"}
+        bgRepeat={"no-repeat"}
+      >
         <Box w={"full"} zIndex={"0"}>
-          <Box display={["block", "block", "block", "none", "none"]} position={"absolute"} bottom={0}>
+          <Box display={["block", "none", "none", "none", "none"]} mb={["30.35rem", "45.35rem", "", "30.35rem", "30.35rem"]} position={"absolute"} bottom={0}>
             <Img src={"/AboutUs/maxi-xima_mobile.png"} />
           </Box>
           <Center>
             <Box
-              p={["1em 2em", "3em 5em", "1.5em 3em", "1em 3em", "4em 5em"]}
+              p={["1em 0.5em", "1em 0.5em", "1.5em 3em", "1em 3em", "4em 4em"]}
               mt={["17.5vh", "17.5vh", "16vh", "17vh", "14vh"]}
+              mb={["0", "3em", "0"]}
               w={["85%", "85%", "85%", "55%", "55%"]}
-              h={["77vh", "81vh", "76vh", "81vh", "83vh"]}
+              h={["77vh", "auto", "76vh", "81vh", "83vh"]}
               bgColor={"white"}
               borderRadius={"xl"}
               boxShadow={"0px 3px 3px 3px rgb(0,0,0,0.25)"}
@@ -136,6 +143,7 @@ const AboutUs: NextPage = () => {
           </Center>
         </Box>
       </Flex>
+      <BackButton />
       <Footer />
     </Layout>
   );

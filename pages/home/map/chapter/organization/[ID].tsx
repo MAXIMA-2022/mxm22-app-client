@@ -5,6 +5,7 @@ import axios from "axios";
 //importing local components
 import Layout from "../../../../../components/Layout";
 import Navbar from "../../../../../components/Navbar";
+import Footer from "../../../../../components/Footer";
 
 //importing chakra ui components
 import { Box, Flex, Center, Text, Button, Stack, Img, Wrap, Modal, ModalOverlay, ModalContent, useDisclosure, AspectRatio } from "@chakra-ui/react";
@@ -273,11 +274,11 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
     );
   };
 
-  const Footer = () => {
+  const BackButton = () => {
     const router = useRouter();
     return (
       <>
-        <Flex w={"10%"} m={["3.7rem 0rem", "6.7rem 1rem"]} position={"fixed"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+        <Flex w={"15%"} m={["3.7rem 0rem", "3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
           <Button
             variant={"none"}
             onClick={() => {
@@ -287,7 +288,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
             <Center
               w={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
               h={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
-              mt={["0rem", "0rem", "0rem", "0rem", "0rem"]}
+              mb={["4.8rem"]}
               bgColor={"#D01E20"}
               border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
               borderRadius={"full"}
@@ -296,13 +297,6 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
               <Img src={"/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
             </Center>
           </Button>
-        </Flex>
-        <Flex w={"full"} h={["5em", "8em"]} justifyContent={"center"} alignItems={"center"} bgColor={"#062D5F"}>
-          <Center>
-            <Text color={"white"} fontSize={"md"} textAlign={"center"} fontWeight={"extrabold"}>
-              HoME MAXIMA 2022
-            </Text>
-          </Center>
         </Flex>
       </>
     );

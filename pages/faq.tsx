@@ -7,8 +7,7 @@ import React, { useState, useEffect, useRef } from "react";
 //importing local components
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
-import MaximaIconP from "../public/maximaIconP.svg";
-import MaximaIconP2 from "../public/maximaIconP2.svg";
+import Footer from "../components/Footer";
 
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Tabs, TabList, TabPanels, Tab, TabPanel, Container, List, ListItem, ListIcon, OrderedList, UnorderedList } from "@chakra-ui/react";
@@ -59,11 +58,11 @@ const FAQ: NextPage = () => {
     );
   };
 
-  const Footer = () => {
+  const BackButton = () => {
     const router = useRouter();
     return (
       <>
-        <Flex w={"6em"} m={["1rem 0rem", "3rem 1rem"]} position={"fixed"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+        <Flex w={["20%", "15%", "15%", "15%", "15%"]} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
           <Button
             variant={"none"}
             onClick={() => {
@@ -73,7 +72,7 @@ const FAQ: NextPage = () => {
             <Center
               w={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
               h={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
-              mt={["0rem", "0rem", "0rem", "0rem", "0rem"]}
+              mb={["4.8rem"]}
               bgColor={"#F7B70C"}
               border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
               borderRadius={"full"}
@@ -90,17 +89,18 @@ const FAQ: NextPage = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["/AboutUs/FAQP.png", "/AboutUs/FAQP.png", "/AboutUs/FAQP.png", "/AboutUs/FAQLs.png", "/AboutUs/FAQLs.png"]} bgPosition={["center"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgImage={["/AboutUs/FAQP.png", "/AboutUs/FAQP.png", "/AboutUs/FAQP.png", "/AboutUs/FAQLs.png", "/AboutUs/FAQLs.png"]} mb={"4.9em"} bgPosition={["center"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} zIndex={"0"}>
-          <Box display={["block", "block", "block", "none", "none"]} position={"absolute"} bottom={0}>
+          <Box display={["block", "none", "none", "none", "none"]} mb={["30.35rem", "45.35rem", "", "30.35rem", "30.35rem"]} position={"absolute"} bottom={0}>
             <Img src={"/AboutUs/maxi-xima_mobile.png"} />
           </Box>
           <Center>
             <Box
-              p={["1em 0.5em", "3em 5em", "1.5em 3em", "1em 3em", "4em 4em"]}
+              p={["1em 0.5em", "1em 0.5em", "1.5em 3em", "1em 3em", "4em 4em"]}
               mt={["17.5vh", "17.5vh", "16vh", "17vh", "14vh"]}
+              mb={["0", "3em", "0"]}
               w={["85%", "85%", "85%", "55%", "55%"]}
-              h={["77vh", "81vh", "76vh", "81vh", "83vh"]}
+              h={["77vh", "auto", "76vh", "81vh", "83vh"]}
               bgColor={"white"}
               borderRadius={"xl"}
               boxShadow={"0px 3px 3px 3px rgb(0,0,0,0.25)"}
@@ -108,18 +108,18 @@ const FAQ: NextPage = () => {
               <Center w={"100%"} h={["100%"]}>
                 <Box w={"100%"}>
                   <Center mt={["1em", "1em", "0em", "1em", "1em"]}>
-                    <Img src={"/AboutUs/FAQ.png"} w={["5em", "15em", "15vw", "5em", "10em"]}></Img>
+                    <Img src={"/AboutUs/FAQ.png"} w={["5em", "5em", "15vw", "5em", "10em"]}></Img>
                   </Center>
-                  <Center display={["none", "block"]}>
+                  <Center display={["none", "none", "block"]}>
                     <Tabs variant="soft-rounded" isFitted>
                       <TabList w={"auto"} p={[" 0.5em 0.5em", " 0.5em 0.5em", " 0.5em 2em", " 0.5em 1em", " 0.5em 2em"]} bgColor={"rgb(247,183,21,0.21)"} borderRadius={"full"}>
-                        <Tab mx={["0.2em", "0.5em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "sm", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
+                        <Tab mx={["0.2em", "0.2em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "xs", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
                           HoME
                         </Tab>
-                        <Tab mx={["0.2em", "0.5em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "sm", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
+                        <Tab mx={["0.2em", "0.2em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "xs", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
                           STATE
                         </Tab>
-                        <Tab mx={["0.2em", "0.5em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "sm", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
+                        <Tab mx={["0.2em", "0.2em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "xs", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
                           Malam Puncak
                         </Tab>
                       </TabList>
@@ -169,7 +169,7 @@ const FAQ: NextPage = () => {
                       </TabPanels>
                     </Tabs>
                   </Center>
-                  <Center display={["block", "none"]}>
+                  <Center display={["block", "block", "none"]}>
                     <Tabs variant="soft-rounded" align={"center"}>
                       <TabList w={"auto"} p={[" 0.5em 0.5em", " 0.5em 0.5em", " 0.5em 2em", " 0.5em 1em", " 0.5em 2em"]} bgColor={"rgb(247,183,21,0.21)"} borderRadius={"full"}>
                         <Tab mx={["0.3em", "0.5em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "sm", "sm", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
@@ -183,16 +183,16 @@ const FAQ: NextPage = () => {
                         </Tab>
                       </TabList>
                       <TabPanels>
-                        <TabPanel h={"23em"} overflow={"auto"}>
+                        <TabPanel h={"auto"} overflow={"auto"}>
                           <Stack spacing={[1, 1, 2, 2, 3]}>
-                            <Text color={"#1B4173"} textAlign={"start"} fontSize={["13px", "md", "2.1vh", "sm", "lg"]} fontWeight={"extrabold"}>
+                            <Text color={"#1B4173"} textAlign={"start"} fontSize={["13px", "lg", "2.1vh", "sm", "lg"]} fontWeight={"extrabold"}>
                               Kapan HoME Maxima 2022 akan dilaksanakan?
                             </Text>
                             <Text color={"#1B4173"} textAlign={"start"} fontSize={["13px", "lg", "2.1vh", "sm", "lg"]}>
                               22-26 Agustus 2022
                             </Text>
                           </Stack>
-                          <Box mt={["0.5em", "1em", "1em", "1em", "1.5em"]}>
+                          <Box mt={["0.5em", "0.5em", "1em", "1em", "1.5em"]}>
                             <Text>
                               <Text color={"#1B4173"} textAlign={"start"} fontSize={["13px", "lg", "2.1vh", "sm", "lg"]} fontWeight={"extrabold"}>
                                 Bagaimana tata cara mengakses HoME MAXIMA 2022?
@@ -234,6 +234,7 @@ const FAQ: NextPage = () => {
           </Center>
         </Box>
       </Flex>
+      <BackButton />
       <Footer />
     </Layout>
   );

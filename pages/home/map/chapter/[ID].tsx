@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 //importing local components
 import Layout from "../../../../components/Layout";
 import Navbar from "../../../../components/Navbar";
+import Footer from "../../../../components/Footer";
 
 //importing chakra ui components
 import { Box, Flex, Center, Text, Button, Img, Wrap, WrapItem } from "@chakra-ui/react";
@@ -51,9 +52,7 @@ const Organization = ({ ID }: { ID: string }) => {
 
   const Body = () => {
     return (
-      <Center 
-      mt={["10vh","0vh","25vh", "25vh", "25vh"]} mb={"15vh"} 
-      zIndex={"4"} bgColor={'white'}>
+      <Center mt={["10vh", "0vh", "25vh", "25vh", "25vh"]} mb={"15vh"} zIndex={"4"} bgColor={"white"}>
         <Box w={["30em", "40em"]}>
           <Center my={"3em"}>
             <Text display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["extrabold", "bold"]}>
@@ -67,35 +66,35 @@ const Organization = ({ ID }: { ID: string }) => {
             {organizationData.map((item: any) => {
               return (
                 <>
-                    <Link href={`/home/map/chapter/organization/${item.search_key}`} key={item.id}>
+                  <Link href={`/home/map/chapter/organization/${item.search_key}`} key={item.id}>
                     <WrapItem
-                        p={["auto", "0.8em"]}
-                        bgColor={"white"}
-                        borderRadius={["2xl", "lg"]}
-                        shadow={"md"}
-                        transition={"0.1s ease-in-out"}
-                        cursor={"pointer"}
-                        _hover={{
+                      p={["auto", "0.8em"]}
+                      bgColor={"white"}
+                      borderRadius={["2xl", "lg"]}
+                      shadow={"md"}
+                      transition={"0.1s ease-in-out"}
+                      cursor={"pointer"}
+                      _hover={{
                         transform: "scale(1.05)",
-                        }}
+                      }}
                     >
-                        <Center>
+                      <Center>
                         <Box>
-                            <Center>
+                          <Center>
                             <Box w={["9em", "10em"]} h={["9em", "10em"]}>
-                                <Img src={item.linkLogo} borderRadius={["2xl", "none"]} />
+                              <Img src={item.linkLogo} borderRadius={["2xl", "none"]} />
                             </Box>
-                            </Center>
-                            <Center w={"10em"} my={["0.5em", "1em"]}>
+                          </Center>
+                          <Center w={"10em"} my={["0.5em", "1em"]}>
                             <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                {item.name}
+                              {item.name}
                             </Text>
-                            </Center>
+                          </Center>
                         </Box>
-                        </Center>
+                      </Center>
                     </WrapItem>
-                    </Link>
-                </>  
+                  </Link>
+                </>
               );
             })}
           </Wrap>
@@ -104,11 +103,11 @@ const Organization = ({ ID }: { ID: string }) => {
     );
   };
 
-  const Footer = () => {
+  const BackButton = () => {
     const router = useRouter();
     return (
       <>
-        <Flex m={["3.5rem 1rem", "3rem 1rem"]} position={"fixed"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+        <Flex w={"15%"} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
           <Button
             variant={"none"}
             onClick={() => {
@@ -116,24 +115,17 @@ const Organization = ({ ID }: { ID: string }) => {
             }}
           >
             <Center
-              w={["3.5rem", "5rem", "4rem", "4rem", "4rem"]}
-              h={["3.5rem", "5rem", "4rem", "4rem", "4rem"]}
-              mt={["0rem", "-rem", "0rem", "0rem", "0rem"]}
+              w={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
+              h={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
+              mb={["4.8rem"]}
               bgColor={"#D01E20"}
-              border={["6px solid white", "6px solid white", "4px solid white", "4px solid white", "4px solid white"]}
+              border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
               borderRadius={"full"}
               shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
             >
-              <Img src={"/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["2rem", "2rem", "2rem", "2rem", "2rem"]} />
+              <Img src={"/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
             </Center>
           </Button>
-        </Flex>
-        <Flex w={"full"} h={["5em", "8em"]} justifyContent={"center"} alignItems={"center"} bgColor={"#062D5F"}>
-          <Center>
-            <Text color={"white"} fontSize={"md"} textAlign={"center"} fontWeight={"extrabold"}>
-              HoME MAXIMA 2022
-            </Text>
-          </Center>
         </Flex>
       </>
     );
@@ -153,7 +145,8 @@ const Organization = ({ ID }: { ID: string }) => {
       >
         <Box w={"full"} zIndex={"0"}>
           <Header />
-          <Body/>
+          <Body />
+          <BackButton />
           <Footer />
         </Box>
       </Flex>
@@ -162,10 +155,10 @@ const Organization = ({ ID }: { ID: string }) => {
 };
 
 Organization.getInitialProps = async ({ query }: any) => {
-    const { ID } = query;
-    return {
-        ID,
-    };
+  const { ID } = query;
+  return {
+    ID,
+  };
 };
 
 export default Organization;

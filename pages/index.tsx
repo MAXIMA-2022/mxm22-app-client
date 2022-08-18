@@ -5,6 +5,7 @@ import Link from "next/link";
 //importing local components
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import MaximaIconP from "../public/maximaIconP.svg";
 
 //importing chakra ui components
@@ -85,7 +86,7 @@ const Welcoming = ({ID}: {ID: string}) => {
     );
   };
 
-  const Footer = () => {
+  const FooterMessage = () => {
     return (
       <Box position={"absolute"} left={0} bottom={0} right={0} mb={"2vh"}>
         <Center>
@@ -105,9 +106,12 @@ const Welcoming = ({ID}: {ID: string}) => {
           <Header />
           <FixedButton />
           <StartButton />
-          <Footer />
+          <FooterMessage />
         </Box>
       </Flex>
+      <Box w={"full"} position={"absolute"}>
+        <Footer />
+      </Box>
     </Layout>
   );
 };
