@@ -38,14 +38,14 @@ const Header = () => {
                     <Center>
                         <Box display={["block", "none"]} mr={5} mt={[250]}>
                         <Center mt={[25,50]}>
-                            <Img src={'/dialog-2.png'} width={125} height={[75]} alt={"MaximaLogo"} />
                             <Img src={'/dialog-3.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-2.png'} width={125} height={[75]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                         <Box display={["none", "block"]} mr={100} mt={[75]}>
                         <Center>
-                            <Img src={'/dialog-2.png'} width={[100,300, 225, 250]} height={[100,150,125,125]} alt={"MaximaLogo"} />
                             <Img src={'/dialog-3.png'} width={[100,300, 225, 250]} height={[100,150,125,125]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-2.png'} width={[100,300, 225, 250]} height={[100,150,125,125]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                     </Center> 
