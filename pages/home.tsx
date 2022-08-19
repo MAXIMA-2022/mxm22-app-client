@@ -9,13 +9,88 @@ import Footer from "../components/Footer";
 import MaximaIconP2 from "../public/maximaIconP2.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, Center, Heading, Img, Text, Button } from "@chakra-ui/react";
+import { useState } from "react";
 
 const Home: NextPage = () => {
+  const [count, setCount] = useState(0)
+  const Header = () => {
+    return(
+      <>
+        {count === 0 ? (
+          <>
+            <Center>
+              <Box display={["block", "none"]} mr={5} mt={[250]}>
+                        <Center mt={[25,50]}>
+                            <Img src={'/dialog-8.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+                        </Center>
+                        </Box>
+                        <Box display={["none", "block"]} ml={250} mb={300}>
+                        <Center>
+                            <Img src={'/dialog-8.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
+                        </Center>
+                        </Box>
+            </Center>
+          </>
+        ):('')}
+        {count === 1 ? (
+          <>
+            <Center>
+              <Box display={["block", "none"]} mr={5} mt={[250]}>
+                        <Center mt={[25,50]}>
+                            <Img src={'/dialog-9.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+                        </Center>
+                        </Box>
+                        <Box display={["none", "block"]} ml={250} mb={300}>
+                        <Center>
+                            <Img src={'/dialog-9.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
+                        </Center>
+                        </Box>
+            </Center>
+          </>
+        ):('')}
+        {count === 2 ? (
+          <>
+            <Center>
+              <Box display={["block", "none"]} mr={5} mt={[250]}>
+                        <Center mt={[25,50]}>
+                            <Img src={'/dialog-9.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-10.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+                        </Center>
+                        </Box>
+                        <Box display={["none", "block"]} ml={250} mb={300}>
+                        <Center>
+                            <Img src={'/dialog-9.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-10.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
+                        </Center>
+                        </Box>
+            </Center>
+          </>
+        ):('')}
+      </>
+    )
+  }
+  const FooterMessage = () => {
+    return (
+        <>
+            {count >= 3 ? (''):(
+                <>
+                    <Box position={"absolute"} left={0} bottom={0} right={0} mb={"2vh"}>
+                        <Center>
+                            <Text color={"white"} fontSize={["10px", "14px", "14px", "16px", "20px"]} fontWeight={"bold"} letterSpacing={1}>
+                                Click on your screen!
+                            </Text>
+                        </Center>
+                    </Box>
+                </>
+            )}     
+        </>
+    );
+  };
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["/HoME/HoMEP.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png"]} bgPosition={["center", "bottom", "bottom", "bottom"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex onClick={() => setCount(count + 1)} minH={"100vh"} bgImage={["/HoME/HoMEP.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png"]} bgPosition={["center", "bottom", "bottom", "bottom"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"}>
           <Flex justifyContent={"center"} alignItems="center" p={["2em 1.8em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2em 3em"]} color="white" top={0} left={0} right={0} zIndex={1}>
             {/* <Box display={["block", "none"]}>
@@ -24,7 +99,10 @@ const Home: NextPage = () => {
               </Center>
             </Box> */}
           </Flex>
-          <Flex mt={["5em", "2em"]} justifyContent={"end"} alignItems={"center"} ps={["4em", "0em", "0em"]} pe={["1.5em", "1.5em", "1.5em", "4.5em"]}>
+          <Header/>
+          {count >= 3 && (
+            <>
+              <Flex mt={["5em", "2em"]} justifyContent={"end"} alignItems={"center"} ps={["4em", "0em", "0em"]} pe={["1.5em", "1.5em", "1.5em", "4.5em"]}>
             <Box>
               <Text color={"white"} align={"end"} fontSize={["55px", "7xl", "11vh", "7xl", "8xl"]} fontWeight={"bold"} textShadow={["0px 2px 2.5px rgb(0,0,0,0.7)"]}>
                 HoME
@@ -48,7 +126,10 @@ const Home: NextPage = () => {
               </Box>
             </Box>
           </Flex>
+            </>
+          )}
         </Box>
+        <FooterMessage/>
       </Flex>
       <Box w={"full"} position={"absolute"}>
         <Footer />

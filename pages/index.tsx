@@ -58,7 +58,7 @@ const Welcoming = () => {
         <Stack mt={["6vh", "10vh"]} align={"stretch"} w={["6em", "7em", "9em", "10em", "10.5em"]} spacing={6} zIndex={99}>
           {linksData.map((link) => (
             <Link href={link.href} key={link.name}>
-              <Button bgColor={"#F7B70C"} size={["sm", "md", "md", "lg", "lg"]} borderRadius={"10em 0 0 10em"} shadow={"0 4px 4px rgb(0,0,0,0.25)"}>
+              <Button disabled bgColor={"#F7B70C"} size={["sm", "md", "md", "lg", "lg"]} borderRadius={"10em 0 0 10em"} shadow={"0 4px 4px rgb(0,0,0,0.25)"}>
                 <Text w={"full"} color={"white"} textAlign={"end"} fontSize={["xs", "sm", "md", "lg", "xl"]} fontWeight={"extrabold"}>
                   {link.name}
                 </Text>
@@ -74,7 +74,7 @@ const Welcoming = () => {
     return (
       <Box position={"absolute"} left={0} bottom={0} right={0} mb={["7vh", "15vh"]}>
         <Center>
-          <Link href={"/adventureBegin"}>
+          <Link href={"/dialogues"}>
             <Button size={"md"} px={"1.8em"} bgColor={"#F7B70C"} outline={"5px  solid rgb(210, 223, 165, 47%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
               <Text color={["#062D5F", "white"]} fontSize={"20px"} fontWeight={["black", "extrabold"]}>
                 START
