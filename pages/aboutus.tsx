@@ -10,9 +10,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Container } from "@chakra-ui/react";
+import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Container, useMediaQuery } from "@chakra-ui/react";
 
 const AboutUs: NextPage = () => {
+  const [isSmallerThan320] = useMediaQuery("(max-width: 320px)");
   const LinkButton = () => {
     const linkData = [
       {
@@ -62,7 +63,7 @@ const AboutUs: NextPage = () => {
     const router = useRouter();
     return (
       <>
-        <Flex w={["20%", "15%", "15%", "15%", "15%"]} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+        <Flex w={"auto"} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
           <Button
             variant={"none"}
             onClick={() => {
@@ -98,7 +99,7 @@ const AboutUs: NextPage = () => {
         bgRepeat={"no-repeat"}
       >
         <Box w={"full"} zIndex={"0"}>
-          <Box display={["block", "none", "none", "none", "none"]} mb={["30.35rem", "45.35rem", "", "30.35rem", "30.35rem"]} position={"absolute"} bottom={0}>
+          <Box display={isSmallerThan320 ? "none" : ["block", "none", "none", "none", "none"]} mb={["30.35rem", "45.35rem", "", "30.35rem", "30.35rem"]} position={"absolute"} bottom={0}>
             <Img src={"/AboutUs/maxi-xima_mobile.png"} />
           </Box>
           <Center>

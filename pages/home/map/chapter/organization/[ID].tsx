@@ -51,9 +51,9 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
     return (
       <>
         <Center position={"absolute"} mt={["6rem", "10rem", "9rem", "14rem", "14rem"]} top={0} bottom={0} left={0} right={0}>
-          <Box transform={["scale(0.35)", "scale(0.5)", "scale(0.8)", "scale(1.2)", "scale(1.5)"]} borderRadius={"xl"} zIndex={"1"}>
+          <Box  borderRadius={"xl"} zIndex={"1"}>
             {HoMEInfo.map((item: any) => {
-              return <Img key={item.homeID} src={item.linkLogo} borderRadius={"3em"} w={"430px"} h={"300px"} />;
+              return <Img key={item.homeID} src={item.linkLogo} boxSize={["100px","100px","200px","325px","400px"]}  />;
             })}
           </Box>
         </Center>
@@ -72,7 +72,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
                   <Stack my={"3em"} direction={"column"} spacing={"3em"}>
                     <Center>
                       <Text textAlign={"center"} display={["none", "block"]} color={"#062D5F"} fontSize={["lg", "lg", "2xl", "2xl", "3xl"]} fontWeight={["black", "bold"]}>
-                        Badan Executive Mahasiswa UMN
+                        {item.name}
                       </Text>
                       <Text textAlign={"center"} display={["block", "none"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["black", "bold"]}>
                         {item.name}
@@ -112,8 +112,10 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
 
   const Card = ({ images }: any) => (
     <Center>
-      <Box w={"100%"} h={"100%"} padding={"2rem"} borderRadius={"1rem"} color={"grey"} textAlign={"justify"} transition={"all 0.3 ease-out"}>
-        <Img src={images} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} borderRadius={["2xl", "xl", "xl", "xl", "xl"]} />
+      <Box w={"100%"} h={"100%"} borderRadius={"1rem"} color={"grey"} textAlign={"justify"} transition={"all 0.3 ease-out"}>
+        <Center w={"full"} h={"full"}>
+          <Img src={images} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} borderRadius={["2xl", "xl", "xl", "xl", "xl"]} />
+        </Center>
       </Box>
     </Center>
   );
@@ -132,7 +134,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
 
     return (
       <Box mt={"5em"}>
-        <Center>
+        <Center mb={"1.5em"}>
           <Text fontSize={"2xl"} color={"#062D5F"} fontWeight={"extrabold"}>
             Galeri Kami
           </Text>
@@ -146,7 +148,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
             )}
           </Center>
           <Center mx={["7em", "7em", "2em", "5em", "7em"]}>
-            <Box position={"relative"} w={["18rem", "18rem", "22rem", "30rem", "35rem"]} h={["11em", "11em", "14em", "19em", "22em"]} style={{ perspective: "500px", transformStyle: "preserve-3d" }} flex={1}>
+            <Box position={"relative"} w={["18rem", "18rem", "22rem", "30rem", "35rem"]} h={["11em", "11em", "14em", "19em", "22em"]} maxH={"22em"} transform={["scale(0.75)","scale(0.85)"]} style={{ perspective: "500px", transformStyle: "preserve-3d" }} flex={1}>
               {React.Children.map(children, (child, i) => (
                 <Box
                   className={"carousel"}

@@ -60,7 +60,7 @@ const Navbar = () => {
 
   return (
     <>
-      <Flex as="nav" justifyContent="space-between" alignItems="center" p={["1.5em 1em", "1em 0.5em", "1em 1.5em", "1em 1.5em", "1em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={1}>
+      <Flex as="nav" justifyContent="space-between" alignItems="center" p={["1.5em 1em", "1em 0.5em", "1em 1.5em", "1em 1.5em", "1em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={"999"}>
         <FullBorder />
         <NavbarIcon />
         <Flex justifyContent={["center", "center", "center", "start", "start"]} flex={{ base: 0, sm: 1 }}>
@@ -142,7 +142,7 @@ const Navbar = () => {
         <Box>
           {jwt && !isMyTokenExpired ? (
             <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]} justifyContent={'center'} alignItems={'center'}>
-              <Box fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
+              <Box fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"} zIndex={1}>
                 {name}
               </Box>
               <Link href={'/'}>

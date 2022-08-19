@@ -10,9 +10,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Tabs, TabList, TabPanels, Tab, TabPanel, Container, List, ListItem, ListIcon, OrderedList, UnorderedList } from "@chakra-ui/react";
+import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Tabs, TabList, TabPanels, Tab, TabPanel, Container, List, ListItem, ListIcon, OrderedList, UnorderedList, useMediaQuery } from "@chakra-ui/react";
 
 const FAQ: NextPage = () => {
+  const [isSmallerThan320] = useMediaQuery("(max-width: 320px)");
   const LinkButton = () => {
     const linkData = [
       {
@@ -62,7 +63,7 @@ const FAQ: NextPage = () => {
     const router = useRouter();
     return (
       <>
-        <Flex w={["20%", "15%", "15%", "15%", "15%"]} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+        <Flex w={"auto"} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
           <Button
             variant={"none"}
             onClick={() => {
@@ -91,16 +92,16 @@ const FAQ: NextPage = () => {
       <Navbar />
       <Flex minH={"100vh"} bgImage={["/AboutUs/FAQP.png", "/AboutUs/FAQP.png", "/AboutUs/FAQP.png", "/AboutUs/FAQLs.png", "/AboutUs/FAQLs.png"]} mb={"4.9em"} bgPosition={["center"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} zIndex={"0"}>
-          <Box display={["block", "none", "none", "none", "none"]} mb={["30.35rem", "45.35rem", "", "30.35rem", "30.35rem"]} position={"absolute"} bottom={0}>
+          <Box display={isSmallerThan320 ? "none" : ["block", "none", "none", "none", "none"]} mb={["30.35rem", "45.35rem", "", "30.35rem", "30.35rem"]} position={"absolute"} bottom={0}>
             <Img src={"/AboutUs/maxi-xima_mobile.png"} />
           </Box>
           <Center>
             <Box
               p={["1em 0.5em", "1em 0.5em", "1.5em 3em", "1em 3em", "4em 4em"]}
               mt={["17.5vh", "17.5vh", "16vh", "17vh", "14vh"]}
-              mb={["0", "3em", "0"]}
+              mb={isSmallerThan320 ? "2em" : ["0", "3em", "0"]}
               w={["85%", "85%", "85%", "55%", "55%"]}
-              h={["77vh", "auto", "76vh", "81vh", "83vh"]}
+              h={ isSmallerThan320 ? "auto" : ["77vh", "auto", "76vh", "81vh", "83vh"]}
               bgColor={"white"}
               borderRadius={"xl"}
               boxShadow={"0px 3px 3px 3px rgb(0,0,0,0.25)"}

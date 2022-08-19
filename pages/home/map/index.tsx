@@ -32,16 +32,30 @@ const Maps = (props: any) => {
 
   const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const infoController = () => {
+      if (isOpen) {
+        return setIsOpen(false);
+      } else {
+        return setIsOpen(true);
+      }
+    };
+
     return (
-      <Flex display={["block", "block", "block", "none", "none"]} m={"7rem 2rem"} position={"fixed"} right={0} zIndex={999}>
-        <Button variant={"none"}>
-          <Center w={"10rem"} h={"10rem"} bgColor={"#062D5F"} border={"10px solid white"} borderRadius={"full"}>
-            <Text color={"white"} fontSize={"7xl"} fontWeight={"black"}>
-              ?
-            </Text>
-          </Center>
-        </Button>
-      </Flex>
+      <>
+        <Flex display={["block", "block", "block", "none", "none"]} m={"7rem 2rem"} position={"fixed"} right={0} zIndex={999}>
+          <Button variant={"none"} onClick={infoController}>
+            <Center w={"10rem"} h={"10rem"} bgColor={"#062D5F"} border={"10px solid white"} borderRadius={"full"}>
+              <Text color={"white"} fontSize={"7xl"} fontWeight={"black"}>
+                ?
+              </Text>
+            </Center>
+          </Button>
+          <Box position={"fixed"} w={"auto"} ms={isOpen ? "-100vh" : "15rem"} transition={"0.5s ease-in-out"}>
+            <Img src={"/Maps/mapsPerson.svg"} w={"100vh"}/>
+          </Box>
+        </Flex>
+      </>
     );
   };
 

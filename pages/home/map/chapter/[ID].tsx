@@ -10,6 +10,7 @@ import Footer from "../../../../components/Footer";
 //importing chakra ui components
 import { Box, Flex, Center, Text, Button, Img, Wrap, WrapItem } from "@chakra-ui/react";
 import axios from "axios";
+import { link } from "fs";
 
 interface ListOrganization {
   id: number;
@@ -52,7 +53,7 @@ const Organization = ({ ID }: { ID: string }) => {
 
   const Body = () => {
     return (
-      <Center mt={["10vh", "0vh", "25vh", "25vh", "25vh"]} mb={"15vh"} zIndex={"4"} bgColor={"white"}>
+      <Center mt={["10vh", "0vh", "25vh", "25vh", "25vh"]} mb={"25vh"} zIndex={"4"} bgColor={"white"}>
         <Box w={["30em", "40em"]}>
           <Center my={"3em"}>
             <Text display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["extrabold", "bold"]}>
@@ -80,11 +81,11 @@ const Organization = ({ ID }: { ID: string }) => {
                     >
                       <Center>
                         <Box>
+                            <Box w={["9em", "10em"]} h={["9em", "10em"]} maxH={"10em"}>
                           <Center>
-                            <Box w={["9em", "10em"]} h={["9em", "10em"]}>
-                              <Img src={item.linkLogo} borderRadius={["2xl", "none"]} />
-                            </Box>
+                              <Img src={item.linkLogo} boxSize={"165px"} objectFit={"contain"} borderRadius={["2xl", "none"]} />
                           </Center>
+                            </Box>
                           <Center w={"10em"} my={["0.5em", "1em"]}>
                             <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
                               {item.name}
