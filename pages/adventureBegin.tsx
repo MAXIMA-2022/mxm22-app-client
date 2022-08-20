@@ -7,25 +7,26 @@ import Layout from "../components/Layout";
 import MaximaIconP from "../public/maximaIconP.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button, Img } from "@chakra-ui/react";
+import { Box, Flex, Center, Text, Button, Img, useMediaQuery } from "@chakra-ui/react";
 import { useState } from "react";
 
 const AdventureBegin: NextPage = () => {
   const [count, setCount] = useState(0)
+  const [isSmallerThan320] = useState(useMediaQuery("(max-width: 320px)"))
   const Dialogue = () => {
     return(
       <>
         {count === 0 ? (
           <>
             <Center>
-                        <Box display={["block", "none"]} mr={5} mt={[250]}>
-                        <Center mt={[25,50]}>
-                            <Img src={'/dialog-5.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+                        <Box display={["block", "none"]} ms={"1vh"} mb={["15vh"]}>
+                        <Center>
+                            <Img src={'/dialog-5.png'} width={185} height={65} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
-                        <Box display={["none", "block"]} ml={250} mb={300}>
+                        <Box display={["none", "block"]} ms={["15vh","2vh","5vh","10vh","15vh"]} mb={["20vh"]}>
                         <Center>
-                            <Img src={'/dialog-5.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-5.png'} width={[100, 300, 375, 525, 650]} height={[100,81,95,125,150]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                     </Center> 
@@ -34,14 +35,14 @@ const AdventureBegin: NextPage = () => {
         {count === 1 ? (
           <>
             <Center>
-                        <Box display={["block", "none"]} mr={5} mt={[250]}>
-                        <Center mt={[25,50]}>
-                            <Img src={'/dialog-6.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+                        <Box display={["block", "none"]} ms={"1vh"} mb={["15vh"]}>
+                        <Center>
+                            <Img src={'/dialog-6.png'} width={185} height={65} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
-                        <Box display={["none", "block"]} ml={250} mb={300}>
+                        <Box display={["none", "block"]} ms={["15vh","2vh","5vh","10vh","15vh"]} mb={["45vh","45vh","20vh","45vh","45vh"]}>
                         <Center>
-                            <Img src={'/dialog-6.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-6.png'} width={[100,300, 325, 525, 650]} height={[100,150,125,125,175]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                     </Center> 
@@ -50,19 +51,27 @@ const AdventureBegin: NextPage = () => {
         {count >= 2 && (
           <>
             <Center>
-                        <Box display={["block", "none"]} mr={5} mt={[250]}>
-                        <Center mt={[25,50]}>
-                            <Img src={'/dialog-6.png'} width={125} height={[75]} alt={"MaximaLogo"} />
-                            <Img src={'/dialog-7.png'} width={125} height={[75]} alt={"MaximaLogo"} />
-                        </Center>
+              <Box display={ isSmallerThan320 ? "none" : ["block", "block", "none"]}>
+                <Center>
+                  <Box w={"full"} position={"absolute"}>
+                  <Img src={'/dialog-6.png'} mb={["23vh","20vh","23vh"]} ms={["52vw","56vw","52vw"]} width={150} height={[75]} alt={"MaximaLogo"} />
+                  </Box>
+                  <Box w={"full"} position={"absolute"}>
+                    <Img src={'/dialog-7.png'} mt={["12vh","15vh","12vh"]} ms={["115vw","120vw","115vw","115vw","115vw"]} width={125} height={[50]} alt={"MaximaLogo"} />
+                  </Box>
+                </Center>
+                  </Box>
+                    <Box display={["none", "none","block"]} mb={["45vh"]}>
+                      <Center>
+                        <Box position={["absolute"]} me={["0","0","0","0","0"]} mt={["0","5vh","20vh","0","0"]}>
+                          <Img src={'/dialog-6.png'} ms={["25vw","25vw","25vw","25vw","25vw"]} width={[100,200, "35vw", 325, 550]} height={[100,100,"15vw", 135, 175]} alt={"MaximaLogo"} />
                         </Box>
-                        <Box display={["none", "block"]} ml={250} mb={300}>
-                        <Center>
-                            <Img src={'/dialog-6.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
-                          <Img src={'/dialog-7.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
-                        </Center>
+                        <Box position={["absolute"]} me={["0","0","0","0","0"]} mt={["0","5vh","62vh","40vh","40vh"]}>
+                          <Img src={'/dialog-7.png'} ms={["120vw","110vw","130vw","120vw","120vw"]} width={[100,300, "33vw", 325, 425]} height={[100,100,"15vw",100,125]} alt={"MaximaLogo"} />
                         </Box>
-                    </Center> 
+                    </Center>
+                  </Box>
+              </Center> 
           </>
         )}
       </>
@@ -75,7 +84,7 @@ const AdventureBegin: NextPage = () => {
                 <>
                     <Box position={"absolute"} left={0} bottom={0} right={0} mb={"2vh"}>
                         <Center>
-                            <Text color={"white"} fontSize={["10px", "14px", "14px", "16px", "20px"]} fontWeight={"bold"} letterSpacing={1}>
+                            <Text color={"white"} fontSize={["10px", "14px", "2.2vh", "16px", "20px"]} fontWeight={"bold"} letterSpacing={1}>
                                 Click on your screen!
                             </Text>
                         </Center>
@@ -91,8 +100,8 @@ const AdventureBegin: NextPage = () => {
       <Flex
         onClick={() => setCount(count + 1)}
         minH={"100vh"}
-        bgImage={["/HoME/AdventureBeginLs.png", "/HoME/AdventureBeginLs.png", "/HoME/AdventureBeginLs.png", "/HoME/AdventureBeginLs.png"]}
-        bgPosition={["center", "bottom", "bottom", "bottom"]}
+        bgImage={["/HoME/AdventureBeginP.jpg","/HoME/AdventureBeginP.jpg",  "/HoME/AdventureBeginP.jpg", "/HoME/AdventureBeginLs.png", "/HoME/AdventureBeginLs.png"]}
+        bgPosition={["center"]}
         bgSize={"cover"}
         bgRepeat={"no-repeat"}
       >

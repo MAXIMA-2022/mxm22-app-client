@@ -20,14 +20,14 @@ const Home: NextPage = () => {
         {count === 0 ? (
           <>
             <Center>
-              <Box display={["block", "none"]} mr={5} mt={[250]}>
-                        <Center mt={[25,50]}>
+              <Box display={["block","block", "none"]} mt={["52vh","40vh","52vh"]} me={["15vh","5vh","15vh"]}>
+                        <Center>
                             <Img src={'/dialog-8.png'} width={125} height={[75]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
-                        <Box display={["none", "block"]} ml={250} mb={300}>
+                        <Box display={["none","none", "block"]} ms={["15vh","15vh","15vh","10vh","15vh"]} mb={["0"]}>
                         <Center>
-                            <Img src={'/dialog-8.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
+                            <Img w={"full"} src={'/dialog-8.png'} mt={["35vh","35vh","38.5vh","30vh","35vh"]} me={"18vw"} width={[100, 300, "20vh", 175, 250]} height={[100,81,"13vh",125,150]}  alt={"MaximaLogo"} />
                         </Center>
                         </Box>
             </Center>
@@ -36,14 +36,14 @@ const Home: NextPage = () => {
         {count === 1 ? (
           <>
             <Center>
-              <Box display={["block", "none"]} mr={5} mt={[250]}>
-                        <Center mt={[25,50]}>
-                            <Img src={'/dialog-9.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+              <Box display={["block", "block", "none"]} mt={["52vh","32.5vh"]} me={["15vh","0vh"]}>
+                        <Center>
+                            <Img src={'/dialog-9.png'} width={150} height={[75]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
-                        <Box display={["none", "block"]} ml={250} mb={300}>
+                        <Box display={["none", "none", "block"]} ms={["15vh","2vh","5vh","10vh","15vh"]} mb={["0"]}>
                         <Center>
-                            <Img src={'/dialog-9.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
+                            <Img w={"full"} src={'/dialog-9.png'} mt={["35vh","35vh","30vh","23.5vh","28.5vh"]} me={"20vw"} width={[100, 300, "33vh", 275, 350]} height={[100,81,"18vh",150,175]}  alt={"MaximaLogo"} />
                         </Center>
                         </Box>
             </Center>
@@ -52,17 +52,27 @@ const Home: NextPage = () => {
         {count === 2 ? (
           <>
             <Center>
-              <Box display={["block", "none"]} mr={5} mt={[250]}>
-                        <Center mt={[25,50]}>
-                            <Img src={'/dialog-9.png'} width={125} height={[75]} alt={"MaximaLogo"} />
-                            <Img src={'/dialog-10.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+              <Box display={["block","block", "none"]}>
+                        <Center >
+                          <Box w={"full"} position={"absolute"}>
+                            <Img src={'/dialog-9.png'} mt={["115vh","75vh","115vh"]} ms={["10vw","39vw","52vw"]} width={150} height={[75]} alt={"MaximaLogo"} />
+                          </Box>
+                          <Box w={"full"} position={"absolute"} overflow={"hidden"}>
+                            <Img src={'/dialog-10.png'} mt={["117.5vh","85vh","12vh"]} ms={["78vw","105vh","115vw","115vw","115vw"]} width={[75,125,125]} height={[45,75,75]} alt={"MaximaLogo"} />
+                          </Box>
                         </Center>
                         </Box>
-                        <Box display={["none", "block"]} ml={250} mb={300}>
+                        <Box display={["none","none", "block"]} ms={["20vw","20vw","35.5vw","22.5vw","20vw"]}>
                         <Center>
-                            <Img src={'/dialog-9.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
-                            <Img src={'/dialog-10.png'} width={[100,300, 225, 500]} height={[100,150,125,125]} alt={"MaximaLogo"} />
-                        </Center>
+                        <Box position={["absolute"]}  mt={["0","5vh","20vh","0","0"]}>
+                          <Center>
+                              <Img w={"full"} src={'/dialog-9.png'} mt={["35vh","35vh","50vh","65vh","75vh"]} me={["30vw","30vw","40vw","35vw","30vw"]} width={[100, 300, "33vh", 275, 350]} height={[100,81,"18vh",150,175]}  alt={"MaximaLogo"} />
+                          </Center>
+                          </Box>
+                          <Box position={["absolute"]} overflow={"hidden"}>
+                              <Img src={'/dialog-10.png'} mt={["35vh","35vh","80vh","85vh","90vh"]} ms={["50vw","50vw","47.5vh","45vw","50vw"]}  width={[100, 300, "25vh", 225, 350]} height={[100,81,"14vh",125,175]} alt={"MaximaLogo"}  />
+                          </Box>
+                          </Center>
                         </Box>
             </Center>
           </>
@@ -77,7 +87,7 @@ const Home: NextPage = () => {
                 <>
                     <Box position={"absolute"} left={0} bottom={0} right={0} mb={"2vh"}>
                         <Center>
-                            <Text color={"white"} fontSize={["10px", "14px", "14px", "16px", "20px"]} fontWeight={"bold"} letterSpacing={1}>
+                            <Text color={"white"} fontSize={["10px", "14px", "2.2vh", "16px", "20px"]} fontWeight={"bold"} letterSpacing={1}>
                                 Click on your screen!
                             </Text>
                         </Center>
