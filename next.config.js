@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   reactStrictMode: true,
-  swcMinify: true,
-}
-
-module.exports = nextConfig
+  env: {
+    API_URL: process.env.API_URL,
+  },
+  images: {
+    domains: ["storage.googleapis.com"],
+  },
+};
