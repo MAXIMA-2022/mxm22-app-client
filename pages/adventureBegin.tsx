@@ -52,7 +52,7 @@ const AdventureBegin: NextPage = () => {
         {count >= 2 && (
           <>
             <Center>
-              <Box display={ isSmallerThan320 ? "none" : ["block", "block", "none"]}>
+              <Box display={["block", "block", "none"]}>
                 <Center>
                   <Box w={"full"} position={"absolute"}>
                   <Img src={'/dialog-6.png'} mb={["23vh","20vh","23vh"]} ms={["52vw","56vw","52vw"]} width={150} height={[75]} alt={"MaximaLogo"} />
