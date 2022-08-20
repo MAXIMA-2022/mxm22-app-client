@@ -802,7 +802,7 @@ const Footer = () => {
                                   </Flex>
                                 </Center>
                                 <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} mt={10} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
+                                  <Text color={"#062D5F"} fontSize={"md"} mt={10} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
                                     {item.name}
                                   </Text>
                                 </Center>
