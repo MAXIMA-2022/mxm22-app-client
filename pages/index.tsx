@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +8,7 @@ import Footer from "../components/Footer";
 import MaximaIconP from "../public/maximaIconP.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button, Stack } from "@chakra-ui/react";
+import { Box, Flex, Center, Text, Button, Stack } from "@chakra-ui/react";
 
 const Welcoming = () => {
   const Header = () => {
@@ -101,7 +100,7 @@ const Welcoming = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage="url['https://unsplash.com/s/photos/wall-background', 'https://unsplash.com/s/photos/wall-background', 'https://unsplash.com/s/photos/wall-background', 'https://unsplash.com/s/photos/wall-background']" bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgImage="https://storage.googleapis.com/mxm22-bucket-test/1667215277.jpg" bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           <Header />
           <FixedButton />

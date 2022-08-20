@@ -1,19 +1,16 @@
-import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 //importing local components
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import MaximaIconP2 from "../public/maximaIconP2.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Img, Text, Button } from "@chakra-ui/react";
+import { Box, Flex, Center, Img, Text, Button } from "@chakra-ui/react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const Home: NextPage = () => {
+const Home = () => {
   const [count, setCount] = useState(0)
   const Header = () => {
     return(
