@@ -52,7 +52,7 @@ const Maps = (props: any) => {
             </Center>
           </Button>
           <Box position={"fixed"} w={"auto"} ms={isOpen ? "-100vh" : "15rem"} transition={"0.5s ease-in-out"}>
-            <Img src={"/Maps/mapsPerson.svg"} w={"100vh"}/>
+            <Img src={"https://storage.googleapis.com/mxm22-bucket-test/Maps/mapsPerson.svg"} w={"100vh"}/>
           </Box>
         </Flex>
       </>
@@ -78,7 +78,7 @@ const Maps = (props: any) => {
           </Link>
         </Button>
         <Center display={["none", "none", "none", "block", "block"]}>
-          <Img src={"../Maps/mapsPerson.svg"} w={"80vh"} />
+          <Img src={"https://storage.googleapis.com/mxm22-bucket-test/Maps/mapsPerson.svg"} w={"80vh"} />
         </Center>
       </Flex>
     );
@@ -90,7 +90,7 @@ const Maps = (props: any) => {
         className={"maps"}
         width={isLargerThan1900 ? "215vh" : ["1920px", "1920px", "1920px", "1920px", "1920px"]}
         height={isLargerThan1900 ? "4000" : ["5429px", "5429px", "2885px", "2267px", "2267px"]}
-        bgImage={["../Maps/mhr3.jpg", "../Maps/mhr3.jpg", "../Maps/maps2.png", "../Maps/maps2.png", "../Maps/maps2.png"]}
+        bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Maps/mhr3.jpg", "https://storage.googleapis.com/mxm22-bucket-test/Maps/mhr3.jpg", "https://storage.googleapis.com/mxm22-bucket-test/Maps/Maps2.png", "https://storage.googleapis.com/mxm22-bucket-test/Maps/Maps2.png", "https://storage.googleapis.com/mxm22-bucket-test/Maps/Maps2.png"]}
         bgSize={"cover"}
         bgRepeat={"no-repeat"}
         overflow={"auto"}
