@@ -100,7 +100,7 @@ const Welcoming = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage="https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png" bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingP.png","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           <Header />
           <FixedButton />
