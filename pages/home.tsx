@@ -18,9 +18,9 @@ const Home = () => {
         {count === 0 ? (
           <>
             <Center>
-              <Box display={["block","block", "none"]} mt={["52vh","40vh","52vh"]} me={["15vh","5vh","15vh"]}>
+              <Box display={["block","block", "none"]} mt={["50vh","40vh","52vh"]} me={["18vh","5vh","15vh"]}>
                         <Center>
-                            <Img src={'/dialog-8.png'} width={125} height={[75]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-8.png'} width={150} height={[85]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                         <Box display={["none","none", "block"]} ms={["15vh","15vh","15vh","10vh","15vh"]} mb={["0"]}>
@@ -34,9 +34,9 @@ const Home = () => {
         {count === 1 ? (
           <>
             <Center>
-              <Box display={["block", "block", "none"]} mt={["52vh","32.5vh"]} me={["15vh","0vh"]}>
+              <Box display={["block", "block", "none"]} mt={["46vh","32.5vh"]} me={["20vh","0vh"]}>
                         <Center>
-                            <Img src={'/dialog-9.png'} width={150} height={[75]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-9.png'} width={200} height={[100]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                         <Box display={["none", "none", "block"]} ms={["15vh","2vh","5vh","10vh","15vh"]} mb={["0"]}>
@@ -53,10 +53,10 @@ const Home = () => {
               <Box display={["block","block", "none"]}>
                         <Center >
                           <Box w={"full"} position={"absolute"}>
-                            <Img src={'/dialog-9.png'} mt={["115vh","75vh","115vh"]} ms={["10vw","39vw","52vw"]} width={150} height={[75]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-9.png'} mt={["110vh","75vh","115vh"]} ms={["5vw","39vw","52vw"]} width={175} height={[100]} alt={"MaximaLogo"} />
                           </Box>
                           <Box w={"full"} position={"absolute"} overflow={"hidden"}>
-                            <Img src={'/dialog-10.png'} mt={["117.5vh","85vh","12vh"]} ms={["78vw","105vh","115vw","115vw","115vw"]} width={[75,125,125]} height={[45,75,75]} alt={"MaximaLogo"} />
+                            <Img src={'/dialog-10.png'} mt={["105vh","85vh","12vh"]} ms={["58vw","105vh","115vw","115vw","115vw"]} width={[150,125,125]} height={[85,75,75]} alt={"MaximaLogo"} />
                           </Box>
                         </Center>
                         </Box>
