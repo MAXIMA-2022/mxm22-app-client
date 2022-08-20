@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 //importing local components
 import MaximaIcon from "../public/maximaIcon.svg";
@@ -50,6 +51,20 @@ const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { name } = useUserContext();
+  const [toggle, setToggle] = useState(false);
+
+  useEffect(() => {
+    try {
+      const fetchHoME = async () => {
+        const response = await axios.get(`${process.env.API_URL}/api/toggle`);
+        setToggle(response.data);
+        console.log(response.data);
+      };
+      fetchHoME();
+    } catch (err: any) {
+      console.log(err);
+    }
+  }, []);
 
   const navbarController = () => {
     if (isOpen) {
@@ -179,7 +194,7 @@ const Navbar = () => {
           ) : (
             <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]}>
               <Link href={'/login'}>
-                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
+                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"} disabled = {toggle ? true : false}>
                     Log In
                   </Button>
                 </Link>
