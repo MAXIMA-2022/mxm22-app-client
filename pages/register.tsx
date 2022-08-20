@@ -10,7 +10,7 @@ import { useReadLocalStorage } from "usehooks-ts";
 import { isExpired } from "react-jwt";
 import Swal from "sweetalert2";
 
-const register = () => {
+const Register = () => {
   interface RegisData {
     nim: string;
     name: string;
@@ -468,4 +468,4 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;
