@@ -10,8 +10,6 @@ import Footer from "../../../../components/Footer";
 //importing chakra ui components
 import { Box, Flex, Center, Text, Button, Img, Wrap, WrapItem } from "@chakra-ui/react";
 import axios from "axios";
-import { link } from "fs";
-import { motion } from "framer-motion";
 
 interface ListOrganization {
   id: number;
@@ -65,20 +63,12 @@ const Organization = ({ ID }: { ID: string }) => {
             </Text>
           </Center>
           <Wrap spacing={"2em"} justify="center" py={"0.5em"}>
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ 
-                type: 'spring', 
-                bounce: 0.5 }}
-              exit={{ scale: 0 }}
-            >
             {organizationData.map((item: any) => {
               return (
                 <>
                   <Link href={`/home/map/chapter/organization/${item.search_key}`} key={item.id}>
                     <WrapItem
-                      p={["auto", "0.8em"]}
+                      p={["0.8em 0", "0.8em"]}
                       bgColor={"white"}
                       borderRadius={["2xl", "lg"]}
                       shadow={"md"}
@@ -90,9 +80,9 @@ const Organization = ({ ID }: { ID: string }) => {
                     >
                       <Center>
                         <Box>
-                            <Box w={["9em", "10em"]} h={["9em", "10em"]} maxH={"10em"}>
+                            <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
                           <Center>
-                              <Img src={item.linkLogo} boxSize={"165px"} objectFit={"contain"} borderRadius={["2xl", "none"]} />
+                              <Img src={item.linkLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "none"]} />
                           </Center>
                             </Box>
                           <Center w={"10em"} my={["0.5em", "1em"]}>
@@ -107,7 +97,6 @@ const Organization = ({ ID }: { ID: string }) => {
                 </>
               );
             })}
-            </motion.div>
           </Wrap>
         </Box>
       </Center>

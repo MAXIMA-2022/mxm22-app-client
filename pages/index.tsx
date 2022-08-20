@@ -101,7 +101,7 @@ const Welcoming = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["/Welcoming/HoMEWelcomingP.png", "/Welcoming/HoMEWelcomingLs.png", "/Welcoming/HoMEWelcomingLs.png", "/Welcoming/HoMEWelcomingLs.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgImage={["/Welcoming/HoMEWelcomingP.png", "https://unsplash.com/s/photos/wall-background", "https://unsplash.com/s/photos/wall-background", "https://unsplash.com/s/photos/wall-background"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           <Header />
           <FixedButton />
