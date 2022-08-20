@@ -149,7 +149,7 @@ const Register = () => {
                           NIM
                         </FormLabel>
                         <InputGroup>
-                          <InputLeftAddon fontSize={"sm"} m={"auto"} p={2} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
+                          <InputLeftAddon fontSize={"sm"} m={"auto"} p={2} children={["000000"]} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
                           <Input
                             {...register("nim", {
                               required: "NIM harap diisi",
@@ -327,7 +327,7 @@ const Register = () => {
                             borderRadius={"full"}
                             _hover={{ border: "solid #CBD5E0" }}
                           />
-                          <InputRightAddon fontSize={"sm"} p={3} children={"@student.umn.ac.id"} bgColor={"#F7B70C"} color={"white"} borderRightRadius={"full"} />
+                          <InputRightAddon fontSize={"sm"} p={3} children={["@student.umn.ac.id"]} bgColor={"#F7B70C"} color={"white"} borderRightRadius={"full"} />
                         </InputGroup>
                         {errors.email !== undefined && <Text textColor={"red"}>{errors.email.message}</Text>}
                       </Box>
