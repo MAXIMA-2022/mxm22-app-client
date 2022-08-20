@@ -9,6 +9,7 @@ import MaximaIconP from "../public/maximaIconP.svg";
 //importing chakra ui components
 import { Box, Flex, Center, Text, Button, Img, useMediaQuery } from "@chakra-ui/react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const AdventureBegin: NextPage = () => {
   const [count, setCount] = useState(0)
@@ -97,6 +98,11 @@ const AdventureBegin: NextPage = () => {
 
   return (
     <Layout>
+      <motion.div
+      initial={{ scaleY: 0 }}
+      animate={{ scaleY: 1}}
+      exit={{ scaleY: 0 }}
+      >
       <Flex
         onClick={() => setCount(count + 1)}
         minH={"100vh"}
@@ -137,7 +143,7 @@ const AdventureBegin: NextPage = () => {
         </Box>
         <FooterMessage />
       </Flex>
-      
+      </motion.div>
     </Layout>
   );
 };

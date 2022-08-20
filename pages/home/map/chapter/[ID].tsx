@@ -11,6 +11,7 @@ import Footer from "../../../../components/Footer";
 import { Box, Flex, Center, Text, Button, Img, Wrap, WrapItem } from "@chakra-ui/react";
 import axios from "axios";
 import { link } from "fs";
+import { motion } from "framer-motion";
 
 interface ListOrganization {
   id: number;
@@ -64,6 +65,14 @@ const Organization = ({ ID }: { ID: string }) => {
             </Text>
           </Center>
           <Wrap spacing={"2em"} justify="center" py={"0.5em"}>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ 
+                type: 'spring', 
+                bounce: 0.5 }}
+              exit={{ scale: 0 }}
+            >
             {organizationData.map((item: any) => {
               return (
                 <>
@@ -98,6 +107,7 @@ const Organization = ({ ID }: { ID: string }) => {
                 </>
               );
             })}
+            </motion.div>
           </Wrap>
         </Box>
       </Center>

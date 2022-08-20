@@ -9,6 +9,7 @@ import Footer from "../../../../../components/Footer";
 
 //importing chakra ui components
 import { Box, Flex, Center, Text, Button, Stack, Img, Wrap, Modal, ModalOverlay, ModalContent, useDisclosure, AspectRatio } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 
 //importing react-slick components
 interface HoMEDescription {
@@ -52,9 +53,18 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
       <>
         <Center position={"absolute"} mt={["6rem", "10rem", "9rem", "14rem", "14rem"]} top={0} bottom={0} left={0} right={0}>
           <Box  borderRadius={"xl"} zIndex={"1"}>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ 
+                type: 'spring', 
+                bounce: 0.5 }}
+              exit={{ scale: 0 }}
+            >
             {HoMEInfo.map((item: any) => {
               return <Img key={item.homeID} src={item.linkLogo} boxSize={["100px","100px","200px","325px","400px"]}  />;
             })}
+            </motion.div>
           </Box>
         </Center>
       </>

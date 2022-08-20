@@ -11,6 +11,7 @@ import Footer from "../components/Footer";
 
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Tabs, TabList, TabPanels, Tab, TabPanel, Container, List, ListItem, ListIcon, OrderedList, UnorderedList, useMediaQuery } from "@chakra-ui/react";
+import dynamic from "next/dynamic";
 
 const FAQ: NextPage = () => {
   const [isSmallerThan320] = useMediaQuery("(max-width: 320px)");
@@ -162,10 +163,10 @@ const FAQ: NextPage = () => {
                           </Box>
                         </TabPanel>
                         <TabPanel>
-                          <p>two!</p>
+                          <p>COMING SOON!</p>
                         </TabPanel>
                         <TabPanel>
-                          <p>three!</p>
+                          <p>COMING SOON!</p>
                         </TabPanel>
                       </TabPanels>
                     </Tabs>
@@ -221,10 +222,10 @@ const FAQ: NextPage = () => {
                           </Box>
                         </TabPanel>
                         <TabPanel h={"23em"} overflow={"auto"}>
-                          <p>two!</p>
+                          <p>COMING SOON!</p>
                         </TabPanel>
                         <TabPanel h={"23em"} overflow={"auto"}>
-                          <p>three!</p>
+                          <p>COMING SOON!</p>
                         </TabPanel>
                       </TabPanels>
                     </Tabs>
@@ -241,4 +242,7 @@ const FAQ: NextPage = () => {
   );
 };
 
-export default FAQ;
+export default dynamic(() => Promise.resolve(FAQ), { 
+  ssr: false 
+})
+

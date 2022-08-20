@@ -100,6 +100,7 @@ const Navbar = () => {
                           _hover={{
                             color: "gray.300",
                           }}
+                          disabled
                         >
                           <Text fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"}>
                             STATE

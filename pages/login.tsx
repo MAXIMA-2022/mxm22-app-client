@@ -42,6 +42,22 @@ const login = () => {
     );
   };
 
+  const forgotPass = () => {
+    Swal.fire({
+      title: '<strong>Lupa Password</strong>',
+      icon: 'info',
+      html:
+        'Silahkan chat melalui ' +
+        '<a href="https://www.instagram.com/maximaumn/"><b><u>sosial media</u></b></a> ' +
+        'MAXIMA UMN!',
+      showCloseButton: true,
+      focusConfirm: false,
+      confirmButtonText:
+        '<i class="fa fa-thumbs-up"></i> Okay!',
+      confirmButtonAriaLabel: 'Thumbs up, great!',
+    })
+  }
+
   const LoginForm = () => {
     useEffect(() => {
       if (jwt && !isMyTokenExpired) {
@@ -180,7 +196,7 @@ const login = () => {
                       <Box display={["none", "none", "block"]}>
                         <Link href={""}>
                           <Text fontSize={["sm"]} my={"0.5em"} color={"#1B4173"} fontWeight={"medium"}>
-                            Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Klik di sini</span>
+                            Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }} onClick={() => forgotPass()}>Klik di sini</span>
                           </Text>
                         </Link>
                       </Box>
