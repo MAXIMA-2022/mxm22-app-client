@@ -37,7 +37,7 @@ const Organization = ({ ID }: { ID: string }) => {
         <Center w={"full"} h={["32.5rem", "32.5rem", "53rem", "53rem", "67rem"]} />
         <Center position={"absolute"} left={0} right={0} top={0} bottom={0}>
           <Box mt={["25vh", "25vh", "23.5rem", "0rem", "8rem"]} position={"absolute"} transform={["scale(0.5)", "scale(0.5)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"2"}>
-            <Img src={`/organization/Computers/${ID.toLowerCase()}.png`} />
+            <Img src={`https://storage.googleapis.com/mxm22-bucket-test/Computers/${ID.toLowerCase()}.png`} />
           </Box>
           <Box mt={["35vh", "35vh", "35rem", "15rem", "25rem"]} position={"absolute"} transform={["scale(0.25)", "scale(0.25)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"3"}>
             <Img src={"/organization/chair.png"} />

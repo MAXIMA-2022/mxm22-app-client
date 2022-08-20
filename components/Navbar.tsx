@@ -179,12 +179,12 @@ const Navbar = () => {
           ) : (
             <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]}>
               <Link href={'/login'}>
-                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"} disabled>
+                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
                     Log In
                   </Button>
                 </Link>
               <Link href={'/register'}>
-                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"} disabled>
+                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
                     Sign Up
                   </Button>
                 </Link>
