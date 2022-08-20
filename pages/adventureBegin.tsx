@@ -100,13 +100,13 @@ const AdventureBegin: NextPage = () => {
     <Layout>
       <motion.div
       initial={{ scaleY: 0 }}
-      animate={{ scaleY: 1}}
+      animate={{ scaleY: 1 }}
       exit={{ scaleY: 0 }}
       >
       <Flex
         onClick={() => setCount(count + 1)}
         minH={"100vh"}
-        bgImage={["/HoME/AdventureBeginP.jpg","/HoME/AdventureBeginP.jpg",  "/HoME/AdventureBeginP.jpg", "/HoME/AdventureBeginLs.png", "/HoME/AdventureBeginLs.png"]}
+        bgImage={["https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.jpg","https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.jpg",  "https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.jpg", "https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.jpg", "https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginLs.png"]}
         bgPosition={["center"]}
         bgSize={"cover"}
         bgRepeat={"no-repeat"}
