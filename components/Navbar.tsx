@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 //importing local components
 import MaximaIcon from "../public/maximaIcon.svg";
+import MaximaIconP from "../public/maximaIconP2.svg";
 
 //importing local files
 
@@ -74,11 +75,24 @@ const Navbar = () => {
                     direction={["column", "row"]}
                     mt={["1em", "0em"]}
                     ms={["-1.8em", "0em"]}
-                    p={["1.5em 1em", "0em"]}
+                    p={["2em 1em 1.5em 1em", "0em"]}
                     spacing={[3, 0, 4, 9, 9]}
                     bgColor={["#1B4173", "transparent"]}
                     borderRadius={"0 1.5em 1.5em 0"}
                   >
+                    <Link href={'/'}>
+                      <Button
+                        color={"white"}
+                        variant={"none"}
+                        _hover={{
+                          color: "gray.300",
+                        }}
+                      >
+                        <Box display={["block", "none", "none", "none", "none"]} as={"a"} href="/">
+                          <Image src={MaximaIcon} alt="logo" width={"100px"} />
+                        </Box>
+                      </Button>
+                    </Link>
                     <Link href={'/home'}>
                       <Button
                         color={"white"}
@@ -165,12 +179,12 @@ const Navbar = () => {
           ) : (
             <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]}>
               <Link href={'/login'}>
-                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
+                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"} disabled>
                     Log In
                   </Button>
                 </Link>
               <Link href={'/register'}>
-                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"}>
+                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"} disabled>
                     Sign Up
                   </Button>
                 </Link>
