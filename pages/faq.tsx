@@ -91,10 +91,10 @@ const FAQ: NextPage = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["/AboutUs/FAQP.png", "/AboutUs/FAQP.png", "/AboutUs/FAQP.png", "/AboutUs/FAQLs.png", "/AboutUs/FAQLs.png"]} mb={"4.9em"} bgPosition={["center"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQP.png", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQP.png", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQP.png", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQLs.png", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQLs.png"]} mb={"4.9em"} bgPosition={["center"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} zIndex={"0"}>
           <Box display={isSmallerThan320 ? "none" : ["block", "none", "none", "none", "none"]} mb={["30.35rem", "45.35rem", "", "30.35rem", "30.35rem"]} position={"absolute"} bottom={0}>
-            <Img src={"/AboutUs/maxi-xima_mobile.png"} />
+            <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/maxi-xima_mobile.png"} />
           </Box>
           <Center>
             <Box
@@ -110,7 +110,7 @@ const FAQ: NextPage = () => {
               <Center w={"100%"} h={["100%"]}>
                 <Box w={"100%"}>
                   <Center mt={["1em", "1em", "0em", "1em", "1em"]}>
-                    <Img src={"/AboutUs/FAQ.png"} w={["5em", "5em", "15vw", "5em", "10em"]}></Img>
+                    <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUs.png"} w={["5em", "5em", "15vw", "5em", "10em"]}></Img>
                   </Center>
                   <Center display={["none", "none", "block"]}>
                     <Tabs variant="soft-rounded" isFitted>
@@ -241,6 +241,15 @@ const FAQ: NextPage = () => {
     </Layout>
   );
 };
+
+// export async function getStaticProps(){
+//   const { data } = await axios.get(`${process.env.API_URL}/api/chapter`)
+//   return{
+//     props:{
+//       data: data || {},
+//     }
+//   }
+// }
 
 export default dynamic(() => Promise.resolve(FAQ), { 
   ssr: false 
