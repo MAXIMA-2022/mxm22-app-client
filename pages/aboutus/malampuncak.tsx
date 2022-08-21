@@ -69,7 +69,7 @@ const MalamPuncak: NextPage = () => {
               <Center w={"100%"} h={["100%"]}>
                 <Box>
                   <Center mt={"0em"}>
-                    <Img src={"/AboutUs/malampuncak.png"} w={["10em", "15em", "40vw", "15em", "18em"]}></Img>
+                    <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/MalamPuncak.webp"} w={["10em", "15em", "40vw", "15em", "18em"]}></Img>
                   </Center>
                   <Center display={["none", "block"]}>
                     <Stack direction={"column"} spacing={[5, 5, 7, 5, 8]}>

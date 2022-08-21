@@ -69,7 +69,7 @@ const STATE: NextPage = () => {
               <Center w={"100%"} h={["100%"]}>
                 <Box>
                   <Center mt={"0em"}>
-                    <Img src={"/AboutUs/STATE.png"} w={["10em", "15em", "40vw", "15em", "25em"]}></Img>
+                    <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/STATE.webp"} w={["10em", "15em", "40vw", "15em", "25em"]}></Img>
                   </Center>
                   <Center display={["none", "block"]}>
                     <Stack direction={"column"} spacing={[8, 6, 7, 5, 8]}>

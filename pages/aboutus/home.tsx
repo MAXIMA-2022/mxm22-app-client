@@ -69,7 +69,7 @@ const HoME: NextPage = () => {
               <Center w={"100%"} h={["100%"]}>
                 <Box>
                   <Center mt={"0em"}>
-                    <Img src={"/AboutUs/HoME.png"} w={["12.5em", "10em", "40vw", "20em", "auto"]}></Img>
+                    <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/HoME.webp"} w={["12.5em", "10em", "40vw", "20em", "auto"]}></Img>
                   </Center>
                   <Center display={["none", "block"]}>
                     <Text fontSize={["md", "md", "2.5vh", "xl", "2xl"]} color={"#1B4173"} textAlign={"center"}>
