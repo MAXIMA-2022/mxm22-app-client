@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+// import Link from "next/link";
 
 //importing local components
 import Layout from "../components/Layout";
@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import MaximaIconP from "../public/maximaIconP.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Text, Button, Stack } from "@chakra-ui/react";
+import { Box, Flex, Center, Text, Button, Stack, Link } from "@chakra-ui/react";
 
 const Welcoming = () => {
   const Header = () => {
@@ -45,7 +45,7 @@ const Welcoming = () => {
     const linksData = [
       {
         name: "TWIBBON",
-        href: "/twibbon",
+        href: "https://twb.nz/homemaxima2022",
       },
       {
         name: "CAMPAIGN",
@@ -56,8 +56,8 @@ const Welcoming = () => {
       <Flex justifyContent={"end"} alignItems={"center"}>
         <Stack mt={["6vh", "10vh"]} align={"stretch"} w={["6em", "7em", "9em", "10em", "10.5em"]} spacing={6} zIndex={99}>
           {linksData.map((link) => (
-            <Link href={link.href} key={link.name}>
-              <Button disabled bgColor={"#F7B70C"} size={["sm", "md", "md", "lg", "lg"]} borderRadius={"10em 0 0 10em"} shadow={"0 4px 4px rgb(0,0,0,0.25)"}>
+            <Link href={link.href} key={link.name} isExternal>
+              <Button bgColor={"#F7B70C"} size={["sm", "md", "md", "lg", "lg"]} borderRadius={"10em 0 0 10em"} shadow={"0 4px 4px rgb(0,0,0,0.25)"}>
                 <Text w={"full"} color={"white"} textAlign={"end"} fontSize={["xs", "sm", "md", "lg", "xl"]} fontWeight={"extrabold"}>
                   {link.name}
                 </Text>
