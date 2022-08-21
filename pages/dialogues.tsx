@@ -22,12 +22,12 @@ const Header = () => {
                     <Center>
                         <Box display={["block", "none"]} mr={6} mt={"32vh"}>
                         <Center mt={[25,50]}>
-                            <Img src={'/dialog-1.png'} width={140} height={[85]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-1%20-%20rev.png'} width={140} height={[85]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                         <Box display={["none", "block"]} mr={85} mt={[55,55,"10vh",65,"8vh"]}>
                         <Center>
-                            <Img src={'/dialog-1.png'} width={[100, 300, "35vh", 245, 325]} height={[100, 150, "18vh", 115, 170]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-1%20-%20rev.png'} width={[100, 300, "35vh", 245, 325]} height={[100, 150, "18vh", 115, 170]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                     </Center> 
@@ -39,20 +39,20 @@ const Header = () => {
                         <Box display={["block", "none"]} mt={["40vh"]}>
                         <Center>
                             <Box me={"15vh"}>
-                                <Img src={'/dialog-3.png'} width={100} height={[50]} alt=   {"MaximaLogo"} />
+                                <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-3%20-%20rev.png'} width={100} height={[50]} alt=   {"MaximaLogo"} />
                             </Box>
                             <Box>
-                                <Img src={'/dialog-2.png'} width={100} height={[50]} alt={"MaximaLogo"} />
+                                <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-2%20-%20rev.png'} width={100} height={[50]} alt={"MaximaLogo"} />
                             </Box>
                         </Center>
                         </Box>
                         <Box display={["none", "block"]} mr={[100,0,0,100,100]} mt={["40vh","10vh","10vh","17vh","17vh"]}>
                         <Center>
                             <Box position={["relative","relative","absolute","relative","relative"]} me={["0","0","50vh","0","0"]} mt={["0","5vh","25vh","0","0"]}>
-                                <Img src={'/dialog-3.png'} width={[100,200, "22vh", 200, 250]} height={[100,100,"10vh",85,125]} alt={"MaximaLogo"} />
+                                <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-3%20-%20rev.png'} width={[100,200, "22vh", 200, 250]} height={[100,100,"10vh",85,125]} alt={"MaximaLogo"} />
                             </Box>
                             <Box position={["relative","relative","absolute","relative","relative"]} mt={["0","0","13vh","0","0"]} ms={["40vh","30vh","45vh","38vh","40vh"]}>
-                                <Img src={'/dialog-2.png'} width={[100,200, "30vh", 200, 250]} height={[100,100,"12vh",85,125]} alt={"MaximaLogo"} />
+                                <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-2%20-%20rev.png'} width={[100,200, "30vh", 200, 250]} height={[100,100,"12vh",85,125]} alt={"MaximaLogo"} />
                             </Box>
                         </Center>
                         </Box>
@@ -64,12 +64,12 @@ const Header = () => {
                     <Center>
                         <Box display={["block", "none"]} mr={6} mt={"32vh"}>
                         <Center mt={[25,50]}>
-                            <Img src={'/dialog-4.png'} width={140} height={[85]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-4%20-%20rev.png'} width={140} height={[85]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                         <Box display={["none", "block"]} mr={85} mt={[55,55,"10vh",65,"8vh"]}>
                         <Center>
-                            <Img src={'/dialog-4.png'} width={[100, 300, "35vh", 245, 325]} height={[100, 150, "18vh", 115, 170]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-4%20-%20rev.png'} width={[100, 300, "35vh", 245, 325]} height={[100, 150, "18vh", 115, 170]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                     </Center> 

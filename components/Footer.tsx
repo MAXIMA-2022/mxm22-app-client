@@ -299,63 +299,75 @@ const Footer = () => {
   const SponsorData = [
     {
       id: 1,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/PRUDENTIAL/PRU_Ribbon_Logo.png",
-      name: "Prudential",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/ILLUMINARE/LogoIlluminareJPG.jpg",
+      name: "Illuminare",
+      rank: "Plat",
     },
     {
       id: 2,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/ILLUMINARE/LogoIlluminareJPG.jpg",
-      name: "Illuminare",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/AVIONE/LOGO%20AVIONE%20BOLD-UNGU%20BARU.png",
+      name: "Avione",
+      rank: "Plat",
     },
     {
       id: 3,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/AVIONE/LOGO%20AVIONE%20BOLD-UNGU%20BARU.png",
-      name: "Avione",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/PRUDENTIAL/PRU_Ribbon_Logo.png",
+      name: "Prudential",
+      rank: 'Gold',
     },
     {
       id: 4,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/MAOMOTO/Maomoto%20logo%20Final.png",
-      name: "Maomoto",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/START%20SPACE/Start%20Space%20Logo.png",
+      name: "Start Space",
+      rank: "Gold"
     },
     {
       id: 5,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/PANDABOO/Logo%20Pandaboo%20a%20(2).png",
-      name: "Pandaboo",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/MAOMOTO/Maomoto%20logo%20Final.png",
+      name: "Maomoto",
+      rank: "Silver"
     },
     {
       id: 6,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/BANTEX/Bantex%20png.png",
-      name: "Bantex",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/PANDABOO/Logo%20Pandaboo%20a%20(2).png",
+      name: "Pandaboo",
+      rank: "Silver"
     },
     {
       id: 7,
-      icon: "",
-      name: "Lokalate",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/BANTEX/Bantex%20png.png",
+      name: "Bantex",
+      rank: "Silver"
     },
     {
       id: 8,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/BSM%20Entertainment/bsm%20logo.png",
-      name: "BSM Entertainment",
+      icon: "",
+      name: "Lokalate",
+      rank: "Silver"
     },
     {
       id: 9,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/START%20SPACE/Start%20Space%20Logo.png",
-      name: "Start Space",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/BSM%20Entertainment/bsm%20logo.png",
+      name: "BSM Entertainment",
+      rank: ""
     },
     {
       id: 10,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/NANOVEST/logo%20nanovest%20HD.png",
       name: "Nanovest",
+      rank: "Silver"
     },
     {
       id: 11,
       icon: "",
       name: "Huawei",
+      rank: ""
     },
     {
       id: 12,
       icon: "",
       name: "Gramedia",
+      rank: ""
     },
   ];
 
@@ -389,391 +401,109 @@ const Footer = () => {
                 </Wrap>
               </Center>
             </Box>
-            <Box>
-              <Text color={"white"} fontSize={"md"} textAlign={"center"} fontWeight={"extrabold"}>Our Sponsor</Text>
-              <Center>
-                <Wrap spacing={"1em"} justify="center">
-                  <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]}>
-                                    <Img src={SponsorData[0]?.icon} borderRadius={["2xl", "none"]} w={'200px'} h={'150px'}/>
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[0]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex 
-                                  //w={["9em", "10em"]} 
-                                  h={["9em", "10em"]}>
-                                    <Img src={SponsorData[1]?.icon} borderRadius={["2xl", "none"]} w={'200px'} h={'150px'}/>
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[1]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex 
-                                  // w={["9em", "10em"]} 
-                                  h={["9em", "10em"]}>
-                                    <Img src={SponsorData[2]?.icon} borderRadius={["2xl", "none"]} h={'200px'}/>
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Flex justifyContent={'center'} alignItems={'center'} w={["9em", "10em"]}>
-                                    <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                      {SponsorData[2]?.name}
-                                    </Text>
-                                  </Flex>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]} alignItems={'center'} justifyContent={'center'}>
-                                    <Img src={SponsorData[3]?.icon} borderRadius={["2xl", "none"]} w={'100px'} h={'100px'}/>
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[3]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]} alignItems={'center'} justifyContent={'center'}>
-                                    <Img src={SponsorData[4]?.icon} borderRadius={["2xl", "none"]} w={'100px'} h={'100px'}/>
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[4]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]} alignItems={'center'} justifyContent={'center'}>
-                                    <Img src={SponsorData[5]?.icon} borderRadius={["2xl", "none"]} h={'50px'}/>
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[5]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]}>
-                                    <Img src={SponsorData[6]?.icon} borderRadius={["2xl", "none"]} />
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[6]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]}>
-                                    <Img src={SponsorData[7]?.icon} borderRadius={["2xl", "none"]} />
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[7]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]}>
-                                    <Img src={SponsorData[8]?.icon} borderRadius={["2xl", "none"]} />
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[8]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]} justifyContent={"center"} alignItems={'center'}>
-                                    <Img src={SponsorData[9]?.icon} borderRadius={["2xl", "none"]} h={'50px'} />
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[9]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]}>
-                                    <Img src={SponsorData[10]?.icon} borderRadius={["2xl", "none"]} />
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[10]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            //bgColor={"#F7B70C"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                            w={'300px'}
-                            display={'flex'}
-                            justifyContent={"center"} alignItems={'center'}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
-                          >
-                            <Center>
-                              <Box padding={[10,0,0,0]}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]}>
-                                    <Img src={SponsorData[11]?.icon} borderRadius={["2xl", "none"]} />
-                                  </Flex>
-                                </Center>
-                                {/* <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#fff"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {SponsorData[11]?.name}
-                                  </Text>
-                                </Center> */}
-                              </Box>
-                            </Center>
-                          </WrapItem>
-                </Wrap>
-              </Center>
-            </Box>
+            <Text color={"white"} fontSize={"md"} textAlign={"center"} fontWeight={"extrabold"}>Our Sponsor</Text>
+            <Flex w={'full'} flexDirection={['column','column','row','row']} justifyContent={"center"} alignItems={'center'} p={5}>
+              {SponsorData.map((sd: any) => (
+                    <div key={sd.id}>
+                      {sd.icon !== '' && (
+                        <>
+                          {sd.rank === 'Plat' ? (
+                            <>
+                              <Flex
+                                p={["auto", "0.8em"]}
+                                borderRadius={["2xl", "lg"]}
+                                transition={"0.1s ease-in-out"}
+                                w={'300px'}
+                                h={'200px'}
+                                justifyContent={"center"}
+                                alignItems={'center'}
+                                //bgColor={'white'}
+                              >
+                                <Img src={sd.icon} borderRadius={["2xl", "none"]}/>
+                              </Flex>
+                            </>
+                          ):('')}
+                        </>
+                      )}
+                    </div>
+                  ))}
+            </Flex>
+            <Flex w={'full'} flexDirection={['column','column','row','row']} justifyContent={"center"} alignItems={'center'} p={5}>
+              {SponsorData.map((sd: any) => (
+                    <div key={sd.id}>
+                      {sd.icon !== '' && (
+                        <>
+                          {sd.rank === 'Gold' ? (
+                            <>
+                              <Flex
+                                p={["auto", "0.8em"]}
+                                borderRadius={["2xl", "lg"]}
+                                transition={"0.1s ease-in-out"}
+                                w={'300px'}
+                                h={'200px'}
+                                justifyContent={"center"}
+                                alignItems={'center'}
+                                //bgColor={'white'}
+                              >
+                                <Img src={sd.icon} borderRadius={["2xl", "none"]} h={'125px'}/>
+                              </Flex>
+                            </>
+                          ):('')}
+                        </>
+                      )}
+                    </div>
+                  ))}
+            </Flex>
+            <Flex w={'full'} flexDirection={['column','column','row','row']} justifyContent={"center"} alignItems={'center'} p={5}>
+              <Flex
+                p={["auto", "0.8em"]}
+                borderRadius={["2xl", "lg"]}
+                transition={"0.1s ease-in-out"}
+                w={'300px'}
+                h={'200px'}
+                justifyContent={"center"}
+                alignItems={'center'}
+                //bgColor={'white'}
+              >
+                <Img src={SponsorData[4]?.icon} borderRadius={["2xl", "none"]} h={'75px'}/>
+              </Flex>
+              <Flex
+                p={["auto", "0.8em"]}
+                borderRadius={["2xl", "lg"]}
+                transition={"0.1s ease-in-out"}
+                w={'300px'}
+                h={'200px'}
+                justifyContent={"center"}
+                alignItems={'center'}
+                //bgColor={'white'}
+              >
+                <Img src={SponsorData[5]?.icon} borderRadius={["2xl", "none"]} h={'75px'}/>
+              </Flex>
+              <Flex
+                p={["auto", "0.8em"]}
+                borderRadius={["2xl", "lg"]}
+                transition={"0.1s ease-in-out"}
+                w={'300px'}
+                h={'200px'}
+                justifyContent={"center"}
+                alignItems={'center'}
+                //bgColor={'white'}
+              >
+                <Img src={SponsorData[6]?.icon} borderRadius={["2xl", "none"]} h={'50px'}/>
+              </Flex>
+              <Flex
+                p={["auto", "0.8em"]}
+                borderRadius={["2xl", "lg"]}
+                transition={"0.1s ease-in-out"}
+                w={'300px'}
+                h={'200px'}
+                justifyContent={"center"}
+                alignItems={'center'}
+                //bgColor={'white'}
+              >
+                <Img src={SponsorData[9]?.icon} borderRadius={["2xl", "none"]} h={'50px'}/>
+              </Flex>
+            </Flex>
             <Box mt={5}>
               <Text color={"white"} fontSize={"md"} textAlign={"center"} fontWeight={"extrabold"}>Our Media Partner</Text>
               <Center>
@@ -788,11 +518,6 @@ const Footer = () => {
                             shadow={"md"}
                             transition={"0.1s ease-in-out"}
                             cursor={"pointer"}
-                            _hover={
-                              {
-                                //   transform: "scale(1.05)",
-                              }
-                            }
                           >
                             <Center>
                               <Box pt={10}>
