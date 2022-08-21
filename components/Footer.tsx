@@ -1,6 +1,15 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { Box, Flex, Button, Center, Img, Text, Wrap, WrapItem } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Button,
+  Center,
+  Img,
+  Text,
+  Wrap,
+  WrapItem,
+} from "@chakra-ui/react";
 
 const Footer = () => {
   const router = useRouter();
@@ -294,7 +303,7 @@ const Footer = () => {
     //   icon: "",
     //   name: "HIMFERA",
     // },
-  ]
+  ];
 
   const SponsorData = [
     {
@@ -313,71 +322,82 @@ const Footer = () => {
       id: 3,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/PRUDENTIAL/PRU_Ribbon_Logo.png",
       name: "Prudential",
-      rank: 'Gold',
+      rank: "Gold",
     },
     {
       id: 4,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/START%20SPACE/Start%20Space%20Logo.png",
       name: "Start Space",
-      rank: "Gold"
+      rank: "Gold",
     },
     {
       id: 5,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/MAOMOTO/Maomoto%20logo%20Final.png",
       name: "Maomoto",
-      rank: "Silver"
+      rank: "Silver",
     },
     {
       id: 6,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/PANDABOO/Logo%20Pandaboo%20a%20(2).png",
       name: "Pandaboo",
-      rank: "Silver"
+      rank: "Silver",
     },
     {
       id: 7,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/BANTEX/Bantex%20png.png",
       name: "Bantex",
-      rank: "Silver"
+      rank: "Silver",
     },
     {
       id: 8,
       icon: "",
       name: "Lokalate",
-      rank: "Silver"
+      rank: "Silver",
     },
     {
       id: 9,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/BSM%20Entertainment/bsm%20logo.png",
       name: "BSM Entertainment",
-      rank: ""
+      rank: "",
     },
     {
       id: 10,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/NANOVEST/logo%20nanovest%20HD.png",
       name: "Nanovest",
-      rank: "Silver"
+      rank: "Silver",
     },
     {
       id: 11,
       icon: "",
       name: "Huawei",
-      rank: ""
+      rank: "",
     },
     {
       id: 12,
       icon: "",
       name: "Gramedia",
-      rank: ""
+      rank: "",
     },
   ];
 
   return (
     <>
-      <Flex w={"full"} h={["auto"]} justifyContent={"center"} alignItems={"center"} bgColor={"#062D5F"}>
+      <Flex
+        w={"full"}
+        h={["auto"]}
+        justifyContent={"center"}
+        alignItems={"center"}
+        bgColor={"#062D5F"}
+      >
         <Center my={"1.5em"}>
           <Box>
             <Box mb={"1em"}>
-              <Text color={"white"} fontSize={"md"} textAlign={"center"} fontWeight={"extrabold"}>
+              <Text
+                color={"white"}
+                fontSize={"md"}
+                textAlign={"center"}
+                fontWeight={"extrabold"}
+              >
                 HoME MAXIMA 2022
               </Text>
             </Box>
@@ -385,167 +405,314 @@ const Footer = () => {
               <Center>
                 <Wrap w={"full"} justify={"center"} spacing={["0em", "0.2em"]}>
                   <>
-                  {SocialMediaData.map((socialMedia: any) => (
-                    <div key={socialMedia.id}>
-                      {socialMedia.link !== "" && (
-                        <a href={`${socialMedia.link}`} target={"_blank"} rel="noreferrer">
-                          <Center w={"auto"} transition={"0.1s ease-in-out"} transform={"scale(0.7)"} _hover={{ transform: "scale(0.8)", cursor: "pointer" }}>
-                            <Img src={socialMedia.icon} w={["2.8em", "5.2em"]} bgColor={"white"} borderRadius={"full"} outline={"5px solid white"} />
-                          </Center>
-                        </a>
-                      )}
-                    </div>
-                      
-                      ))}
-                      </>
+                    {SocialMediaData.map((socialMedia: any) => (
+                      <div key={socialMedia.id}>
+                        {socialMedia.link !== "" && (
+                          <a
+                            href={`${socialMedia.link}`}
+                            target={"_blank"}
+                            rel="noreferrer"
+                          >
+                            <Center
+                              w={"auto"}
+                              transition={"0.1s ease-in-out"}
+                              transform={"scale(0.7)"}
+                              _hover={{
+                                transform: "scale(0.8)",
+                                cursor: "pointer",
+                              }}
+                            >
+                              <Img
+                                src={socialMedia.icon}
+                                w={["2.8em", "5.2em"]}
+                                bgColor={"white"}
+                                borderRadius={"full"}
+                                outline={"5px solid white"}
+                              />
+                            </Center>
+                          </a>
+                        )}
+                      </div>
+                    ))}
+                  </>
                 </Wrap>
               </Center>
             </Box>
-            <Text color={"white"} fontSize={"md"} textAlign={"center"} fontWeight={"extrabold"}>Our Sponsor</Text>
-            <Flex w={'full'} flexDirection={['column','column','row','row']} justifyContent={"center"} alignItems={'center'} p={5}>
+            <Text
+              color={"white"}
+              fontSize={"md"}
+              textAlign={"center"}
+              fontWeight={"extrabold"}
+            >
+              Our Sponsor
+            </Text>
+            <Flex
+              w={"full"}
+              flexDirection={["column", "column", "row", "row"]}
+              justifyContent={"center"}
+              alignItems={"center"}
+              p={5}
+            >
               {SponsorData.map((sd: any) => (
-                    <div key={sd.id}>
-                      {sd.icon !== '' && (
+                <div key={sd.id}>
+                  {sd.icon !== "" && (
+                    <>
+                      {sd.rank === "Plat" ? (
                         <>
-                          {sd.rank === 'Plat' ? (
-                            <>
-                              <Flex
-                                p={["auto", "0.8em"]}
-                                borderRadius={["2xl", "lg"]}
-                                transition={"0.1s ease-in-out"}
-                                w={'300px'}
-                                h={'200px'}
-                                justifyContent={"center"}
-                                alignItems={'center'}
-                                //bgColor={'white'}
-                              >
-                                <Img src={sd.icon} borderRadius={["2xl", "none"]}/>
-                              </Flex>
-                            </>
-                          ):('')}
+                          <Flex
+                            p={["auto", "0.8em"]}
+                            borderRadius={["2xl", "lg"]}
+                            transition={"0.1s ease-in-out"}
+                            w={"300px"}
+                            h={"200px"}
+                            justifyContent={"center"}
+                            alignItems={"center"}
+                            //bgColor={'white'}
+                          >
+                            <Img src={sd.icon} borderRadius={["2xl", "none"]} />
+                          </Flex>
                         </>
+                      ) : (
+                        ""
                       )}
-                    </div>
-                  ))}
+                    </>
+                  )}
+                </div>
+              ))}
             </Flex>
-            <Flex w={'full'} flexDirection={['column','column','row','row']} justifyContent={"center"} alignItems={'center'} p={5}>
+            <Flex
+              w={"full"}
+              flexDirection={["column", "column", "row", "row"]}
+              justifyContent={"center"}
+              alignItems={"center"}
+              py={5}
+            >
               {SponsorData.map((sd: any) => (
-                    <div key={sd.id}>
-                      {sd.icon !== '' && (
+                <div key={sd.id}>
+                  {sd.icon !== "" && (
+                    <>
+                      {sd.rank === "Gold" ? (
                         <>
-                          {sd.rank === 'Gold' ? (
-                            <>
-                              <Flex
-                                p={["auto", "0.8em"]}
-                                borderRadius={["2xl", "lg"]}
-                                transition={"0.1s ease-in-out"}
-                                w={'300px'}
-                                h={'200px'}
-                                justifyContent={"center"}
-                                alignItems={'center'}
-                                //bgColor={'white'}
-                              >
-                                <Img src={sd.icon} borderRadius={["2xl", "none"]} h={'125px'}/>
-                              </Flex>
-                            </>
-                          ):('')}
+                          <Flex
+                            p={["auto", "0.8em"]}
+                            borderRadius={["2xl", "lg"]}
+                            transition={"0.1s ease-in-out"}
+                            w={"300px"}
+                            h={"200px"}
+                            justifyContent={"center"}
+                            alignItems={"center"}
+                            //bgColor={'white'}
+                          >
+                            <Img
+                              src={sd.icon}
+                              borderRadius={["2xl", "none"]}
+                              h={"125px"}
+                            />
+                          </Flex>
                         </>
+                      ) : (
+                        ""
                       )}
-                    </div>
-                  ))}
+                    </>
+                  )}
+                </div>
+              ))}
             </Flex>
-            <Flex w={'full'} flexDirection={['column','column','row','row']} justifyContent={"center"} alignItems={'center'} p={5}>
-              <Flex
+
+            <Wrap spacing={"1em"} justify="center">
+              <WrapItem
                 p={["auto", "0.8em"]}
+                //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
+                shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                w={'300px'}
-                h={'200px'}
-                justifyContent={"center"}
-                alignItems={'center'}
-                //bgColor={'white'}
+                cursor={"pointer"}
               >
-                <Img src={SponsorData[4]?.icon} borderRadius={["2xl", "none"]} h={'75px'}/>
-              </Flex>
-              <Flex
+                <Center>
+                  <Box pt={10}>
+                    <Center>
+                      <Flex
+                        w={["9em", "10em"]}
+                        h={["9em", "10em"]}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                      >
+                        <Img
+                          src={SponsorData[4]?.icon}
+                          borderRadius={["2xl", "none"]}
+                          h={'70px'}
+                        />
+                      </Flex>
+                    </Center>
+                  </Box>
+                </Center>
+              </WrapItem>
+
+              <WrapItem
                 p={["auto", "0.8em"]}
+                //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
+                shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                w={'300px'}
-                h={'200px'}
-                justifyContent={"center"}
-                alignItems={'center'}
-                //bgColor={'white'}
+                cursor={"pointer"}
               >
-                <Img src={SponsorData[5]?.icon} borderRadius={["2xl", "none"]} h={'75px'}/>
-              </Flex>
-              <Flex
+                <Center>
+                  <Box pt={10}>
+                    <Center>
+                      <Flex
+                        w={["9em", "10em"]}
+                        h={["9em", "10em"]}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                      >
+                        <Img
+                          src={SponsorData[5]?.icon}
+                          borderRadius={["2xl", "none"]}
+                          h={'70px'}
+                        />
+                      </Flex>
+                    </Center>
+                  </Box>
+                </Center>
+              </WrapItem>
+
+              <WrapItem
                 p={["auto", "0.8em"]}
+                //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
+                shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                w={'300px'}
-                h={'200px'}
-                justifyContent={"center"}
-                alignItems={'center'}
-                //bgColor={'white'}
+                cursor={"pointer"}
               >
-                <Img src={SponsorData[8]?.icon} borderRadius={["2xl", "none"]} h={'50px'}/>
-              </Flex>
-              <Flex
+                <Center>
+                  <Box pt={10}>
+                    <Center>
+                      <Flex
+                        w={["9em", "10em"]}
+                        h={["9em", "10em"]}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                      >
+                        <Img
+                          src={SponsorData[8]?.icon}
+                          borderRadius={["2xl", "none"]}
+                          w={'125px'}
+                        />
+                      </Flex>
+                    </Center>
+                  </Box>
+                </Center>
+              </WrapItem>
+
+              <WrapItem
                 p={["auto", "0.8em"]}
+                //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
+                shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                w={'300px'}
-                h={'200px'}
-                justifyContent={"center"}
-                alignItems={'center'}
-                //bgColor={'white'}
+                cursor={"pointer"}
               >
-                <Img src={SponsorData[6]?.icon} borderRadius={["2xl", "none"]} h={'50px'}/>
-              </Flex>
-              <Flex
+                <Center>
+                  <Box pt={10}>
+                    <Center>
+                      <Flex
+                        w={["9em", "10em"]}
+                        h={["9em", "10em"]}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                      >
+                        <Img
+                          src={SponsorData[6]?.icon}
+                          borderRadius={["2xl", "none"]}
+                          w={'125px'}
+                        />
+                      </Flex>
+                    </Center>
+                  </Box>
+                </Center>
+              </WrapItem>
+
+              <WrapItem
                 p={["auto", "0.8em"]}
+                //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
+                shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                w={'300px'}
-                h={'200px'}
-                justifyContent={"center"}
-                alignItems={'center'}
-                //bgColor={'white'}
+                cursor={"pointer"}
               >
-                <Img src={SponsorData[9]?.icon} borderRadius={["2xl", "none"]} h={'50px'}/>
-              </Flex>
-            </Flex>
+                <Center>
+                  <Box pt={10}>
+                    <Center>
+                      <Flex
+                        w={["9em", "10em"]}
+                        h={["9em", "10em"]}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                      >
+                        <Img
+                          src={SponsorData[9]?.icon}
+                          borderRadius={["2xl", "none"]}
+                          w={'125px'}
+                        />
+                      </Flex>
+                    </Center>
+                  </Box>
+                </Center>
+              </WrapItem>
+            </Wrap>
+
             <Box mt={5}>
-              <Text color={"white"} fontSize={"md"} textAlign={"center"} fontWeight={"extrabold"}>Our Media Partner</Text>
+              <Text
+                color={"white"}
+                fontSize={"md"}
+                textAlign={"center"}
+                fontWeight={"extrabold"}
+              >
+                Our Media Partner
+              </Text>
               <Center>
                 <Wrap spacing={"1em"} justify="center">
                   {MedparData.map((item: any) => {
                     return (
                       <div key={item.id}>
-                          <WrapItem
-                            p={["auto", "0.8em"]}
-                            bgColor={"white"}
-                            borderRadius={["2xl", "lg"]}
-                            shadow={"md"}
-                            transition={"0.1s ease-in-out"}
-                            cursor={"pointer"}
-                          >
-                            <Center>
-                              <Box pt={10}>
-                                <Center>
-                                  <Flex w={["9em", "10em"]} h={["9em", "10em"]} justifyContent={'center'} alignItems={'center'}>
-                                    <Img src={item.icon} borderRadius={["2xl", "none"]} />
-                                  </Flex>
-                                </Center>
-                                <Center w={"10em"} my={["0.5em", "1em"]}>
-                                  <Text color={"#062D5F"} fontSize={"md"} mt={10} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                    {item.name}
-                                  </Text>
-                                </Center>
-                              </Box>
-                            </Center>
-                          </WrapItem>
+                        <WrapItem
+                          p={["auto", "0.8em"]}
+                          bgColor={"white"}
+                          borderRadius={["2xl", "lg"]}
+                          shadow={"md"}
+                          transition={"0.1s ease-in-out"}
+                          cursor={"pointer"}
+                        >
+                          <Center>
+                            <Box pt={10}>
+                              <Center>
+                                <Flex
+                                  w={["9em", "10em"]}
+                                  h={["9em", "10em"]}
+                                  justifyContent={"center"}
+                                  alignItems={"center"}
+                                >
+                                  <Img
+                                    src={item.icon}
+                                    borderRadius={["2xl", "none"]}
+                                  />
+                                </Flex>
+                              </Center>
+                              <Center w={"10em"} my={["0.5em", "1em"]}>
+                                <Text
+                                  color={"#062D5F"}
+                                  fontSize={"md"}
+                                  mt={10}
+                                  fontWeight={"semibold"}
+                                  textAlign={"center"}
+                                  letterSpacing={0.2}
+                                >
+                                  {item.name}
+                                </Text>
+                              </Center>
+                            </Box>
+                          </Center>
+                        </WrapItem>
                       </div>
                     );
                   })}
