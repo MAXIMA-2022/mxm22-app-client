@@ -100,7 +100,7 @@ const AboutUs: NextPage = () => {
       >
         <Box w={"full"} zIndex={"0"}>
           <Box display={isSmallerThan320 ? "none" : ["block", "none", "none", "none", "none"]} mb={["30.35rem", "45.35rem", "", "30.35rem", "30.35rem"]} position={"absolute"} bottom={0}>
-            <Img src={"/AboutUs/maxi-xima_mobile.png"} />
+            <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/maxi-xima_mobile.webp"} />
           </Box>
           <Center>
             <Box
@@ -116,7 +116,7 @@ const AboutUs: NextPage = () => {
               <Center w={"100%"} h={["100%"]}>
                 <Box>
                   <Center mt={["1em", "1em", "0em", "1em", "1em"]}>
-                    <Img src={"/AboutUs/AboutUs.png"} w={["12.5em", "15em", "42vw", "20em", "27em"]}></Img>
+                    <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUs.webp"} w={["12.5em", "15em", "42vw", "20em", "27em"]}></Img>
                   </Center>
                   <Center display={["none", "block"]}>
                     <Text fontSize={["md", "lg", "2.5vh", "17.5px", "xl"]} color={"#1B4173"} textAlign={"center"}>

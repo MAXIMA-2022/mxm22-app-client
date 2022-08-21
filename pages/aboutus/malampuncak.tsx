@@ -54,7 +54,7 @@ const MalamPuncak: NextPage = () => {
       >
         <Box w={"full"} zIndex={"0"}>
           <Box display={["block", "block", "block", "none", "none"]} position={"absolute"} bottom={0}>
-            <Img src={"maxi-xima_mobile.png"} />
+            <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/maxi-xima_mobile.webp"} />
           </Box>
           <Center>
             <Box
