@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 //importing local components
-import Layout from "../components/Layout";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Layout from "../../components/Layout";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 //importing chakra ui components
 import { Box, Flex, Center, Img, Text, Button } from "@chakra-ui/react";
