@@ -22,12 +22,12 @@ const AdventureBegin: NextPage = () => {
             <Center>
                         <Box display={["block", "none"]} ms={"1vh"} mb={["15vh"]}>
                         <Center>
-                            <Img src={'/dialog-5.png'} width={185} height={65} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-5%20-%20rev.png'} width={185} height={65} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                         <Box display={["none", "block"]} ms={["15vh","2vh","5vh","10vh","15vh"]} mb={["20vh"]}>
                         <Center>
-                            <Img src={'/dialog-5.png'} width={[100, 300, 375, 525, 650]} height={[100,81,95,125,150]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-5%20-%20rev.png'} width={[100, 300, 375, 525, 650]} height={[100,81,95,125,150]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                     </Center> 

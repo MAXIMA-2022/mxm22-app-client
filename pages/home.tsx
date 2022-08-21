@@ -20,12 +20,12 @@ const Home = () => {
             <Center>
               <Box display={["block","block", "none"]} mt={["50vh","40vh","52vh"]} me={["18vh","5vh","15vh"]}>
                         <Center>
-                            <Img src={'/dialog-8.png'} width={150} height={[85]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-8%20-%20rev.png'} width={150} height={[85]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                         <Box display={["none","none", "block"]} ms={["15vh","15vh","15vh","10vh","15vh"]} mb={["0"]}>
                         <Center>
-                            <Img w={"full"} src={'/dialog-8.png'} mt={["35vh","35vh","38.5vh","30vh","35vh"]} me={"18vw"} width={[100, 300, "20vh", 175, 250]} height={[100,81,"13vh",125,150]}  alt={"MaximaLogo"} />
+                            <Img w={"full"} src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-8%20-%20rev.png'} mt={["35vh","35vh","38.5vh","30vh","35vh"]} me={"18vw"} width={[100, 300, "20vh", 175, 250]} height={[100,81,"13vh",125,150]}  alt={"MaximaLogo"} />
                         </Center>
                         </Box>
             </Center>
@@ -56,7 +56,7 @@ const Home = () => {
                             <Img src={'/dialog-9.png'} mt={["110vh","75vh","115vh"]} ms={["5vw","39vw","52vw"]} width={175} height={[100]} alt={"MaximaLogo"} />
                           </Box>
                           <Box w={"full"} position={"absolute"} overflow={"hidden"}>
-                            <Img src={'/dialog-10.png'} mt={["105vh","85vh","12vh"]} ms={["58vw","105vh","115vw","115vw","115vw"]} width={[150,125,125]} height={[85,75,75]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-10%20-%20rev.png'} mt={["105vh","85vh","12vh"]} ms={["58vw","105vh","115vw","115vw","115vw"]} width={[150,125,125]} height={[85,75,75]} alt={"MaximaLogo"} />
                           </Box>
                         </Center>
                         </Box>
@@ -68,7 +68,7 @@ const Home = () => {
                           </Center>
                           </Box>
                           <Box position={["absolute"]} overflow={"hidden"}>
-                              <Img src={'/dialog-10.png'} mt={["35vh","35vh","80vh","85vh","90vh"]} ms={["50vw","50vw","47.5vh","45vw","50vw"]}  width={[100, 300, "25vh", 225, 350]} height={[100,81,"14vh",125,175]} alt={"MaximaLogo"}  />
+                              <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-10%20-%20rev.png'} mt={["35vh","35vh","80vh","85vh","90vh"]} ms={["50vw","50vw","47.5vh","45vw","50vw"]}  width={[100, 300, "25vh", 225, 350]} height={[100,81,"14vh",125,175]} alt={"MaximaLogo"}  />
                           </Box>
                           </Center>
                         </Box>
