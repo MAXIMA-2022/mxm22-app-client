@@ -21,7 +21,7 @@ interface DetailInfo {
   keterangan: string
 }
 
-const Organization = ({ ID }: { ID: string }, { NA }: { NA: string }) => {
+const Organization = ({ ID }: { ID: string }) => {
   const [organizationData, setOrganizationData] = useState<ListOrganization[]>([]);
   const [detail, setDetail] = useState<DetailInfo[]>([])
 
@@ -29,10 +29,14 @@ const Organization = ({ ID }: { ID: string }, { NA }: { NA: string }) => {
     try {
       const fetchHoME = async () => {
         const response = await axios.get(`${process.env.API_URL}/api/homeInfo/chapter/${ID}`);
-        const res = await axios.get(`${process.env.API_URL}/api/chapter/${NA}`)
         setOrganizationData(response.data);
-        setDetail(res.data)
       };
+      const fetchChap = async () => {
+        const res = await axios.get(`${process.env.API_URL}/api/chapter/${ID}`)
+        setDetail(res.data)
+        console.log(res.data)
+      }
+      fetchChap()
       fetchHoME();
     } catch (err: any) {
       console.log(err);
@@ -169,10 +173,9 @@ const Organization = ({ ID }: { ID: string }, { NA }: { NA: string }) => {
 };
 
 Organization.getInitialProps = async ({ query }: any) => {
-  const { ID, NA } = query;
+  const { ID } = query;
   return {
-    ID,
-    NA
+    ID
   };
 };
 
