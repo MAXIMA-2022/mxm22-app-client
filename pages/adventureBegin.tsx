@@ -106,7 +106,7 @@ const AdventureBegin: NextPage = () => {
       <Flex
         onClick={() => setCount(count + 1)}
         minH={"100vh"}
-        bgImage={["https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.jpg","https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.jpg",  "https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.jpg", "https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.jpg", "https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginLs.png"]}
+        bgImage={["https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.webp","https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.webp",  "https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.webp", "https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginP.webp", "https://storage.googleapis.com/mxm22-bucket-test/HoME/AdventureBeginLs.webp"]}
         bgPosition={["center"]}
         bgSize={"cover"}
         bgRepeat={"no-repeat"}

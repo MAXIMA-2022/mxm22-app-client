@@ -92,7 +92,7 @@ const AboutUs: NextPage = () => {
       <Navbar />
       <Flex
         minH={"100vh"}
-        bgImage={["/AboutUs/AboutUsP.png", "/AboutUs/AboutUsP.png", "/AboutUs/AboutUsP.png", "/AboutUs/AboutUsLs.png", "/AboutUs/AboutUsLs.png"]}
+        bgImage={["https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsP.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsP.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsP.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsLs.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsLs.webp"]}
         mb={"4.9em"}
         bgPosition={["center"]}
         bgSize={"cover"}

@@ -91,7 +91,7 @@ const FAQ: NextPage = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQP.png", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQP.png", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQP.png", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQLs.png", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQLs.png"]} mb={"4.9em"} bgPosition={["center"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQP.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQP.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQP.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQLs.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQLs.webp"]} mb={"4.9em"} bgPosition={["center"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} zIndex={"0"}>
           <Box display={isSmallerThan320 ? "none" : ["block", "none", "none", "none", "none"]} mb={["30.35rem", "45.35rem", "", "30.35rem", "30.35rem"]} position={"absolute"} bottom={0}>
             <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/maxi-xima_mobile.png"} />

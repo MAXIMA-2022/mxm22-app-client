@@ -47,7 +47,7 @@ const HoME: NextPage = () => {
       <Navbar />
       <Flex
         minH={"100vh"}
-        bgImage={["../AboutUs/AboutUsP.png", "../AboutUs/AboutUsP.png", "../AboutUs/AboutUsP.png", "../AboutUs/AboutUsLs.png", "../AboutUs/AboutUsLs.png"]}
+        bgImage={["https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsP.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsP.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsP.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsLs.webp", "https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUsLs.webp"]}
         bgPosition={["center", "bottom", "bottom", "bottom"]}
         bgSize={"cover"}
         bgRepeat={"no-repeat"}

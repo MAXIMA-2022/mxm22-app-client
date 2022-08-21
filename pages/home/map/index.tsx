@@ -93,7 +93,7 @@ const Maps = (props: any) => {
         bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Maps/mhr3.jpg", "https://storage.googleapis.com/mxm22-bucket-test/Maps/mhr3.jpg", "https://storage.googleapis.com/mxm22-bucket-test/Maps/Maps2.png", "https://storage.googleapis.com/mxm22-bucket-test/Maps/Maps2.png", "https://storage.googleapis.com/mxm22-bucket-test/Maps/Maps2.png"]}
         bgSize={"cover"}
         bgRepeat={"no-repeat"}
-        overflow={"auto"}
+        overflow={"hidden"}
       >
         <Header />
             <Link href={`/home/map/chapter/${chapter[0]?.name}`}>

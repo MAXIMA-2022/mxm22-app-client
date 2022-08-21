@@ -98,7 +98,7 @@ const Home = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex onClick={() => setCount(count + 1)} minH={"100vh"} bgImage={["/HoME/HoMEP.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png"]} bgPosition={["center", "bottom", "bottom", "bottom"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex onClick={() => setCount(count + 1)} minH={"100vh"} bgImage={["https://storage.go.pngogleapis.com/mxm22-bucket-test/HoME/HoMEP.webp", "https://storage.googleapis.com/mxm22-bucket-test/HoME/HoMELs.webp", "https://storage.googleapis.com/mxm22-bucket-test/HoME/HoMELs.webp", "https://storage.googleapis.com/mxm22-bucket-test/HoME/HoMELs.webp"]} bgPosition={["center", "bottom", "bottom", "bottom"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"}>
           <Flex justifyContent={"center"} alignItems="center" p={["2em 1.8em", "2em 0.5em", "2em 1.5em", "2em 1.5em", "2em 3em"]} color="white" top={0} left={0} right={0} zIndex={1}>
           </Flex>

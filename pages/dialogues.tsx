@@ -131,7 +131,7 @@ const FooterMessage = () => {
   return (
     <Layout>
         <Navbar />
-        <Flex onClick={() => setCount(count + 1)} minH={"100vh"} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingP.png","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+        <Flex onClick={() => setCount(count + 1)} minH={"100vh"} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingP.webp","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.webp","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.webp","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.webp"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
             <Box w={"full"} mt={"20vh"}>
                 <Header/>
                 <StartButton />
