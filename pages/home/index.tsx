@@ -97,11 +97,6 @@ const Home = () => {
   };
   return (
     <Layout>
-      <motion.div
-      initial={{ scaleY: 0 }}
-      animate={{ scaleY: 1}}
-      exit={{ scaleY: 0 }}
-      >
       <Navbar />
       <Flex onClick={() => setCount(count + 1)} minH={"100vh"} bgImage={["/HoME/HoMEP.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png", "/HoME/HoMELs.png"]} bgPosition={["center", "bottom", "bottom", "bottom"]} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"}>
@@ -161,7 +156,6 @@ const Home = () => {
       <Box w={"full"} position={"absolute"}>
         <Footer />
       </Box>
-      </motion.div>
     </Layout>
   );
 };
