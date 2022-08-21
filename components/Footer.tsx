@@ -489,6 +489,18 @@ const Footer = () => {
                 alignItems={'center'}
                 //bgColor={'white'}
               >
+                <Img src={SponsorData[8]?.icon} borderRadius={["2xl", "none"]} h={'50px'}/>
+              </Flex>
+              <Flex
+                p={["auto", "0.8em"]}
+                borderRadius={["2xl", "lg"]}
+                transition={"0.1s ease-in-out"}
+                w={'300px'}
+                h={'200px'}
+                justifyContent={"center"}
+                alignItems={'center'}
+                //bgColor={'white'}
+              >
                 <Img src={SponsorData[6]?.icon} borderRadius={["2xl", "none"]} h={'50px'}/>
               </Flex>
               <Flex
