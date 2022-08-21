@@ -123,7 +123,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
   const Card = ({ images }: any) => (
     <Center>
       <Box w={"100%"} h={"100%"} borderRadius={"1rem"} color={"grey"} textAlign={"justify"} transition={"all 0.3 ease-out"}>
-        <Center w={"full"} h={"full"}>
+        <Center w={"full"} h={"full"} border="solid red">
           <Img src={images} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} borderRadius={["2xl", "xl", "xl", "xl", "xl"]} />
         </Center>
       </Box>
@@ -252,7 +252,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
       },
       {
         icon: "/organization/line.svg",
-        link: HoMEInfo[0].linkLine,
+        link: `https://page.line.me/?accountId=${HoMEInfo[0].linkLine}`,
       },
       {
         icon: "/organization/tiktok.svg",
@@ -272,7 +272,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
             {SocialMediaData.map((socialMedia: any, key: any) => (
               <>
                 {socialMedia.link !== "" && (
-                  <a key={key} href={`${socialMedia.link}.com`} target={"_blank"} rel="noreferrer">
+                  <a key={key} href={`${socialMedia.link}`} target={"_blank"} rel="noreferrer">
                     <Center w={"auto"} transition={"0.1s ease-in-out"} transform={"scale(0.7)"} _hover={{ transform: "scale(0.8)", cursor: "pointer" }}>
                       <Img src={socialMedia.icon} w={["2.8em", "5.2em"]} />
                     </Center>
