@@ -88,7 +88,7 @@ const Maps = (props: any) => {
     <Layout>
       <Flex
         className={"maps"}
-        width={isLargerThan1900 ? "215vh" : ["1920px", "1920px", "1920px", "1920px", "1920px"]}
+        width={isLargerThan1900 ? "215vh" : ["1920px", "1920px", "1920px", "1523px", "1523px"]}
         height={isLargerThan1900 ? "4000" : ["5429px", "5429px", "2885px", "2267px", "2267px"]}
         bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Maps/mhr3.jpg", "https://storage.googleapis.com/mxm22-bucket-test/Maps/mhr3.jpg", "https://storage.googleapis.com/mxm22-bucket-test/Maps/Maps2.png", "https://storage.googleapis.com/mxm22-bucket-test/Maps/Maps2.png", "https://storage.googleapis.com/mxm22-bucket-test/Maps/Maps2.png"]}
         bgSize={"cover"}

@@ -55,296 +55,276 @@ const Footer = () => {
   const MedparData = [
     {
       id: 1,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/UMN%20FESTIVAL.PNG",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/UMN%20FESTIVAL_15_11zon.webp",
       name: "UMN Festival",
     },
     {
       id: 2,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/share-event-color-1%20(1).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/share-event-color-1%20(1)_8_11zon.webp",
       name: "Share Event",
     },
     {
       id: 3,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20%40infoselanjutnya%20(1).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20%40infoselanjutnya%20(1)_11_11zon.webp",
       name: "@infoselanjutnya",
     },
     {
       id: 4,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Kawal%20Event%20Logo.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Kawal%20Event%20Logo_10_11zon.webp",
       name: "Kawal Event",
     },
     {
       id: 5,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Five%20TV%20UPN.jpeg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Five%20TV%20UPN_9_11zon.webp",
       name: "Five TV UPN",
     },
     {
       id: 6,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Starlight%202022%20Logo%20no%20bg%20(1).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Starlight%202022%20Logo%20no%20bg%20(1)_10_11zon.webp",
       name: "Starlight",
     },
     {
       id: 7,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/LOGO%20ELFARA.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/LOGO%20ELFARA_5_11zon.webp",
       name: "Elfara",
     },
     {
       id: 8,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Atma%20Jaya%20Radio.jpg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Atma%20Jaya%20Radio_12_11zon.webp",
       name: "Atma Jaya Radio",
     },
     {
       id: 9,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/LOGO%20BPRS%20ERAFM-UNJ.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/LOGO%20BPRS%20ERAFM-UNJ_1_11zon.webp",
       name: "BPRS EraFM-UNJ",
     },
     {
       id: 10,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Event%20Alerts.jpg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Event%20Alerts_7_11zon.webp",
       name: "Event Alerts",
     },
     {
       id: 11,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/UMN%20ECO.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/UMN%20ECO_14_11zon.webp",
       name: "UMN Eco",
     },
     {
       id: 12,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/G2X%20UMN.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/G2X%20UMN_10_11zon.webp",
       name: "G2X UMN",
     },
     {
       id: 13,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/LOGO%20EVENT%20CENTER.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/LOGO%20EVENT%20CENTER_8_11zon.webp",
       name: "Event Center",
     },
     {
       id: 14,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/WhatsApp%20Image%202022-05-09%20at%202.26.49%20PM.jpeg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/WhatsApp%20Image%202022-05-09%20at%202.26.49%20PM_22_11zon.webp",
       name: "Radio UNTAR",
     },
     {
       id: 15,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/LOGO-TRACCE.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/LOGO-TRACCE_2_11zon.webp",
       name: "Tracce UMN",
     },
     {
       id: 16,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/T-RADIO.jpg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/T-RADIO_13_11zon.webp",
       name: "T-Radio",
     },
     {
       id: 17,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/MRMS%20UMN%202022.jpg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/MRMS%20UMN%202022_4_11zon.webp",
       name: "MrMs UMN",
     },
     {
       id: 18,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/KABAR%20KAMPUS.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/KABAR%20KAMPUS_8_11zon.webp",
       name: "Kabar Kampus",
     },
     {
       id: 19,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/MUFOMIC.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/MUFOMIC_5_11zon.webp",
       name: "Mufomic",
     },
     {
       id: 20,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HIMARS%20(warna).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HIMARS%20(warna)_12_11zon.webp",
       name: "HIMARS",
     },
     {
       id: 21,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/UMN%20TV%20(WARNA).PNG",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/UMN%20TV%20(WARNA)_21_11zon.webp",
       name: "UMN TV",
     },
     {
       id: 22,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/UMN%20RADIO%20(WARNA).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/UMN%20RADIO%20(WARNA)_18_11zon.webp",
       name: "UMN Radio",
     },
     {
       id: 23,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/QORIE.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/QORIE_6_11zon.webp",
       name: "Qorie",
     },
     {
       id: 24,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HMFILM%20UMN%20(WARNA).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HMFILM%20UMN%20(WARNA)_4_11zon.webp",
       name: "HMFILM",
     },
     {
       id: 25,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20HIMMA.jpg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20HIMMA_11_11zon.webp",
       name: "HIMMA UMN",
     },
     {
       id: 26,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/CAPOEIRA%20WARNA%20(TRANSPARAN).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/CAPOEIRA%20WARNA%20(TRANSPARAN)_7_11zon.webp",
       name: "Capoeira",
     },
     {
       id: 27,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Magenta%20Radio.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Magenta%20Radio_3_11zon.webp",
       name: "Magenta Radio",
     },
     {
       id: 28,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Ultimag%20Merah%20(1).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Ultimag%20Merah%20(1)_9_11zon.webp",
       name: "Ultimagz",
     },
     {
       id: 29,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20RBL.PNG",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20RBL_8_11zon.webp",
       name: "Radio Budi Luhur",
     },
     {
       id: 30,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Nusakara%20Artspace%20hitam-02.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20Nusakara%20Artspace%20hitam-02_4_11zon.webp",
       name: "Nusakara Artspace",
     },
     {
       id: 31,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/J-CAFE%20UMN.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/J-CAFE%20UMN_7_11zon.webp",
       name: "J-Cafe",
     },
     {
       id: 32,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20I_M%20KOM.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20I_M%20KOM_1_11zon.webp",
       name: "I'M KOM UMN",
     },
     {
       id: 33,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/logo%20Himtara%20garis%20putih.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/logo%20Himtara%20garis%20putih_12_11zon.webp",
       name: "HIMTARA",
     },
     {
       id: 34,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/logo%20Go-Stage%20(hitamnya%20jangan%20dihilangkan).jpeg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/logo%20Go-Stage%20(hitamnya%20jangan%20dihilangkan)_10_11zon.webp",
       name: "Go Stage",
     },
     {
       id: 35,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Eltras%20Radio.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Eltras%20Radio_9_11zon.webp",
       name: "Eltras Radio",
     },
     {
       id: 36,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20DNK%20TV.jpeg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20DNK%20TV_4_11zon.webp",
       name: "DNK TV",
     },
     {
       id: 37,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20DKBM%20UMN%202.jpg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/Logo%20DKBM%20UMN%202_3_11zon.webp",
       name: "DKBM UMN",
     },
     {
       id: 38,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HMP%20UMN.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HMP%20UMN_6_11zon.webp",
       name: "HMP",
     },
     {
       id: 39,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HMIF%20UMN.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HMIF%20UMN_5_11zon.webp",
       name: "HMIF",
     },
     {
       id: 40,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HIMFERA%20UMN.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/HIMFERA%20UMN_1_11zon.webp",
       name: "HIMFERA",
     },
     {
       id: 41,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/ACES%20UMN.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/ACES%20UMN_4_11zon.webp",
       name: "ACES UMN",
     },
     {
       id: 42,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/GIGSCORNER.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/GIGSCORNER_11_11zon.webp",
       name: "Gigs Corner",
     },
     {
       id: 43,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/20200322_131954.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/20200322_131954_3_11zon.webp",
       name: "Event Apa Aja",
     },
     {
       id: 44,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/02%20LOGO%20EJ.jpg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/02%20LOGO%20EJ_2_11zon.webp",
       name: "Event Journal",
     },
     {
       id: 45,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/0_informasi%20eveent.jpg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/0_informasi%20eveent_1_11zon.webp",
       name: "Informasi Event",
     },
     {
       id: 46,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/logo%20umn%20juice%20black%20(2).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/logo%20umn%20juice%20black%20(2)_12_11zon.webp",
       name: "UMN Juice",
     },
-    // {
-    //   id: 47,
-    //   icon: "",
-    //   name: "DKBM UMN",
-    // },
-    // {
-    //   id: 48,
-    //   icon: "",
-    //   name: "HMP",
-    // },
-    // {
-    //   id: 49,
-    //   icon: "",
-    //   name: "HMIF",
-    // },
-    // {
-    //   id: 50,
-    //   icon: "",
-    //   name: "HIMFERA",
-    // },
   ];
 
   const SponsorData = [
     {
       id: 1,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/ILLUMINARE/LogoIlluminareJPG.jpg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/LogoIlluminareJPG.webp",
       name: "Illuminare",
       rank: "Plat",
     },
     {
       id: 2,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/AVIONE/LOGO%20AVIONE%20BOLD-UNGU%20BARU.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/LOGO%20AVIONE%20BOLD-UNGU%20BARU.webp",
       name: "Avione",
       rank: "Plat",
     },
     {
       id: 3,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/PRUDENTIAL/PRU_Ribbon_Logo.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/PRU%20Ribbon%20Logo.webp",
       name: "Prudential",
       rank: "Gold",
     },
     {
       id: 4,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/START%20SPACE/Start%20Space%20Logo.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/Start%20Space%20Logo.webp",
       name: "Start Space",
       rank: "Gold",
     },
     {
       id: 5,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/MAOMOTO/Maomoto%20logo%20Final.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/Maomoto%20logo%20Final.webp",
       name: "Maomoto",
       rank: "Silver",
     },
     {
       id: 6,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/PANDABOO/Logo%20Pandaboo%20a%20(2).png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/Logo%20Pandaboo%20a%20(2).webp",
       name: "Pandaboo",
       rank: "Silver",
     },
     {
       id: 7,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/BANTEX/Bantex%20png.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/Bantex%20png.webp",
       name: "Bantex",
       rank: "Silver",
     },
@@ -356,7 +336,7 @@ const Footer = () => {
     },
     {
       id: 9,
-      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/BSM%20Entertainment/bsm%20logo.png",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/bsm%20logo.webp",
       name: "BSM Entertainment",
       rank: "",
     },
@@ -524,9 +504,9 @@ const Footer = () => {
                 p={["auto", "0.8em"]}
                 //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
-                shadow={"md"}
+                //shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                cursor={"pointer"}
+                //cursor={"pointer"}
               >
                 <Center>
                   <Box pt={10}>
@@ -552,9 +532,9 @@ const Footer = () => {
                 p={["auto", "0.8em"]}
                 //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
-                shadow={"md"}
+                //shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                cursor={"pointer"}
+                //cursor={"pointer"}
               >
                 <Center>
                   <Box pt={10}>
@@ -580,9 +560,9 @@ const Footer = () => {
                 p={["auto", "0.8em"]}
                 //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
-                shadow={"md"}
+                //shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                cursor={"pointer"}
+                //cursor={"pointer"}
               >
                 <Center>
                   <Box pt={10}>
@@ -608,9 +588,9 @@ const Footer = () => {
                 p={["auto", "0.8em"]}
                 //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
-                shadow={"md"}
+                //shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                cursor={"pointer"}
+                //cursor={"pointer"}
               >
                 <Center>
                   <Box pt={10}>
@@ -636,9 +616,9 @@ const Footer = () => {
                 p={["auto", "0.8em"]}
                 //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
-                shadow={"md"}
+                //shadow={"md"}
                 transition={"0.1s ease-in-out"}
-                cursor={"pointer"}
+                //cursor={"pointer"}
               >
                 <Center>
                   <Box pt={10}>
@@ -679,9 +659,9 @@ const Footer = () => {
                           p={["auto", "0.8em"]}
                           bgColor={"white"}
                           borderRadius={["2xl", "lg"]}
-                          shadow={"md"}
+                          //shadow={"md"}
                           transition={"0.1s ease-in-out"}
-                          cursor={"pointer"}
+                          //cursor={"pointer"}
                         >
                           <Center>
                             <Box pt={10}>
