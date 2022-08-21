@@ -5,9 +5,9 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef } from "react";
 
 //importing local components
-import Layout from "../components/Layout";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Layout from "../../components/Layout";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Container, useMediaQuery } from "@chakra-ui/react";

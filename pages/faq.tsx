@@ -110,7 +110,7 @@ const FAQ: NextPage = () => {
               <Center w={"100%"} h={["100%"]}>
                 <Box w={"100%"}>
                   <Center mt={["1em", "1em", "0em", "1em", "1em"]}>
-                    <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/AboutUs.png"} w={["5em", "5em", "15vw", "5em", "10em"]}></Img>
+                    <Img src={"https://storage.googleapis.com/mxm22-bucket-test/AboutUs/FAQ.png"} w={["5em", "5em", "15vw", "5em", "10em"]}></Img>
                   </Center>
                   <Center display={["none", "none", "block"]}>
                     <Tabs variant="soft-rounded" isFitted>
