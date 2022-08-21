@@ -41,6 +41,7 @@ const Register = () => {
 
   const onSubmit: SubmitHandler<any> = async (data: RegisData) => {
     try {
+      console.log(data)
       setIsButtonLoading(true);
       const formData = new FormData();
       formData.append("nim", data.nim);
@@ -328,8 +329,7 @@ const Register = () => {
                             borderRadius={"full"}
                             _hover={{ border: "solid #CBD5E0" }}
                           />
-                          <InputRightAddon fontSize={"sm"} p={3} children='@student.umn.ac.id' bgColor={"#F7B70C"} color={"white"} borderRightRadius={"full"} />
-                        </InputGroup>
+                          </InputGroup>
                         {errors.email !== undefined && <Text textColor={"red"}>{errors.email.message}</Text>}
                       </Box>
                       <Box w={["full", "full", "18em"]}>

@@ -56,7 +56,7 @@ const Welcoming = () => {
       <Flex justifyContent={"end"} alignItems={"center"}>
         <Stack mt={["6vh", "10vh"]} align={"stretch"} w={["5.5em", "6em", "7.5em", "8.5em", "9.5em"]} spacing={6} zIndex={99}>
           {linksData.map((link) => (
-            <Link href={link.href} key={link.name} isExternal>
+            <Link href={link.href} key={link.name} isExternal style={{ textDecoration: 'none' }}>
               <Button w={"full"} bgColor={"#F7B70C"} size={["sm", "md", "md", "lg", "lg"]} borderRadius={"10em 0 0 10em"} shadow={"0 4px 4px rgb(0,0,0,0.25)"}>
                 <Text w={"full"} color={"white"} textAlign={"end"} fontSize={["xs", "sm", "md", "lg", "xl"]} fontWeight={"extrabold"}>
                   {link.name}
