@@ -36,12 +36,12 @@ const Home = () => {
             <Center>
               <Box display={["block", "block", "none"]} mt={["46vh","32.5vh"]} me={["20vh","0vh"]}>
                         <Center>
-                            <Img src={'/dialog-9.png'} width={200} height={[100]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/revisi/dialog-9%20-%20rev%202.webp'} width={200} height={[100]} alt={"MaximaLogo"} />
                         </Center>
                         </Box>
                         <Box display={["none", "none", "block"]} ms={["15vh","2vh","5vh","10vh","15vh"]} mb={["0"]}>
                         <Center>
-                            <Img w={"full"} src={'/dialog-9.png'} mt={["35vh","35vh","30vh","23.5vh","28.5vh"]} me={"20vw"} width={[100, 300, "33vh", 275, 350]} height={[100,81,"18vh",150,175]}  alt={"MaximaLogo"} />
+                            <Img w={"full"} src={'https://storage.googleapis.com/mxm22-bucket-test/revisi/dialog-9%20-%20rev%202.webp'} mt={["35vh","35vh","30vh","23.5vh","28.5vh"]} me={"20vw"} width={[100, 300, "33vh", 275, 350]} height={[100,81,"18vh",150,175]}  alt={"MaximaLogo"} />
                         </Center>
                         </Box>
             </Center>
@@ -53,10 +53,10 @@ const Home = () => {
               <Box display={["block","block", "none"]}>
                         <Center >
                           <Box w={"full"} position={"absolute"}>
-                            <Img src={'/dialog-9.png'} mt={["110vh","75vh","115vh"]} ms={["5vw","39vw","52vw"]} width={175} height={[100]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/revisi/dialog-9%20-%20rev%202.webp'} mt={["110vh","75vh","115vh"]} ms={["5vw","39vw","52vw"]} width={175} height={[100]} alt={"MaximaLogo"} />
                           </Box>
                           <Box w={"full"} position={"absolute"} overflow={"hidden"}>
-                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-10%20-%20rev.png'} mt={["105vh","85vh","12vh"]} ms={["58vw","105vh","115vw","115vw","115vw"]} width={[150,125,125]} height={[85,75,75]} alt={"MaximaLogo"} />
+                            <Img src={'https://storage.googleapis.com/mxm22-bucket-test/revisi/dialog-10%20-%20rev%202.webp'} mt={["105vh","85vh","12vh"]} ms={["58vw","105vh","115vw","115vw","115vw"]} width={[150,125,125]} height={[85,75,75]} alt={"MaximaLogo"} />
                           </Box>
                         </Center>
                         </Box>
@@ -64,11 +64,11 @@ const Home = () => {
                         <Center>
                         <Box position={["absolute"]}  mt={["0","5vh","20vh","0","0"]}>
                           <Center>
-                              <Img w={"full"} src={'/dialog-9.png'} mt={["35vh","35vh","50vh","65vh","75vh"]} me={["30vw","30vw","40vw","35vw","30vw"]} width={[100, 300, "33vh", 275, 350]} height={[100,81,"18vh",150,175]}  alt={"MaximaLogo"} />
+                              <Img w={"full"} src={'https://storage.googleapis.com/mxm22-bucket-test/revisi/dialog-9%20-%20rev%202.webp'} mt={["35vh","35vh","50vh","65vh","75vh"]} me={["30vw","30vw","40vw","35vw","30vw"]} width={[100, 300, "33vh", 275, 350]} height={[100,81,"18vh",150,175]}  alt={"MaximaLogo"} />
                           </Center>
                           </Box>
                           <Box position={["absolute"]} overflow={"hidden"}>
-                              <Img src={'https://storage.googleapis.com/mxm22-bucket-test/dialogrev/dialog-10%20-%20rev.png'} mt={["35vh","35vh","80vh","85vh","90vh"]} ms={["50vw","50vw","47.5vh","45vw","50vw"]}  width={[100, 300, "25vh", 225, 350]} height={[100,81,"14vh",125,175]} alt={"MaximaLogo"}  />
+                              <Img src={'https://storage.googleapis.com/mxm22-bucket-test/revisi/dialog-10%20-%20rev%202.webp'} mt={["35vh","35vh","80vh","85vh","90vh"]} ms={["50vw","50vw","47.5vh","45vw","50vw"]}  width={[100, 300, "25vh", 225, 350]} height={[100,81,"14vh",125,175]} alt={"MaximaLogo"}  />
                           </Box>
                           </Center>
                         </Box>

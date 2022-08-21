@@ -16,14 +16,22 @@ interface ListOrganization {
   name: string;
 }
 
-const Organization = ({ ID }: { ID: string }) => {
+interface DetailInfo {
+  id: number
+  keterangan: string
+}
+
+const Organization = ({ ID }: { ID: string }, { NA }: { NA: string }) => {
   const [organizationData, setOrganizationData] = useState<ListOrganization[]>([]);
+  const [detail, setDetail] = useState<DetailInfo[]>([])
 
   useEffect(() => {
     try {
       const fetchHoME = async () => {
         const response = await axios.get(`${process.env.API_URL}/api/homeInfo/chapter/${ID}`);
+        const res = await axios.get(`${process.env.API_URL}/api/chapter/${NA}`)
         setOrganizationData(response.data);
+        setDetail(res.data)
       };
       fetchHoME();
     } catch (err: any) {
@@ -55,12 +63,18 @@ const Organization = ({ ID }: { ID: string }) => {
       <Center mt={["10vh", "0vh", "25vh", "25vh", "25vh"]} mb={"25vh"} zIndex={"4"} bgColor={"white"}>
         <Box w={["30em", "40em"]}>
           <Center my={"3em"}>
-            <Text display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["extrabold", "bold"]}>
-              Organisasi dan Himpunan
-            </Text>
-            <Text display={["block", "none"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["extrabold", "bold"]}>
-              Lembaga Kampus
-            </Text>
+            {detail.map((item: any) => {
+              return(
+                <>
+                  <Text display={["none", "block"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["extrabold", "bold"]}>
+                    {item.keterangan}
+                  </Text>
+                  <Text display={["block", "none"]} color={"#062D5F"} fontSize={["2xl"]} fontWeight={["extrabold", "bold"]}>
+                    {item.keterangan}
+                  </Text>
+                </>
+              )
+            })}
           </Center>
           <Wrap spacing={"2em"} justify="center" py={"0.5em"}>
             {organizationData.map((item: any) => {
@@ -155,9 +169,10 @@ const Organization = ({ ID }: { ID: string }) => {
 };
 
 Organization.getInitialProps = async ({ query }: any) => {
-  const { ID } = query;
+  const { ID, NA } = query;
   return {
     ID,
+    NA
   };
 };
 
