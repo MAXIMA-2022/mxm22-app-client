@@ -123,7 +123,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
   const Card = ({ images }: any) => (
     <Center>
       <Box w={"100%"} h={"100%"} borderRadius={"1rem"} color={"grey"} textAlign={"justify"} transition={"all 0.3 ease-out"}>
-        <Center w={"full"} h={"full"} border="solid red">
+        <Center w={"full"} h={"full"}>
           <Img src={images} shadow={"0px 8px 8px rgb(0,0,0,0.25)"} borderRadius={["2xl", "xl", "xl", "xl", "xl"]} />
         </Center>
       </Box>
