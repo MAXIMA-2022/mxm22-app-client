@@ -73,7 +73,7 @@ const Welcoming = () => {
     return (
       <Box position={"absolute"} left={0} bottom={0} right={0} mb={["7vh", "15vh"]}>
         <Center>
-          <Link href={"/dialogues"}>
+          <Link href={"/dialogues"} style={{ textDecoration: 'none' }}>
             <Button size={"md"} px={"1.8em"} bgColor={"#F7B70C"} outline={"5px  solid rgb(210, 223, 165, 47%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
               <Text color={["#062D5F", "white"]} fontSize={"20px"} fontWeight={["black", "extrabold"]}>
                 START
@@ -100,7 +100,7 @@ const Welcoming = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingP.png","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingP.webp","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.webp","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.webp","https://storage.googleapis.com/mxm22-bucket-test/Welcoming/HoMEWelcomingLS.webp"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           <Header />
           <FixedButton />
