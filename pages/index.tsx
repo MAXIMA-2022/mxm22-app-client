@@ -49,7 +49,7 @@ const Welcoming = () => {
       },
       {
         name: "CAMPAIGN",
-        href: "/campaign",
+        href: "https://www.instagram.com/p/ChjuOh3rW23/?igshid=YmMyMTA2M2Y=",
       },
     ];
     return (
