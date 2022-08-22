@@ -32,10 +32,20 @@ const Register = () => {
   const [error, setError] = useState(undefined);
   const jwt = useReadLocalStorage<string | undefined>("token");
   const isMyTokenExpired = isExpired(jwt as string);
+  const [toggle, setToggle] = useState(0);
 
   useEffect(() => {
     if (jwt && !isMyTokenExpired) {
       router.push("/");
+    }
+    try {
+      const fetchHoME = async () => {
+        const response = await axios.get(`${process.env.API_URL}/api/toggle`);
+        setToggle(response.data[10].toggle);
+      };
+      fetchHoME();
+    } catch (err: any) {
+      console.log(err);
     }
   }, []);
 
@@ -110,12 +120,16 @@ const Register = () => {
               </Text>
             </Center>
             <Center mb={["2em", "2em", "0"]}>
-              <Text fontSize={["md", "md", "md", "sm", "md"]} color={"#1B4173"} fontWeight={"medium"}>
-                Sudah punya akun?{" "}
-                <Link href={"/login"}>
-                  <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline" }}>Masuk</span>
-                </Link>
-              </Text>
+              {toggle === 1 && 
+              (
+                <Text fontSize={["md", "md", "md", "sm", "md"]} color={"#1B4173"} fontWeight={"medium"}>
+                  Sudah punya akun?{" "}
+                  <Link href={"/login"}>
+                    <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline" }}>Masuk</span>
+                  </Link>
+                </Text>
+              )}
+
             </Center>
             <Box w={["full", "full", "32em", "35em", "40.5em"]} mt={"1em"}>
               <form onSubmit={handleSubmit(onSubmit)}>

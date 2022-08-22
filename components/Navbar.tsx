@@ -51,19 +51,21 @@ const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { name } = useUserContext();
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(0);
 
   useEffect(() => {
     try {
       const fetchHoME = async () => {
         const response = await axios.get(`${process.env.API_URL}/api/toggle`);
-        setToggle(response.data);
+        setToggle(response.data[10].toggle);
       };
       fetchHoME();
     } catch (err: any) {
       console.log(err);
     }
   }, []);
+
+  console.log(toggle)
 
   const navbarController = () => {
     if (isOpen) {
@@ -193,7 +195,7 @@ const Navbar = () => {
           ) : (
             <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]}>
               <Link href={'/login'}>
-                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"} disabled = {toggle ? true : false}>
+                  <Button size={["md", "sm", "md", "md", "lg"]} borderRadius={"full"} variant={"outline"} border={"2px solid white"} disabled = {toggle === 0 ? true : false}>
                     Log In
                   </Button>
                 </Link>
