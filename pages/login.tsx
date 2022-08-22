@@ -42,26 +42,27 @@ const login = () => {
     );
   };
 
-  const forgotPass = () => {
-    Swal.fire({
-      title: '<strong>Lupa Password</strong>',
-      icon: 'info',
-      html:
-        'Silahkan chat melalui ' +
-        '<a href="https://www.instagram.com/maximaumn/"><b><u>sosial media</u></b></a> ' +
-        'MAXIMA UMN!',
-      showCloseButton: true,
-      focusConfirm: false,
-      confirmButtonText:
-        '<i class="fa fa-thumbs-up"></i> Okay!',
-      confirmButtonAriaLabel: 'Thumbs up, great!',
-    })
-  }
-
   const LoginForm = () => {
+    const forgotPass = () => {
+      Swal.fire({
+        title: '<strong>Lupa Password</strong>',
+        icon: 'info',
+        html:
+          'Silakan hubungi admin Line Official Account MAXIMA UMN dengan klik tombol di bawah!',
+        showCloseButton: true,
+        focusConfirm: false,
+        confirmButtonText: 'LINE',
+        confirmButtonColor: "#00B900",
+        confirmButtonAriaLabel: 'Thumbs up, great!',
+      }).then((result) => {
+        if(result.isConfirmed){
+          router.push('https://liff.line.me/1645278921-kWRPP32q/?accountId=vuu3203w')
+        }
+      })
+    }
     useEffect(() => {
       if (jwt && !isMyTokenExpired) {
-          router.push("/");
+        router.push("/");
       }
     }, []);
     const router = useRouter()
@@ -193,7 +194,7 @@ const login = () => {
                       {errors.password !== undefined && (
                           <Text textColor={"red"}>{errors.password.message}</Text>
                       )}
-                      <Box display={["none", "none", "block"]}>
+                      <Box display={["block", "block", "block"]}>
                         <Link href={""}>
                           <Text fontSize={["sm"]} my={"0.5em"} color={"#1B4173"} fontWeight={"medium"}>
                             Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }} onClick={() => forgotPass()}>Klik di sini</span>
