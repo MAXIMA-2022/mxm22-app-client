@@ -463,7 +463,7 @@ const Register = () => {
 
   return (
     <>
-      <Flex minH={"100vh"} bgColor={"white"} bgImage={["", "", "", "/Register/register.jpg"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={"100vh"} bgColor={"white"} bgImage={["", "", "", "https://storage.googleapis.com/mxm22-bucket-test/register.jpg"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} zIndex={"0"}>
           <Box mt={"9vh"}>
             <MaximaLogo />

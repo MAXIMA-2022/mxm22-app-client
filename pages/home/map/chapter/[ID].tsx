@@ -34,7 +34,6 @@ const Organization = ({ ID }: { ID: string }) => {
       const fetchChap = async () => {
         const res = await axios.get(`${process.env.API_URL}/api/chapter/${ID}`)
         setDetail(res.data)
-        console.log(res.data)
       }
       fetchChap()
       fetchHoME();
@@ -52,10 +51,10 @@ const Organization = ({ ID }: { ID: string }) => {
             <Img src={`https://storage.googleapis.com/mxm22-bucket-test/Computers/${ID.toLowerCase()}.png`} />
           </Box>
           <Box mt={["35vh", "35vh", "35rem", "15rem", "25rem"]} position={"absolute"} transform={["scale(0.25)", "scale(0.25)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"3"}>
-            <Img src={"/organization/chair.png"} />
+            <Img src={"https://storage.googleapis.com/mxm22-bucket-test/Organization/chair.png"} />
           </Box>
           <Box mt={["55vh", "60vh", "50rem", "40rem", "50rem"]} position={"absolute"} transform={["scale(0.55)", "scale(0.55)", "scale(0.65)", "scale(0.7)", "scale(0.75)"]} zIndex={"1"}>
-            <Img src={"/organization/shade.png"} />
+            <Img src={"https://storage.googleapis.com/mxm22-bucket-test/Organization/shade.png"} />
           </Box>
         </Center>
       </>
@@ -141,7 +140,7 @@ const Organization = ({ ID }: { ID: string }) => {
               borderRadius={"full"}
               shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
             >
-              <Img src={"/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
+              <Img src={"https://storage.googleapis.com/mxm22-bucket-test/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
             </Center>
           </Button>
         </Flex>
@@ -156,7 +155,7 @@ const Organization = ({ ID }: { ID: string }) => {
         position={["absolute", "relative"]}
         mt={["0vh", "0vh", "-12.5vh", "0vh", "0vh"]}
         h={["70vh", "70vh", "100vh", "160vh", "160vh"]}
-        bgImage={["/organization/organisatorBgP.png", "/organization/organisatorBgP.png", "/organization/organisatorBgP.png", "/organization/organisatorBgLs3.png", "/organization/organisatorBgLs3.png"]}
+        bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Organization/organisatorBgP.png", "https://storage.googleapis.com/mxm22-bucket-test/Organization/organisatorBgP.png", "https://storage.googleapis.com/mxm22-bucket-test/Organization/organisatorBgP.png", "https://storage.googleapis.com/mxm22-bucket-test/Organization/organisatorBgLs3.png", "https://storage.googleapis.com/mxm22-bucket-test/Organization/organisatorBgLs3.png"]}
         bgPosition={"center"}
         bgSize={"cover"}
         bgRepeat={"no-repeat"}

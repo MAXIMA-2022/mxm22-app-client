@@ -17,37 +17,37 @@ const Footer = () => {
   const SocialMediaData = [
     {
       id: 1,
-      icon: "/organization/facebook.svg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/facebook.svg",
       link: "https://www.facebook.com/maximaumn",
     },
     {
       id: 2,
-      icon: "/organization/twitter.svg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/twitter.svg",
       link: "https://twitter.com/MaximaUMN",
     },
     {
       id: 3,
-      icon: "/organization/linkedin.svg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/linkedin.svg",
       link: "https://www.linkedin.com/company/maxima-2022/",
     },
     {
       id: 4,
-      icon: "/organization/youtube.svg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/youtube.svg",
       link: "https://www.youtube.com/channel/UCjCWlaKQHnyhz-0hr7qQPYg",
     },
     {
       id: 5,
-      icon: "/organization/instagram.svg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/instagram.svg",
       link: "https://www.instagram.com/maximaumn/",
     },
     {
       id: 6,
-      icon: "/organization/tiktok.svg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/tiktok.svg",
       link: "https://www.tiktok.com/@maximaumn",
     },
     {
       id: 7,
-      icon: "/organization/line.svg",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/line.svg",
       link: "https://liff.line.me/1645278921-kWRPP32q/?accountId=vuu3203w",
     },
   ];

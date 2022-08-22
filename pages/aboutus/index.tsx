@@ -1,8 +1,7 @@
 import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
 //importing local components
 import Layout from "../../components/Layout";
@@ -10,7 +9,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Wrap, WrapItem, Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure, Container, useMediaQuery } from "@chakra-ui/react";
+import { Box, Flex, Center, Text, Button, Img, Container, useMediaQuery } from "@chakra-ui/react";
 
 const AboutUs: NextPage = () => {
   const [isSmallerThan320] = useMediaQuery("(max-width: 320px)");
@@ -79,7 +78,7 @@ const AboutUs: NextPage = () => {
               borderRadius={"full"}
               shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
             >
-              <Img src={"/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
+              <Img src={"https://storage.googleapis.com/mxm22-bucket-test/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
             </Center>
           </Button>
         </Flex>

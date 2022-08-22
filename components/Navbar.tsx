@@ -6,12 +6,11 @@ import axios from "axios";
 
 //importing local components
 import MaximaIcon from "../public/maximaIcon.svg";
-import MaximaIconP from "../public/maximaIconP2.svg";
 
 //importing local files
 
 //importing chakra ui components
-import { Box, Flex, Text, Stack, Button, Center, IconButton, useDisclosure } from "@chakra-ui/react";
+import { Box, Flex, Text, Stack, Button, IconButton } from "@chakra-ui/react";
 
 //importing chakra ui icons
 import { HamburgerIcon } from "@chakra-ui/icons";
@@ -64,8 +63,6 @@ const Navbar = () => {
       console.log(err);
     }
   }, []);
-
-  console.log(toggle)
 
   const navbarController = () => {
     if (isOpen) {

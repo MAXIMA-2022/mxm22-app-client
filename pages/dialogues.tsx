@@ -1,12 +1,9 @@
-import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 //importing local components
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import MaximaIconP from "../public/maximaIconP.svg";
 
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img } from "@chakra-ui/react";

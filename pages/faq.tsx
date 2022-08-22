@@ -80,7 +80,7 @@ const FAQ: NextPage = () => {
               borderRadius={"full"}
               shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
             >
-              <Img src={"/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
+              <Img src={"https://storage.googleapis.com/mxm22-bucket-test/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
             </Center>
           </Button>
         </Flex>

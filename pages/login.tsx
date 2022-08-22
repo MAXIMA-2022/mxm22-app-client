@@ -108,7 +108,7 @@ const login = () => {
       <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} maxW={["65em", "65em", "65em", "55em", "65em"]} maxH={"auto"} mx={"3em"}>
         <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} h={"auto"} justifyContent={"space-between"}>
           <Center display={["none", "none", "flex", "flex", "flex"]} me={"2em"}>
-            <Img src={"/Login/gambar-masuk.png"} w={["38em", "38em", "30em", "30em", "38em"]} />
+            <Img src={"https://storage.googleapis.com/mxm22-bucket-test/gambar-masuk.png"} w={["38em", "38em", "30em", "30em", "38em"]} />
           </Center>
           <Box
             w={["full", "full", "22em", "22em", "22em"]}
@@ -137,7 +137,7 @@ const login = () => {
               </Link>
             </Center>
             <Center display={["flex", "flex", "none"]} my={"1.5em"}>
-              <Img display={["block", "block", "none"]} src={"/Login/gambar-masuk-mobile.png"} w={"auto"} />
+              <Img display={["block", "block", "none"]} src={"https://storage.googleapis.com/mxm22-bucket-test/gambar-masuk-mobile.png"} w={"auto"} />
             </Center>
             <Box>
               <form onSubmit={handleSubmit(onSubmit)}>
