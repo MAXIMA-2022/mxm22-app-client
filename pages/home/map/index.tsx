@@ -73,7 +73,7 @@ const Maps = (props: any) => {
               borderRadius={"full"}
               shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
             >
-              <Img src={"../expandLeft.svg"} w={["4rem", "4rem", "10rem", "2rem", "3rem"]} h={["4rem", "10rem", "3rem", "2rem", "3rem"]} />
+              <Img src={"https://storage.googleapis.com/mxm22-bucket-test/expandLeft.svg"} w={["4rem", "4rem", "10rem", "2rem", "3rem"]} h={["4rem", "10rem", "3rem", "2rem", "3rem"]} />
             </Center>
           </Link>
         </Button>

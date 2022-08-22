@@ -153,7 +153,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
           <Center flex={1}>
             {active > 0 && (
               <Button variant={"none"} onClick={() => setActive((i) => i - 1)} zIndex={"1"}>
-                <Img src={"/organization/expand_left.svg"} display={["none", "block"]} w={["40px", "40px", "35px", "40px", "56px"]} />
+                <Img src={"https://storage.googleapis.com/mxm22-bucket-test/Organization/expand_left.svg"} display={["none", "block"]} w={["40px", "40px", "35px", "40px", "56px"]} />
               </Button>
             )}
           </Center>
@@ -202,7 +202,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
           <Center flex={1}>
             {active < count - 1 && (
               <Button variant={"none"} onClick={() => setActive((i) => i + 1)} zIndex={"1"}>
-                <Img src={"/organization/expand_right.svg"} display={["none", "none", "block", "block", "block"]} w={["40px", "40px", "35px", "40px", "56px"]} />
+                <Img src={"https://storage.googleapis.com/mxm22-bucket-test/Organization/expand_right.svg"} display={["none", "none", "block", "block", "block"]} w={["40px", "40px", "35px", "40px", "56px"]} />
               </Button>
             )}
           </Center>
@@ -231,31 +231,31 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
   const SocialMedia = () => {
     const SocialMediaData = [
       {
-        icon: "/organization/facebook.svg",
+        icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/facebook.svg",
         link: HoMEInfo[0].linkFacebook,
       },
       {
-        icon: "/organization/twitter.svg",
+        icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/twitter.svg",
         link: HoMEInfo[0].linkTwitter,
       },
       {
-        icon: "/organization/linkedin.svg",
+        icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/linkedin.svg",
         link: HoMEInfo[0].linkLinkedIn,
       },
       {
-        icon: "/organization/youtube.svg",
+        icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/youtube.svg",
         link: HoMEInfo[0].linkYoutube,
       },
       {
-        icon: "/organization/instagram.svg",
+        icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/instagram.svg",
         link: HoMEInfo[0].linkInstagram,
       },
       {
-        icon: "/organization/line.svg",
+        icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/line.svg",
         link: `https://page.line.me/?accountId=${HoMEInfo[0].linkLine}`,
       },
       {
-        icon: "/organization/tiktok.svg",
+        icon: "https://storage.googleapis.com/mxm22-bucket-test/Organization/tiktok.svg",
         link: HoMEInfo[0].linkTiktok,
       },
     ];
@@ -306,7 +306,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
               borderRadius={"full"}
               shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
             >
-              <Img src={"/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
+              <Img src={"https://storage.googleapis.com/mxm22-bucket-test/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
             </Center>
           </Button>
         </Flex>
@@ -325,7 +325,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
           // h={["100vh", "220vh"]}
           mt={["0vh", "-15vh", "-15vh", "-55vh", "-55vh"]}
           h={["70vh", "100vh", "110vw", "220vh", "220vh"]}
-          bgImage={["/organization/organizationDescLs.png", "/organization/organizationDescLs.png"]}
+          bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Organization/organizationDescLs.png", "https://storage.googleapis.com/mxm22-bucket-test/Organization/organizationDescLs.png"]}
           bgPosition={"center"}
           bgSize={"cover"}
           bgRepeat={"no-repeat"}
