@@ -271,7 +271,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
           <Wrap w={"full"} justify={"center"} spacing={["0em", "0.2em"]}>
             {SocialMediaData.map((socialMedia: any, key: any) => (
               <>
-                {socialMedia.link !== "" && (
+                {socialMedia.link !== "" && socialMedia.link !== "https://page.line.me/?accountId=" && (
                   <a key={key} href={`${socialMedia.link}`} target={"_blank"} rel="noreferrer">
                     <Center w={"auto"} transition={"0.1s ease-in-out"} transform={"scale(0.7)"} _hover={{ transform: "scale(0.8)", cursor: "pointer" }}>
                       <Img src={socialMedia.icon} w={["2.8em", "5.2em"]} />
@@ -333,6 +333,7 @@ const OrganizationDesc = ({ ID }: { ID: string }) => {
           <Box w={"full"} zIndex={"0"}>
             <Header />
             <Body />
+            <BackButton/>
             <Footer />
           </Box>
         </Flex>
