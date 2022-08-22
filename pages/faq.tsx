@@ -144,7 +144,7 @@ const FAQ: NextPage = () => {
                                 <ListItem>
                                   <Text color={"#1B4173"} fontSize={["lg", "lg", "2.2vh", "sm", "lg"]}>
                                     HoME dapat diakses secara online melalui website
-                                    <span style={{ fontWeight: "bold", color: "#D01E20" }}> maxima.umn.ac.id.</span>
+                                    <span style={{ fontWeight: "bold", color: "#D01E20" }}> maximaumn.com.</span>
                                   </Text>
                                 </ListItem>
                                 <ListItem>
@@ -203,7 +203,7 @@ const FAQ: NextPage = () => {
                                 <ListItem>
                                   <Text color={"#1B4173"} textAlign={"start"} fontSize={["13px", "lg", "2.2vh", "sm", "lg"]}>
                                     HoME dapat diakses secara online melalui website
-                                    <span style={{ fontWeight: "bold", color: "#D01E20" }}> maxima.umn.ac.id.</span>
+                                    <span style={{ fontWeight: "bold", color: "#D01E20" }}> maximaumn.com.</span>
                                   </Text>
                                 </ListItem>
                                 <ListItem>
