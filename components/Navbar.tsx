@@ -58,7 +58,6 @@ const Navbar = () => {
       const fetchHoME = async () => {
         const response = await axios.get(`${process.env.API_URL}/api/toggle`);
         setToggle(response.data);
-        console.log(response.data);
       };
       fetchHoME();
     } catch (err: any) {
