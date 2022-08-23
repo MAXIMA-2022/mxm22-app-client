@@ -10,8 +10,22 @@ import MaximaIconP from "../public/maximaIconP.svg";
 
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { isExpired } from "react-jwt";
+import { useReadLocalStorage } from "usehooks-ts";
 
 const STATE = () => {
+  const router = useRouter()
+  const jwt = useReadLocalStorage("token");
+  const isMyTokenExpired = isExpired(jwt as string);
+
+  useEffect(() => {
+        if (!jwt || isMyTokenExpired) {
+            router.push("/login");
+        }
+  });
+  
   const Header = () => {
     return (
       <Box>
