@@ -137,11 +137,13 @@ const Home = () => {
                 </Text>
                 <Flex justifyContent={"end"} alignItems={"center"}>
                   <Link href={"/home/map"}>
-                    <Button size={["sm", "sm", "sm", "sm", "sm"]} px={"1.5em"} bgColor={"#F7B70C"} outline={"5px  solid rgb(210, 223, 165, 47%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
-                      <Text color={["#062D5F"]} fontSize={["sm", "sm", "1.8vh", "sm", "lg"]} fontWeight={["black"]}>
-                        LET THE ADVENTURE BEGIN!
-                      </Text>
-                    </Button>
+                    <a>
+                      <Button size={["sm", "sm", "sm", "sm", "sm"]} px={"1.5em"} bgColor={"#F7B70C"} outline={"5px  solid rgb(210, 223, 165, 47%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                        <Text color={["#062D5F"]} fontSize={["sm", "sm", "1.8vh", "sm", "lg"]} fontWeight={["black"]}>
+                          LET THE ADVENTURE BEGIN!
+                        </Text>
+                      </Button>
+                    </a>
                   </Link>
                 </Flex>
                 </motion.div>

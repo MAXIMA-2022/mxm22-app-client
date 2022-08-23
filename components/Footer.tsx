@@ -402,13 +402,15 @@ const Footer = () => {
                                 cursor: "pointer",
                               }}
                             >
-                              <Img
-                                src={socialMedia.icon}
-                                w={["2.8em", "5.2em"]}
-                                bgColor={"white"}
-                                borderRadius={"full"}
-                                outline={"5px solid white"}
-                              />
+                              <div style={{ borderRadius: "100%", backgroundColor: "white", border: "5px solid white"}}>
+                                <Img
+                                  src={socialMedia.icon}
+                                  w={["2.8em", "5.2em"]}
+                                  //bgColor={"white"}
+                                  //borderRadius={"full"}
+                                  //outline={"5px solid white"}
+                                />
+                              </div>
                             </Center>
                           </a>
                         )}

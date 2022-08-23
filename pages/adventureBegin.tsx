@@ -116,11 +116,13 @@ const AdventureBegin: NextPage = () => {
               {count >= 2 ? (
                 <>
                   <Link href={"/home"}>
-                    <Button size={"md"} px={"2.5em"} bgColor={"#1B4173"} outline={"5px  solid rgb(255,255,255, 15%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
-                      <Text color={"white"} fontSize={"20px"} fontWeight={"extrabold"}>
-                        NEXT
-                      </Text>
-                    </Button>
+                    <a>
+                      <Button size={"md"} px={"2.5em"} bgColor={"#1B4173"} outline={"5px  solid rgb(255,255,255, 15%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                        <Text color={"white"} fontSize={"20px"} fontWeight={"extrabold"}>
+                          NEXT
+                        </Text>
+                      </Button>
+                    </a>
                   </Link>
                 </>
               ):(

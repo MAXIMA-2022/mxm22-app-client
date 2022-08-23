@@ -1,5 +1,6 @@
 import Image from "next/image";
 // import Link from "next/link";
+import Link from 'next/link'
 
 //importing local components
 import Layout from "../components/Layout";
@@ -8,7 +9,7 @@ import Footer from "../components/Footer";
 import MaximaIconP from "../public/maximaIconP.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Text, Button, Stack, Link } from "@chakra-ui/react";
+import { Box, Flex, Center, Text, Button, Stack, Link as ChakraLink } from "@chakra-ui/react";
 
 const Welcoming = () => {
   const Header = () => {
@@ -56,13 +57,13 @@ const Welcoming = () => {
       <Flex justifyContent={"end"} alignItems={"center"}>
         <Stack mt={["6vh", "10vh"]} align={"stretch"} w={["5.5em", "6em", "7.5em", "8.5em", "9.5em"]} spacing={6} zIndex={99}>
           {linksData.map((link) => (
-            <Link href={link.href} key={link.name} isExternal style={{ textDecoration: 'none' }}>
+            <ChakraLink href={link.href} key={link.name} isExternal style={{ textDecoration: 'none' }}>
               <Button w={"full"} bgColor={"#F7B70C"} size={["sm", "md", "md", "lg", "lg"]} borderRadius={"10em 0 0 10em"} shadow={"0 4px 4px rgb(0,0,0,0.25)"}>
                 <Text w={"full"} color={"white"} textAlign={"end"} fontSize={["xs", "sm", "md", "lg", "xl"]} fontWeight={"extrabold"}>
                   {link.name}
                 </Text>
               </Button>
-            </Link>
+            </ChakraLink>
           ))}
         </Stack>
       </Flex>
@@ -74,11 +75,13 @@ const Welcoming = () => {
       <Box position={"absolute"} left={0} bottom={0} right={0} mb={["7vh", "15vh"]}>
         <Center>
           <Link href={"/dialogues"} style={{ textDecoration: 'none' }}>
-            <Button size={"md"} px={"1.8em"} bgColor={"#F7B70C"} outline={"5px  solid rgb(210, 223, 165, 47%)"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
-              <Text color={["#062D5F", "white"]} fontSize={"20px"} fontWeight={["black", "extrabold"]}>
-                START
-              </Text>
-            </Button>
+            <a>
+              <Button style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#F7B70C"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                <Text color={["#062D5F", "white"]} fontSize={"20px"} fontWeight={["black", "extrabold"]}>
+                  START
+                </Text>
+              </Button>
+            </a>
           </Link>
         </Center>
       </Box>
