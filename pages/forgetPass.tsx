@@ -42,28 +42,10 @@ const ForgetPass = () => {
   };
 
   const LoginForm = () => {
-    const [toggle, setToggle] = useState(0)
-    const [token, setToken] = useState("")
     useEffect(() => {
       if (jwt && !isMyTokenExpired) {
         router.push("/");
       }
-      // try {
-      //   const fetchToggle = async () => {
-      //     const res = await axios.get(`${process.env.API_URL}/api/toggle`)
-      //     setToggle(res.data[11].toggle)
-      //     //console.log(res.data[11].toggle)
-      //   }
-      //   // const fetchToken = async () => {
-      //   //   const res = await axios.get(`${process.env.API_URL}/api/getToken`)
-      //   //   setToken(res.data)
-      //   //   console.log(res.data)
-      //   // }
-      //   // fetchToken()
-      //   fetchToggle()
-      // } catch(err: any) {
-      //   console.log(err)
-      // }
     }, []);
     const router = useRouter()
     const jwt = useReadLocalStorage<string | undefined>("token")
@@ -78,9 +60,9 @@ const ForgetPass = () => {
       formData.append("nim", data.nim)
       const response = await axios.post(`${process.env.API_URL}/api/mhs/sendEmail`, formData)
       Swal.fire({
-        icon: 'success',
-        title: `${response.data.message}`,
-      })
+          icon: 'success',
+          title: `${response.data.message}`,
+        })
       setIsButtonLoading(false);
       router.push('/resetPass')
     } catch(err: any) {
@@ -181,7 +163,6 @@ const ForgetPass = () => {
   };
 
   const Footer = () => {
-    const router = useRouter();
     return (
       <Center position={["absolute"]} left={0} right={0} bottom={[0]} mb={["5vh", "5vh"]} mt={["8vh", "0"]}>
         <Text color={"#1B4173"} fontSize={"sm"} fontWeight={"bold"}>

@@ -43,26 +43,19 @@ const login = () => {
   };
 
   const LoginForm = () => {
-    const forgotPass = () => {
-      Swal.fire({
-        title: '<strong>Lupa Password</strong>',
-        icon: 'info',
-        html:
-          'Silakan hubungi admin Line Official Account MAXIMA UMN dengan klik tombol di bawah!',
-        showCloseButton: true,
-        focusConfirm: false,
-        confirmButtonText: 'LINE',
-        confirmButtonColor: "#00B900",
-        confirmButtonAriaLabel: 'Thumbs up, great!',
-      }).then((result) => {
-        if(result.isConfirmed){
-          router.push('https://liff.line.me/1645278921-kWRPP32q/?accountId=vuu3203w')
-        }
-      })
-    }
+    const [toggle, setToggle] = useState(0)
     useEffect(() => {
       if (jwt && !isMyTokenExpired) {
         router.push("/");
+      }
+      try {
+        const fetchToggle = async () => {
+          const res = await axios.get(`${process.env.API_URL}/api/toggle`)
+          setToggle(res.data[11].toggle)
+        }
+        fetchToggle()
+      } catch(err: any) {
+        console.log(err)
       }
     }, []);
     const router = useRouter()
@@ -195,11 +188,23 @@ const login = () => {
                           <Text textColor={"red"}>{errors.password.message}</Text>
                       )}
                       <Box display={["block", "block", "block"]}>
-                        <Link href={'/forgetPass'}>
-                          <Text fontSize={["sm"]} my={"0.5em"} color={"#1B4173"} fontWeight={"medium"}>
-                            Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Klik di sini</span>
-                          </Text>
-                        </Link>
+                        {toggle === 1 ? (
+                          <>
+                            <Link href={'/forgetPass'}>
+                              <Text fontSize={["sm"]} my={"0.5em"} color={"#1B4173"} fontWeight={"medium"}>
+                                Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Klik di sini</span>
+                              </Text>
+                            </Link>
+                          </>
+                        ):(
+                          <>
+                            <Link href={'/resetPass'}>
+                              <Text fontSize={["sm"]} my={"0.5em"} color={"#1B4173"} fontWeight={"medium"}>
+                                Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Klik di sini</span>
+                              </Text>
+                            </Link>
+                          </>
+                        )}
                       </Box>
                     </Box>
                   </Stack>
