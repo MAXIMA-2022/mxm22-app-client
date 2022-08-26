@@ -173,7 +173,7 @@ const ResetPass = () => {
                     </Box>
                     <Box w={"full"}>
                       <FormLabel display={["none", "none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Password
+                        Confirm Password
                       </FormLabel>
                       <InputGroup>
                         <Input
