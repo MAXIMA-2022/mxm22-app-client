@@ -53,6 +53,7 @@ const ResetPass = () => {
         const fetchToggle = async () => {
           const res = await axios.get(`${process.env.API_URL}/api/toggle`)
           setToggle(res.data[11].toggle)
+          console.log(res.data[11].toggle)
         }
         fetchToggle()
       } catch(err: any) {
@@ -73,33 +74,20 @@ const ResetPass = () => {
         formData.append("token", data.token)
         formData.append("password", data.password)
         formData.append("confirmPassword", data.confirmPassword)
-      } else {
-        formData.append("token", data.token)
-        formData.append("nim", data.nim)
-        formData.append("password", data.password)
-        formData.append("confirmPassword", data.confirmPassword)
-      }
-      const response = await axios.put(`${process.env.API_URL}/api/mhs/resetPass`, formData)
-      if(toggle === 1){
+        const response = await axios.put(`${process.env.API_URL}/api/mhs/resetPass`, formData)
         Swal.fire({
           icon: 'success',
           title: `${response.data.message}`,
         })
       } else {
+        formData.append("token", data.token)
+        formData.append("nim", data.nim)
+        formData.append("password", data.password)
+        formData.append("confirmPassword", data.confirmPassword)
+        const response = await axios.put(`${process.env.API_URL}/api/mhs/resetPass2`, formData)
         Swal.fire({
-          title: '<strong>Lupa Password</strong>',
-          icon: 'info',
-          html:
-            'Silakan hubungi admin Line Official Account MAXIMA UMN untuk mendapatkan Token dengan cara klik tombol di bawah!',
-          showCloseButton: true,
-          focusConfirm: false,
-          confirmButtonText: 'LINE',
-          confirmButtonColor: "#00B900",
-          confirmButtonAriaLabel: 'Thumbs up, great!',
-        }).then((result) => {
-          if(result.isConfirmed){
-            router.push('https://liff.line.me/1645278921-kWRPP32q/?accountId=vuu3203w')
-          }
+          icon: 'success',
+          title: `${response.data.message}`,
         })
       }
       setIsButtonLoading(false);

@@ -42,9 +42,19 @@ const ForgetPass = () => {
   };
 
   const LoginForm = () => {
+    const [toggle, setToggle] = useState(0)
     useEffect(() => {
       if (jwt && !isMyTokenExpired) {
         router.push("/");
+      }
+      try {
+        const fetchToggle = async () => {
+          const res = await axios.get(`${process.env.API_URL}/api/toggle`)
+          setToggle(res.data[11].toggle)
+        }
+        fetchToggle()
+      } catch(err: any) {
+        console.log(err)
       }
     }, []);
     const router = useRouter()
@@ -58,11 +68,30 @@ const ForgetPass = () => {
       setIsButtonLoading(true)
       const formData = new FormData()
       formData.append("nim", data.nim)
-      const response = await axios.post(`${process.env.API_URL}/api/mhs/sendEmail`, formData)
-      Swal.fire({
+      if(toggle === 1){
+        const response = await axios.post(`${process.env.API_URL}/api/mhs/sendEmail`, formData)
+        Swal.fire({
           icon: 'success',
           title: `${response.data.message}`,
         })
+      } else {
+        await axios.post(`${process.env.API_URL}/api/getToken/`, formData)
+        Swal.fire({
+          title: '<strong>Lupa Password</strong>',
+          icon: 'info',
+          html:
+            'Silakan hubungi admin Line Official Account MAXIMA UMN untuk mendapatkan Token dengan cara klik tombol di bawah!',
+          showCloseButton: true,
+          focusConfirm: false,
+          confirmButtonText: 'LINE',
+          confirmButtonColor: "#00B900",
+          confirmButtonAriaLabel: 'Thumbs up, great!',
+        }).then((result) => {
+          if(result.isConfirmed){
+            router.push('https://liff.line.me/1645278921-kWRPP32q/?accountId=vuu3203w')
+          }
+        })
+      }
       setIsButtonLoading(false);
       router.push('/resetPass')
     } catch(err: any) {
@@ -146,11 +175,11 @@ const ForgetPass = () => {
                 <Flex w={"100%"} justifyContent={"center"} mt={"2em"} mb={"1em"}>
                   {isButtonLoading === true ? (
                     <Button isLoading w={["full", "full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#fff"} colorScheme={"orange"} bgColor={"#F7B70C"}>
-                      KIRIM EMAIL
+                      KIRIM
                     </Button>
                   ) : (
                     <Button w={["full", "full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#fff"} colorScheme={"orange"} bgColor={"#F7B70C"}>
-                      KIRIM EMAIL
+                      KIRIM
                     </Button>
                   )}
                 </Flex>
