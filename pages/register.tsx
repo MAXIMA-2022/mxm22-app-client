@@ -25,6 +25,7 @@ const Register = () => {
     idLine: string;
     idInstagram: string;
     password: string;
+    confirm_password: string
   }
 
   const router = useRouter();
@@ -84,6 +85,7 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<RegisData>();
 
   const MaximaLogo = () => {
@@ -369,6 +371,32 @@ const Register = () => {
                         {errors.password !== undefined && <Text textColor={"red"}>{errors.password.message}</Text>}
                       </Box>
                     </Stack>
+                    <FormLabel display={["none", "none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Confirm Password
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                            {...register("confirm_password", {
+                              required: "Password harap dikonfirmasi",
+                              validate: (val: string) => {
+                                if (watch('password') != val) {
+                                  return "Password tidak sama!";
+                                }
+                              },
+                            })}
+                            size={"md"}
+                            borderColor={"#E2E8F0"}
+                            placeholder={"Confirm Password"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"password"}
+                            name={"confirm_password"}
+                            textColor={"black"}
+                            border={"solid"}
+                            borderRadius={"full"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                          />
+                        </InputGroup>
+                        {errors.confirm_password !== undefined && <Text textColor={"red"}>{errors.confirm_password.message}</Text>}
                     <Stack direction={["column", "column", "row"]} spacing={[5, 5, 4]}>
                       <Box w={["full", "full", "17em"]}>
                         <FormLabel display={["none", "none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>

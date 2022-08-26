@@ -22,17 +22,18 @@ import {
   InputLeftAddon,
 } from "@chakra-ui/react";
 import { isExpired } from "react-jwt";
-import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
+import { useReadLocalStorage } from "usehooks-ts";
 import axios from "axios";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 interface LoginData{
-  nim: string
+  token: string
   password: string
+  confirmPassword: string
 }
 
-const login = () => {
+const ResetPass = () => {
   const MaximaLogo = () => {
     return (
       <Center mt={["-3vh", "5vh"]} position={["relative", "absolute"]} left={0} right={0} top={0}>
@@ -43,23 +44,6 @@ const login = () => {
   };
 
   const LoginForm = () => {
-    const forgotPass = () => {
-      Swal.fire({
-        title: '<strong>Lupa Password</strong>',
-        icon: 'info',
-        html:
-          'Silakan hubungi admin Line Official Account MAXIMA UMN dengan klik tombol di bawah!',
-        showCloseButton: true,
-        focusConfirm: false,
-        confirmButtonText: 'LINE',
-        confirmButtonColor: "#00B900",
-        confirmButtonAriaLabel: 'Thumbs up, great!',
-      }).then((result) => {
-        if(result.isConfirmed){
-          router.push('https://liff.line.me/1645278921-kWRPP32q/?accountId=vuu3203w')
-        }
-      })
-    }
     useEffect(() => {
       if (jwt && !isMyTokenExpired) {
         router.push("/");
@@ -68,25 +52,24 @@ const login = () => {
     const router = useRouter()
     const jwt = useReadLocalStorage<string | undefined>("token")
     const isMyTokenExpired = isExpired(jwt as string)
-    const [, setLocalStorage] = useLocalStorage("token", "");
     const [isButtonLoading, setIsButtonLoading] = useState(false)
     const [error, setError] = useState(undefined)
 
     const onSubmit: SubmitHandler<any> = async (data: LoginData) => {
+      console.log(data)
     try{
       setIsButtonLoading(true)
       const formData = new FormData()
-      formData.append("nim", data.nim)
+      formData.append("token", data.token)
       formData.append("password", data.password)
-      const response = await axios.post(`${process.env.API_URL}/api/mhs/login`, formData)
-      Swal.fire(
-        'Selamat!',
-        'Anda berhasil masuk!',
-        'success'
-      )
-      setLocalStorage(response?.data?.token);
+      formData.append("confirmPassword", data.confirmPassword)
+      const response = await axios.put(`${process.env.API_URL}/api/mhs/resetPass`, formData)
+      Swal.fire({
+        icon: 'success',
+        title: `${response.data.message}`,
+      })
       setIsButtonLoading(false);
-      router.push('/')
+      router.push('/login')
     } catch(err: any) {
       Swal.fire({
         icon: 'error',
@@ -102,6 +85,7 @@ const login = () => {
     register,
     handleSubmit,
     formState: { errors },
+    watch,
   } = useForm<LoginData>();
 
     return (
@@ -126,15 +110,8 @@ const login = () => {
           >
             <Center mt={"4vh"}>
               <Text fontSize={["3xl", "3xl", "3xl", "2xl", "3xl"]} fontWeight={"bold"} color={"#1B4173"}>
-                Masuk
+                Reset Password
               </Text>
-            </Center>
-            <Center mb={["0em", "0em", "1em"]}>
-              <Link href={"/register"}>
-                <Text fontSize={["md", "md", "md", "sm", "md"]} color={"#1B4173"} fontWeight={"medium"}>
-                  Belum punya akun? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Daftar</span>
-                </Text>
-              </Link>
             </Center>
             <Center display={["flex", "flex", "none"]} my={"1.5em"}>
               <Img display={["block", "block", "none"]} src={"https://storage.googleapis.com/mxm22-bucket-test/gambar-masuk-mobile.png"} w={"auto"} />
@@ -145,29 +122,28 @@ const login = () => {
                   <Stack direction={["column"]} spacing={[5, 4]}>
                     <Box w={"full"}>
                       <FormLabel display={["none", "none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        NIM
+                        Token
                       </FormLabel>
                       <InputGroup>
-                        <InputLeftAddon fontSize={"sm"} m={"auto"} p={2} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
                         <Input
-                          {...register("nim", {
-                            required: "NIM harap diisi",
+                          {...register("token", {
+                            required: "Token harap diisi",
                           })}
                           size={"md"}
                           borderLeft={"none"}
                           borderColor={"#E2E8F0"}
-                          placeholder={""}
+                          placeholder={"Token"}
                           _placeholder={{ opacity: 1, color: "#CBD5E0" }}
                           type={"text"}
-                          name={"nim"}
+                          name={"token"}
                           textColor={"black"}
                           border={"solid"}
                           borderRadius={"full"}
                           _hover={{ border: "solid #CBD5E0" }}
                         />
                       </InputGroup>
-                      {errors.nim !== undefined && (
-                        <Text textColor={"red"}>{errors.nim.message}</Text>
+                      {errors.token !== undefined && (
+                        <Text textColor={"red"}>{errors.token.message}</Text>
                       )}
                     </Box>
                     <Box w={"full"}>
@@ -194,13 +170,37 @@ const login = () => {
                       {errors.password !== undefined && (
                           <Text textColor={"red"}>{errors.password.message}</Text>
                       )}
-                      <Box display={["block", "block", "block"]}>
-                        <Link href={'/forgetPass'}>
-                          <Text fontSize={["sm"]} my={"0.5em"} color={"#1B4173"} fontWeight={"medium"}>
-                            Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Klik di sini</span>
-                          </Text>
-                        </Link>
-                      </Box>
+                    </Box>
+                    <Box w={"full"}>
+                      <FormLabel display={["none", "none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
+                        Password
+                      </FormLabel>
+                      <InputGroup>
+                        <Input
+                          {...register("confirmPassword", {
+                            required: "Password harap dikonfirmasi",
+                            validate: (val: string) => {
+                            if (watch('password') != val) {
+                              return "Password tidak sama!";
+                            }
+                          },
+                          })}
+                          size={"md"}
+                          borderColor={"#E2E8F0"}
+                          placeholder={"Confirm Password"}
+                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                          type={"password"}
+                          name={"confirmPassword"}
+                          textColor={"black"}
+                          border={"solid"}
+                          borderRadius={["full", "full"]}
+                          _hover={{ border: "solid #CBD5E0" }}
+                          
+                        />
+                      </InputGroup>
+                      {errors.confirmPassword !== undefined && (
+                          <Text textColor={"red"}>{errors.confirmPassword.message}</Text>
+                      )}
                     </Box>
                   </Stack>
                 </FormControl>
@@ -224,7 +224,6 @@ const login = () => {
   };
 
   const Footer = () => {
-    const router = useRouter();
     return (
       <Center position={["absolute"]} left={0} right={0} bottom={[0]} mb={["5vh", "5vh"]} mt={["8vh", "0"]}>
         <Text color={"#1B4173"} fontSize={"sm"} fontWeight={"bold"}>
@@ -251,4 +250,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default ResetPass;

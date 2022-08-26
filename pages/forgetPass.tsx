@@ -22,17 +22,16 @@ import {
   InputLeftAddon,
 } from "@chakra-ui/react";
 import { isExpired } from "react-jwt";
-import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
+import { useReadLocalStorage } from "usehooks-ts";
 import axios from "axios";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 
 interface LoginData{
   nim: string
-  password: string
 }
 
-const login = () => {
+const ForgetPass = () => {
   const MaximaLogo = () => {
     return (
       <Center mt={["-3vh", "5vh"]} position={["relative", "absolute"]} left={0} right={0} top={0}>
@@ -43,32 +42,32 @@ const login = () => {
   };
 
   const LoginForm = () => {
-    const forgotPass = () => {
-      Swal.fire({
-        title: '<strong>Lupa Password</strong>',
-        icon: 'info',
-        html:
-          'Silakan hubungi admin Line Official Account MAXIMA UMN dengan klik tombol di bawah!',
-        showCloseButton: true,
-        focusConfirm: false,
-        confirmButtonText: 'LINE',
-        confirmButtonColor: "#00B900",
-        confirmButtonAriaLabel: 'Thumbs up, great!',
-      }).then((result) => {
-        if(result.isConfirmed){
-          router.push('https://liff.line.me/1645278921-kWRPP32q/?accountId=vuu3203w')
-        }
-      })
-    }
+    const [toggle, setToggle] = useState(0)
+    const [token, setToken] = useState("")
     useEffect(() => {
       if (jwt && !isMyTokenExpired) {
         router.push("/");
       }
+      // try {
+      //   const fetchToggle = async () => {
+      //     const res = await axios.get(`${process.env.API_URL}/api/toggle`)
+      //     setToggle(res.data[11].toggle)
+      //     //console.log(res.data[11].toggle)
+      //   }
+      //   // const fetchToken = async () => {
+      //   //   const res = await axios.get(`${process.env.API_URL}/api/getToken`)
+      //   //   setToken(res.data)
+      //   //   console.log(res.data)
+      //   // }
+      //   // fetchToken()
+      //   fetchToggle()
+      // } catch(err: any) {
+      //   console.log(err)
+      // }
     }, []);
     const router = useRouter()
     const jwt = useReadLocalStorage<string | undefined>("token")
     const isMyTokenExpired = isExpired(jwt as string)
-    const [, setLocalStorage] = useLocalStorage("token", "");
     const [isButtonLoading, setIsButtonLoading] = useState(false)
     const [error, setError] = useState(undefined)
 
@@ -77,16 +76,13 @@ const login = () => {
       setIsButtonLoading(true)
       const formData = new FormData()
       formData.append("nim", data.nim)
-      formData.append("password", data.password)
-      const response = await axios.post(`${process.env.API_URL}/api/mhs/login`, formData)
-      Swal.fire(
-        'Selamat!',
-        'Anda berhasil masuk!',
-        'success'
-      )
-      setLocalStorage(response?.data?.token);
+      const response = await axios.post(`${process.env.API_URL}/api/mhs/sendEmail`, formData)
+      Swal.fire({
+        icon: 'success',
+        title: `${response.data.message}`,
+      })
       setIsButtonLoading(false);
-      router.push('/')
+      router.push('/resetPass')
     } catch(err: any) {
       Swal.fire({
         icon: 'error',
@@ -124,17 +120,10 @@ const login = () => {
             overflowY={"auto"}
             zIndex={1}
           >
-            <Center mt={"4vh"}>
+            <Center mt={"4vh"} mb={5}>
               <Text fontSize={["3xl", "3xl", "3xl", "2xl", "3xl"]} fontWeight={"bold"} color={"#1B4173"}>
-                Masuk
+                Lupa Password
               </Text>
-            </Center>
-            <Center mb={["0em", "0em", "1em"]}>
-              <Link href={"/register"}>
-                <Text fontSize={["md", "md", "md", "sm", "md"]} color={"#1B4173"} fontWeight={"medium"}>
-                  Belum punya akun? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Daftar</span>
-                </Text>
-              </Link>
             </Center>
             <Center display={["flex", "flex", "none"]} my={"1.5em"}>
               <Img display={["block", "block", "none"]} src={"https://storage.googleapis.com/mxm22-bucket-test/gambar-masuk-mobile.png"} w={"auto"} />
@@ -156,7 +145,7 @@ const login = () => {
                           size={"md"}
                           borderLeft={"none"}
                           borderColor={"#E2E8F0"}
-                          placeholder={""}
+                          placeholder={"NIM"}
                           _placeholder={{ opacity: 1, color: "#CBD5E0" }}
                           type={"text"}
                           name={"nim"}
@@ -170,48 +159,16 @@ const login = () => {
                         <Text textColor={"red"}>{errors.nim.message}</Text>
                       )}
                     </Box>
-                    <Box w={"full"}>
-                      <FormLabel display={["none", "none", "block"]} fontSize={"sm"} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Password
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                          {...register("password", {
-                            required: "Password harap diisi",
-                          })}
-                          size={"md"}
-                          borderColor={"#E2E8F0"}
-                          placeholder={"Password"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"password"}
-                          name={"password"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={["full", "full"]}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                      </InputGroup>
-                      {errors.password !== undefined && (
-                          <Text textColor={"red"}>{errors.password.message}</Text>
-                      )}
-                      <Box display={["block", "block", "block"]}>
-                        <Link href={'/forgetPass'}>
-                          <Text fontSize={["sm"]} my={"0.5em"} color={"#1B4173"} fontWeight={"medium"}>
-                            Lupa kata sandimu? <span style={{ color: "#F7B70C", fontWeight: "bold", textDecoration: "underline", cursor: "pointer" }}>Klik di sini</span>
-                          </Text>
-                        </Link>
-                      </Box>
-                    </Box>
                   </Stack>
                 </FormControl>
                 <Flex w={"100%"} justifyContent={"center"} mt={"2em"} mb={"1em"}>
                   {isButtonLoading === true ? (
                     <Button isLoading w={["full", "full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#fff"} colorScheme={"orange"} bgColor={"#F7B70C"}>
-                      MASUK
+                      KIRIM EMAIL
                     </Button>
                   ) : (
                     <Button w={["full", "full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#fff"} colorScheme={"orange"} bgColor={"#F7B70C"}>
-                      MASUK
+                      KIRIM EMAIL
                     </Button>
                   )}
                 </Flex>
@@ -251,4 +208,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default ForgetPass;
