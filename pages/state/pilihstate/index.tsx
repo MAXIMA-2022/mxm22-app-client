@@ -13,6 +13,7 @@ import Footer from "../../../components/Footer";
 //importing chakra ui components
 import { Box, Flex, Center, Text, Button, Img, Wrap, WrapItem, ListItem, OrderedList, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Divider, InputLeftAddon, useDisclosure, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 interface ListStateAct {
   id: number;
@@ -34,7 +35,7 @@ const PilihState = ({ ID }: { ID: string }) => {
   const headers = {
     "x-access-token": jwt!,
   };
-  const [stateAct, setstateAct] = useState([])
+  //const [stateAct, setstateAct] = useState([])
   const router = useRouter()
   const isMyTokenExpired = isExpired(jwt as string);
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -46,13 +47,13 @@ const PilihState = ({ ID }: { ID: string }) => {
       const fetchSTATE = async () => {
         const response = await axios.get(`${process.env.API_URL}/api/state`, { headers });
         const res = await axios.get(`${process.env.API_URL}/api/dayManagement/`, { headers })
-        // const hasil = await axios.get(`${process.env.API_URL}/api/stateActivities/D2`, { headers })
+        // const hasil = await axios.get(`${process.env.API_URL}/api/stateActivities/D1`, { headers })
         // setstateAct(hasil.data)
         // console.log(hasil.data)
         setDay(res.data)
-        console.log(res.data)
+        //console.log(res.data)
         setStateData(response.data);
-        console.log(response.data);
+        //console.log(response.data);
       };
       fetchSTATE();
     } catch (err: any) {
@@ -60,49 +61,104 @@ const PilihState = ({ ID }: { ID: string }) => {
     }
   }, []);
 
+  // const handleRegister = async () => {
+  //   const [registerStatus, setRegisterStatus] = useState(false);
+  //   const [loading, setLoading] = useState(false);
+  //   try {
+  //     setLoading(true);
+  //     // const data = {
+  //     //   stateID: props.stateID,
+  //     // };
+  //     // await stateService.registerState(data);
+  //     // props.fetchData();
+  //     Swal.fire({
+  //       position: "center",
+  //       icon: "success",
+  //       //title: `STATE ${props.name} berhasil diambil!`,
+  //       showConfirmButton: false,
+  //       timer: 1000,
+  //     });
+  //     setLoading(false);
+  //     setRegisterStatus(false);
+  //     router.push("/state");
+  //   } catch (err: any) {
+  //     Swal.fire({
+  //       title: "Perhatian!",
+  //       text: err.response?.data.message,
+  //       icon: "error",
+  //       confirmButtonText: "Coba lagi",
+  //     });
+  //     setLoading(false);
+  //     setRegisterStatus(false);
+  //   }
+  // }
 
   const Body = () => {
     return (
       <Center mt={["60vh", "65vh", "60vh", "60vh", "60vh"]} mb={"15vh"} zIndex={"4"}>
         <Box>
           <Center mt={"3em"} mb={"0.8em"}>
-            <Text color={"#062D5F"} fontSize={["3xl","4xl"]} fontWeight={["extrabold", "bold"]}>
+            <Text
+              color={"#062D5F"}
+              fontSize={["3xl", "4xl"]}
+              fontWeight={["extrabold", "bold"]}
+            >
               Pilih STATE
             </Text>
           </Center>
           <Center>
-            <Box
-              // p={["1em 0.5em", "1em 0.5em", "1.5em 3em", "1em 3em", "4em 4em"]}
-              // mt={["17.5vh", "17.5vh", "16vh", "17vh", "14vh"]}
-              // mb={["0", "3em", "0"]}
-              // w={["85%", "85%", "85%", "55%", "55%"]}
-              // h={["77vh", "auto", "76vh", "81vh", "83vh"]}
-              // bgColor={"#FDF0CC"}
-              borderRadius={"xl"}
-              // boxShadow={"0px 3px 3px 3px rgb(0,0,0,0.25)"}
-            >
-              <Center w={["100%","100%"]} h={["100%"]}>
+            <Box borderRadius={"xl"}>
+              <Center w={["100%", "100%"]} h={["100%"]}>
                 <Box w={["92%", "95%", "90vw", "95vw", "70vw"]} maxW={"auto"}>
-                    <Tabs variant="soft-rounded" isFitted>
-                      <Center>
-                      <Box w={["30em", "full", "30em", "35em", "40em"]} p={["0.5em 1em 1em 1em","1.5em"]} bgColor={"#FDF0CC"} borderRadius={["xl","xl","full"]} boxShadow={["none","none","0px 4px 4px 0px rgb(0,0,0,0.25)"]}>
-                        <Center mb={"0.5em"} fontSize={["md", "lg", "lg", "lg", "lg"]} fontWeight={"bold"} color={"#D01E20"}>
+                  <Tabs variant="soft-rounded" isFitted>
+                    <Center>
+                      <Box
+                        w={["30em", "full", "30em", "35em", "40em"]}
+                        p={["0.5em 1em 1em 1em", "1.5em"]}
+                        bgColor={"#FDF0CC"}
+                        borderRadius={["xl", "xl", "full"]}
+                        boxShadow={[
+                          "none",
+                          "none",
+                          "0px 4px 4px 0px rgb(0,0,0,0.25)",
+                        ]}
+                      >
+                        <Center
+                          mb={"0.5em"}
+                          fontSize={["md", "lg", "lg", "lg", "lg"]}
+                          fontWeight={"bold"}
+                          color={"#D01E20"}
+                        >
                           Hari ke
                         </Center>
                         <Center>
-                          <Box w={["100%","100%","80%"]}>
-                          <TabList>
-                            {day.map((item: any) => (
-                              <Tab key={item.id} py={["0.2em","0.5em","0"]} mx={["0.3em", "0.5em", "0.5em", "0.5em", "0.3em"]} fontSize={["lg", "xs", "md", "sm", "2xl"]} color={"#FF6835"} bgColor={"none"} border={"2px solid #FF6835"} _selected={{ color: "#FF6835", bg: "white", border: "3px solid #FF6835" }}>
-                                {item.hari}
-                              </Tab>
-                            ))}
-                          </TabList>
+                          <Box w={["100%", "100%", "80%"]}>
+                            <TabList>
+                              {day.map((item: any) => (
+                                <Tab
+                                  key={item.id}
+                                  py={["0.2em", "0.5em", "0"]}
+                                  mx={["0.3em", "0.5em", "0.5em", "0.5em", "0.3em"]}
+                                  fontSize={["lg", "xs", "md", "sm", "2xl"]}
+                                  color={"#FF6835"}
+                                  bgColor={"none"}
+                                  border={"2px solid #FF6835"}
+                                  _selected={{
+                                    color: "#FF6835",
+                                    bg: "white",
+                                    border: "3px solid #FF6835",
+                                  }}
+                                  //value={item.day}
+                                >
+                                  {item.hari}
+                                </Tab>
+                              ))}
+                            </TabList>
                           </Box>
                         </Center>
                       </Box>
-                      </Center>
-                      <TabPanels mt={["1.5em","1.5em","5em"]}>
+                    </Center>
+                    <TabPanels mt={["1.5em","1.5em","5em"]}>
                           <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
                               <Box>
                                 <Center>
@@ -119,11 +175,13 @@ const PilihState = ({ ID }: { ID: string }) => {
                               <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
                               <Box>
                                 <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
-                                  {stateData.map((item: any) => {
+                                  {stateData
+                                  .filter((item: any) => item.date === "Mon, 05 Sep 2022")
+                                  .map((item: any) => {
                                     return (
                                       <>
                                         {/* <Link href={"/"}> */}
-                                          <WrapItem key={item.date}
+                                          <WrapItem key={item.id}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
                                             borderRadius={["2xl", "lg"]}
@@ -204,12 +262,14 @@ const PilihState = ({ ID }: { ID: string }) => {
                                 </Center>
                               </Box>
                               <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
-                              {/* <Box>
+                              <Box>
                                 <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
-                                  {stateData.map((item: any) => {
+                                  {stateData
+                                  .filter((item: any) => item.date === "Tue, 06 Sep 2022")
+                                  .map((item: any) => {
                                     return (
                                       <>
-                                        <Link href={"/"}>
+                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -250,12 +310,12 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        </Link>
+                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
                                 </Wrap>
-                              </Box> */}
+                              </Box>
                           </TabPanel>
                           <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
                               <Box>
@@ -271,12 +331,14 @@ const PilihState = ({ ID }: { ID: string }) => {
                                 </Center>
                               </Box>
                               <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
-                              {/* <Box>
+                              <Box>
                                 <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
-                                  {stateData.map((item: any) => {
+                                  {stateData
+                                    .filter((item: any) => item.date === "Wed, 07 Sep 2022")
+                                    .map((item: any) => {
                                     return (
                                       <>
-                                        <Link href={"/"}>
+                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -317,12 +379,12 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        </Link>
+                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
                                 </Wrap>
-                              </Box> */}
+                              </Box>
                           </TabPanel>
                           <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
                               <Box>
@@ -338,12 +400,14 @@ const PilihState = ({ ID }: { ID: string }) => {
                                 </Center>
                               </Box>
                               <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
-                              {/* <Box>
+                              <Box>
                                 <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
-                                  {stateData.map((item: any) => {
+                                  {stateData
+                                    .filter((item: any) => item.date === "Thu, 08 Sep 2022")
+                                    .map((item: any) => {
                                     return (
                                       <>
-                                        <Link href={"/"}>
+                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -384,12 +448,12 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        </Link>
+                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
                                 </Wrap>
-                              </Box> */}
+                              </Box>
                           </TabPanel>
                           <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
                               <Box>
@@ -405,12 +469,14 @@ const PilihState = ({ ID }: { ID: string }) => {
                                 </Center>
                               </Box>
                               <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
-                              {/* <Box>
+                              <Box>
                                 <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
-                                  {stateData.map((item: any) => {
+                                  {stateData
+                                    .filter((item: any) => item.date === "Fri, 09 Sep 2022")
+                                    .map((item: any) => {
                                     return (
                                       <>
-                                        <Link href={"/"}>
+                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -451,12 +517,12 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        </Link>
+                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
                                 </Wrap>
-                              </Box> */}
+                              </Box>
                           </TabPanel>
                           <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
                               <Box>
@@ -472,12 +538,14 @@ const PilihState = ({ ID }: { ID: string }) => {
                                 </Center>
                               </Box>
                               <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
-                              {/* <Box>
+                              <Box>
                                 <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
-                                  {stateData.map((item: any) => {
+                                  {stateData
+                                    .filter((item: any) => item.date === "Mon, 12 Sep 2022")
+                                    .map((item: any) => {
                                     return (
                                       <>
-                                        <Link href={"/"}>
+                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -518,12 +586,12 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        </Link>
+                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
                                 </Wrap>
-                              </Box> */}
+                              </Box>
                           </TabPanel>
                           <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
                               <Box>
@@ -539,9 +607,11 @@ const PilihState = ({ ID }: { ID: string }) => {
                                 </Center>
                               </Box>
                               <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
-                              {/* <Box>
+                              <Box>
                                 <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
-                                  {stateData.map((item: any) => {
+                                  {stateData
+                                  .filter((item: any) => item.date === "Tue, 13 Sep 2022")
+                                  .map((item: any) => {
                                     return (
                                       <>
                                         <Link href={"/"}>
@@ -590,10 +660,193 @@ const PilihState = ({ ID }: { ID: string }) => {
                                     );
                                   })}
                                 </Wrap>
-                              </Box> */}
+                              </Box>
                           </TabPanel>
                         </TabPanels>
-                    </Tabs>
+                    {/* <TabPanels mt={["1.5em", "1.5em", "5em"]}>
+                      {day.map((item: any) => (
+                        <TabPanel
+                          w={"100%"}
+                          mt={"1em"}
+                          p={["0.5em 0em 1em 0em", "1.5em 0em 1.5em 0em"]}
+                          bgColor={"#FDF0CC"}
+                          borderRadius={["xl"]}
+                        >
+                          <Box>
+                            <Center>
+                              <Text
+                                fontSize={["3xl", "3xl", "xl", "2xl", "2xl"]}
+                                fontWeight={"black"}
+                                color={"#1B4173"}
+                                letterSpacing={0.5}
+                              >
+                                STATE HARI KE-{item.hari}
+                              </Text>
+                            </Center>
+                            <Center mt={"-0.2em"}>
+                              <Text
+                                fontSize={["lg", "xs", "sm", "md", "md"]}
+                                fontWeight={"bold"}
+                                color={"#FF6835"}
+                              >
+                                {item.date}
+                              </Text>
+                            </Center>
+                          </Box>
+                          <Divider
+                            w={"full"}
+                            mt={"1em"}
+                            mb={"2.5em"}
+                            borderWidth={"0.12em"}
+                            borderRadius={"full"}
+                            borderColor={"white"}
+                            opacity={1}
+                          />
+                          <Box>
+                            <Wrap
+                              spacing={["1em", "2.5em"]}
+                              justify="center"
+                              py={"0.5em"}
+                            >
+                              {stateData.map((item: any) => {
+                                return (
+                                  <>
+                                    <WrapItem
+                                      key={item.date}
+                                      p={["0.8em 0", "0.8em"]}
+                                      bgColor={"white"}
+                                      borderRadius={["2xl", "lg"]}
+                                      shadow={"md"}
+                                      transition={"0.1s ease-in-out"}
+                                      cursor={"pointer"}
+                                      _hover={{
+                                        transform: "scale(1.05)",
+                                      }}
+                                      onClick={onOpen}
+                                    >
+                                      <Center>
+                                        <Box>
+                                          <Box
+                                            w={["full"]}
+                                            h={["9em", "10em"]}
+                                            maxH={"10em"}
+                                          >
+                                            <Center>
+                                              <Img
+                                                src={item.stateLogo}
+                                                boxSize={["135px", "165px"]}
+                                                objectFit={"contain"}
+                                                borderRadius={["2xl", "lg"]}
+                                              />
+                                            </Center>
+                                          </Box>
+                                          <Center w={"10em"} my={["0.5em", "1em"]}>
+                                            <Text
+                                              color={"#062D5F"}
+                                              fontSize={"md"}
+                                              fontWeight={"semibold"}
+                                              textAlign={"center"}
+                                              letterSpacing={0.2}
+                                            >
+                                              {item.name}
+                                            </Text>
+                                          </Center>
+                                          <Center
+                                            w={"10em"}
+                                            my={["0.5em", "1em"]}
+                                            px={"1em"}
+                                          >
+                                            <Flex
+                                              w={"full"}
+                                              h={"1.5em"}
+                                              bgColor={"#FFCFBF"}
+                                              borderRadius={"full"}
+                                              justifyContent={"center"}
+                                              alignItems={"center"}
+                                            >
+                                              <Center
+                                                w={"full"}
+                                                h={"1.5em"}
+                                                bgColor={"#FF6835"}
+                                                borderLeftRadius={"full"}
+                                              >
+                                                <Text
+                                                  fontSize={"sm"}
+                                                  fontWeight={"semibold"}
+                                                  textAlign={"center"}
+                                                  color={"white"}
+                                                >
+                                                  Kuota
+                                                </Text>
+                                              </Center>
+                                              <Center mx={"0.85em"}>
+                                                {item.registered !== item.quota ? (
+                                                  <>
+                                                    <Text
+                                                      color={"#FF6835"}
+                                                      fontSize={"xs"}
+                                                      fontWeight={"semibold"}
+                                                      textAlign={"center"}
+                                                    >
+                                                      {item.registered}/{item.quota}
+                                                    </Text>
+                                                  </>
+                                                ):(
+                                                  <>
+                                                    <Text
+                                                      color={"#FF6835"}
+                                                      fontSize={"xs"}
+                                                      fontWeight={"semibold"}
+                                                      textAlign={"center"}
+                                                    >
+                                                      FULL
+                                                    </Text>
+                                                  </>
+                                                )}
+                                              </Center>
+                                            </Flex>
+                                          </Center>
+                                        </Box>
+                                      </Center>
+                                    </WrapItem>
+                                    <Modal isOpen={isOpen} onClose={onClose}>
+                                      <ModalOverlay />
+                                      <ModalContent bgColor={"white"}>
+                                        <ModalHeader color={"black"}>
+                                          Modal Title
+                                        </ModalHeader>
+                                        <ModalCloseButton />
+                                        <ModalBody>
+                                          <Img src={item.stateLogo} />
+                                          <Text textAlign={"center"} color={"black"}>
+                                            {item.name}
+                                          </Text>
+                                          <Text textAlign={"center"} color={"black"}>
+                                            {item.date}
+                                          </Text>
+                                        </ModalBody>
+
+                                        <ModalFooter>
+                                          <Button
+                                            bgColor={"#D01E20"}
+                                            mr={3}
+                                            onClick={onClose}
+                                          >
+                                            Kembali
+                                          </Button>
+                                          <Button bgColor={"#1B4173"}>Ambil</Button>
+                                        </ModalFooter>
+                                      </ModalContent>
+                                    </Modal>
+                                  </>
+                                );
+                              })}
+                            </Wrap>
+                          </Box>
+                        </TabPanel>
+                      ))}
+                    </TabPanels> */}
+                  </Tabs>
                 </Box>
               </Center>
             </Box>
