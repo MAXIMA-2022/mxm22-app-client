@@ -24,9 +24,9 @@ const STATE = () => {
   const [toggle, setToggle] = useState(0)
 
   useEffect(() => {
-    // if (!jwt || isMyTokenExpired) {
-    //   router.push("/login");
-    // }
+    if (!jwt || isMyTokenExpired) {
+      router.push("/login");
+    }
     try{
       const fetchToggle = async () => {
         const res = await axios.get(`${process.env.API_URL}/api/toggle`)
@@ -63,7 +63,7 @@ const STATE = () => {
               Di sini kamu dapat memilih UKM yang ingin kamu ketahui!
             </Text>
             <Flex mt={"2em"} justifyContent={"end"} alignItems={"center"}>
-                  <Link href={"/home/map"}>
+                  <Link href={"/state/pilihstate"}>
                     <a>
                       <Button style={{ border: "5px  solid rgb(210, 223, 165, 47%)", borderRadius: "20px"}} w={["18em", "18em", "14em", "18em", "18em",]} size={["sm", "sm", "lg", "sm", "md"]} bgColor={"#FF6835"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
                         <Text display={["none", "none", "none", "block", "block"]} color={["white"]}  fontWeight={["black","bold"]}>
@@ -101,7 +101,7 @@ const STATE = () => {
                 Di sini kamu dapat memilih UKM yang ingin kamu ketahui!
               </Text>
                 <Flex mt={"2.5em"} justifyContent={"end"} alignItems={"center"}>
-                  <Link href={"/home/map"}>
+                  <Link href={"/state/pilihstate"}>
                     <a>
                       <Button style={{ border: "5px  solid rgb(210, 223, 165, 47%)", borderRadius: "20px"}} w={["18em", "18em", "14em", "18em", "18em",]} size={["sm", "sm", "lg", "sm", "md"]} bgColor={"#FF6835"} boxShadow={"0 2.5px 4px 0px rgb(0,0,0,0.25)"}>
                         <Text display={["none", "none", "none", "block", "block"]} color={["white"]}  fontWeight={["black","bold"]}>

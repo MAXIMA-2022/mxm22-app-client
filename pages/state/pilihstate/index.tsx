@@ -11,25 +11,46 @@ import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
 //importing chakra ui components
-import { Box, Flex, Center, Text, Button, Img, Wrap, WrapItem, ListItem, OrderedList, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Divider, InputLeftAddon } from "@chakra-ui/react";
+import { Box, Flex, Center, Text, Button, Img, Wrap, WrapItem, ListItem, OrderedList, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Divider, InputLeftAddon, useDisclosure, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import axios from "axios";
 
 interface ListStateAct {
   id: number;
   name: string;
+  date: string
+}
+
+interface DayManagement{
+  id: number,
+  date: string,
+  day: string
+  hari: number
 }
 
 const PilihState = ({ ID }: { ID: string }) => {
   const jwt = useReadLocalStorage<string>("token");
   const [stateData, setStateData] = useState<ListStateAct[]>([]);
+  const [day, setDay] = useState<DayManagement[]>([])
   const headers = {
     "x-access-token": jwt!,
   };
-
+  const [stateAct, setstateAct] = useState([])
+  const router = useRouter()
+  const isMyTokenExpired = isExpired(jwt as string);
+  const { isOpen, onOpen, onClose } = useDisclosure()
   useEffect(() => {
+    if (!jwt || isMyTokenExpired) {
+      router.push("/login");
+    }
     try {
       const fetchSTATE = async () => {
         const response = await axios.get(`${process.env.API_URL}/api/state`, { headers });
+        const res = await axios.get(`${process.env.API_URL}/api/dayManagement/`, { headers })
+        // const hasil = await axios.get(`${process.env.API_URL}/api/stateActivities/D2`, { headers })
+        // setstateAct(hasil.data)
+        // console.log(hasil.data)
+        setDay(res.data)
+        console.log(res.data)
         setStateData(response.data);
         console.log(response.data);
       };
@@ -39,27 +60,8 @@ const PilihState = ({ ID }: { ID: string }) => {
     }
   }, []);
 
-  const Header = () => {
-    return (
-      <>
-        <Center w={"full"} h={["32.5rem", "32.5rem", "53rem", "53rem", "67rem"]} />
-        <Center position={"absolute"} left={0} right={0} top={0} bottom={0}>
-          <Box mt={["25vh", "25vh", "23.5rem", "0rem", "8rem"]} position={"absolute"} transform={["scale(0.5)", "scale(0.5)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"2"}>
-            {/* <Img src={`/organization/Computers/${ID.toLowerCase()}.png`} /> */}
-          </Box>
-          <Box mt={["35vh", "35vh", "35rem", "15rem", "25rem"]} position={"absolute"} transform={["scale(0.25)", "scale(0.25)", "scale(0.55)", "scale(0.7)", "scale(0.8)"]} zIndex={"3"}>
-            <Img src={"/organization/chair.png"} />
-          </Box>
-          <Box mt={["55vh", "60vh", "50rem", "40rem", "50rem"]} position={"absolute"} transform={["scale(0.55)", "scale(0.55)", "scale(0.65)", "scale(0.7)", "scale(0.75)"]} zIndex={"1"}>
-            <Img src={"/organization/shade.png"} />
-          </Box>
-        </Center>
-      </>
-    );
-  };
 
   const Body = () => {
-    const dataHari = ["1", "2", "3", "4", "5"];
     return (
       <Center mt={["60vh", "65vh", "60vh", "60vh", "60vh"]} mb={"15vh"} zIndex={"4"}>
         <Box>
@@ -90,9 +92,9 @@ const PilihState = ({ ID }: { ID: string }) => {
                         <Center>
                           <Box w={["100%","100%","80%"]}>
                           <TabList>
-                            {dataHari.map((hari) => (
-                              <Tab key={hari} py={["0.2em","0.5em","0"]} mx={["0.3em", "0.5em", "0.5em", "0.5em", "0.3em"]} fontSize={["lg", "xs", "md", "sm", "2xl"]} color={"#FF6835"} bgColor={"none"} border={"2px solid #FF6835"} _selected={{ color: "#FF6835", bg: "white", border: "3px solid #FF6835" }}>
-                                {hari}
+                            {day.map((item: any) => (
+                              <Tab key={item.id} py={["0.2em","0.5em","0"]} mx={["0.3em", "0.5em", "0.5em", "0.5em", "0.3em"]} fontSize={["lg", "xs", "md", "sm", "2xl"]} color={"#FF6835"} bgColor={"none"} border={"2px solid #FF6835"} _selected={{ color: "#FF6835", bg: "white", border: "3px solid #FF6835" }}>
+                                {item.hari}
                               </Tab>
                             ))}
                           </TabList>
@@ -100,116 +102,497 @@ const PilihState = ({ ID }: { ID: string }) => {
                         </Center>
                       </Box>
                       </Center>
-                      {/* {dataHari.map((hari) => ( */}
                       <TabPanels mt={["1.5em","1.5em","5em"]}>
-                        {/* {stateData.map((state, id) => ( */}
-                        <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
-                            <Box>
-                              <Center>
-                                <Text fontSize={["3xl", "3xl", "xl", "2xl", "2xl"]} fontWeight={"black"} color={"#1B4173"} letterSpacing={0.5}>
-                                    STATE HARI KE-
-                                </Text>
-                              </Center>
-                              <Center mt={"-0.2em"}>
-                                <Text fontSize={["lg", "xs", "sm", "md", "md"]} fontWeight={"bold"} color={"#FF6835"}>
-                                    Hari, 01 Bulan 2022
-                                </Text>
-                              </Center>
-                            </Box>
-                            <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
-                            <Box>
-                              <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
-                                {/* {organizationData.map((item: any) => {
-                                  return (
-                                    <> */}
-                                      <Link href={"/"}>
-                                        <WrapItem
-                                          p={["0.8em 0", "0.8em"]}
-                                          bgColor={"white"}
-                                          borderRadius={["2xl", "lg"]}
-                                          shadow={"md"}
-                                          transition={"0.1s ease-in-out"}
-                                          cursor={"pointer"}
-                                          _hover={{
-                                            transform: "scale(1.05)",
-                                          }}
-                                        >
-                                          <Center>
-                                            <Box>
-                                                <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
-                                              <Center>
-                                                  <Img boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
-                                              </Center>
-                                                </Box>
-                                                <Center w={"10em"} my={["0.5em", "1em"]}>
-                                                <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                                  testing
-                                                </Text>
-                                              </Center>
-                                              <Center w={"10em"} my={["0.5em", "1em"]} px={"1em"}>
-                                                <Flex w={"full"} h={"1.5em"} bgColor={"#FFCFBF"} borderRadius={"full"} justifyContent={"center"} alignItems={"center"}>
-                                                  <Center w={"full"} h={"1.5em"} bgColor={"#FF6835"} borderLeftRadius={"full"}>
-                                                    <Text fontSize={"sm"} fontWeight={"semibold"} textAlign={"center"} color={"white"}>
-                                                      Kuota
-                                                    </Text>
-                                                  </Center>
-                                                  <Center mx={"0.85em"}>
-                                                    <Text color={"#FF6835"} fontSize={"xs"} fontWeight={"semibold"} textAlign={"center"}>
-                                                      75/100
-                                                    </Text>
-                                                  </Center>
-                                                </Flex>
-                                              </Center>
-                                            </Box>
-                                          </Center>
-                                        </WrapItem>
-                                      </Link>
-                                      <Link href={"/"}>
-                                        <WrapItem
-                                          p={["0.8em 0", "0.8em"]}
-                                          bgColor={"#FFC1C1"}
-                                          borderRadius={["2xl", "lg"]}
-                                          shadow={"md"}
-                                          transition={"0.1s ease-in-out"}
-                                          cursor={"pointer"}
-                                          _hover={{
-                                            transform: "scale(1.05)",
-                                          }}
-                                        >
-                                          <Center>
-                                            <Box>
-                                                <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
-                                              <Center>
-                                                  <Img boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
-                                              </Center>
-                                                </Box>
-                                                <Center w={"10em"} my={["0.5em", "1em"]}>
-                                                <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
-                                                  testing
-                                                </Text>
-                                              </Center>
-                                              <Center w={"10em"} my={["0.5em", "1em"]} px={"1em"}>
-                                                <Flex w={"auto"} h={"1.5em"} px={"0.5em"} bgColor={"#FFFEFE"} borderRadius={"full"} justifyContent={"center"} alignItems={"center"}>
-                                                  <Center mx={"0.85em"}>
-                                                    <Text color={"#FF6835"} fontSize={"xs"} fontWeight={"semibold"} textAlign={"center"}>
-                                                      PENUH
-                                                    </Text>
-                                                  </Center>
-                                                </Flex>
-                                              </Center>
-                                            </Box>
-                                          </Center>
-                                        </WrapItem>
-                                      </Link>
-                                    {/* </>
-                                  );
-                                })} */}
-                              </Wrap>
-                            </Box>
-                        </TabPanel>
-                        {/* ))} */}
-                      </TabPanels>
-                      {/* ))} */}
+                          <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
+                              <Box>
+                                <Center>
+                                  <Text fontSize={["3xl", "3xl", "xl", "2xl", "2xl"]} fontWeight={"black"} color={"#1B4173"} letterSpacing={0.5}>
+                                      STATE HARI KE-{day[0]?.hari}
+                                  </Text>
+                                </Center>
+                                <Center mt={"-0.2em"}>
+                                  <Text fontSize={["lg", "xs", "sm", "md", "md"]} fontWeight={"bold"} color={"#FF6835"}>
+                                      {day[0]?.date}
+                                  </Text>
+                                </Center>
+                              </Box>
+                              <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
+                              <Box>
+                                <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
+                                  {stateData.map((item: any) => {
+                                    return (
+                                      <>
+                                        {/* <Link href={"/"}> */}
+                                          <WrapItem key={item.date}
+                                            p={["0.8em 0", "0.8em"]}
+                                            bgColor={"white"}
+                                            borderRadius={["2xl", "lg"]}
+                                            shadow={"md"}
+                                            transition={"0.1s ease-in-out"}
+                                            cursor={"pointer"}
+                                            _hover={{
+                                              transform: "scale(1.05)",
+                                            }}
+                                            onClick={onOpen}
+                                          >
+                                            <Center>
+                                              <Box>
+                                                  <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
+                                                <Center>
+                                                    <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
+                                                </Center>
+                                                  </Box>
+                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
+                                                    {item.name}
+                                                  </Text>
+                                                </Center>
+                                                <Center w={"10em"} my={["0.5em", "1em"]} px={"1em"}>
+                                                  <Flex w={"full"} h={"1.5em"} bgColor={"#FFCFBF"} borderRadius={"full"} justifyContent={"center"} alignItems={"center"}>
+                                                    <Center w={"full"} h={"1.5em"} bgColor={"#FF6835"} borderLeftRadius={"full"}>
+                                                      <Text fontSize={"sm"} fontWeight={"semibold"} textAlign={"center"} color={"white"}>
+                                                        Kuota
+                                                      </Text>
+                                                    </Center>
+                                                    <Center mx={"0.85em"}>
+                                                      <Text color={"#FF6835"} fontSize={"xs"} fontWeight={"semibold"} textAlign={"center"}>
+                                                        {item.registered}/{item.quota}
+                                                      </Text>
+                                                    </Center>
+                                                  </Flex>
+                                                </Center>
+                                              </Box>
+                                            </Center>
+                                          </WrapItem>
+                                        {/* </Link> */}
+                                        <Modal isOpen={isOpen} onClose={onClose}>
+                                          <ModalOverlay />
+                                          <ModalContent bgColor={'white'}>
+                                            <ModalHeader color={'black'}>Modal Title</ModalHeader>
+                                            <ModalCloseButton />
+                                            <ModalBody>
+                                              <Img src={item.stateLogo}/>
+                                              <Text textAlign={'center'} color={'black'}>{item.name}</Text>
+                                              <Text textAlign={'center'} color={'black'}>{item.date}</Text>
+                                            </ModalBody>
+
+                                            <ModalFooter>
+                                              <Button bgColor={'#D01E20'} mr={3} onClick={onClose}>
+                                                Kembali
+                                              </Button>
+                                              <Button bgColor={'#1B4173'}>Ambil</Button>
+                                            </ModalFooter>
+                                          </ModalContent>
+                                        </Modal>
+                                      </>
+                                    );
+                                  })}
+                                </Wrap>
+                              </Box>
+                          </TabPanel>
+                          <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
+                              <Box>
+                                <Center>
+                                  <Text fontSize={["3xl", "3xl", "xl", "2xl", "2xl"]} fontWeight={"black"} color={"#1B4173"} letterSpacing={0.5}>
+                                      STATE HARI KE-{day[1]?.hari}
+                                  </Text>
+                                </Center>
+                                <Center mt={"-0.2em"}>
+                                  <Text fontSize={["lg", "xs", "sm", "md", "md"]} fontWeight={"bold"} color={"#FF6835"}>
+                                      {day[1]?.date}
+                                  </Text>
+                                </Center>
+                              </Box>
+                              <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
+                              {/* <Box>
+                                <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
+                                  {stateData.map((item: any) => {
+                                    return (
+                                      <>
+                                        <Link href={"/"}>
+                                          <WrapItem key={item.date}
+                                            p={["0.8em 0", "0.8em"]}
+                                            bgColor={"white"}
+                                            borderRadius={["2xl", "lg"]}
+                                            shadow={"md"}
+                                            transition={"0.1s ease-in-out"}
+                                            cursor={"pointer"}
+                                            _hover={{
+                                              transform: "scale(1.05)",
+                                            }}
+                                          >
+                                            <Center>
+                                              <Box>
+                                                  <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
+                                                <Center>
+                                                    <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
+                                                </Center>
+                                                  </Box>
+                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
+                                                    {item.name}
+                                                  </Text>
+                                                </Center>
+                                                <Center w={"10em"} my={["0.5em", "1em"]} px={"1em"}>
+                                                  <Flex w={"full"} h={"1.5em"} bgColor={"#FFCFBF"} borderRadius={"full"} justifyContent={"center"} alignItems={"center"}>
+                                                    <Center w={"full"} h={"1.5em"} bgColor={"#FF6835"} borderLeftRadius={"full"}>
+                                                      <Text fontSize={"sm"} fontWeight={"semibold"} textAlign={"center"} color={"white"}>
+                                                        Kuota
+                                                      </Text>
+                                                    </Center>
+                                                    <Center mx={"0.85em"}>
+                                                      <Text color={"#FF6835"} fontSize={"xs"} fontWeight={"semibold"} textAlign={"center"}>
+                                                        {item.registered}/{item.quota}
+                                                      </Text>
+                                                    </Center>
+                                                  </Flex>
+                                                </Center>
+                                              </Box>
+                                            </Center>
+                                          </WrapItem>
+                                        </Link>
+                                      </>
+                                    );
+                                  })}
+                                </Wrap>
+                              </Box> */}
+                          </TabPanel>
+                          <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
+                              <Box>
+                                <Center>
+                                  <Text fontSize={["3xl", "3xl", "xl", "2xl", "2xl"]} fontWeight={"black"} color={"#1B4173"} letterSpacing={0.5}>
+                                      STATE HARI KE-{day[2]?.hari}
+                                  </Text>
+                                </Center>
+                                <Center mt={"-0.2em"}>
+                                  <Text fontSize={["lg", "xs", "sm", "md", "md"]} fontWeight={"bold"} color={"#FF6835"}>
+                                      {day[2]?.date}
+                                  </Text>
+                                </Center>
+                              </Box>
+                              <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
+                              {/* <Box>
+                                <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
+                                  {stateData.map((item: any) => {
+                                    return (
+                                      <>
+                                        <Link href={"/"}>
+                                          <WrapItem key={item.date}
+                                            p={["0.8em 0", "0.8em"]}
+                                            bgColor={"white"}
+                                            borderRadius={["2xl", "lg"]}
+                                            shadow={"md"}
+                                            transition={"0.1s ease-in-out"}
+                                            cursor={"pointer"}
+                                            _hover={{
+                                              transform: "scale(1.05)",
+                                            }}
+                                          >
+                                            <Center>
+                                              <Box>
+                                                  <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
+                                                <Center>
+                                                    <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
+                                                </Center>
+                                                  </Box>
+                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
+                                                    {item.name}
+                                                  </Text>
+                                                </Center>
+                                                <Center w={"10em"} my={["0.5em", "1em"]} px={"1em"}>
+                                                  <Flex w={"full"} h={"1.5em"} bgColor={"#FFCFBF"} borderRadius={"full"} justifyContent={"center"} alignItems={"center"}>
+                                                    <Center w={"full"} h={"1.5em"} bgColor={"#FF6835"} borderLeftRadius={"full"}>
+                                                      <Text fontSize={"sm"} fontWeight={"semibold"} textAlign={"center"} color={"white"}>
+                                                        Kuota
+                                                      </Text>
+                                                    </Center>
+                                                    <Center mx={"0.85em"}>
+                                                      <Text color={"#FF6835"} fontSize={"xs"} fontWeight={"semibold"} textAlign={"center"}>
+                                                        {item.registered}/{item.quota}
+                                                      </Text>
+                                                    </Center>
+                                                  </Flex>
+                                                </Center>
+                                              </Box>
+                                            </Center>
+                                          </WrapItem>
+                                        </Link>
+                                      </>
+                                    );
+                                  })}
+                                </Wrap>
+                              </Box> */}
+                          </TabPanel>
+                          <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
+                              <Box>
+                                <Center>
+                                  <Text fontSize={["3xl", "3xl", "xl", "2xl", "2xl"]} fontWeight={"black"} color={"#1B4173"} letterSpacing={0.5}>
+                                      STATE HARI KE-{day[3]?.hari}
+                                  </Text>
+                                </Center>
+                                <Center mt={"-0.2em"}>
+                                  <Text fontSize={["lg", "xs", "sm", "md", "md"]} fontWeight={"bold"} color={"#FF6835"}>
+                                      {day[3]?.date}
+                                  </Text>
+                                </Center>
+                              </Box>
+                              <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
+                              {/* <Box>
+                                <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
+                                  {stateData.map((item: any) => {
+                                    return (
+                                      <>
+                                        <Link href={"/"}>
+                                          <WrapItem key={item.date}
+                                            p={["0.8em 0", "0.8em"]}
+                                            bgColor={"white"}
+                                            borderRadius={["2xl", "lg"]}
+                                            shadow={"md"}
+                                            transition={"0.1s ease-in-out"}
+                                            cursor={"pointer"}
+                                            _hover={{
+                                              transform: "scale(1.05)",
+                                            }}
+                                          >
+                                            <Center>
+                                              <Box>
+                                                  <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
+                                                <Center>
+                                                    <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
+                                                </Center>
+                                                  </Box>
+                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
+                                                    {item.name}
+                                                  </Text>
+                                                </Center>
+                                                <Center w={"10em"} my={["0.5em", "1em"]} px={"1em"}>
+                                                  <Flex w={"full"} h={"1.5em"} bgColor={"#FFCFBF"} borderRadius={"full"} justifyContent={"center"} alignItems={"center"}>
+                                                    <Center w={"full"} h={"1.5em"} bgColor={"#FF6835"} borderLeftRadius={"full"}>
+                                                      <Text fontSize={"sm"} fontWeight={"semibold"} textAlign={"center"} color={"white"}>
+                                                        Kuota
+                                                      </Text>
+                                                    </Center>
+                                                    <Center mx={"0.85em"}>
+                                                      <Text color={"#FF6835"} fontSize={"xs"} fontWeight={"semibold"} textAlign={"center"}>
+                                                        {item.registered}/{item.quota}
+                                                      </Text>
+                                                    </Center>
+                                                  </Flex>
+                                                </Center>
+                                              </Box>
+                                            </Center>
+                                          </WrapItem>
+                                        </Link>
+                                      </>
+                                    );
+                                  })}
+                                </Wrap>
+                              </Box> */}
+                          </TabPanel>
+                          <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
+                              <Box>
+                                <Center>
+                                  <Text fontSize={["3xl", "3xl", "xl", "2xl", "2xl"]} fontWeight={"black"} color={"#1B4173"} letterSpacing={0.5}>
+                                      STATE HARI KE-{day[4]?.hari}
+                                  </Text>
+                                </Center>
+                                <Center mt={"-0.2em"}>
+                                  <Text fontSize={["lg", "xs", "sm", "md", "md"]} fontWeight={"bold"} color={"#FF6835"}>
+                                      {day[4]?.date}
+                                  </Text>
+                                </Center>
+                              </Box>
+                              <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
+                              {/* <Box>
+                                <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
+                                  {stateData.map((item: any) => {
+                                    return (
+                                      <>
+                                        <Link href={"/"}>
+                                          <WrapItem key={item.date}
+                                            p={["0.8em 0", "0.8em"]}
+                                            bgColor={"white"}
+                                            borderRadius={["2xl", "lg"]}
+                                            shadow={"md"}
+                                            transition={"0.1s ease-in-out"}
+                                            cursor={"pointer"}
+                                            _hover={{
+                                              transform: "scale(1.05)",
+                                            }}
+                                          >
+                                            <Center>
+                                              <Box>
+                                                  <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
+                                                <Center>
+                                                    <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
+                                                </Center>
+                                                  </Box>
+                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
+                                                    {item.name}
+                                                  </Text>
+                                                </Center>
+                                                <Center w={"10em"} my={["0.5em", "1em"]} px={"1em"}>
+                                                  <Flex w={"full"} h={"1.5em"} bgColor={"#FFCFBF"} borderRadius={"full"} justifyContent={"center"} alignItems={"center"}>
+                                                    <Center w={"full"} h={"1.5em"} bgColor={"#FF6835"} borderLeftRadius={"full"}>
+                                                      <Text fontSize={"sm"} fontWeight={"semibold"} textAlign={"center"} color={"white"}>
+                                                        Kuota
+                                                      </Text>
+                                                    </Center>
+                                                    <Center mx={"0.85em"}>
+                                                      <Text color={"#FF6835"} fontSize={"xs"} fontWeight={"semibold"} textAlign={"center"}>
+                                                        {item.registered}/{item.quota}
+                                                      </Text>
+                                                    </Center>
+                                                  </Flex>
+                                                </Center>
+                                              </Box>
+                                            </Center>
+                                          </WrapItem>
+                                        </Link>
+                                      </>
+                                    );
+                                  })}
+                                </Wrap>
+                              </Box> */}
+                          </TabPanel>
+                          <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
+                              <Box>
+                                <Center>
+                                  <Text fontSize={["3xl", "3xl", "xl", "2xl", "2xl"]} fontWeight={"black"} color={"#1B4173"} letterSpacing={0.5}>
+                                      STATE HARI KE-{day[5]?.hari}
+                                  </Text>
+                                </Center>
+                                <Center mt={"-0.2em"}>
+                                  <Text fontSize={["lg", "xs", "sm", "md", "md"]} fontWeight={"bold"} color={"#FF6835"}>
+                                      {day[5]?.date}
+                                  </Text>
+                                </Center>
+                              </Box>
+                              <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
+                              {/* <Box>
+                                <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
+                                  {stateData.map((item: any) => {
+                                    return (
+                                      <>
+                                        <Link href={"/"}>
+                                          <WrapItem key={item.date}
+                                            p={["0.8em 0", "0.8em"]}
+                                            bgColor={"white"}
+                                            borderRadius={["2xl", "lg"]}
+                                            shadow={"md"}
+                                            transition={"0.1s ease-in-out"}
+                                            cursor={"pointer"}
+                                            _hover={{
+                                              transform: "scale(1.05)",
+                                            }}
+                                          >
+                                            <Center>
+                                              <Box>
+                                                  <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
+                                                <Center>
+                                                    <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
+                                                </Center>
+                                                  </Box>
+                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
+                                                    {item.name}
+                                                  </Text>
+                                                </Center>
+                                                <Center w={"10em"} my={["0.5em", "1em"]} px={"1em"}>
+                                                  <Flex w={"full"} h={"1.5em"} bgColor={"#FFCFBF"} borderRadius={"full"} justifyContent={"center"} alignItems={"center"}>
+                                                    <Center w={"full"} h={"1.5em"} bgColor={"#FF6835"} borderLeftRadius={"full"}>
+                                                      <Text fontSize={"sm"} fontWeight={"semibold"} textAlign={"center"} color={"white"}>
+                                                        Kuota
+                                                      </Text>
+                                                    </Center>
+                                                    <Center mx={"0.85em"}>
+                                                      <Text color={"#FF6835"} fontSize={"xs"} fontWeight={"semibold"} textAlign={"center"}>
+                                                        {item.registered}/{item.quota}
+                                                      </Text>
+                                                    </Center>
+                                                  </Flex>
+                                                </Center>
+                                              </Box>
+                                            </Center>
+                                          </WrapItem>
+                                        </Link>
+                                      </>
+                                    );
+                                  })}
+                                </Wrap>
+                              </Box> */}
+                          </TabPanel>
+                          <TabPanel w={"100%"} mt={"1em"} p={["0.5em 0em 1em 0em","1.5em 0em 1.5em 0em"]} bgColor={"#FDF0CC"} borderRadius={["xl"]}>
+                              <Box>
+                                <Center>
+                                  <Text fontSize={["3xl", "3xl", "xl", "2xl", "2xl"]} fontWeight={"black"} color={"#1B4173"} letterSpacing={0.5}>
+                                      STATE HARI KE-{day[6]?.hari}
+                                  </Text>
+                                </Center>
+                                <Center mt={"-0.2em"}>
+                                  <Text fontSize={["lg", "xs", "sm", "md", "md"]} fontWeight={"bold"} color={"#FF6835"}>
+                                      {day[6]?.date}
+                                  </Text>
+                                </Center>
+                              </Box>
+                              <Divider w={"full"} mt={"1em"} mb={"2.5em"} borderWidth={"0.12em"} borderRadius={"full"} borderColor={"white"} opacity={1}/>
+                              {/* <Box>
+                                <Wrap spacing={["1em","2.5em"]} justify="center" py={"0.5em"}>
+                                  {stateData.map((item: any) => {
+                                    return (
+                                      <>
+                                        <Link href={"/"}>
+                                          <WrapItem key={item.date}
+                                            p={["0.8em 0", "0.8em"]}
+                                            bgColor={"white"}
+                                            borderRadius={["2xl", "lg"]}
+                                            shadow={"md"}
+                                            transition={"0.1s ease-in-out"}
+                                            cursor={"pointer"}
+                                            _hover={{
+                                              transform: "scale(1.05)",
+                                            }}
+                                          >
+                                            <Center>
+                                              <Box>
+                                                  <Box w={["full"]} h={["9em","10em"]} maxH={"10em"}>
+                                                <Center>
+                                                    <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
+                                                </Center>
+                                                  </Box>
+                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
+                                                    {item.name}
+                                                  </Text>
+                                                </Center>
+                                                <Center w={"10em"} my={["0.5em", "1em"]} px={"1em"}>
+                                                  <Flex w={"full"} h={"1.5em"} bgColor={"#FFCFBF"} borderRadius={"full"} justifyContent={"center"} alignItems={"center"}>
+                                                    <Center w={"full"} h={"1.5em"} bgColor={"#FF6835"} borderLeftRadius={"full"}>
+                                                      <Text fontSize={"sm"} fontWeight={"semibold"} textAlign={"center"} color={"white"}>
+                                                        Kuota
+                                                      </Text>
+                                                    </Center>
+                                                    <Center mx={"0.85em"}>
+                                                      <Text color={"#FF6835"} fontSize={"xs"} fontWeight={"semibold"} textAlign={"center"}>
+                                                        {item.registered}/{item.quota}
+                                                      </Text>
+                                                    </Center>
+                                                  </Flex>
+                                                </Center>
+                                              </Box>
+                                            </Center>
+                                          </WrapItem>
+                                        </Link>
+                                      </>
+                                    );
+                                  })}
+                                </Wrap>
+                              </Box> */}
+                          </TabPanel>
+                        </TabPanels>
                     </Tabs>
                 </Box>
               </Center>
