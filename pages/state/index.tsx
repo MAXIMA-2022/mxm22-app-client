@@ -1,5 +1,3 @@
-import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 //importing local components
@@ -40,8 +38,6 @@ const STATE = () => {
         const response = await axios.get(`${process.env.API_URL}/api/state`, { headers })
         setState(response.data)
         setRegis(result.data)
-        console.log(response.data)
-        console.log(result.data)
       }
       const fetchToggle = async () => {
         const res = await axios.get(`${process.env.API_URL}/api/toggle`)
@@ -57,7 +53,7 @@ const STATE = () => {
   const Header = () => {
     return (
       <Box>  
-        <Box display={["block", "none"]} mt={10}>
+        <Box display={["block","block", "none"]} mt={10}>
           <Box mr={5} mt={10}>
             <motion.div
                 initial={{ scale: 0 }}
@@ -81,7 +77,7 @@ const STATE = () => {
             <Flex mt={"2em"} justifyContent={"end"} alignItems={"center"}>
                   <Link href={"/state/pilihstate"}>
                     <a>
-                      <Button style={{ border: "5px  solid rgb(210, 223, 165, 47%)", borderRadius: "20px"}} w={["18em", "18em", "14em", "18em", "18em",]} size={["sm", "sm", "lg", "sm", "md"]} bgColor={"#FF6835"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                      <Button style={{ border: "5px  solid rgb(210, 223, 165, 47%)", borderRadius: "20px"}} w={["18em", "18em", "14em", "18em", "18em",]} size={["sm", "sm", "lg", "sm", "md"]} bgColor={"#FF6835"} shadow={"0px 2.5px 4px 0px rgb(0,0,0,0.2)"}>
                         <Text display={["none", "none", "none", "block", "block"]} color={["white"]}  fontWeight={["black","bold"]}>
                           Pilih UKM & Komunitas
                         </Text>
@@ -94,7 +90,7 @@ const STATE = () => {
                 </Flex>
           </Box>
         </Box>
-        <Box display={["none", "block"]} mt={{base:"22vh", lg:"0vh"}} me={["8em","8em","6em","7em","8em"]}>
+        <Box display={["none","none", "block"]} mt={{base:"22vh", lg:"0vh"}} me={["8em","8em","6em","7em","8em"]}>
           <Box>
             <motion.div
                 initial={{ scale: 0 }}
@@ -141,39 +137,21 @@ const STATE = () => {
     const [success, setSuccess] = useState(false);
     const [fail , setFail] = useState(false);
     
-    const addButton = [
-      {
-        icon: "+",
-        label: "Add",
-      },
-      {
-        icon: "+",
-        label: "Add",
-      },
-      {
-        icon: "+",
-        label: "Add",
-      },
-    ]
     return(
         <Flex minH={"100vh"}>
-        <Box w={"full"} mt={["25vh","10vh","20vh","20vh","20vh"]}>
+        <Box w={"full"} mt={["25vh","10vh","20vh","20vh","10vh"]}>
             <Stack direction={["column","column","column","row"]} spacing={["5em","10em","10em","0em","0em"]} mt={["15vh","35vh","35vh","25vh","28.5vw"]} mx={["0em","0em","0em","0em","8em"]} justifyContent={["space-between","space-between","center","space-evenly","space-between"]} alignItems={"center"}>
               <>
                 {regis.map((item: any, index) => (
-                  <Center key={index} w={["12.5em","12.5em","25em","12.5em","17.5em"]} h={["12.5em","12.5em","25em","12.5em","17.5em"]} bgColor={"white"} borderRadius={"full"} boxShadow={"0px 0px 35px 10px rgb(255,255,255,0.5)"}>
-                    <Center w={["12.5em","15em","20em","12.5em","17.5em"]} h={["2.5em","15em","20em","12.5em","17.5em"]} bgColor={success ? "rgb(0,255,25,0.26)": fail ? "rgb(255,0,0,0.33)" : "white"} borderRadius={"full"} boxShadow={"0px 0px 35px 10px rgb(255,255,255,0.5)"}>
-                      <Link href={"/state/pilihstate"}>
-                        <Button variant={"none"} >
-                            <Box>
-                              <Center >
-                                <Img src={item.stateLogo} boxSize={250} borderRadius={'full'}/>
-                              </Center>
-                            </Box>
-                        </Button>
-                        </Link>
-                      </Center>
+                  <Center key={index} w={["12.5em","15em","25em","12.5em","17.5em"]} h={["12.5em","15em","25em","12.5em","17.5em"]} bgColor={"white"} borderRadius={"full"} boxShadow={"0px 0px 35px 10px rgb(255,255,255,0.5)"}>
+                    <Center w={["12.5em","15em","25em","12.5em","17.5em"]} h={["12.5em","15em","25em","12.5em","17.5em"]} bgColor={success ? "rgb(0,255,25,0.26)": fail ? "rgb(255,0,0,0.33)" : "white"} borderRadius={"full"} boxShadow={"0px 0px 35px 10px rgb(255,255,255,0.5)"}>
+                      <Box>
+                          <Center m={"1.5em"} bgColor={"white"} borderRadius={"full"}>
+                            <Img src={item.stateLogo} borderRadius={"full"}/>
+                          </Center>
+                      </Box> 
                     </Center>
+                  </Center>
                 ))}
                 </>
             </Stack>
@@ -186,8 +164,9 @@ const STATE = () => {
     const router = useRouter();
     return (
       <>
-        <Flex w={"15%"} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+        <Flex w={"25%"} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
           <Button
+            mt={["8vh","8vh","6.5vw","11.5vh","8vh"]}
             variant={"none"}
             onClick={() => {
               router.back();
@@ -213,7 +192,7 @@ const STATE = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={["100vh","250vh","430vw","115vw","115vw"]} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaP.png", 
+      <Flex minH={["250vh","275vh","300vh","115vw","115vw"]} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaP.png", 
       "https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaP.png", 
       "https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaP.png", 
       "https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaLs.webp", 
@@ -223,10 +202,8 @@ const STATE = () => {
           <Body/>
         </Box>
       </Flex>
-        {/* <BackButton /> */}
-      <Box w={"full"} position={"absolute"}>
+        <BackButton />
         <Footer />
-      </Box>
     </Layout>
   );
 };
