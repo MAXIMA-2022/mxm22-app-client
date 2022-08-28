@@ -1,5 +1,3 @@
-import type { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 
 //importing local components
@@ -40,8 +38,6 @@ const STATE = () => {
         const response = await axios.get(`${process.env.API_URL}/api/state`, { headers })
         setState(response.data)
         setRegis(result.data)
-        console.log(response.data)
-        console.log(result.data)
       }
       const fetchToggle = async () => {
         const res = await axios.get(`${process.env.API_URL}/api/toggle`)
@@ -141,20 +137,6 @@ const STATE = () => {
     const [success, setSuccess] = useState(false);
     const [fail , setFail] = useState(false);
     
-    const addButton = [
-      {
-        icon: "+",
-        label: "Add",
-      },
-      {
-        icon: "+",
-        label: "Add",
-      },
-      {
-        icon: "+",
-        label: "Add",
-      },
-    ]
     return(
         <Flex minH={"100vh"}>
         <Box w={"full"} mt={["25vh","10vh","20vh","20vh","10vh"]}>

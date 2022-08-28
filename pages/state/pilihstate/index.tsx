@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { isExpired } from "react-jwt";
-import { useLocalStorage, useReadLocalStorage } from "usehooks-ts";
+import { useReadLocalStorage } from "usehooks-ts";
 import { useUserContext } from "../../../useContext/UserContext";
 
 //importing local components
@@ -11,7 +10,7 @@ import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 
 //importing chakra ui components
-import { Box, Flex, Center, Text, Button, Img, Wrap, WrapItem, ListItem, OrderedList, Stack, Tab, TabList, TabPanel, TabPanels, Tabs, Divider, InputLeftAddon, useDisclosure, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
+import { Box, Flex, Center, Text, Button, Img, Wrap, WrapItem, Tab, TabList, TabPanel, TabPanels, Tabs, Divider } from "@chakra-ui/react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -30,10 +29,9 @@ interface DayManagement{
   hari: number
 }
 
-const PilihState = ({ ID }: { ID: string }) => {
+const PilihState = () => {
   const jwt = useReadLocalStorage<string>("token");
   const { nim } = useUserContext()
-  //console.log(nim)
   const [stateData, setStateData] = useState<ListStateAct[]>([]);
   const [day, setDay] = useState<DayManagement[]>([])
   const headers = {
@@ -42,7 +40,6 @@ const PilihState = ({ ID }: { ID: string }) => {
   const router = useRouter()
   const isMyTokenExpired = isExpired(jwt as string);
   const [stateReg, setstateReg] = useState([])
-  //const { isOpen, onOpen, onClose } = useDisclosure()
   useEffect(() => {
     if (!jwt || isMyTokenExpired) {
       router.push("/login");
@@ -55,7 +52,7 @@ const PilihState = ({ ID }: { ID: string }) => {
         setstateReg(result.data)
         setDay(res.data)
         setStateData(response.data)
-        console.log(result.data)
+        //console.log(result.data)
       };
       fetchSTATE()
     } catch (err: any) {
@@ -80,7 +77,7 @@ const PilihState = ({ ID }: { ID: string }) => {
         icon: "success",
         title: `${result.data.message}`,
         showConfirmButton: false,
-        timer: 1000,
+        timer: 2000,
       });
     } catch (err: any) {
       console.log(err)
@@ -101,7 +98,7 @@ const PilihState = ({ ID }: { ID: string }) => {
         icon: "success",
         title: `${res.data.message}`,
         showConfirmButton: false,
-        timer: 1000,
+        timer: 2000,
       });
       const fetchSTATE = async () => {
         const response = await axios.get(`${process.env.API_URL}/api/state`, { headers })
@@ -177,7 +174,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                     bg: "white",
                                     border: "3px solid #FF6835",
                                   }}
-                                  //value={item.day}
                                 >
                                   {item.hari}
                                 </Tab>
@@ -209,7 +205,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                   .map((item: any) => {
                                     return (
                                       <>
-                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.id}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -220,7 +215,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                             _hover={{
                                               transform: "scale(1.05)",
                                             }}
-                                            // onClick={onOpen}
                                           >
                                             <Center>
                                               <Box>
@@ -257,7 +251,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
@@ -285,7 +278,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                   .map((item: any) => {
                                     return (
                                       <>
-                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -331,7 +323,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
@@ -359,7 +350,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                     .map((item: any) => {
                                     return (
                                       <>
-                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -405,7 +395,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
@@ -433,7 +422,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                     .map((item: any) => {
                                     return (
                                       <>
-                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -479,7 +467,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
@@ -507,7 +494,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                     .map((item: any) => {
                                     return (
                                       <>
-                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -553,7 +539,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
@@ -581,7 +566,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                     .map((item: any) => {
                                     return (
                                       <>
-                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -627,7 +611,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
@@ -655,7 +638,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                   .map((item: any) => {
                                     return (
                                       <>
-                                        {/* <Link href={"/"}> */}
                                           <WrapItem key={item.date}
                                             p={["0.8em 0", "0.8em"]}
                                             bgColor={"white"}
@@ -701,7 +683,6 @@ const PilihState = ({ ID }: { ID: string }) => {
                                               </Box>
                                             </Center>
                                           </WrapItem>
-                                        {/* </Link> */}
                                       </>
                                     );
                                   })}
@@ -759,7 +740,6 @@ const PilihState = ({ ID }: { ID: string }) => {
         bgRepeat={"no-repeat"}
       >
         <Box w={"full"} zIndex={"0"}>
-          {/* <Header /> */}
           <Body />
           <BackButton />
           <Footer />
@@ -767,13 +747,6 @@ const PilihState = ({ ID }: { ID: string }) => {
       </Flex>
     </Layout>
   );
-};
-
-PilihState.getInitialProps = async ({ query }: any) => {
-  const { ID } = query;
-  return {
-    ID,
-  };
 };
 
 export default PilihState;
