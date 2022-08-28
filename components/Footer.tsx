@@ -330,7 +330,7 @@ const Footer = () => {
     },
     {
       id: 8,
-      icon: "",
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/LOKALATE/D7C61BF4-F8D4-40F7-90FC-F6514B815F30.png",
       name: "Lokalate",
       rank: "Silver",
     },
@@ -633,6 +633,34 @@ const Footer = () => {
                       >
                         <Img
                           src={SponsorData[9]?.icon}
+                          borderRadius={["2xl", "none"]}
+                          w={'125px'}
+                        />
+                      </Flex>
+                    </Center>
+                  </Box>
+                </Center>
+              </WrapItem>
+
+              <WrapItem
+                p={["auto", "0.8em"]}
+                //bgColor={"white"}
+                borderRadius={["2xl", "lg"]}
+                //shadow={"md"}
+                transition={"0.1s ease-in-out"}
+                //cursor={"pointer"}
+              >
+                <Center>
+                  <Box pt={10}>
+                    <Center>
+                      <Flex
+                        w={["9em", "10em"]}
+                        h={["9em", "10em"]}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                      >
+                        <Img
+                          src={SponsorData[7]?.icon}
                           borderRadius={["2xl", "none"]}
                           w={'125px'}
                         />
