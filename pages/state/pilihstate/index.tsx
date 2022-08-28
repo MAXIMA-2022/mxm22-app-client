@@ -229,7 +229,7 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
                                                 </Center>
                                                   </Box>
-                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Center w={"10em"} h={"5em"} my={["0.5em", "1em"]}>
                                                   <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
                                                     {item.name}
                                                   </Text>
@@ -249,10 +249,10 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                   </Flex>
                                                 </Center>
                                                 {item.registered === item.quota ? (<Flex justifyContent={'center'} alignItems={'center'}><Button isDisabled bgColor={'#FF6835'} textColor={'black'}>PENUH</Button></Flex>):(
-                                                  <Flex justifyContent={'center'} alignItems={'center'}>
-                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}>Cancel</Button>)
+                                                  <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text color={"white"}>Cancel</Text></Button>)
                                                   :
-                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}>Ambil</Button>)}
+                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text color={"white"}>Ambil</Text></Button>)}
                                                 </Flex>)}
                                               </Box>
                                             </Center>
@@ -304,7 +304,7 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
                                                 </Center>
                                                   </Box>
-                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Center w={"10em"} h={"5em"} my={["0.5em", "1em"]}>
                                                   <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
                                                     {item.name}
                                                   </Text>
@@ -323,10 +323,10 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex justifyContent={'center'} alignItems={'center'}>
-                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}>Cancel</Button>)
+                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text color={"white"}>Cancel</Text></Button>)
                                                   :
-                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}>Ambil</Button>)}
+                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text color={"white"}>Ambil</Text></Button>)}
                                                 </Flex>
                                               </Box>
                                             </Center>
@@ -378,7 +378,7 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
                                                 </Center>
                                                   </Box>
-                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Center w={"10em"} h={"5em"} my={["0.5em", "1em"]}>
                                                   <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
                                                     {item.name}
                                                   </Text>
@@ -397,10 +397,10 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex justifyContent={'center'} alignItems={'center'}>
-                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}>Cancel</Button>)
+                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text color={"white"}>Cancel</Text></Button>)
                                                   :
-                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}>Ambil</Button>)}
+                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text color={"white"}>Ambil</Text></Button>)}
                                                 </Flex>
                                               </Box>
                                             </Center>
@@ -452,7 +452,7 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
                                                 </Center>
                                                   </Box>
-                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Center w={"10em"} h={"5em"} my={["0.5em", "1em"]}>
                                                   <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
                                                     {item.name}
                                                   </Text>
@@ -471,10 +471,10 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex justifyContent={'center'} alignItems={'center'}>
-                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}>Cancel</Button>)
+                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text color={"white"}>Cancel</Text></Button>)
                                                   :
-                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}>Ambil</Button>)}
+                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text color={"white"}>Ambil</Text></Button>)}
                                                 </Flex>
                                               </Box>
                                             </Center>
@@ -526,7 +526,7 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
                                                 </Center>
                                                   </Box>
-                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Center w={"10em"} h={"5em"} my={["0.5em", "1em"]}>
                                                   <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
                                                     {item.name}
                                                   </Text>
@@ -545,10 +545,10 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex justifyContent={'center'} alignItems={'center'}>
-                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}>Cancel</Button>)
+                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text color={"white"}>Cancel</Text></Button>)
                                                   :
-                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}>Ambil</Button>)}
+                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text color={"white"}>Ambil</Text></Button>)}
                                                 </Flex>
                                               </Box>
                                             </Center>
@@ -600,7 +600,7 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
                                                 </Center>
                                                   </Box>
-                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Center w={"10em"} h={"5em"} my={["0.5em", "1em"]}>
                                                   <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
                                                     {item.name}
                                                   </Text>
@@ -619,10 +619,10 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex justifyContent={'center'} alignItems={'center'}>
-                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}>Cancel</Button>)
+                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text color={"white"}>Cancel</Text></Button>)
                                                   :
-                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}>Ambil</Button>)}
+                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text color={"white"}>Ambil</Text></Button>)}
                                                 </Flex>
                                               </Box>
                                             </Center>
@@ -674,7 +674,7 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     <Img src={item.stateLogo} boxSize={["135px","165px"]} objectFit={"contain"} borderRadius={["2xl", "lg"]} />
                                                 </Center>
                                                   </Box>
-                                                  <Center w={"10em"} my={["0.5em", "1em"]}>
+                                                  <Center w={"10em"} h={"5em"} my={["0.5em", "1em"]}>
                                                   <Text color={"#062D5F"} fontSize={"md"} fontWeight={"semibold"} textAlign={"center"} letterSpacing={0.2}>
                                                     {item.name}
                                                   </Text>
@@ -693,10 +693,10 @@ const PilihState = ({ ID }: { ID: string }) => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex justifyContent={'center'} alignItems={'center'}>
-                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}>Cancel</Button>)
+                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                  {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text color={"white"}>Cancel</Text></Button>)
                                                   :
-                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}>Ambil</Button>)}
+                                                  (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text color={"white"}>Ambil</Text></Button>)}
                                                 </Flex>
                                               </Box>
                                             </Center>
