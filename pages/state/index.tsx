@@ -16,27 +16,43 @@ import { isExpired } from "react-jwt";
 import { useReadLocalStorage } from "usehooks-ts";
 import axios from "axios";
 import { motion } from "framer-motion";
+import { useUserContext } from "../../useContext/UserContext";
 
 const STATE = () => {
   const router = useRouter()
   const jwt = useReadLocalStorage("token");
   const isMyTokenExpired = isExpired(jwt as string);
   const [toggle, setToggle] = useState(0)
+  const { nim } = useUserContext()
+  const [regis, setRegis] = useState([])
+  const [state, setState] = useState([])
+  const headers = {
+    "x-access-token": jwt! as string,
+  };
 
   useEffect(() => {
     if (!jwt || isMyTokenExpired) {
       router.push("/login");
     }
     try{
+      const fetchRegis = async () => {
+        const result = await axios.get(`${process.env.API_URL}/api/stateReg/${nim}`, { headers })
+        const response = await axios.get(`${process.env.API_URL}/api/state`, { headers })
+        setState(response.data)
+        setRegis(result.data)
+        console.log(response.data)
+        console.log(result.data)
+      }
       const fetchToggle = async () => {
         const res = await axios.get(`${process.env.API_URL}/api/toggle`)
         setToggle(res.data[8].toggle)
       }
+      fetchRegis()
       fetchToggle()
     } catch(err: any) {
       console.log(err)
     }
-  },[]);
+  },[nim]);
   
   const Header = () => {
     return (
@@ -144,24 +160,14 @@ const STATE = () => {
         <Box w={"full"} mt={["25vh","10vh","20vh","20vh","20vh"]}>
             <Stack direction={["column","column","column","row"]} spacing={["5em","10em","10em","0em","0em"]} mt={["15vh","35vh","35vh","25vh","28.5vw"]} mx={["0em","0em","0em","0em","8em"]} justifyContent={["space-between","space-between","center","space-evenly","space-between"]} alignItems={"center"}>
               <>
-                {addButton.map((item, index) => (
+                {regis.map((item: any, index) => (
                   <Center key={index} w={["12.5em","12.5em","25em","12.5em","17.5em"]} h={["12.5em","12.5em","25em","12.5em","17.5em"]} bgColor={"white"} borderRadius={"full"} boxShadow={"0px 0px 35px 10px rgb(255,255,255,0.5)"}>
                     <Center w={["12.5em","15em","20em","12.5em","17.5em"]} h={["2.5em","15em","20em","12.5em","17.5em"]} bgColor={success ? "rgb(0,255,25,0.26)": fail ? "rgb(255,0,0,0.33)" : "white"} borderRadius={"full"} boxShadow={"0px 0px 35px 10px rgb(255,255,255,0.5)"}>
                       <Link href={"/state/pilihstate"}>
                         <Button variant={"none"} >
                             <Box>
-                              {/* <Center>
-                                  <Img src={"/STATE/PilihSTATEP.png"} w={"90%"} h={"90%"} borderRadius={"full"}/>
-                              </Center> */}
-                              <Center>
-                                <Text color={"#F7B70C"} fontSize={["6xl", "6xl", "8xl", "6xl", "7xl"]} fontWeight={"black"} >
-                                    {item.icon}
-                                </Text>
-                              </Center>
-                              <Center mt={"-0.5em"}>
-                                <Text color={"#F7B70C"} fontSize={["xl", "6xl", "3xl", "xl", "4xl"]} fontWeight={"bold"} >
-                                    {item.label}
-                                </Text>
+                              <Center >
+                                <Img src={item.stateLogo} boxSize={250} borderRadius={'full'}/>
                               </Center>
                             </Box>
                         </Button>
@@ -207,7 +213,11 @@ const STATE = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={["100vh","250vh","430vw","115vw","115vw"]} bgImage={["/STATE/STATETanpaBungaP.png", "/STATE/STATETanpaBungaP.png", "/STATE/STATETanpaBungaP.png", "/STATE/STATETanpaBungaLs.png", "/STATE/STATETanpaBungaLs.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={["100vh","250vh","430vw","115vw","115vw"]} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaP.png", 
+      "https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaP.png", 
+      "https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaP.png", 
+      "https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaLs.webp", 
+      "https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaLs.webp"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           <Header />
           <Body/>
