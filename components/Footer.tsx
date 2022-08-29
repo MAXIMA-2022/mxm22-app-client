@@ -309,62 +309,68 @@ const Footer = () => {
       rank: "Plat",
     },
     {
-      id: 3,
+      id:3,
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/LOGO%20TRUWHITE_Deep%20Grey_RGB-01.png",
+      name: "TRUWHITE",
+      rank: "Gold",
+    },
+    {
+      id: 4,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/PRU%20Ribbon%20Logo.webp",
       name: "Prudential",
       rank: "Gold",
     },
     {
-      id: 4,
+      id: 5,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/Start%20Space%20Logo.webp",
       name: "Start Space",
       rank: "Gold",
     },
     {
-      id: 5,
+      id: 6,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/Maomoto%20logo%20Final.webp",
       name: "Maomoto",
       rank: "Silver",
     },
     {
-      id: 6,
+      id: 7,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/Logo%20Pandaboo%20a%20(2).webp",
       name: "Pandaboo",
       rank: "Silver",
     },
     {
-      id: 7,
+      id: 8,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/Bantex%20png.webp",
       name: "Bantex",
       rank: "Silver",
     },
     {
-      id: 8,
+      id: 9,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/LOKALATE/D7C61BF4-F8D4-40F7-90FC-F6514B815F30.png",
       name: "Lokalate",
       rank: "Silver",
     },
     {
-      id: 9,
+      id: 10,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/webp/bsm%20logo.webp",
       name: "BSM Entertainment",
       rank: "",
     },
     {
-      id: 10,
+      id: 11,
       icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/NANOVEST/logo%20nanovest%20HD.png",
       name: "Nanovest",
       rank: "Silver",
     },
     {
-      id: 11,
+      id: 12,
       icon: "",
       name: "Huawei",
       rank: "",
     },
     {
-      id: 12,
-      icon: "",
+      id: 13,
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/sponsor/Logo%20Gramedia.png",
       name: "Gramedia",
       rank: "",
     },
@@ -512,7 +518,7 @@ const Footer = () => {
             </Flex>
 
             <Wrap spacing={"1em"} justify="center">
-              <WrapItem
+              {/* <WrapItem
                 p={["auto", "0.8em"]}
                 //bgColor={"white"}
                 borderRadius={["2xl", "lg"]}
@@ -538,7 +544,7 @@ const Footer = () => {
                     </Center>
                   </Box>
                 </Center>
-              </WrapItem>
+              </WrapItem> */}
 
               <WrapItem
                 p={["auto", "0.8em"]}
@@ -616,7 +622,7 @@ const Footer = () => {
                         <Img
                           src={SponsorData[6]?.icon}
                           borderRadius={["2xl", "none"]}
-                          w={'125px'}
+                          w={'70px'}
                         />
                       </Flex>
                     </Center>
@@ -652,6 +658,33 @@ const Footer = () => {
                 </Center>
               </WrapItem>
 
+              <WrapItem
+                p={["auto", "0.8em"]}
+                //bgColor={"white"}
+                borderRadius={["2xl", "lg"]}
+                //shadow={"md"}
+                transition={"0.1s ease-in-out"}
+                //cursor={"pointer"}
+              >
+                <Center>
+                  <Box pt={10}>
+                    <Center>
+                      <Flex
+                        w={["9em", "10em"]}
+                        h={["9em", "10em"]}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                      >
+                        <Img
+                          src={SponsorData[12]?.icon}
+                          borderRadius={["2xl", "none"]}
+                          w={'125px'}
+                        />
+                      </Flex>
+                    </Center>
+                  </Box>
+                </Center>
+              </WrapItem>
               <WrapItem
                 p={["auto", "0.8em"]}
                 //bgColor={"white"}
