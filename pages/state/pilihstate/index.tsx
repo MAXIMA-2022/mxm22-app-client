@@ -315,11 +315,12 @@ const PilihState = () => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                {item.registered === item.quota ? (<Flex justifyContent={'center'} alignItems={'center'}><Button isDisabled bgColor={'#FF6835'} textColor={'black'}>PENUH</Button></Flex>):(
+                                                  <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
                                                   {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text textColor={"white"}>Cancel</Text></Button>)
                                                   :
                                                   (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text textColor={"white"}>Ambil</Text></Button>)}
-                                                </Flex>
+                                                </Flex>)}
                                               </Box>
                                             </Center>
                                           </WrapItem>
@@ -387,11 +388,12 @@ const PilihState = () => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                {item.registered === item.quota ? (<Flex justifyContent={'center'} alignItems={'center'}><Button isDisabled bgColor={'#FF6835'} textColor={'black'}>PENUH</Button></Flex>):(
+                                                  <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
                                                   {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text textColor={"white"}>Cancel</Text></Button>)
                                                   :
                                                   (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text textColor={"white"}>Ambil</Text></Button>)}
-                                                </Flex>
+                                                </Flex>)}
                                               </Box>
                                             </Center>
                                           </WrapItem>
@@ -459,11 +461,12 @@ const PilihState = () => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                {item.registered === item.quota ? (<Flex justifyContent={'center'} alignItems={'center'}><Button isDisabled bgColor={'#FF6835'} textColor={'black'}>PENUH</Button></Flex>):(
+                                                  <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
                                                   {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text textColor={"white"}>Cancel</Text></Button>)
                                                   :
                                                   (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text textColor={"white"}>Ambil</Text></Button>)}
-                                                </Flex>
+                                                </Flex>)}
                                               </Box>
                                             </Center>
                                           </WrapItem>
@@ -531,11 +534,12 @@ const PilihState = () => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                {item.registered === item.quota ? (<Flex justifyContent={'center'} alignItems={'center'}><Button isDisabled bgColor={'#FF6835'} textColor={'black'}>PENUH</Button></Flex>):(
+                                                  <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
                                                   {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text textColor={"white"}>Cancel</Text></Button>)
                                                   :
                                                   (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text textColor={"white"}>Ambil</Text></Button>)}
-                                                </Flex>
+                                                </Flex>)}
                                               </Box>
                                             </Center>
                                           </WrapItem>
@@ -603,11 +607,12 @@ const PilihState = () => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                {item.registered === item.quota ? (<Flex justifyContent={'center'} alignItems={'center'}><Button isDisabled bgColor={'#FF6835'} textColor={'black'}>PENUH</Button></Flex>):(
+                                                  <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
                                                   {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text textColor={"white"}>Cancel</Text></Button>)
                                                   :
                                                   (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text textColor={"white"}>Ambil</Text></Button>)}
-                                                </Flex>
+                                                </Flex>)}
                                               </Box>
                                             </Center>
                                           </WrapItem>
@@ -675,11 +680,12 @@ const PilihState = () => {
                                                     </Center>
                                                   </Flex>
                                                 </Center>
-                                                <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
+                                                {item.registered === item.quota ? (<Flex justifyContent={'center'} alignItems={'center'}><Button isDisabled bgColor={'#FF6835'} textColor={'black'}>PENUH</Button></Flex>):(
+                                                  <Flex mb={"1.5em"} justifyContent={'center'} alignItems={'center'}>
                                                   {stateReg.filter((reg: any)=>{return reg.stateID === item.stateID}).length > 0 ? (<Button bgColor={'#D01E20'} size={['sm','md','md','md']} onClick={()=>{handleCancel(item.stateID)}}><Text textColor={"white"}>Cancel</Text></Button>)
                                                   :
                                                   (<Button bgColor={'#1B4173'} size={['sm','md','md','md']} onClick={()=>{handleRegister(item.stateID)}}><Text textColor={"white"}>Ambil</Text></Button>)}
-                                                </Flex>
+                                                </Flex>)}
                                               </Box>
                                             </Center>
                                           </WrapItem>
