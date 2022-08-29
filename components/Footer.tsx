@@ -283,6 +283,16 @@ const Footer = () => {
       icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/logo%20umn%20juice%20black%20(2)_12_11zon.webp",
       name: "UMN Juice",
     },
+    {
+      id: 47,
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/heartline.jpg",
+      name: "Heartline FM"
+    },
+    {
+      id: 48,
+      icon: "https://storage.googleapis.com/mxm22-bucket-test/medpar/komcor.png",
+      name: "Kompas Corner"
+    }
   ];
 
   const SponsorData = [
