@@ -712,6 +712,33 @@ const Footer = () => {
                   </Box>
                 </Center>
               </WrapItem>
+              <WrapItem
+                p={["auto", "0.8em"]}
+                //bgColor={"white"}
+                borderRadius={["2xl", "lg"]}
+                //shadow={"md"}
+                transition={"0.1s ease-in-out"}
+                //cursor={"pointer"}
+              >
+                <Center>
+                  <Box pt={10}>
+                    <Center>
+                      <Flex
+                        w={["9em", "10em"]}
+                        h={["9em", "10em"]}
+                        justifyContent={"center"}
+                        alignItems={"center"}
+                      >
+                        <Img
+                          src={SponsorData[10]?.icon}
+                          borderRadius={["2xl", "none"]}
+                          w={'125px'}
+                        />
+                      </Flex>
+                    </Center>
+                  </Box>
+                </Center>
+              </WrapItem>
             </Wrap>
 
             <Box mt={5}>
