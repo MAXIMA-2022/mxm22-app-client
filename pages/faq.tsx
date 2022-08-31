@@ -21,14 +21,14 @@ const FAQ: NextPage = () => {
         name: "HoME (Hall of Maxima Exhibition) ",
         link: "aboutus/home",
       },
-      {
-        name: "STATE (Student Activities Unit Explore)",
-        link: "aboutus/state",
-      },
-      {
-        name: "Malam Puncak",
-        link: "aboutus/malampuncak",
-      },
+      // {
+      //   name: "STATE (Student Activities Unit Explore)",
+      //   link: "aboutus/state",
+      // },
+      // {
+      //   name: "Malam Puncak",
+      //   link: "aboutus/malampuncak",
+      // },
     ];
 
     return (
@@ -118,12 +118,12 @@ const FAQ: NextPage = () => {
                         <Tab mx={["0.2em", "0.2em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "xs", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
                           HoME
                         </Tab>
-                        <Tab mx={["0.2em", "0.2em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "xs", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
+                        {/* <Tab mx={["0.2em", "0.2em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "xs", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
                           STATE
                         </Tab>
                         <Tab mx={["0.2em", "0.2em", "0.5em", "0.5em", "1em"]} fontSize={["xs", "xs", "md", "sm", "lg"]} color={"white"} bgColor={"rgb(255,104,53,0.35)"} _selected={{ color: "white", bg: "#FF6835" }}>
                           Malam Puncak
-                        </Tab>
+                        </Tab> */}
                       </TabList>
                       <TabPanels>
                         <TabPanel mt={"1em"}>
@@ -144,7 +144,7 @@ const FAQ: NextPage = () => {
                                 <ListItem>
                                   <Text color={"#1B4173"} fontSize={["lg", "lg", "2.2vh", "sm", "lg"]}>
                                     HoME dapat diakses secara online melalui website
-                                    <span style={{ fontWeight: "bold", color: "#D01E20" }}> maximaumn.com.</span>
+                                    <span style={{ fontWeight: "bold", color: "#D01E20" }}> maxima.umn.ac.id</span>
                                   </Text>
                                 </ListItem>
                                 <ListItem>
