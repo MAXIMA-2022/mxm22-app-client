@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import MaximaIconP from "../../public/maximaIconP.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button, Stack, Img } from "@chakra-ui/react";
+import { Box, Flex, Center, Heading, Text, Button, Stack, Img, HStack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { isExpired } from "react-jwt";
@@ -153,8 +153,26 @@ const STATE = () => {
                     </Center>
                   </Center>
                 ))}
-                </>
+              </>
             </Stack>
+            <HStack justifyContent={'center'} alignItems={'center'} spacing={5} mt={20}>
+              <Link href={'/state/absenAwal'}>
+                <Button 
+                  style={{ border: "5px  solid rgb(210, 223, 165, 47%)", borderRadius: "20px"}} 
+                  size={["sm", "sm", "lg", "sm", "md"]} bgColor={"#FF6835"} boxShadow={"0 2.5px 4px 0px rgb(0,0,0,0.25)"}
+                >
+                  Absensi Awal
+                </Button>
+              </Link>
+              <Link href={'/state/absenAkhir'}>
+                <Button
+                  style={{ border: "5px  solid rgb(210, 223, 165, 47%)", borderRadius: "20px"}} 
+                  size={["sm", "sm", "lg", "sm", "md"]} bgColor={"#FF6835"} boxShadow={"0 2.5px 4px 0px rgb(0,0,0,0.25)"}
+                >
+                    Absensi Akhir
+                </Button>
+              </Link>
+            </HStack>
         </Box>
     </Flex>
     )
@@ -199,7 +217,7 @@ const STATE = () => {
       "https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaLs.webp"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           <Header />
-          <Body/>
+          <Body />
         </Box>
       </Flex>
         <BackButton />
