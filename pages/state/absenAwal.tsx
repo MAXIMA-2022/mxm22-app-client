@@ -9,100 +9,107 @@ import { useReadLocalStorage } from "usehooks-ts";
 import { useUserContext } from "../../useContext/UserContext";
 
 const Absenawal = () => {
-    // interface ListStateAct {
-    //     id: number
-    //     name: string
-    //     date: string
-    //     stateLogo: string
-    //     stateID: number
-    // }
-    
-    // interface AbsenAwal {
-    //     stateID: number
-    //     //attendanceCode: string
-    // }
-    
-    // const jwt = useReadLocalStorage<string>("token");
-    // const { nim } = useUserContext()
-    // const [stateData, setStateData] = useState<ListStateAct[]>([]);
-    // const headers = {
-    //     "x-access-token": jwt!,
-    // };
-    // const router = useRouter()
-    // const isMyTokenExpired = isExpired(jwt as string);
-    // // const [stateReg, setstateReg] = useState([])
-    // useEffect(() => {
-    //     if (!jwt || isMyTokenExpired) {
-    //     router.push("/login");
-    //     }
-    //     try {
-    //     const fetchSTATE = async () => {
-    //         const response = await axios.get(`${process.env.API_URL}/api/state`, { headers });
-    //         // const result = await axios.get(`${process.env.API_URL}/api/stateReg/${nim}`, { headers })
-    //         //setstateReg(result.data)
-    //         setStateData(response.data)
-    //         console.log(response.data)
-    //     };
-    //     fetchSTATE()
-    //     } catch (err: any) {
-    //     console.log(err);
-    //     }
-    // }, [nim]);
+    interface ListStateAct {
+        id: number
+        name: string
+        date: string
+        stateLogo: string
+        stateID: number
+    }
 
-    // const handleRegister = async (stateID: number) => {
-    //     try {
-    //     const result = await axios.put(`${process.env.API_URL}/api/stateReg/attendState/${stateID}/${nim}`, { 
-    //         'stateID': `${stateID}`
-    //     },{ headers })
-    //     Swal.fire({
-    //         position: "center",
-    //         icon: "success",
-    //         title: `${result.data.message}`,
-    //         showConfirmButton: false,
-    //         timer: 2000,
-    //     });
-    //     } catch (err: any) {
-    //     console.log(err)
-    //     Swal.fire({
-    //         title: "Perhatian!",
-    //         text: `${err.response.data.message}`,
-    //         icon: "error",
-    //         confirmButtonText: "Coba lagi",
-    //     });
-    //     }
-    // }
+    interface FormAbsen {
+        stateID: number | undefined,
+        attendanceCode: string | undefined,
+    }
 
-    // const {
-    // register,
-    // handleSubmit,
-    // formState: { errors },
-    // } = useForm<AbsenAwal[]>();
+    const [isButtonLoading, setIsButtonLoading] = useState(false);
+    const jwt = useReadLocalStorage<string>("token");
+    const { nim } = useUserContext()
+    const [stateData, setStateData] = useState<ListStateAct[]>([]);
+    const headers = {
+        "x-access-token": jwt!,
+    };
+    const router = useRouter()
+    const isMyTokenExpired = isExpired(jwt as string);
+    console.log(jwt)
+    useEffect(() => {
+        if (!jwt || isMyTokenExpired) {
+            router.push("/login");
+        }
+        try {
+            const fetchSTATE = async () => {
+                const response = await axios.get(`${process.env.API_URL}/api/state`, { headers });
+                setStateData(response.data)
+                //console.log(response.data)
+            };
+            fetchSTATE()
+        } catch (err: any) {
+            console.log(err);
+        }
+    }, [nim]);
 
-    // const [isButtonLoading, setIsButtonLoading] = useState(false);
-    // const onSubmit: SubmitHandler<any> = async (data: AbsenAwal) => {
-    //     try {
-    //         setIsButtonLoading(true);
-    //         const formData = new FormData();
-    //         formData.append("stateID", data.stateID)
-    //         //formData.append("attendanceCode", data.attendanceCode);
-    //         //formData.append("attendanceCode2", data.attendanceCode2);
-    //         console.log(data)
-    //         //await axios.put(`${process.env.API_URL}/api/stateReg/attendState/:stateID/:nim`, formData);
-    //         Swal.fire("Selamat!", "Anda berhasil absen!", "success");
-    //         setIsButtonLoading(false);
-    //         // router.push('/login')
-    //     } catch (err: any) {
-    //         Swal.fire({
-    //             icon: "error",
-    //             title: `${err.response.data.message}`,
-    //         })
-    //         console.log(err.response.data.message);
-    //         setIsButtonLoading(false);
-    //     }
-    // }
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<FormAbsen>();
+
+    const onSubmit: SubmitHandler<FormAbsen> = async (data: any) => {
+        try {
+            setIsButtonLoading(true);
+            const formData = new FormData();
+            formData.append("attendanceCode", data.attendanceCode);
+            console.log(data)
+            await axios.put(`${process.env.API_URL}/api/stateReg/attendState/${data.stateID}/${nim}`, formData, { headers });
+            Swal.fire("Selamat!", "Anda berhasil terabsen!", "success");
+            setIsButtonLoading(false);
+            router.push('/state')
+        } catch (err: any) {
+            Swal.fire({
+                icon: "error",
+                title: `${err.response.data.message}`,
+            })
+            console.log(err)
+            console.log(err.response.data.message);
+            setIsButtonLoading(false);
+        }
+    }
 
     return(
         <>
+            <Flex minH={'100vh'}>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                        <FormLabel textColor={"black"}>Pilih STATE</FormLabel>
+                        <Select
+                            {...register("stateID", { required: "STATE harus dipilih" })}
+                            borderColor={"#CBD5E0"}
+                            name={'stateID'}
+                            placeholder="Pilih STATE"                           
+                            textColor={"black"}
+                            border={"solid"}
+                        >
+                            {stateData.map((item: any, index: number)=>{
+                                return (
+                                    <option key={index} value={item.stateID}>
+                                        {item.name}
+                                    </option>
+                                )
+                            })}
+                        </Select>
+                        {errors.stateID !== undefined && <Text textColor={"red"}>{errors.stateID.message}</Text>}
+                        <FormLabel textColor={"black"}>Token</FormLabel>
+                        <Input 
+                            {...register("attendanceCode", { required: "Token absensi harap diisi" })} 
+                            type={'text'} 
+                            name={'attendanceCode'} 
+                            textColor={"black"}
+                            border={"solid"} borderColor={"#CBD5E0"} 
+                            placeholder="Token"
+                        />
+                        {errors.attendanceCode !== undefined && <Text textColor={"red"}>{errors?.attendanceCode?.message}</Text>}
+                    <Button colorScheme={'orange'} type='submit'>Submit</Button>
+                </form>
+            </Flex>
         </>
     )
 }
