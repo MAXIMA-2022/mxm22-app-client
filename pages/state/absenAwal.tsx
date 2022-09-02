@@ -128,7 +128,7 @@ const Absenawal = () => {
                             <Input 
                                 {...register("attendanceCode", { required: "Token absensi harap diisi" })} 
                                 type={'text'} 
-                                name={'attendanceCode2'} 
+                                name={'attendanceCode'} 
                                 textColor={"black"}
                                 border={"solid"} borderColor={"#CBD5E0"} 
                                 placeholder="Token"
