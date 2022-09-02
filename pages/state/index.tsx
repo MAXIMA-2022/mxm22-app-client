@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import MaximaIconP from "../../public/maximaIconP.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button, Stack, Img } from "@chakra-ui/react";
+import { Box, Flex, Center, Heading, Text, Button, Stack, Img, HStack } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { isExpired } from "react-jwt";
@@ -38,6 +38,7 @@ const STATE = () => {
         const response = await axios.get(`${process.env.API_URL}/api/state`, { headers })
         setState(response.data)
         setRegis(result.data)
+        console.log(result.data)
       }
       const fetchToggle = async () => {
         const res = await axios.get(`${process.env.API_URL}/api/toggle`)
@@ -146,15 +147,37 @@ const STATE = () => {
                   <Center key={index} w={["12.5em","15em","25em","12.5em","17.5em"]} h={["12.5em","15em","25em","12.5em","17.5em"]} bgColor={"white"} borderRadius={"full"} boxShadow={"0px 0px 35px 10px rgb(255,255,255,0.5)"}>
                     <Center w={["12.5em","15em","25em","12.5em","17.5em"]} h={["12.5em","15em","25em","12.5em","17.5em"]} bgColor={success ? "rgb(0,255,25,0.26)": fail ? "rgb(255,0,0,0.33)" : "white"} borderRadius={"full"} boxShadow={"0px 0px 35px 10px rgb(255,255,255,0.5)"}>
                       <Box>
+                        <Link href={"/state/absenAwal"}>
                           <Center m={"1.5em"} bgColor={"white"} borderRadius={"full"}>
                             <Img src={item.stateLogo} borderRadius={"full"}/>
                           </Center>
+                        </Link>
                       </Box> 
                     </Center>
                   </Center>
                 ))}
-                </>
+              </>
             </Stack>
+            <HStack justifyContent={'center'} alignItems={'center'} spacing={5} mt={20}>
+              <Link href={'/state/absenAwal'}>
+                <Button 
+                  style={{ border: "5px  solid rgb(210, 223, 165, 47%)", borderRadius: "20px"}}
+                  color={"white"}
+                  size={["sm", "sm", "lg", "sm", "md"]} bgColor={"#FF6835"} boxShadow={"0 2.5px 4px 0px rgb(0,0,0,0.25)"}
+                >
+                  Absensi Awal
+                </Button>
+              </Link>
+              <Link href={'/state/absenAkhir'}>
+                <Button
+                  style={{ border: "5px  solid rgb(210, 223, 165, 47%)", borderRadius: "20px"}} 
+                  color={"white"}
+                  size={["sm", "sm", "lg", "sm", "md"]} bgColor={"#FF6835"} boxShadow={"0 2.5px 4px 0px rgb(0,0,0,0.25)"}
+                >
+                    Absensi Akhir
+                </Button>
+              </Link>
+            </HStack>
         </Box>
     </Flex>
     )
@@ -199,7 +222,7 @@ const STATE = () => {
       "https://storage.googleapis.com/mxm22-bucket-test/STATE/STATETanpaBungaLs.webp"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           <Header />
-          <Body/>
+          <Body />
         </Box>
       </Flex>
         <BackButton />
