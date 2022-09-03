@@ -8,6 +8,7 @@ import MaximaIconP from "../../public/maximaIconP.svg";
 
 //importing chakra ui components
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, HStack } from "@chakra-ui/react";
+import { TriangleDownIcon } from "@chakra-ui/icons";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { isExpired } from "react-jwt";
@@ -212,6 +213,113 @@ const STATE = () => {
     );
   };
 
+  const DownArrow = () => {
+    const [isScrolling, setIsScrolling] = useState(false);
+
+    useEffect(() => {
+      onscroll = (e: any) => {
+        if (e.deltaY > 0 || window.scrollY > 0) {
+          setIsScrolling(true);
+        } else {
+          setTimeout(async () => {
+            setIsScrolling(false);
+          }, 5000);
+        }
+      };
+    }),
+      [];
+  
+    const revealing = {
+      visible: {
+        opacity: 1,
+        transition: {
+          delay: 0,
+        },
+      },
+      hidden: {
+        opacity: 0,
+      },
+    };
+
+    return(
+        <Center position={"fixed"} left={0} bottom={0} right={0} mb={"2em"}>
+          <motion.div variants={revealing} initial={"hidden"} animate={"visible"}>
+            <Box w={"10em"} opacity={isScrolling ? "0%" : "100%"} transition={"0.2s"}>
+              <motion.div
+                animate={{
+                  y: [5, 0, 5, 0, 5],
+                }}
+                transition={{
+                  duration: 2,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+              >
+                <Text fontSize={"xl"} fontWeight={"black"} align={"center"} color={"#D01E20"} textShadow={"0px 0px 2px white"}>
+                  Scroll Down
+                </Text>
+                <Text align={"center"} fontSize={"xl"} mt={"-0.3em"} color={"#D01E20"} textShadow={"0px 0px 2px white"}>
+                  <TriangleDownIcon />
+                </Text>
+              </motion.div>
+            </Box>
+          </motion.div>
+        </Center>
+    )
+  }
+
+  const ScrollingButton = () => {
+    return(
+      <>
+        <Stack w={"100%"} direction={"column"} position={"fixed"} left={0} bottom={0} right={0} alignItems={"center"} zIndex={"99"}>
+          <Button
+            variant={"none"}
+            onClick={() => {
+              window.scrollTo({
+                top: window.innerHeight,
+                behavior: "smooth",
+              });
+            }
+          }
+          >
+            <Center
+              w={["2.5rem", "2.5rem", "4rem", "4rem", "1.5rem"]}
+              h={["2.5rem", "2.5rem", "4rem", "4rem", "1.5rem"]}
+              mb={["4.8rem"]}
+              bgColor={"#FF6835"}
+              border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
+              borderRadius={"full"}
+              shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
+            >
+            </Center>
+          </Button>
+          <Button
+            mt={["8vh","8vh","6.5vw","11.5vh","8vh"]}
+            variant={"none"}
+            onClick={() => {
+              window.scrollTo({
+                top: window.innerHeight,
+                behavior: "smooth",
+              });
+            }
+          }
+          >
+            <Center
+              w={["2.5rem", "2.5rem", "4rem", "4rem", "1.5rem"]}
+              h={["2.5rem", "2.5rem", "4rem", "4rem", "1.5rem"]}
+              mb={["4.8rem"]}
+              bgColor={"#FF6835"}
+              border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
+              borderRadius={"full"}
+              shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
+            >
+            </Center>
+          </Button>
+        </Stack>
+      </>
+    )
+  }
+
   return (
     <Layout>
       <Navbar />
@@ -223,6 +331,8 @@ const STATE = () => {
         <Box w={"full"} mt={"20vh"}>
           <Header />
           <Body />
+          <ScrollingButton/>
+          <DownArrow />
         </Box>
       </Flex>
         <BackButton />

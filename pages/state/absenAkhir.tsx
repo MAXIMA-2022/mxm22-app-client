@@ -8,7 +8,7 @@ import { isExpired } from "react-jwt";
 import { useReadLocalStorage } from "usehooks-ts";
 import { useUserContext } from "../../useContext/UserContext";
 
-const Absenakhir = () => {
+const Absenawal = () => {
     interface ListStateAct {
         id: number
         name: string
@@ -69,7 +69,7 @@ const Absenakhir = () => {
             const formData = new FormData();
             formData.append("attendanceCode2", data.attendanceCode2);
             console.log(data)
-            await axios.put(`${process.env.API_URL}/api/stateReg/verifyAttendance/${data.stateID}/${nim}`, formData, { headers });
+            await axios.put(`${process.env.API_URL}/api/stateReg/attendState/${data.stateID}/${nim}`, formData, { headers });
             Swal.fire("Selamat!", "Anda berhasil terabsen!", "success");
             setIsButtonLoading(false);
             router.push('/state')
@@ -86,13 +86,17 @@ const Absenakhir = () => {
 
     return(
         <>
-            <Center minH={'100vh'}>
-                <Box p={"2em"} boxShadow={"lg"} borderRadius={"xl"}>
+             <Center p={["1em","1em","0em"]} minH={'100vh'} bgImage={["STATEAbsenP.png", 
+      "STATEAbsenP.png", 
+      "STATEAbsenP.png", 
+      "STATEAbsenBg.png", 
+      "STATEAbsenBg.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+                <Box w={["full","full","auto"]} p={"2em"} boxShadow={"lg"} borderRadius={"xl"} bgColor={"white"}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                        <Box>
-                            <Text fontSize={"2xl"} fontWeight={"bold"} color={"#062D5F"}>Absen Akhir STATE</Text>
+                        <Box mb={"2em"}>
+                            <Text textAlign={["center","start"]} fontSize={"2xl"} fontWeight={"bold"} color={"#062D5F"}>Absen Awal STATE</Text>
                         </Box>
-                    <Stack p={"2em 10em"} direction={"column"} spacing={"2em"}>
+                    <Stack p={["2em full","2em full","2em 10em"]} direction={"column"} spacing={"2em"}>
                         <Box>
                             <Center>
                                 <FormLabel textColor={"#D01E20"} fontSize={"lg"} fontWeight={"semibold"}>
@@ -100,6 +104,7 @@ const Absenakhir = () => {
                                 </FormLabel>
                             </Center>
                             <Select
+                                w={["full","full","auto"]}
                                 {...register("stateID", { required: "STATE harus dipilih" })}
                                 borderColor={"#CBD5E0"}
                                 name={'stateID'}
@@ -126,6 +131,7 @@ const Absenakhir = () => {
                                 </FormLabel>
                             </Center>
                             <Input 
+                                w={["full","full","auto"]}
                                 {...register("attendanceCode2", { required: "Token absensi harap diisi" })} 
                                 type={'text'} 
                                 name={'attendanceCode2'} 
@@ -136,7 +142,7 @@ const Absenakhir = () => {
                             />
                             {errors.attendanceCode2 !== undefined && <Text textColor={"red"}>{errors?.attendanceCode2?.message}</Text>}
                             <Center mt={"3em"}>
-                                <Button bgColor={"#1B4173"} type='submit' borderRadius={"full"} color={"white"} size={"lg"}>VERIFIKASI</Button>
+                                <Button bgColor={"#1B4173"} type='submit' borderRadius={"full"} color={"white"} size={["md","md","lg"]}>VERIFIKASI</Button>
                             </Center>
                         </Box>
                     </Stack>
@@ -147,4 +153,4 @@ const Absenakhir = () => {
     )
 }
 
-export default Absenakhir;
+export default Absenawal;
