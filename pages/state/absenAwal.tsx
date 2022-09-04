@@ -33,7 +33,6 @@ const Absenawal = () => {
     const isMyTokenExpired = isExpired(jwt as string);
     const [regis, setRegis] = useState([])
     const [state, setState] = useState([])
-    console.log(jwt)
     useEffect(() => {
         if (!jwt || isMyTokenExpired) {
             router.push("/login");
@@ -62,7 +61,6 @@ const Absenawal = () => {
             setIsButtonLoading(true);
             const formData = new FormData();
             formData.append("attendanceCode", data.attendanceCode);
-            console.log(data)
             await axios.put(`${process.env.API_URL}/api/stateReg/attendState/${data.stateID}/${nim}`, formData, { headers });
             Swal.fire("Selamat!", "Anda berhasil terabsen!", "success");
             setIsButtonLoading(false);
