@@ -480,7 +480,7 @@ const Footer = () => {
             </Flex>
             <Flex
               w={"full"}
-              flexDirection={["column", "column", "row", "row"]}
+              flexDirection={["column", "column","column", "row", "row"]}
               justifyContent={"center"}
               alignItems={"center"}
               py={5}
@@ -741,8 +741,9 @@ const Footer = () => {
               </WrapItem>
             </Wrap>
 
-            <Box mt={5}>
+            <Box mt={5} >
               <Text
+              mb={"1.5em"}
                 color={"white"}
                 fontSize={"md"}
                 textAlign={"center"}
