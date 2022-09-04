@@ -140,7 +140,7 @@ const STATE = () => {
     const [fail , setFail] = useState(false);
     
     return(
-        <Flex minH={"100vh"}>
+        <Flex minH={"100vh"} id={"state"}>
         <Box w={"full"} mt={["25vh","10vh","20vh","20vh","10vh"]}>
             <Stack direction={["column","column","column","row"]} spacing={["5em","10em","10em","0em","0em"]} mt={["15vh","35vh","35vh","25vh","28.5vw"]} mx={["0em","0em","0em","0em","8em"]} justifyContent={["space-between","space-between","center","space-evenly","space-between"]} alignItems={"center"}>
               <>
@@ -159,9 +159,9 @@ const STATE = () => {
                 ))}
               </>
             </Stack>
-            <HStack justifyContent={'center'} alignItems={'center'} spacing={5} mt={20}>
+            <HStack  justifyContent={'center'} alignItems={'center'} spacing={5} mt={20}>
               <Link href={'/state/absenAwal'}>
-                <Button 
+                <Button
                   style={{ border: "5px  solid rgb(210, 223, 165, 47%)", borderRadius: "20px"}}
                   color={"white"}
                   size={["sm", "sm", "lg", "sm", "md"]} bgColor={"#FF6835"} boxShadow={"0 2.5px 4px 0px rgb(0,0,0,0.25)"}
@@ -271,50 +271,44 @@ const STATE = () => {
   const ScrollingButton = () => {
     return(
       <>
-        <Stack w={"100%"} direction={"column"} position={"fixed"} left={0} bottom={0} right={0} alignItems={"center"} zIndex={"99"}>
-          <Button
-            variant={"none"}
-            onClick={() => {
-              window.scrollTo({
-                top: window.innerHeight,
-                behavior: "smooth",
-              });
-            }
-          }
-          >
-            <Center
-              w={["2.5rem", "2.5rem", "4rem", "4rem", "1.5rem"]}
-              h={["2.5rem", "2.5rem", "4rem", "4rem", "1.5rem"]}
-              mb={["4.8rem"]}
-              bgColor={"#FF6835"}
-              border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
-              borderRadius={"full"}
-              shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
+        <Stack w={"8%"} h={"auto"} spacing={0} mt={"45vh"} direction={"column"} position={"fixed"} alignItems={"center"} right={0} top={0} bottom={0} zIndex={"99"}>
+        <Link href={"#top"}>
+            <Button
+              variant={"none"}
             >
-            </Center>
-          </Button>
-          <Button
-            mt={["8vh","8vh","6.5vw","11.5vh","8vh"]}
-            variant={"none"}
-            onClick={() => {
-              window.scrollTo({
-                top: window.innerHeight,
-                behavior: "smooth",
-              });
-            }
-          }
-          >
-            <Center
-              w={["2.5rem", "2.5rem", "4rem", "4rem", "1.5rem"]}
-              h={["2.5rem", "2.5rem", "4rem", "4rem", "1.5rem"]}
-              mb={["4.8rem"]}
-              bgColor={"#FF6835"}
-              border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
-              borderRadius={"full"}
-              shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
+              <Center
+                w={["1.5rem"]}
+                h={["1.5rem"]}
+                bgColor={"#FF6835"}
+                border={["3px solid white"]}
+                borderRadius={"full"}
+                shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
+                transition={"0.2s ease-in-out"}
+              >
+                <Text color={"white"} textAlign={"center"} fontSize={"10px"} transform={"rotate(180deg)"}>
+                  <TriangleDownIcon />
+                </Text>
+              </Center>
+            </Button>
+          </Link>
+          <Link href={"#state"}>
+            <Button
+              variant={"none"}
             >
-            </Center>
-          </Button>
+              <Center
+                w={["1.5rem"]}
+                h={["1.5rem"]}
+                bgColor={"#FF6835"}
+                border={["3px solid white" ]}
+                borderRadius={"full"}
+                shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
+              >
+                <Text color={"white"} textAlign={"center"} fontSize={"10px"} transform={"rotate(0deg)"}>
+                  <TriangleDownIcon />
+                </Text>
+              </Center>
+            </Button>
+          </Link>
         </Stack>
       </>
     )
