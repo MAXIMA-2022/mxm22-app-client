@@ -39,11 +39,6 @@ const Absenawal = () => {
             router.push("/login");
         }
         try {
-            const fetchSTATE = async () => {
-                const response = await axios.get(`${process.env.API_URL}/api/state`, { headers });
-                setStateData(response.data)
-                //console.log(response.data)
-            };
             const fetchRegis = async () => {
                 const result = await axios.get(`${process.env.API_URL}/api/stateReg/${nim}`, { headers })
                 const response = await axios.get(`${process.env.API_URL}/api/state`, { headers })
@@ -51,7 +46,6 @@ const Absenawal = () => {
                 setRegis(result.data)
               }
             fetchRegis()
-            fetchSTATE()
         } catch (err: any) {
             console.log(err);
         }
@@ -94,7 +88,7 @@ const Absenawal = () => {
                 <Box w={["full","full","auto"]} p={"2em"} boxShadow={"lg"} borderRadius={"xl"} bgColor={"white"}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                         <Box mb={"2em"}>
-                            <Text textAlign={["center","start"]} fontSize={"2xl"} fontWeight={"bold"} color={"#062D5F"}>Absen Awal STATE</Text>
+                            <Text textAlign={["center","start"]} fontSize={"2xl"} fontWeight={"bold"} color={"#062D5F"}>Absen Akhir STATE</Text>
                         </Box>
                     <Stack p={["2em full","2em full","2em 10em"]} direction={"column"} spacing={"2em"}>
                         <Box>

@@ -39,11 +39,6 @@ const Absenawal = () => {
             router.push("/login");
         }
         try {
-            const fetchSTATE = async () => {
-                const response = await axios.get(`${process.env.API_URL}/api/state`, { headers });
-                setStateData(response.data)
-                //console.log(response.data)
-            };
             const fetchRegis = async () => {
                 const result = await axios.get(`${process.env.API_URL}/api/stateReg/${nim}`, { headers })
                 const response = await axios.get(`${process.env.API_URL}/api/state`, { headers })
@@ -51,7 +46,6 @@ const Absenawal = () => {
                 setRegis(result.data)
               }
             fetchRegis()
-            fetchSTATE()
         } catch (err: any) {
             console.log(err);
         }
