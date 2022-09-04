@@ -139,7 +139,7 @@ const PilihState = () => {
                   <Tabs variant="soft-rounded" isFitted>
                     <Center>
                       <Box
-                        w={["30em", "full", "30em", "35em", "40em"]}
+                        w={["30em", "full", "full", "35em", "40em"]}
                         p={["0.5em 1em 1em 1em", "1.5em"]}
                         bgColor={"#FDF0CC"}
                         borderRadius={["xl", "xl", "full"]}
