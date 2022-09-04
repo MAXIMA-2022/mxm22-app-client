@@ -33,17 +33,11 @@ const Absenawal = () => {
     const isMyTokenExpired = isExpired(jwt as string);
     const [regis, setRegis] = useState([])
     const [state, setState] = useState([])
-    console.log(jwt)
     useEffect(() => {
         if (!jwt || isMyTokenExpired) {
             router.push("/login");
         }
         try {
-            const fetchSTATE = async () => {
-                const response = await axios.get(`${process.env.API_URL}/api/state`, { headers });
-                setStateData(response.data)
-                //console.log(response.data)
-            };
             const fetchRegis = async () => {
                 const result = await axios.get(`${process.env.API_URL}/api/stateReg/${nim}`, { headers })
                 const response = await axios.get(`${process.env.API_URL}/api/state`, { headers })
@@ -51,7 +45,6 @@ const Absenawal = () => {
                 setRegis(result.data)
               }
             fetchRegis()
-            fetchSTATE()
         } catch (err: any) {
             console.log(err);
         }
@@ -68,7 +61,6 @@ const Absenawal = () => {
             setIsButtonLoading(true);
             const formData = new FormData();
             formData.append("attendanceCode", data.attendanceCode);
-            console.log(data)
             await axios.put(`${process.env.API_URL}/api/stateReg/attendState/${data.stateID}/${nim}`, formData, { headers });
             Swal.fire("Selamat!", "Anda berhasil terabsen!", "success");
             setIsButtonLoading(false);
@@ -86,13 +78,17 @@ const Absenawal = () => {
 
     return(
         <>
-             <Center minH={'100vh'}>
-                <Box p={"2em"} boxShadow={"lg"} borderRadius={"xl"}>
+             <Center p={["1em","1em","0em"]} minH={'100vh'} bgImage={["STATEAbsenP.png", 
+      "STATEAbsenP.png", 
+      "STATEAbsenP.png", 
+      "STATEAbsenBg.png", 
+      "STATEAbsenBg.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+                <Box w={["full","full","auto"]} p={"2em"} boxShadow={"lg"} borderRadius={"xl"} bgColor={"white"}>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                        <Box>
-                            <Text fontSize={"2xl"} fontWeight={"bold"} color={"#062D5F"}>Absen Awal STATE</Text>
+                        <Box mb={"2em"}>
+                            <Text textAlign={["center","start"]} fontSize={"2xl"} fontWeight={"bold"} color={"#062D5F"}>Absen Awal STATE</Text>
                         </Box>
-                    <Stack p={"2em 10em"} direction={"column"} spacing={"2em"}>
+                    <Stack p={["2em full","2em full","2em 10em"]} direction={"column"} spacing={"2em"}>
                         <Box>
                             <Center>
                                 <FormLabel textColor={"#D01E20"} fontSize={"lg"} fontWeight={"semibold"}>
@@ -100,6 +96,7 @@ const Absenawal = () => {
                                 </FormLabel>
                             </Center>
                             <Select
+                                w={["full","full","auto"]}
                                 {...register("stateID", { required: "STATE harus dipilih" })}
                                 borderColor={"#CBD5E0"}
                                 name={'stateID'}
@@ -126,6 +123,7 @@ const Absenawal = () => {
                                 </FormLabel>
                             </Center>
                             <Input 
+                                w={["full","full","auto"]}
                                 {...register("attendanceCode", { required: "Token absensi harap diisi" })} 
                                 type={'text'} 
                                 name={'attendanceCode'} 
@@ -136,7 +134,7 @@ const Absenawal = () => {
                             />
                             {errors.attendanceCode !== undefined && <Text textColor={"red"}>{errors?.attendanceCode?.message}</Text>}
                             <Center mt={"3em"}>
-                                <Button bgColor={"#1B4173"} type='submit' borderRadius={"full"} color={"white"} size={"lg"}>VERIFIKASI</Button>
+                                <Button bgColor={"#1B4173"} type='submit' borderRadius={"full"} color={"white"} size={["md","md","lg"]}>VERIFIKASI</Button>
                             </Center>
                         </Box>
                     </Stack>
