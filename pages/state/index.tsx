@@ -39,7 +39,6 @@ const STATE = () => {
         const response = await axios.get(`${process.env.API_URL}/api/state`, { headers })
         setState(response.data)
         setRegis(result.data)
-        console.log(result.data)
       }
       const fetchToggle = async () => {
         const res = await axios.get(`${process.env.API_URL}/api/toggle`)
