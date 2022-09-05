@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { isExpired } from "react-jwt";
 import { useReadLocalStorage } from "usehooks-ts";
 import { useUserContext } from "../../useContext/UserContext";
+import Navbar from "../../components/Navbar";
 
 const Absenawal = () => {
     interface ListStateAct {
@@ -78,6 +79,7 @@ const Absenawal = () => {
 
     return(
         <>
+        <Navbar/>
              <Center p={["1em","1em","0em"]} minH={'100vh'} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Absen/STATEAbsenP.png", 
       "https://storage.googleapis.com/mxm22-bucket-test/Absen/STATEAbsenP.png", 
       "https://storage.googleapis.com/mxm22-bucket-test/Absen/STATEAbsenP.png", 
