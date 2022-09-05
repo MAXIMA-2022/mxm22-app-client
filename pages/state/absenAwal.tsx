@@ -78,11 +78,11 @@ const Absenawal = () => {
 
     return(
         <>
-             <Center p={["1em","1em","0em"]} minH={'100vh'} bgImage={["STATEAbsenP.png", 
-      "STATEAbsenP.png", 
-      "STATEAbsenP.png", 
-      "STATEAbsenBg.png", 
-      "STATEAbsenBg.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+             <Center p={["1em","1em","0em"]} minH={'100vh'} bgImage={["https://storage.googleapis.com/mxm22-bucket-test/Absen/STATEAbsenP.png", 
+      "https://storage.googleapis.com/mxm22-bucket-test/Absen/STATEAbsenP.png", 
+      "https://storage.googleapis.com/mxm22-bucket-test/Absen/STATEAbsenP.png", 
+      "https://storage.googleapis.com/mxm22-bucket-test/Absen/STATEAbsenBg.png", 
+      "https://storage.googleapis.com/mxm22-bucket-test/Absen/STATEAbsenBg.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
                 <Box w={["full","full","auto"]} p={"2em"} boxShadow={"lg"} borderRadius={"xl"} bgColor={"white"}>
                 <form onSubmit={handleSubmit(onSubmit)}>
                         <Box mb={"2em"}>
