@@ -55,7 +55,7 @@ const STATE = () => {
     return (
       <Box>  
         <Box display={["block","block", "none"]} mt={10}>
-          <Box mr={5} mt={10}>
+          <Box mr={"3.5em"} mt={10}>
             <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
@@ -71,8 +71,8 @@ const STATE = () => {
                   MAXIMA 2022
               </Text>
             </motion.div>
-            <Text mt={{base:"1em", lg:"0vh"}} ps={["0em", "20em", "40vw", "55vw", "61vw"]} color={"#D01E20"} align={"end"} fontSize={["16px", "16px", "2.5vh", "16px", "20px"]} fontWeight={"bold"} textShadow={"0px 2px 4px 0px rgb(0,0,0,0.25)"}>
-              Selamat datang di STATE MAXIMA 2022!<br></br>
+            <Text mt={{base:"1em", lg:"0vh"}} ps={["2.5em", "20em", "40vw", "55vw", "61vw"]} color={"#D01E20"} align={"end"} fontSize={["16px", "16px", "2.5vh", "16px", "20px"]} fontWeight={"bold"} textShadow={"0px 2px 4px 0px rgb(0,0,0,0.25)"}>
+              Selamat datang di STATE MAXIMA 2022!
               Di sini kamu dapat memilih UKM yang ingin kamu ketahui!
             </Text>
             <Flex mt={"2em"} justifyContent={"end"} alignItems={"center"}>
@@ -270,21 +270,21 @@ const STATE = () => {
   const ScrollingButton = () => {
     return(
       <>
-        <Stack w={"8%"} h={"auto"} spacing={0} mt={"45vh"} direction={"column"} position={"fixed"} alignItems={"center"} right={0} top={0} bottom={0} zIndex={"99"}>
+        <Stack display={["flex","flex","flex","none"]} w={"13%"} h={"auto"} spacing={3} mt={"45vh"} direction={"column"} position={"fixed"} alignItems={"center"} right={0} top={0} bottom={0} zIndex={"99"}>
         <Link href={"#top"}>
             <Button
               variant={"none"}
             >
               <Center
-                w={["1.5rem"]}
-                h={["1.5rem"]}
+                w={["1.8rem"]}
+                h={["1.8rem"]}
                 bgColor={"#FF6835"}
                 border={["3px solid white"]}
                 borderRadius={"full"}
                 shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
                 transition={"0.2s ease-in-out"}
               >
-                <Text color={"white"} textAlign={"center"} fontSize={"10px"} transform={"rotate(180deg)"}>
+                <Text color={"white"} textAlign={"center"} fontSize={"sm"} transform={"rotate(180deg)"}>
                   <TriangleDownIcon />
                 </Text>
               </Center>
@@ -295,14 +295,15 @@ const STATE = () => {
               variant={"none"}
             >
               <Center
-                w={["1.5rem"]}
-                h={["1.5rem"]}
+                w={["1.8rem"]}
+                h={["1.8rem"]}
                 bgColor={"#FF6835"}
-                border={["3px solid white" ]}
+                border={["3px solid white"]}
                 borderRadius={"full"}
                 shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
+                transition={"0.2s ease-in-out"}
               >
-                <Text color={"white"} textAlign={"center"} fontSize={"10px"} transform={"rotate(0deg)"}>
+                <Text color={"white"} textAlign={"center"} fontSize={"sm"} transform={"rotate(0deg)"}>
                   <TriangleDownIcon />
                 </Text>
               </Center>
