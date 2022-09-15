@@ -16,6 +16,7 @@ import { useReadLocalStorage } from "usehooks-ts";
 import { useUserContext } from "../../useContext/UserContext";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const Malpun = () => {
   const jwt = useReadLocalStorage<string>("token");
@@ -24,9 +25,10 @@ const Malpun = () => {
     "x-access-token": jwt!,
   };
   const isMyTokenExpired = isExpired(jwt as string);
-
+  const [regis, setRegis] = useState(false)
   const handleRegister = async () => {
     if (!jwt || isMyTokenExpired) {
+      setRegis(false)
       Swal.fire({
         title: "Perhatian!",
         text: "Silahkan login terlebih dahulu!",
@@ -35,6 +37,7 @@ const Malpun = () => {
       });
     } else {
       try {
+        setRegis(false)
         const result = await axios.post(`${process.env.API_URL}/api/malpun/mhs/regis/${nim}`, { headers })
         Swal.fire({
             position: "center",
@@ -43,8 +46,10 @@ const Malpun = () => {
             showConfirmButton: false,
             timer: 3000,
         });
+        setRegis(true)
       } catch (err: any) {
         console.log(err)
+        setRegis(false)
         Swal.fire({
             title: "Perhatian!",
             text: `${err.response.data.message}`,
@@ -59,11 +64,23 @@ const Malpun = () => {
     return (
       <Box position={"absolute"} left={0} bottom={0} right={0} mb={["7vh", "15vh"]}>
         <Center>
-            <Button onClick={()=>{handleRegister()}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
-                <Text color={"white"} fontSize={"20px"}>
-                    Beli Tiket
-                </Text>
-            </Button>
+            {regis === true ? (
+                <>
+                    <Button disabled onClick={()=>{handleRegister()}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                        <Text color={"white"} fontSize={"20px"}>
+                            Beli Tiket
+                        </Text>
+                    </Button>
+                </>
+            ) : (
+                <>
+                    <Button onClick={()=>{handleRegister()}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                        <Text color={"white"} fontSize={"20px"}>
+                            Beli Tiket
+                        </Text>
+                    </Button>
+                </>
+            )}
         </Center>
       </Box>
     );
