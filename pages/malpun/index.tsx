@@ -22,16 +22,15 @@ const Malpun = () => {
   const [regis, setRegis] = useState(false)
   const handleRegister = async (nim: string | undefined) => {
     if (!jwt || isMyTokenExpired) {
-      setRegis(false)
       Swal.fire({
         title: "Perhatian!",
         text: "Silahkan login terlebih dahulu!",
         icon: "error",
-        confirmButtonText: "Coba lagi",
+        confirmButtonText: "Tutup",
       });
+      setRegis(false)
     } else {
       try {
-        setRegis(false)
         const result = await axios.post(`${process.env.API_URL}/api/malpun/mhs/regis/`, {'nim': `${nim}`}, { headers })
         Swal.fire({
             position: "center",
@@ -43,13 +42,13 @@ const Malpun = () => {
         setRegis(true)
       } catch (err: any) {
         console.log(err)
-        setRegis(false)
         Swal.fire({
             title: "Perhatian!",
             text: `${err.response.data.message}`,
             icon: "error",
             confirmButtonText: "Coba lagi",
         });
+        setRegis(false)
       }
     }
   }
@@ -58,9 +57,9 @@ const Malpun = () => {
     return (
       <Box position={"absolute"} left={0} bottom={0} right={0} mb={["7vh", "15vh"]}>
         <Center>
-            {regis === true ? (
+            {regis === false ? (
                 <>
-                  <Button disabled onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                  <Button onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
                       <Text color={"white"} fontSize={"20px"}>
                           Beli Tiket
                       </Text>
@@ -68,7 +67,7 @@ const Malpun = () => {
                 </>
             ) : (
                 <>
-                  <Button onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                  <Button isDisabled onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
                       <Text color={"white"} fontSize={"20px"}>
                           Beli Tiket
                       </Text>

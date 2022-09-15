@@ -172,7 +172,6 @@ const Navbar = () => {
               <Box fontSize={["md", "xs", "md", "md", "lg"]} textShadow={"0px 4px 4px rgb(0,0,0,0.25)"} zIndex={1}>
                 {name}
               </Box>
-              <Link href={'/'}>
                   <Button
                     size={["md", "sm", "md", "md", "lg"]}
                     borderRadius={"full"}
@@ -185,7 +184,6 @@ const Navbar = () => {
                   >
                     Log Out
                   </Button>
-                </Link>
             </Stack>
           ) : (
             <Stack direction={"row"} spacing={[3, 3, 3, 7, 7]}>
