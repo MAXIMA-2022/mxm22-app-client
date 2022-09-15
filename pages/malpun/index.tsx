@@ -61,7 +61,7 @@ const Malpun = () => {
                 <>
                   <Button onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
                       <Text color={"white"} fontSize={"20px"}>
-                          Beli Tiket
+                          Claim Your Ticket!
                       </Text>
                   </Button>
                 </>
@@ -69,7 +69,7 @@ const Malpun = () => {
                 <>
                   <Button isDisabled onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
                       <Text color={"white"} fontSize={"20px"}>
-                          Beli Tiket
+                          Claim Your Ticket!
                       </Text>
                   </Button>
                 </>
