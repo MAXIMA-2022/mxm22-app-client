@@ -181,7 +181,6 @@ const Navbar = () => {
                     onClick={() => {
                       deleteToken("");
                       deleteUserData();
-                      router.push("/");
                     }}
                   >
                     Log Out
