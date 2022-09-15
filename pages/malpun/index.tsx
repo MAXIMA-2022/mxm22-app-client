@@ -1,16 +1,10 @@
-import Image from "next/image";
-// import Link from "next/link";
-import Link from 'next/link'
-
 //importing local components
 import Layout from "../../components/Layout";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import MaximaIconP from "../../public/maximaIconP.svg";
 
 //importing chakra ui components
-import { Box, Flex, Center, Text, Button, Stack, Link as ChakraLink } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import { Box, Flex, Center, Text, Button } from "@chakra-ui/react";
 import { isExpired } from "react-jwt";
 import { useReadLocalStorage } from "usehooks-ts";
 import { useUserContext } from "../../useContext/UserContext";
@@ -26,7 +20,7 @@ const Malpun = () => {
   };
   const isMyTokenExpired = isExpired(jwt as string);
   const [regis, setRegis] = useState(false)
-  const handleRegister = async () => {
+  const handleRegister = async (nim: string | undefined) => {
     if (!jwt || isMyTokenExpired) {
       setRegis(false)
       Swal.fire({
@@ -38,7 +32,7 @@ const Malpun = () => {
     } else {
       try {
         setRegis(false)
-        const result = await axios.post(`${process.env.API_URL}/api/malpun/mhs/regis/${nim}`, { headers })
+        const result = await axios.post(`${process.env.API_URL}/api/malpun/mhs/regis/`, {'nim': `${nim}`}, { headers })
         Swal.fire({
             position: "center",
             icon: "success",
@@ -66,19 +60,19 @@ const Malpun = () => {
         <Center>
             {regis === true ? (
                 <>
-                    <Button disabled onClick={()=>{handleRegister()}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
-                        <Text color={"white"} fontSize={"20px"}>
-                            Beli Tiket
-                        </Text>
-                    </Button>
+                  <Button disabled onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                      <Text color={"white"} fontSize={"20px"}>
+                          Beli Tiket
+                      </Text>
+                  </Button>
                 </>
             ) : (
                 <>
-                    <Button onClick={()=>{handleRegister()}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
-                        <Text color={"white"} fontSize={"20px"}>
-                            Beli Tiket
-                        </Text>
-                    </Button>
+                  <Button onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                      <Text color={"white"} fontSize={"20px"}>
+                          Beli Tiket
+                      </Text>
+                  </Button>
                 </>
             )}
         </Center>
