@@ -52,6 +52,10 @@ const Welcoming = () => {
         name: "CAMPAIGN",
         href: "https://www.instagram.com/p/ChjuOh3rW23/?igshid=YmMyMTA2M2Y=",
       },
+      {
+        name: "MALPUN",
+        href: '/malpun',
+      },
     ];
     return (
       <Flex justifyContent={"end"} alignItems={"center"}>
