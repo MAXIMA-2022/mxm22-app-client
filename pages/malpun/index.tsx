@@ -10,14 +10,28 @@ import { useReadLocalStorage } from "usehooks-ts";
 import { useUserContext } from "../../useContext/UserContext";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Malpun = () => {
   const jwt = useReadLocalStorage<string>("token");
   const { nim } = useUserContext()
+  const [toggle, setToggle] = useState()
   const headers = {
     "x-access-token": jwt!,
   };
+
+  useEffect(() => {
+    try {
+      const fetchHoME = async () => {
+        const response = await axios.get(`${process.env.API_URL}/api/toggle`);
+        setToggle(response.data[21].toggle)
+      };
+      fetchHoME();
+    } catch (err: any) {
+      console.log(err);
+    }
+  }, []);
+
   const isMyTokenExpired = isExpired(jwt as string);
   const [regis, setRegis] = useState(false)
   const handleRegister = async (nim: string | undefined) => {
@@ -59,7 +73,7 @@ const Malpun = () => {
         <Center>
             {regis === false ? (
                 <>
-                  <Button onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                  <Button disabled = {toggle === 0 ? true : false} onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
                       <Text color={"white"} fontSize={"20px"}>
                           Claim Your Ticket!
                       </Text>
@@ -67,7 +81,7 @@ const Malpun = () => {
                 </>
             ) : (
                 <>
-                  <Button isDisabled onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+                  <Button isDisabled disabled = {toggle === 0 ? true : false} onClick={()=>{handleRegister(nim)}} style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
                       <Text color={"white"} fontSize={"20px"}>
                           Claim Your Ticket!
                       </Text>
