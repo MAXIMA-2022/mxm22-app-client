@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -39,7 +39,9 @@ const NavbarIcon = () => {
 };
 
 const FullBorder = () => {
-  return <Flex display={["block"]} w={"150%"} position={"fixed"} mx={"-5em"} p={["3em", "3.2em"]} bgColor={"#1B4173"} border={"2px solid white"} shadow={"0 4px 4px rgb(0,0,0,0.25)"} opacity={"30%"} />;
+  const router = useRouter();
+  const malpun = router.pathname === "/malpun";
+  return <Flex display={ malpun ? "none" : ["block"]} w={"150%"} position={"fixed"} mx={"-5em"} p={["3em", "3.2em"]} bgColor={"#1B4173"} border={"2px solid white"} shadow={"0 4px 4px rgb(0,0,0,0.25)"} opacity={"30%"} />;
 }
 
 const Navbar = () => {
@@ -75,7 +77,7 @@ const Navbar = () => {
   return (
     <>
       <Flex as="nav" justifyContent="space-between" alignItems="center" p={["1.5em 1em", "1em 0.5em", "1em 1.5em", "1em 1.5em", "1em 3em"]} color="white" position="fixed" top={0} left={0} right={0} zIndex={"999"}>
-        <FullBorder />
+          <FullBorder />
         <NavbarIcon />
         <Flex justifyContent={["center", "center", "center", "start", "start"]} flex={{ base: 0, sm: 1 }}>
           <Box>
