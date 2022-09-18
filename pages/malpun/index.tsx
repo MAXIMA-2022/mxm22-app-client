@@ -45,14 +45,12 @@ const Malpun = () => {
       setRegis(false)
     } else {
       try {
-        const result = await axios.post(`${process.env.API_URL}/api/malpun/mhs/regis/`, {'nim': `${nim}`}, { headers })
-        Swal.fire({
-            position: "center",
-            icon: "success",
-            title: `${result.data.message}`,
-            showConfirmButton: false,
-            timer: 3000,
-        });
+        await axios.post(`${process.env.API_URL}/api/malpun/mhs/regis/`, {'nim': `${nim}`}, { headers })
+        Swal.fire(
+          'Selamat!',
+          'Silahkan cek email anda!',
+          'success'
+        )
         setRegis(true)
       } catch (err: any) {
         console.log(err)
