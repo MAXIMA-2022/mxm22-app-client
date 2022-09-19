@@ -45,14 +45,14 @@ const Malpun = () => {
       setRegis(false)
     } else {
       try {
-        const result = await axios.post(`${process.env.API_URL}/api/malpun/mhs/regis/`, {'nim': `${nim}`}, { headers })
+        await axios.post(`${process.env.API_URL}/api/malpun/regis/`, {'nim': `${nim}`}, { headers })
         Swal.fire({
-            position: "center",
-            icon: "success",
-            title: `${result.data.message}`,
-            showConfirmButton: false,
-            timer: 3000,
-        });
+          title: "Ticket Acquired!",
+          icon: 'success',
+          html: 
+            '<p style="font-size: 15px;">Silakan cek email-mu dan bawa itu sebagai bukti agar kamu bisa mengikuti Malam Puncak secara gratis!</p>'
+            + '<p style="font-size: 15px;">Jika tidak mendapatkan email, silakan menghubungi media sosial MAXIMA!</p>',
+        })
         setRegis(true)
       } catch (err: any) {
         console.log(err)
