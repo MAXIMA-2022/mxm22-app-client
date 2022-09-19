@@ -61,24 +61,52 @@ const form: NextPage = () => {
 
   const Heading = () => {
     return(
-        <Box mt={["22vh"]}>
+        <Box mt={["21vh", "18.5vh", "22vh", "22vh", "22vh"]}>
             <Center display={["none", "none", "none", "flex", "flex"]}>
                 <Box position={"absolute"} mt={"25vh"}>
-                    <Img src={"/headingLamp.png"} w={"120vh"}/>
+                    <Img src={"/headingLamp.png"} w={["120vh"]}/>
                 </Box>
             </Center>
-            <Center display={["flex", "flex","flex", "none", "none"]}>
-                <Box position={"absolute"} mt={"12.5vh"}>
-                    <Img src={"/headingLampP.png"} w={"43.5vh"}/>
+            <Center display={["flex", "flex","none", "none", "none"]}>
+                <Box position={"absolute"} mt={["15vh","20vh","22vh","12.5vh","12.5vh"]}>
+                    <Img src={"/headingLampP.png"} w={["43.5vh","57.5vh","52.5vh","52.5vh","52.5vh"]}/>
                 </Box>
             </Center>
-            <Center display={["none", "none", "none", "flex", "flex"]}>
+            <Center display={["none", "none", "flex", "flex", "flex"]}>
                 <Img src={"/heading.svg"} w={"85vh"}/>
             </Center>
-            <Center display={["flex", "flex","flex", "none", "none"]}>
-                <Img src={"/headingP.svg"} w={"42.5vh"}/>
+            <Center display={["flex", "flex","none", "none", "none"]}>
+                <Img src={"/headingP.svg"} w={["42.5vh","52.5vh","50vh","42.5vh","42.5vh"]}/>
             </Center>
         </Box>
+    )
+  }
+
+  const Body = () => {
+    return(
+      <Box mt={"10vh"}>
+        <Center>
+          <Box>
+            <Text textAlign={"center"} color={"#062D5F"} fontSize={["lx", "lg", "2xl", "2xl", "3xl"]} fontWeight={["bold"]}>
+                Apakah kamu mahasiswa aktif?
+            </Text>
+          </Box>
+        </Center>
+        <Center mt={"6vh"}>
+          <Stack direction={["column","row"]} spacing={["2em","5em"]}>
+            <Button p={["1em 3em","1.2em 3em"]} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"} transition={"all 0.1s ease-in-out"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+              <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]}>
+                  Non Aktif
+              </Text>
+            </Button>
+            <Button p={"1.2em 4.2em"} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"} transition={"all 0.1s ease-in-out"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+              <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]} transition={"all 0.1s ease-in-out"}>
+                  Aktif
+              </Text>
+            </Button>
+          </Stack>
+        </Center>
+      </Box>
     )
   }
 
@@ -113,9 +141,10 @@ const form: NextPage = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex minH={"100vh"} bgImage={["/formBgP.jpg","/formBgP.jpg","/formBgP.jpg","/formBgLs.jpg","/formBgLs.jpg"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex  position={["relative","relative","relative","relative","relative"]} minH={["100vh","115vh","100vh","100vh","100vh"]} bgImage={["/formBgP.jpg","/formBgP.jpg","/formBgLs.jpg","/formBgLs.jpg","/formBgLs.jpg"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"}>
           <Heading />
+          <Body />
         </Box>
       </Flex>
       {/* <Box w={"full"} position={"absolute"}>
@@ -137,4 +166,3 @@ const form: NextPage = () => {
 export default dynamic(() => Promise.resolve(form), { 
   ssr: false 
 })
-
