@@ -94,13 +94,13 @@ const form: NextPage = () => {
         </Center>
         <Center mt={"6vh"}>
           <Stack direction={["column","row"]} spacing={["2em","5em"]}>
-            <Button p={["1em 3em","1.2em 3em"]} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"} transition={"all 0.1s ease-in-out"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+            <Button p={["0em","1.2em 3em"]} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"} _hover={{bgColor: "#D01C1F", color: "#fff"}}>
               <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]}>
                   Non Aktif
               </Text>
             </Button>
-            <Button p={"1.2em 4.2em"} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"} transition={"all 0.1s ease-in-out"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
-              <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]} transition={"all 0.1s ease-in-out"}>
+            <Button p={"1.2em 4.2em"} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"}  _hover={{bgColor: "#3EC91B", color: "#fff"}}>
+              <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]} >
                   Aktif
               </Text>
             </Button>
