@@ -28,7 +28,7 @@ const form: NextPage = () => {
     return(
         <Box mt={["21vh", "18.5vh", "22vh", "22vh", "22vh"]}>
             <Center display={["none", "none", "none", "flex", "flex"]}>
-                <Box position={"absolute"} mt={"25vh"}>
+                <Box position={"absolute"} mt={"15vw"}>
                     <Img src={"/headingLamp.png"} w={["120vh"]}/>
                 </Box>
             </Center>
@@ -49,10 +49,10 @@ const form: NextPage = () => {
 
   const Body = () => {
     return(
-        <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
+        <Flex mt={["35vh","42.5vh","32vh","40vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
         <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} h={"auto"} justifyContent={"center"}>
           <Box
-            w={["full", "full", "35em", "28em", "35em"]}
+            w={["full", "full", "35em", "55em", "59em"]}
             h={["full", "auto"]}
             padding={["0 0em", "0 0em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em"]}
             borderRadius={["none", "none", "lg", "lg", "lg"]}
@@ -60,75 +60,79 @@ const form: NextPage = () => {
             alignItems={"center"}
             zIndex={0}
           >
-            <Center mt={"1vh"}>
-              <Text fontSize={["3xl", "3xl", "3xl", "2xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
+            <Center mt={["39vh","40.5vh","2vh","1vh","4vh"]}>
+              <Text fontSize={["2xl", "2xl", "4xl", "3xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
                 Detail Pembeli
               </Text>
             </Center>
             <Box mt={"3vh"}>
               <form>
-                <FormControl>
-                  <Stack direction={["column"]} spacing={[5, 4]}>
-                    <Box w={"full"}>
-                      <FormLabel display={["none", "none", "block"]} fontSize={["lg","lg","lg","sm","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Nama Lengkap
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                        //   {...register("nim", {
-                        //     required: "NIM harap diisi",
-                        //   })}
-                          h={["2em","2em","2em","2.1em","3em"]}
-                          borderColor={"#1B417380"}
-                          placeholder={"Nama Lengkap"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"text"}
-                          name={"name"}
-                          textColor={"black"}
-                          border={"solid"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                          style={{borderRadius: "50px"}}
-                        />
-                      </InputGroup>
-                      {/* {errors.nim !== undefined && (
-                        <Text textColor={"red"}>{errors.nim.message}</Text>
-                      )} */}
-                    </Box>
-                    <Box w={"full"}>
-                      <FormLabel display={["none", "none", "block"]} fontSize={["lg","lg","lg","sm","lg"]}textColor={"#1B4173"} fontWeight={"semibold"}>
-                        Email
-                      </FormLabel>
-                      <InputGroup>
-                        <Input
-                        //   {...register("password", {
-                        //     required: "Password harap diisi",
-                        //   })}
-                        h={["2em","2em","2em","2.1em","3em"]}
-                          borderColor={"#1B417380"}
-                          placeholder={"Password"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"email"}
-                          name={"email"}
-                          textColor={"black"}
-                          border={"solid"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                          style={{borderRadius: "50px"}}
-                        />
-                      </InputGroup>
-                      {/* {errors.password !== undefined && (
-                          <Text textColor={"red"}>{errors.password.message}</Text>
-                      )} */}
-                    </Box>
-                  </Stack>
-                </FormControl>
-                <Flex justifyContent={"end"} mt={["2em","2em","2em","1.25em","2em"]} mb={"1em"}>
+                <Center>
+                  <FormControl w={["32.5vh","20em","30em","30em","30em"]}>
+                    <Stack direction={["column"]} spacing={[4, 4]}>
+                      <Box w={"full"}>
+                        <FormLabel display={["block"]} fontSize={["md","md","lg","lg","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Nama Lengkap
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                          //   {...register("nim", {
+                          //     required: "NIM harap diisi",
+                          //   })}
+                            h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                            borderColor={"#1B417380"}
+                            placeholder={"Nama Lengkap"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"text"}
+                            name={"name"}
+                            textColor={"black"}
+                            border={"solid"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                            style={{borderRadius: "50px"}}
+                          />
+                        </InputGroup>
+                        {/* {errors.nim !== undefined && (
+                          <Text textColor={"red"}>{errors.nim.message}</Text>
+                        )} */}
+                      </Box>
+                      <Box w={"full"}>
+                        <FormLabel display={["block"]} fontSize={["md","md","lg","lg","lg"]}textColor={"#1B4173"} fontWeight={"semibold"}>
+                          Email
+                        </FormLabel>
+                        <InputGroup>
+                          <Input
+                          //   {...register("password", {
+                          //     required: "Password harap diisi",
+                          //   })}
+                          h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                            borderColor={"#1B417380"}
+                            placeholder={"Password"}
+                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                            type={"email"}
+                            name={"email"}
+                            textColor={"black"}
+                            border={"solid"}
+                            _hover={{ border: "solid #CBD5E0" }}
+                            style={{borderRadius: "50px"}}
+                          />
+                        </InputGroup>
+                        {/* {errors.password !== undefined && (
+                            <Text textColor={"red"}>{errors.password.message}</Text>
+                        )} */}
+                      </Box>
+                    </Stack>
+                  </FormControl>
+                </Center>
+                <Flex justifyContent={["center","center","center","end","end"]} mt={["2em","2em","2em","1em","1em"]} mb={"1em"}>
                   {isButtonLoading === true ? (
-                    <Button isLoading w={["full", "full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"1px solid #1B417380"}>
+                    <Button isLoading w={["auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"1px solid #1B417380"}>
                       Submit
                     </Button>
                   ) : (
-                    <Button variant={"none"} size={["lg","lg","lg","md","lg"]} w={["full", "full", "auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"}>
-                      Submit
+                    <Button variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+                      <Text fontSize={["lg","lg","lg","lg","lg"]}>
+                          Submit
+                      </Text>
                     </Button>
                   )}
                 </Flex>
@@ -171,9 +175,9 @@ const form: NextPage = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex  position={["relative","relative","relative","relative","relative"]} minH={["100vh","115vh","100vh","100vh","100vh"]} bgImage={["/formBgP.jpg","/formBgP.jpg","/formBgLs.jpg","/formBgLs.jpg","/formBgLs.jpg"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+      <Flex minH={["100vh","115vh","100vh","100vh","100vh"]} bgImage={["/formFullBgP.png","/formFullBgP.png","/formFullBgP.png","/formFullBgLs.png","/formFullBgLs.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"}>
-          <Heading />
+          {/* <Heading /> */}
           <Body />
         </Box>
       </Flex>

@@ -13,52 +13,7 @@ import Footer from "../../../components/Footer";
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Tabs, TabList, TabPanels, Tab, TabPanel, Container, List, ListItem, ListIcon, OrderedList, UnorderedList, useMediaQuery } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 
-const form: NextPage = () => {
-  const LinkButton = () => {
-    const linkData = [
-      {
-        name: "HoME (Hall of Maxima Exhibition) ",
-        link: "aboutus/home",
-      },
-      // {
-      //   name: "STATE (Student Activities Unit Explore)",
-      //   link: "aboutus/state",
-      // },
-      // {
-      //   name: "Malam Puncak",
-      //   link: "aboutus/malampuncak",
-      // },
-    ];
-
-    return (
-      <Box mt={["1.5em", "1.5em", "2vh", "0.2em", "0.8em"]}>
-        <Container maxW="full">
-          {linkData.map((item, index) => {
-            return (
-              <Center key={index}>
-                <Link href={item.link}>
-                  <Button
-                    w={["full", "auto"]}
-                    my={["0.7em", "0.7em", "0.7em", "0.7em", "0.7em"]}
-                    p={["0 1.5em", "0 1.5em", "2vh 1.5em", "0 1.5em", "0 1.5em"]}
-                    size={["xs", "sm"]}
-                    bgColor={"#FF6835"}
-                    color={"white"}
-                    borderRadius={"full"}
-                    boxShadow={"0px 2px 2px 2px rgb(0,0,0,0.25)"}
-                    zIndex={"1"}
-                  >
-                    <Text fontSize={["xs", "sm", "2.2vh", "sm", "lg"]}>{item.name}</Text>
-                  </Button>
-                </Link>
-              </Center>
-            );
-          })}
-        </Container>
-      </Box>
-    );
-  };
-
+const ticket: NextPage = () => {
   const Heading = () => {
     return(
         <Box mt={["21vh", "18.5vh", "22vh", "22vh", "22vh"]}>
@@ -84,22 +39,22 @@ const form: NextPage = () => {
 
   const Body = () => {
     return(
-      <Box mt={"10vh"}>
+      <Box>
         <Center>
           <Box>
-            <Text textAlign={"center"} color={"#062D5F"} fontSize={["lx", "lg", "2xl", "2xl", "3xl"]} fontWeight={["bold"]}>
+            <Text textAlign={"center"} color={"#062D5F"} fontSize={["lx", "lg", "3xl", "2xl", "3xl"]} fontWeight={["bold"]}>
                 Apakah kamu mahasiswa aktif?
             </Text>
           </Box>
         </Center>
-        <Center mt={"6vh"}>
-          <Stack direction={["column","row"]} spacing={["2em","5em"]}>
-            <Button p={["0em","1.2em 3em"]} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"} _hover={{bgColor: "#D01C1F", color: "#fff"}}>
+        <Center mt={["3vh","3vh","3vh","6vh","6vh"]}>
+          <Stack direction={["column-reverse","column-reverse","column-reverse","row","row"]} spacing={["2em","2em","2.5em","5em","5em"]}>
+            <Button p={["1em 2em","1em 2em","1.75em 3em","1.2em 3em","1.2em 3em"]} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"} _hover={{bgColor: "#D01C1F", color: "#fff"}}>
               <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]}>
                   Non Aktif
               </Text>
             </Button>
-            <Button p={"1.2em 4.2em"} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"}  _hover={{bgColor: "#3EC91B", color: "#fff"}}>
+            <Button p={["1em 2em","1em 2em","1.75em 4.2em","1.2em 4.2em","1.2em 4.2 em"]}  variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"}  _hover={{bgColor: "#3EC91B", color: "#fff"}}>
               <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]} >
                   Aktif
               </Text>
@@ -141,11 +96,13 @@ const form: NextPage = () => {
   return (
     <Layout>
       <Navbar />
-      <Flex  position={["relative","relative","relative","relative","relative"]} minH={["100vh","115vh","100vh","100vh","100vh"]} bgImage={["/formBgP.jpg","/formBgP.jpg","/formBgLs.jpg","/formBgLs.jpg","/formBgLs.jpg"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
-        <Box w={"full"}>
-          <Heading />
-          <Body />
-        </Box>
+      <Flex  position={["relative","relative","relative","relative","relative"]} minH={["100vh","115vh","100vh","100vh","100vh"]} bgImage={["/formFullBgP.png","/formFullBgP.png","/formFullBgP.png","/formFullBgLs.png","/formFullBgLs.png"]}bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
+        <Center w={"full"}>
+          {/* <Heading /> */}
+          <Box mt={["12.5vh","12.5vh","5vh","20vh","20vh"]}>
+            <Body />
+          </Box>
+        </Center>
       </Flex>
       {/* <Box w={"full"} position={"absolute"}>
         <Footer />
@@ -163,6 +120,6 @@ const form: NextPage = () => {
 //   }
 // }
 
-export default dynamic(() => Promise.resolve(form), { 
+export default dynamic(() => Promise.resolve(ticket), { 
   ssr: false 
 })
