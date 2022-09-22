@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/no-children-prop */
 import type { NextPage } from "next";
 import Image from "next/image";
@@ -14,15 +15,36 @@ import Footer from "../../../../components/Footer";
 import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Tabs, TabList, TabPanels, Tab, TabPanel, Container, List, ListItem, ListIcon, OrderedList, UnorderedList, useMediaQuery, FormControl, FormLabel, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
 import register from "../../../register";
+import { useReadLocalStorage } from "usehooks-ts";
+import { useUserContext } from "../../../../useContext/UserContext";
 
 const nonaktif: NextPage = () => {
   interface TicketData{
       name: string
       email: string
   }
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  
+  const jwt = useReadLocalStorage<string>("token");
+  const { nim } = useUserContext()
+  const [toggle, setToggle] = useState()
+  const headers = {
+    "x-access-token": jwt!,
+  };
   const [isButtonLoading, setIsButtonLoading] = useState(false)
+  const [malpunData, setMalpunData] = useState<TicketData>({
+      name: '',
+      email: ''
+  })
+
+
+  useEffect(() => {
+    const fetchMalpun = async () => {
+      const response = await fetch(`${process.env.API_URL}/api/malpunSpecific/`);
+      const data = await response.json();
+      setMalpunData(data);
+    }
+    fetchMalpun();
+  }, []);
 
   const Heading = () => {
     return(

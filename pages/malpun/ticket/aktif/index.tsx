@@ -52,7 +52,7 @@ const aktif: NextPage = () => {
         <Flex mt={["35vh","42.5vh","32vh","40vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
         <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} h={"auto"} justifyContent={"center"}>
           <Box
-            w={["full", "full", "35em", "55em", "59em"]}
+            w={["full", "full", "35em", "50em", "59em"]}
             h={["full", "auto"]}
             padding={["0 0em", "0 0em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em"]}
             borderRadius={["none", "none", "lg", "lg", "lg"]}
@@ -60,18 +60,18 @@ const aktif: NextPage = () => {
             alignItems={"center"}
             zIndex={0}
           >
-            <Center mt={["39vh","40.5vh","2vh","1vh","4vh"]}>
-              <Text fontSize={["2xl", "2xl", "4xl", "3xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
+            <Center mt={["37vh","40.5vh","2vh","-4vh","2.5vh"]}>
+              <Text fontSize={["2xl", "2xl", "4xl", "2xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
                 Detail Pembeli
               </Text>
             </Center>
-            <Box mt={"3vh"}>
+            <Box mt={"2vh"}>
               <form>
                 <Center>
                   <FormControl w={["32.5vh","20em","30em","30em","30em"]}>
-                    <Stack direction={["column"]} spacing={[4, 4]}>
+                    <Stack direction={["column"]} spacing={[3, 4, 4, 2, 4]}>
                       <Box w={"full"}>
-                        <FormLabel display={["block"]} fontSize={["md","md","lg","lg","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
+                        <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
                           Nama Lengkap
                         </FormLabel>
                         <InputGroup>
@@ -79,7 +79,7 @@ const aktif: NextPage = () => {
                           //   {...register("nim", {
                           //     required: "NIM harap diisi",
                           //   })}
-                            h={["4.5vh","2.25em","3em","2.5em","2.5em"]}
+                            h={["4.5vh","2.25em","3em","2em","3em"]}
                             borderColor={"#1B417380"}
                             placeholder={"Nama Lengkap"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
@@ -96,19 +96,19 @@ const aktif: NextPage = () => {
                         )} */}
                       </Box>
                       <Box w={"full"}>
-                      <FormLabel display={["block"]} fontSize={["md","md","lg","lg","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
+                      <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
                           NIM
                         </FormLabel>
                       <InputGroup>
-                        <InputLeftAddon fontSize={"sm"} m={"auto"} p={2} h={["4.5vh","2.25em","3em","2.8em","2.8em"]} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
+                        <InputLeftAddon fontSize={["sm","md","md","sm","md"]} m={"auto"} p={["1em","1.1em","1.1em","1.1em","1.1em"]} h={["4.5vh","2.25em","3em","1em","3em"]} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
                         <Input
                         //   {...register("nim", {
                         //     required: "NIM harap diisi",
                         //   })}
-                          h={["4.5vh","2.25em","3em","2.5em","2.5em"]}
+                          h={["4.5vh","2.25em","3em","2em","3em"]}
                           borderLeft={"none"}
                           borderColor={"#1B417380"}
-                          placeholder={""}
+                          placeholder={"Nomor Induk Mahasiswa"}
                           _placeholder={{ opacity: 1, color: "#CBD5E0" }}
                           type={"text"}
                           name={"nim"}
@@ -123,7 +123,7 @@ const aktif: NextPage = () => {
                       )} */}
                     </Box>
                       <Box w={"full"}>
-                        <FormLabel display={["block"]} fontSize={["md","md","lg","lg","lg"]}textColor={"#1B4173"} fontWeight={"semibold"}>
+                        <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]}textColor={"#1B4173"} fontWeight={"semibold"}>
                           Email Student
                         </FormLabel>
                         <InputGroup>
@@ -131,7 +131,7 @@ const aktif: NextPage = () => {
                           //   {...register("password", {
                           //     required: "Password harap diisi",
                           //   })}
-                          h={["4.5vh","2.25em","3em","2.5em","2.5em"]}
+                          h={["4.5vh","2.25em","3em","2em","3em"]}
                             borderColor={"#1B417380"}
                             placeholder={"Email Student"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
@@ -150,14 +150,14 @@ const aktif: NextPage = () => {
                     </Stack>
                   </FormControl>
                 </Center>
-                <Flex justifyContent={["center","center","center","end","end"]} mt={["2em","2em","2em","1em","0em"]} mb={"1em"}>
+                <Flex justifyContent={["center","center","center","end","end"]} mt={["1em","2em","2em","0em","0em"]} mb={"1em"}>
                   {isButtonLoading === true ? (
                     <Button isLoading w={["auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"1px solid #1B417380"}>
                       Submit
                     </Button>
                   ) : (
-                    <Button variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
-                      <Text fontSize={["lg","lg","lg","lg","lg"]}>
+                    <Button variant={"none"} w={["auto"]} p={["0 1.5em","0 2em","1.5em 2em", "0 1.5em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+                      <Text fontSize={["md","lg","lg","sm","lg"]}>
                           Submit
                       </Text>
                     </Button>
@@ -214,15 +214,6 @@ const aktif: NextPage = () => {
     </Layout>
   );
 };
-
-// export async function getStaticProps(){
-//   const { data } = await axios.get(`${process.env.API_URL}/api/chapter`)
-//   return{
-//     props:{
-//       data: data || {},
-//     }
-//   }
-// }
 
 export default dynamic(() => Promise.resolve(aktif), { 
   ssr: false 
