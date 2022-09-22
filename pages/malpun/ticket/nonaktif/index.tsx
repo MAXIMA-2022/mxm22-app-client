@@ -15,7 +15,7 @@ import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Tabs, TabList, Ta
 import dynamic from "next/dynamic";
 import register from "../../../register";
 
-const form: NextPage = () => {
+const nonaktif: NextPage = () => {
   interface TicketData{
       name: string
       email: string
@@ -106,7 +106,7 @@ const form: NextPage = () => {
                           //   })}
                           h={["4.5vh","2.25em","3em","2.5em","3em"]}
                             borderColor={"#1B417380"}
-                            placeholder={"Password"}
+                            placeholder={"Email"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
                             type={"email"}
                             name={"email"}
@@ -197,6 +197,6 @@ const form: NextPage = () => {
 //   }
 // }
 
-export default dynamic(() => Promise.resolve(form), { 
+export default dynamic(() => Promise.resolve(nonaktif), { 
   ssr: false 
 })

@@ -49,16 +49,20 @@ const ticket: NextPage = () => {
         </Center>
         <Center mt={["3vh","3vh","3vh","6vh","6vh"]}>
           <Stack direction={["column-reverse","column-reverse","column-reverse","row","row"]} spacing={["2em","2em","2.5em","5em","5em"]}>
-            <Button p={["1em 2em","1em 2em","1.75em 3em","1.2em 3em","1.2em 3em"]} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"} _hover={{bgColor: "#D01C1F", color: "#fff"}}>
-              <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]}>
-                  Non Aktif
-              </Text>
-            </Button>
-            <Button p={["1em 2em","1em 2em","1.75em 4.2em","1.2em 4.2em","1.2em 4.2 em"]}  variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"}  _hover={{bgColor: "#3EC91B", color: "#fff"}}>
-              <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]} >
-                  Aktif
-              </Text>
-            </Button>
+            <Link href={"/malpun/ticket/nonaktif"}>
+              <Button p={["1em 2em","1em 2em","1.75em 3em","1.2em 3em","1.2em 3em"]} variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"} _hover={{bgColor: "#D01C1F", color: "#fff"}}>
+                <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]}>
+                    Non Aktif
+                </Text>
+              </Button>
+            </Link>
+            <Link href={"/malpun/ticket/aktif"}>
+              <Button p={["1em 2em","1em 2em","1.75em 4.2em","1.2em 4.2em","1.2em 4.2 em"]}  variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  borderRadius={"full"}  _hover={{bgColor: "#3EC91B", color: "#fff"}}>
+                <Text textAlign={"center"}  fontSize={["md", "lg", "2xl", "xl", "xl"]} fontWeight={["medium"]} >
+                    Aktif
+                </Text>
+              </Button>
+            </Link>
           </Stack>
         </Center>
       </Box>
