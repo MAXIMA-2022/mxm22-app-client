@@ -11,6 +11,7 @@ import { useUserContext } from "../../useContext/UserContext";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const Malpun = () => {
   const jwt = useReadLocalStorage<string>("token");
@@ -93,6 +94,22 @@ const Malpun = () => {
     );
   };
 
+  const RegisButton = () => {
+    return (
+      <Box position={"absolute"} left={0} bottom={0} right={0} mb={["7vh", "15vh"]}>
+        <Center>
+          <Link href='/malpun/ticket'>
+            <Button style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
+              <Text color={"white"} fontSize={"20px"}>
+                Registrasi Malam Puncak!
+              </Text>
+            </Button>
+          </Link>
+        </Center>
+      </Box>
+    );
+  };
+
   const FooterMessage = () => {
     return (
       <Box position={"absolute"} left={0} bottom={0} right={0} mb={"2vh"}>
@@ -111,6 +128,7 @@ const Malpun = () => {
       <Flex minH={"100vh"} bgImage={["/malpunP.webp","/malpunLs.webp","/malpunLs.webp","/malpunLs.webp"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           <StartButton />
+          {/* <RegisButton /> */}
           <FooterMessage />
         </Box>
       </Flex>
