@@ -21,7 +21,7 @@ const nonaktif: NextPage = () => {
       name: string
       email: string
   }
-
+  const router = useRouter();
   const [isButtonLoading, setIsButtonLoading] = useState(false)
 
   const {
@@ -130,7 +130,7 @@ const nonaktif: NextPage = () => {
                   </FormControl>
                 </Center>
                 <Flex justifyContent={["center","center","space-between","space-between","space-between"]} mt={["1.5vh","2em","2em","1em","1em"]} mb={"1em"}>
-                <Button display={["none", "none", "block"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+                <Button display={["none", "none", "flex"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
                       <Text fontSize={["md","lg","lg","lg","lg"]}>
                           Back
                       </Text>
@@ -148,7 +148,7 @@ const nonaktif: NextPage = () => {
                   )}
                 </Flex>
                 <Center>
-                  <Button display={["block", "block", "none"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+                  <Button display={["block", "block", "none"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
                         <Text fontSize={["md","lg","lg","lg","lg"]}>
                             Back
                         </Text>

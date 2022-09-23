@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/no-children-prop */
 import type { NextPage } from "next";
 import React, { useState, useEffect, useRef } from "react";
@@ -12,6 +13,7 @@ import dynamic from "next/dynamic";
 import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 
 const aktif: NextPage = () => {
   interface TicketData{
@@ -61,6 +63,7 @@ const aktif: NextPage = () => {
   }
 
   const Body = () => {
+    const router = useRouter();
     return(
         <Flex mt={["35vh","42.5vh","32vh","40vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
         <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} h={"auto"} justifyContent={"center"}>
@@ -73,68 +76,70 @@ const aktif: NextPage = () => {
             alignItems={"center"}
             zIndex={0}
           >
-            <Center mt={["37vh","40.5vh","2vh","-4vh","2.5vh"]}>
-              <Text fontSize={["2xl", "2xl", "4xl", "2xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
+            <Center mt={["37vh","40.5vh","2vh","-4vh","4vh"]}>
+              <Text fontSize={["2xl", "2xl", "4xl", "3xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
                 Detail Pembeli
               </Text>
             </Center>
             <Box mt={"2vh"}>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <Center>
-                  <FormControl w={["32.5vh","20em","30em","30em","30em"]}>
+                  <FormControl w={["32.5vh","20em","30em","30em","32.5em"]}>
                     <Stack direction={["column"]} spacing={[3, 4, 4, 2, 4]}>
-                      <Box w={"full"}>
-                        <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
-                          Nama Lengkap
-                        </FormLabel>
-                        <InputGroup>
-                          <Input
-                            {...register("name", {
-                              required: "Nama harap diisi",
-                            })}
-                            h={["4.5vh","2.25em","3em","2em","3em"]}
-                            borderColor={"#1B417380"}
-                            placeholder={"Nama Lengkap"}
-                            _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                            type={"text"}
-                            name={"name"}
-                            textColor={"black"}
-                            border={"solid"}
-                            _hover={{ border: "solid #CBD5E0" }}
-                            style={{borderRadius: "50px"}}
-                          />
-                        </InputGroup>
-                        {errors.name !== undefined && (
-                          <Text textColor={"red"}>{errors.name.message}</Text>
-                        )}
-                      </Box>
-                      <Box w={"full"}>
-                      <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
-                          NIM
-                        </FormLabel>
-                      <InputGroup>
-                        <InputLeftAddon fontSize={["sm","md","md","sm","md"]} m={"auto"} p={["1em","1.1em","1.1em","1.1em","1.1em"]} h={["4.5vh","2.25em","3em","1em","3em"]} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
-                        <Input
-                          {...register("nim", {
-                            required: "NIM harap diisi",
-                          })}
-                          h={["4.5vh","2.25em","3em","2em","3em"]}
-                          borderLeft={"none"}
-                          borderColor={"#1B417380"}
-                          placeholder={"Nomor Induk Mahasiswa"}
-                          _placeholder={{ opacity: 1, color: "#CBD5E0" }}
-                          type={"text"}
-                          name={"nim"}
-                          textColor={"black"}
-                          border={"solid"}
-                          borderRadius={"full"}
-                          _hover={{ border: "solid #CBD5E0" }}
-                        />
-                      </InputGroup>
-                      {errors.nim !== undefined && (
-                        <Text textColor={"red"}>{errors.nim.message}</Text>
-                      )}
-                    </Box>
+                      <Stack direction={["column","row"]}>
+                          <Box w={"full"}>
+                            <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
+                              Nama Lengkap
+                            </FormLabel>
+                            <InputGroup>
+                              <Input
+                                {...register("name", {
+                                  required: "Nama harap diisi",
+                                })}
+                                h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                                borderColor={"#1B417380"}
+                                placeholder={"Nama Lengkap"}
+                                _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                                type={"text"}
+                                name={"name"}
+                                textColor={"black"}
+                                border={"solid"}
+                                _hover={{ border: "solid #CBD5E0" }}
+                                style={{borderRadius: "50px"}}
+                              />
+                            </InputGroup>
+                            {errors.name !== undefined && (
+                              <Text textColor={"red"}>{errors.name.message}</Text>
+                            )}
+                          </Box>
+                          <Box w={"full"}>
+                          <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
+                              NIM
+                            </FormLabel>
+                          <InputGroup>
+                            <InputLeftAddon fontSize={["sm","md","md","md","md"]} h={["auto","auto","auto","auto","3em"]} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
+                            <Input
+                              {...register("nim", {
+                                required: "NIM harap diisi",
+                              })}
+                              h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                              borderLeft={"none"}
+                              borderColor={"#1B417380"}
+                              placeholder={"NIM"}
+                              _placeholder={{ opacity: 1, color: "#CBD5E0" }}
+                              type={"text"}
+                              name={"nim"}
+                              textColor={"black"}
+                              border={"solid"}
+                              borderRadius={"full"}
+                              _hover={{ border: "solid #CBD5E0" }}
+                            />
+                          </InputGroup>
+                          {errors.nim !== undefined && (
+                            <Text textColor={"red"}>{errors.nim.message}</Text>
+                          )}
+                        </Box>
+                      </Stack>
                       <Box w={"full"}>
                         <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]}textColor={"#1B4173"} fontWeight={"semibold"}>
                           Email Student
@@ -144,7 +149,7 @@ const aktif: NextPage = () => {
                             {...register("email", {
                               required: "Email harap diisi",
                             })}
-                          h={["4.5vh","2.25em","3em","2em","3em"]}
+                            h={["4.5vh","2.25em","3em","2.5em","3em"]}
                             borderColor={"#1B417380"}
                             placeholder={"Email Student"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
@@ -163,19 +168,49 @@ const aktif: NextPage = () => {
                     </Stack>
                   </FormControl>
                 </Center>
-                <Flex justifyContent={["center","center","center","end","end"]} mt={["1em","2em","2em","0em","0em"]} mb={"1em"}>
-                  {isButtonLoading === true ? (
-                    <Button isLoading w={["auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"1px solid #1B417380"}>
-                      Submit
-                    </Button>
-                  ) : (
-                    <Button variant={"none"} w={["auto"]} p={["0 1.5em","0 2em","1.5em 2em", "0 1.5em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
-                      <Text fontSize={["md","lg","lg","sm","lg"]}>
+                <Flex justifyContent={["center","center","space-between","space-between","space-between"]} mt={["1.5vh","2em","2em","1em","1em"]} mb={"1em"}>
+                  <Stack display={["flex", "none"]} direction={["row"]} spacing={"1em"}>
+                    <Button display={["flex", "none", "none"]} variant={"none"} w={["auto"]} p={["0 1.5em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
+                          <Text fontSize={["md","lg","lg","lg","lg"]}>
+                              Back
+                          </Text>
+                        </Button>
+                      {isButtonLoading === true ? (
+                        <Button isLoading w={["auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"1px solid #1B417380"}>
                           Submit
-                      </Text>
-                    </Button>
-                  )}
+                        </Button>
+                      ) : (
+                        <Button variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+                          <Text fontSize={["md","lg","lg","lg","lg"]}>
+                              Submit
+                          </Text>
+                        </Button>
+                      )}
+                  </Stack>
+                  <Button display={["none", "none", "flex", "flex", "flex"]} variant={"none"} w={["auto"]} p={["0 1.5em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
+                          <Text fontSize={["md","lg","lg","lg","lg"]}>
+                              Back
+                          </Text>
+                        </Button>
+                      {isButtonLoading === true ? (
+                        <Button isLoading w={["auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"1px solid #1B417380"}>
+                          Submit
+                        </Button>
+                      ) : (
+                        <Button display={["none", "none", "flex", "flex", "flex"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+                          <Text fontSize={["md","lg","lg","lg","lg"]}>
+                              Submit
+                          </Text>
+                        </Button>
+                      )}
                 </Flex>
+                <Center>
+                  <Button display={["none", "block", "none"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
+                        <Text fontSize={["md","lg","lg","lg","lg"]}>
+                            Back
+                        </Text>
+                  </Button>
+                </Center>
               </form>
             </Box>
           </Box>
