@@ -1,50 +1,63 @@
 /* eslint-disable react/no-children-prop */
 import type { NextPage } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/router";
 import React, { useState, useEffect, useRef } from "react";
 
 //importing local components
 import Layout from "../../../../components/Layout";
 import Navbar from "../../../../components/Navbar";
-import Footer from "../../../../components/Footer";
 
 //importing chakra ui components
-import { Box, Flex, Center, Heading, Text, Button, Stack, Img, Tabs, TabList, TabPanels, Tab, TabPanel, Container, List, ListItem, ListIcon, OrderedList, UnorderedList, useMediaQuery, FormControl, FormLabel, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
+import { Box, Flex, Center, Text, Button, Stack, FormControl, FormLabel, Input, InputGroup, InputLeftAddon } from "@chakra-ui/react";
 import dynamic from "next/dynamic";
-import register from "../../../register";
+import axios from "axios";
+import { useForm, SubmitHandler } from "react-hook-form";
+import Swal from "sweetalert2";
 
 const aktif: NextPage = () => {
   interface TicketData{
       name: string
       email: string
+      nim: string
   }
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isButtonLoading, setIsButtonLoading] = useState(false)
 
-  const Heading = () => {
-    return(
-        <Box mt={["21vh", "18.5vh", "22vh", "22vh", "22vh"]}>
-            <Center display={["none", "none", "none", "flex", "flex"]}>
-                <Box position={"absolute"} mt={"15vw"}>
-                    <Img src={"/headingLamp.png"} w={["120vh"]}/>
-                </Box>
-            </Center>
-            <Center display={["flex", "flex","none", "none", "none"]}>
-                <Box position={"absolute"} mt={["15vh","20vh","22vh","12.5vh","12.5vh"]}>
-                    <Img src={"/headingLampP.png"} w={["43.5vh","57.5vh","52.5vh","52.5vh","52.5vh"]}/>
-                </Box>
-            </Center>
-            <Center display={["none", "none", "flex", "flex", "flex"]}>
-                <Img src={"/heading.svg"} w={"85vh"}/>
-            </Center>
-            <Center display={["flex", "flex","none", "none", "none"]}>
-                <Img src={"/headingP.svg"} w={["42.5vh","52.5vh","50vh","42.5vh","42.5vh"]}/>
-            </Center>
-        </Box>
-    )
+  interface TicketData{
+      name: string
+      email: string
+  }
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<TicketData>();
+
+  const onSubmit: SubmitHandler<any> = async (data: TicketData) => {
+    try{
+      setIsButtonLoading(true)
+      const formData = new FormData()
+      formData.append("name", data.name)
+      formData.append("email", data.email)
+      formData.append("nim", data.nim)
+      const response = await axios.post(`${process.env.API_URL}/api/malpunOuts/regis`, formData)
+      Swal.fire({
+        icon: 'success',
+        title: `${response.data.message}`,
+        html: 
+            '<p style="font-size: 15px;">Silahkan lanjutkan ke tahap pembayaran!</p>'
+            + '<p style="font-size: 15px;">QR Code tersedia pada meja registrasi!</p>',
+      })
+      setIsButtonLoading(false);
+    } catch(err: any) {
+      Swal.fire({
+        icon: 'error',
+        title: `${err.response.data.message}`,
+      })
+      console.log(err.response.data.message);
+      setIsButtonLoading(false);
+    }
   }
 
   const Body = () => {
@@ -66,7 +79,7 @@ const aktif: NextPage = () => {
               </Text>
             </Center>
             <Box mt={"2vh"}>
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <Center>
                   <FormControl w={["32.5vh","20em","30em","30em","30em"]}>
                     <Stack direction={["column"]} spacing={[3, 4, 4, 2, 4]}>
@@ -76,9 +89,9 @@ const aktif: NextPage = () => {
                         </FormLabel>
                         <InputGroup>
                           <Input
-                          //   {...register("nim", {
-                          //     required: "NIM harap diisi",
-                          //   })}
+                            {...register("name", {
+                              required: "Nama harap diisi",
+                            })}
                             h={["4.5vh","2.25em","3em","2em","3em"]}
                             borderColor={"#1B417380"}
                             placeholder={"Nama Lengkap"}
@@ -91,9 +104,9 @@ const aktif: NextPage = () => {
                             style={{borderRadius: "50px"}}
                           />
                         </InputGroup>
-                        {/* {errors.nim !== undefined && (
-                          <Text textColor={"red"}>{errors.nim.message}</Text>
-                        )} */}
+                        {errors.name !== undefined && (
+                          <Text textColor={"red"}>{errors.name.message}</Text>
+                        )}
                       </Box>
                       <Box w={"full"}>
                       <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
@@ -102,9 +115,9 @@ const aktif: NextPage = () => {
                       <InputGroup>
                         <InputLeftAddon fontSize={["sm","md","md","sm","md"]} m={"auto"} p={["1em","1.1em","1.1em","1.1em","1.1em"]} h={["4.5vh","2.25em","3em","1em","3em"]} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
                         <Input
-                        //   {...register("nim", {
-                        //     required: "NIM harap diisi",
-                        //   })}
+                          {...register("nim", {
+                            required: "NIM harap diisi",
+                          })}
                           h={["4.5vh","2.25em","3em","2em","3em"]}
                           borderLeft={"none"}
                           borderColor={"#1B417380"}
@@ -118,9 +131,9 @@ const aktif: NextPage = () => {
                           _hover={{ border: "solid #CBD5E0" }}
                         />
                       </InputGroup>
-                      {/* {errors.nim !== undefined && (
+                      {errors.nim !== undefined && (
                         <Text textColor={"red"}>{errors.nim.message}</Text>
-                      )} */}
+                      )}
                     </Box>
                       <Box w={"full"}>
                         <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]}textColor={"#1B4173"} fontWeight={"semibold"}>
@@ -128,9 +141,9 @@ const aktif: NextPage = () => {
                         </FormLabel>
                         <InputGroup>
                           <Input
-                          //   {...register("password", {
-                          //     required: "Password harap diisi",
-                          //   })}
+                            {...register("email", {
+                              required: "Email harap diisi",
+                            })}
                           h={["4.5vh","2.25em","3em","2em","3em"]}
                             borderColor={"#1B417380"}
                             placeholder={"Email Student"}
@@ -143,9 +156,9 @@ const aktif: NextPage = () => {
                             style={{borderRadius: "50px"}}
                           />
                         </InputGroup>
-                        {/* {errors.password !== undefined && (
-                            <Text textColor={"red"}>{errors.password.message}</Text>
-                        )} */}
+                        {errors.email !== undefined && (
+                            <Text textColor={"red"}>{errors.email.message}</Text>
+                        )}
                       </Box>
                     </Stack>
                   </FormControl>
@@ -171,46 +184,14 @@ const aktif: NextPage = () => {
     )
   }
 
-  const BackButton = () => {
-    const router = useRouter();
-    return (
-      <>
-        <Flex w={"auto"} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
-          <Button
-            variant={"none"}
-            onClick={() => {
-              router.back();
-            }}
-          >
-            <Center
-              w={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
-              h={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
-              mb={["4.8rem"]}
-              bgColor={"#F7B70C"}
-              border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
-              borderRadius={"full"}
-              shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
-            >
-              <Img src={"https://storage.googleapis.com/mxm22-bucket-test/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
-            </Center>
-          </Button>
-        </Flex>
-      </>
-    );
-  };
-
   return (
     <Layout>
       <Navbar />
       <Flex minH={["100vh","115vh","100vh","100vh","100vh"]} bgImage={["/formFullBgP.png","/formFullBgP.png","/formFullBgP.png","/formFullBgLs.png","/formFullBgLs.png"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"}>
-          {/* <Heading /> */}
           <Body />
         </Box>
       </Flex>
-      {/* <Box w={"full"} position={"absolute"}>
-        <Footer />
-      </Box> */}
     </Layout>
   );
 };
