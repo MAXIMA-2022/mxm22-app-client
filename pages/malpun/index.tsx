@@ -128,7 +128,7 @@ const Malpun = () => {
       <Flex minH={"100vh"} bgImage={["/malpunP.webp","/malpunLs.webp","/malpunLs.webp","/malpunLs.webp"]} bgPosition={"center"} bgSize={"cover"} bgRepeat={"no-repeat"}>
         <Box w={"full"} mt={"20vh"}>
           {/* <StartButton /> */}
-          {/* <RegisButton /> */}
+          <RegisButton />
           <FooterMessage />
         </Box>
       </Flex>
