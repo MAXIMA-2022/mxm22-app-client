@@ -55,10 +55,10 @@ const nonaktif: NextPage = () => {
     }
   }
     return(
-        <Flex mt={["35vh","42.5vh","32vh","40vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
+        <Flex mt={["35vh","42.5vh","32vh","35vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
         <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} h={"auto"} justifyContent={"center"}>
           <Box
-            w={["full", "full", "35em", "55em", "59em"]}
+            w={["full", "full", "35em", "48.5em", "59em"]}
             h={["full", "auto"]}
             padding={["0 0em", "0 0em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em"]}
             borderRadius={["none", "none", "lg", "lg", "lg"]}
@@ -66,7 +66,7 @@ const nonaktif: NextPage = () => {
             alignItems={"center"}
             zIndex={0}
           >
-            <Center mt={["39vh","40.5vh","2vh","1vh","4vh"]}>
+            <Center mt={["37.5vh","40.5vh","2vh","1vh","4vh"]}>
               <Text fontSize={["2xl", "2xl", "4xl", "3xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
                 Detail Pembeli
               </Text>
@@ -129,19 +129,31 @@ const nonaktif: NextPage = () => {
                     </Stack>
                   </FormControl>
                 </Center>
-                <Flex justifyContent={["center","center","center","end","end"]} mt={["2em","2em","2em","1em","1em"]} mb={"1em"}>
+                <Flex justifyContent={["center","center","space-between","space-between","space-between"]} mt={["1.5vh","2em","2em","1em","1em"]} mb={"1em"}>
+                <Button display={["none", "none", "block"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+                      <Text fontSize={["md","lg","lg","lg","lg"]}>
+                          Back
+                      </Text>
+                    </Button>
                   {isButtonLoading === true ? (
                     <Button isLoading w={["auto"]} px={["2.1em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"1px solid #1B417380"}>
                       Submit
                     </Button>
                   ) : (
                     <Button variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
-                      <Text fontSize={["lg","lg","lg","lg","lg"]}>
+                      <Text fontSize={["md","lg","lg","lg","lg"]}>
                           Submit
                       </Text>
                     </Button>
                   )}
                 </Flex>
+                <Center>
+                  <Button display={["block", "block", "none"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+                        <Text fontSize={["md","lg","lg","lg","lg"]}>
+                            Back
+                        </Text>
+                  </Button>
+                </Center>
               </form>
             </Box>
           </Box>
@@ -149,6 +161,34 @@ const nonaktif: NextPage = () => {
       </Flex>
     )
   }
+
+  const BackButton = () => {
+    const router = useRouter();
+    return (
+      <>
+        <Flex w={"auto"} m={["-3.7rem 0rem", "-3.7rem 0rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
+          <Button
+            variant={"none"}
+            onClick={() => {
+              router.back();
+            }}
+          >
+            <Center
+              w={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
+              h={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
+              mb={["4.8rem"]}
+              bgColor={"#D01C1F"}
+              border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
+              borderRadius={"full"}
+              shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
+            >
+              <Img src={"https://storage.googleapis.com/mxm22-bucket-test/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
+            </Center>
+          </Button>
+        </Flex>
+      </>
+    );
+  };
 
   return (
     <Layout>
@@ -158,6 +198,7 @@ const nonaktif: NextPage = () => {
           <Body />
         </Box>
       </Flex>
+      {/* <BackButton /> */}
     </Layout>
   );
 };

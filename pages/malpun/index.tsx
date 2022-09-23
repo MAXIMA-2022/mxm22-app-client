@@ -23,11 +23,11 @@ const Malpun = () => {
 
   useEffect(() => {
     try {
-      const fetchHoME = async () => {
+      const fetchMalpunMaba = async () => {
         const response = await axios.get(`${process.env.API_URL}/api/toggle`);
-        setToggle(response.data[21].toggle)
+        setToggle(response.data[22].toggle)
       };
-      fetchHoME();
+      fetchMalpunMaba();
     } catch (err: any) {
       console.log(err);
     }
@@ -99,8 +99,8 @@ const Malpun = () => {
       <Box position={"absolute"} left={0} bottom={0} right={0} mb={["7vh", "15vh"]}>
         <Center>
           <Link href='/malpun/ticket'>
-            <Button style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"}>
-              <Text color={"white"} fontSize={"20px"}>
+            <Button style={{ border: "5px solid rgb(210, 223, 165, 47%)"}} size={"md"} px={"1.8em"} bgColor={"#D01E20"} borderRadius={"full"} shadow={"0px 5px 4px 5px rgb(0,0,0,0.2)"} disabled = {toggle === 0 ? true : false}>
+              <Text color={"white"} fontSize={"20px"} >
                 Registrasi Malam Puncak!
               </Text>
             </Button>
