@@ -55,29 +55,31 @@ const nonaktif: NextPage = () => {
     }
   }
     return(
-        <Flex mt={["35vh","42.5vh","32vh","35vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
+        <Flex mt={["37.5vh","42.5vh","32vh","35vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
         <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} h={"auto"} justifyContent={"center"}>
           <Box
-            w={["full", "full", "35em", "48.5em", "59em"]}
+            w={["auto", "full", "35em", "48.5em", "59em"]}
             h={["full", "auto"]}
+            maxH={["45.5vh","40vh","full","full","full",]}
             padding={["0 0em", "0 0em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em"]}
             borderRadius={["none", "none", "lg", "lg", "lg"]}
             justifyContent={"center"}
             alignItems={"center"}
             zIndex={0}
+            overflowY={"auto"}
           >
-            <Center mt={["37.5vh","40.5vh","2vh","1vh","4vh"]}>
-              <Text fontSize={["2xl", "2xl", "4xl", "3xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
+            <Center mt={["full","40.5vh","2vh","2vh","4vh"]}>
+              <Text fontSize={["2xl", "2xl", "4xl", "2xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
                 Detail Pembeli
               </Text>
             </Center>
             <Box mt={"3vh"}>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(onSubmit)} autoComplete={"off"}>
                 <Center>
                   <FormControl w={["32.5vh","20em","30em","30em","30em"]}>
                     <Stack direction={["column"]} spacing={[4, 4]}>
                       <Box w={"full"}>
-                        <FormLabel display={["block"]} fontSize={["md","md","lg","lg","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
+                        <FormLabel display={["block"]} fontSize={["md","md","lg","md","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
                           Nama Lengkap
                         </FormLabel>
                         <InputGroup>
@@ -85,7 +87,7 @@ const nonaktif: NextPage = () => {
                             {...register("name", {
                               required: "Nama harap diisi",
                             })}
-                            h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                            h={["4.5vh","2.25em","3em","2.25em","3em"]}
                             borderColor={"#1B417380"}
                             placeholder={"Nama Lengkap"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
@@ -102,7 +104,7 @@ const nonaktif: NextPage = () => {
                         )}
                       </Box>
                       <Box w={"full"}>
-                        <FormLabel display={["block"]} fontSize={["md","md","lg","lg","lg"]}textColor={"#1B4173"} fontWeight={"semibold"}>
+                        <FormLabel display={["block"]} fontSize={["md","md","lg","md","lg"]}textColor={"#1B4173"} fontWeight={"semibold"}>
                           Email
                         </FormLabel>
                         <InputGroup>
@@ -110,7 +112,7 @@ const nonaktif: NextPage = () => {
                             {...register("email", {
                               required: "Email harap diisi",
                             })}
-                          h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                            h={["4.5vh","2.25em","3em","2.25em","3em"]}
                             borderColor={"#1B417380"}
                             placeholder={"Email"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
@@ -130,7 +132,7 @@ const nonaktif: NextPage = () => {
                   </FormControl>
                 </Center>
                 <Flex justifyContent={["center","center","space-between","space-between","space-between"]} mt={["1.5vh","2em","2em","1em","1em"]} mb={"1em"}>
-                <Button display={["none", "none", "flex"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
+                <Button display={["none", "none", "flex"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
                       <Text fontSize={["md","lg","lg","lg","lg"]}>
                           Back
                       </Text>
@@ -147,14 +149,14 @@ const nonaktif: NextPage = () => {
                     </Button>
                   )}
                 </Flex>
+              </form>
                 <Center>
-                  <Button display={["block", "block", "none"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
+                  <Button display={["block", "block", "none"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
                         <Text fontSize={["md","lg","lg","lg","lg"]}>
                             Back
                         </Text>
                   </Button>
                 </Center>
-              </form>
             </Box>
           </Box>
         </Flex>

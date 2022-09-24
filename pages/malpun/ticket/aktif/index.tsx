@@ -23,6 +23,7 @@ const aktif: NextPage = () => {
   }
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
+  const router = useRouter();
   const [isButtonLoading, setIsButtonLoading] = useState(false)
 
   interface TicketData{
@@ -52,6 +53,7 @@ const aktif: NextPage = () => {
             + '<p style="font-size: 15px;">QR Code tersedia pada meja registrasi!</p>',
       })
       setIsButtonLoading(false);
+      router.push('/malpun')
     } catch(err: any) {
       Swal.fire({
         icon: 'error',
@@ -65,24 +67,26 @@ const aktif: NextPage = () => {
   const Body = () => {
     const router = useRouter();
     return(
-        <Flex mt={["35vh","42.5vh","32vh","40vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
+        <Flex mt={["35.5vh","42.5vh","32vh","40vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
         <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} h={"auto"} justifyContent={"center"}>
           <Box
             w={["full", "full", "35em", "50em", "59em"]}
             h={["full", "auto"]}
+            maxH={["46vh","40vh","full","full","full",]}
             padding={["0 0em", "0 0em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em"]}
             borderRadius={["none", "none", "lg", "lg", "lg"]}
             justifyContent={"center"}
             alignItems={"center"}
             zIndex={0}
+            overflowY={"auto"}
           >
-            <Center mt={["37vh","40.5vh","2vh","-4vh","4vh"]}>
+            <Center mt={["auto","40.5vh","2vh","-4vh","4vh"]}>
               <Text fontSize={["2xl", "2xl", "4xl", "3xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
                 Detail Pembeli
               </Text>
             </Center>
             <Box mt={"2vh"}>
-              <form onSubmit={handleSubmit(onSubmit)}>
+              <form onSubmit={handleSubmit(onSubmit)} autoComplete={"off"}>
                 <Center>
                   <FormControl w={["32.5vh","20em","30em","30em","32.5em"]}>
                     <Stack direction={["column"]} spacing={[3, 4, 4, 2, 4]}>
@@ -170,7 +174,7 @@ const aktif: NextPage = () => {
                 </Center>
                 <Flex justifyContent={["center","center","space-between","space-between","space-between"]} mt={["1.5vh","2em","2em","1em","1em"]} mb={"1em"}>
                   <Stack display={["flex", "none"]} direction={["row"]} spacing={"1em"}>
-                    <Button display={["flex", "none", "none"]} variant={"none"} w={["auto"]} p={["0 1.5em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
+                    <Button display={["flex", "none", "none"]} variant={"none"} w={["auto"]} p={["0 1.5em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
                           <Text fontSize={["md","lg","lg","lg","lg"]}>
                               Back
                           </Text>
@@ -187,7 +191,7 @@ const aktif: NextPage = () => {
                         </Button>
                       )}
                   </Stack>
-                  <Button display={["none", "none", "flex", "flex", "flex"]} variant={"none"} w={["auto"]} p={["0 1.5em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
+                  <Button display={["none", "none", "flex", "flex", "flex"]} variant={"none"} w={["auto"]} p={["0 1.5em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
                           <Text fontSize={["md","lg","lg","lg","lg"]}>
                               Back
                           </Text>
@@ -204,14 +208,14 @@ const aktif: NextPage = () => {
                         </Button>
                       )}
                 </Flex>
+              </form>
                 <Center>
-                  <Button display={["none", "block", "none"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
+                  <Button display={["none", "block", "none"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"}  color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
                         <Text fontSize={["md","lg","lg","lg","lg"]}>
                             Back
                         </Text>
                   </Button>
                 </Center>
-              </form>
             </Box>
           </Box>
         </Flex>
