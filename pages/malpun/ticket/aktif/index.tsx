@@ -110,6 +110,7 @@ const aktif: NextPage = () => {
                                 border={"solid"}
                                 _hover={{ border: "solid #CBD5E0" }}
                                 style={{borderRadius: "50px"}}
+                                autoComplete={"off"}
                               />
                             </InputGroup>
                             {errors.name !== undefined && (
@@ -137,6 +138,7 @@ const aktif: NextPage = () => {
                               border={"solid"}
                               borderRadius={"full"}
                               _hover={{ border: "solid #CBD5E0" }}
+                              autoComplete={"off"}
                             />
                           </InputGroup>
                           {errors.nim !== undefined && (
@@ -163,6 +165,7 @@ const aktif: NextPage = () => {
                             border={"solid"}
                             _hover={{ border: "solid #CBD5E0" }}
                             style={{borderRadius: "50px"}}
+                            autoComplete={"off"}
                           />
                         </InputGroup>
                         {errors.email !== undefined && (

@@ -45,6 +45,7 @@ const nonaktif: NextPage = () => {
             + '<p style="font-size: 15px;">QR Code tersedia pada meja registrasi!</p>',
       })
       setIsButtonLoading(false);
+      router.push('/malpun')
     } catch(err: any) {
       Swal.fire({
         icon: 'error',
@@ -97,6 +98,7 @@ const nonaktif: NextPage = () => {
                             border={"solid"}
                             _hover={{ border: "solid #CBD5E0" }}
                             style={{borderRadius: "50px"}}
+                            autoComplete={"off"}
                           />
                         </InputGroup>
                         {errors.name !== undefined && (
@@ -122,6 +124,7 @@ const nonaktif: NextPage = () => {
                             border={"solid"}
                             _hover={{ border: "solid #CBD5E0" }}
                             style={{borderRadius: "50px"}}
+                            autoComplete={"off"}
                           />
                         </InputGroup>
                         {errors.email !== undefined && (
