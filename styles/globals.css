@@ -67,6 +67,22 @@ a {
     filter: brightness(calc(1 - var(--abs-offset) * 1.5));
     transition: all 0.3s ease-out;
   }
+
+   *::-webkit-scrollbar {
+    display: none;
+  }
+
+  *::-webkit-scrollbar-track-button {
+    display: none;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
+  *::-webkit-scrollbar-corner {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 425px) {
@@ -77,9 +93,7 @@ a {
   }
 
   *::-webkit-scrollbar {
-    width: 0.4em;
-    height: 0.4em;
-    background-color: #ffffff;
+    display: none;
   }
 
   *::-webkit-scrollbar-track-button {
@@ -87,8 +101,7 @@ a {
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #1b4173;
-    border-radius: 1em;
+    display: none;
   }
 
   *::-webkit-scrollbar-corner {

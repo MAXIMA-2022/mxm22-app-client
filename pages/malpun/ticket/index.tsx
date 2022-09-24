@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import router, { useRouter } from "next/router";
 import React, { useState, useEffect, useRef } from "react";
 
 //importing local components
@@ -38,11 +38,12 @@ const ticket: NextPage = () => {
   }
 
   const Body = () => {
+    const router = useRouter();
     return(
       <Box>
-        <Center>
-          <Box>
-            <Text textAlign={"center"} color={"#062D5F"} fontSize={["lx", "lg", "3xl", "2xl", "3xl"]} fontWeight={["bold"]}>
+        <Center mt={"0em"}>
+          <Box maxW={["70vw","15em","full","full","full"]}>
+            <Text textAlign={"center"} color={"#062D5F"} fontSize={["lg", "lg", "3xl", "2xl", "3xl"]} fontWeight={["bold"]}>
                 Apakah kamu mahasiswa aktif?
             </Text>
           </Box>
@@ -65,37 +66,16 @@ const ticket: NextPage = () => {
             </Link>
           </Stack>
         </Center>
+        <Center position={"absolute"} left={0} right={0} bottom={0} mb={["17.5vh", "12.5vh", "10vh", "17.5vh", "17.5vh"]}>
+          <Button variant={"none"} border={"2px solid #1B4173"} color={"#062D5F"}  w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
+              <Text fontSize={["md","lg","lg","lg","lg"]}>
+                  Back
+              </Text>
+          </Button>
+        </Center>
       </Box>
     )
   }
-
-  const BackButton = () => {
-    const router = useRouter();
-    return (
-      <>
-        <Flex w={"auto"} m={["-3.7rem 0rem", "-3.7rem 1rem"]} position={"sticky"} alignItems={"center"} left={0} bottom={0} right={0} zIndex={"99"}>
-          <Button
-            variant={"none"}
-            onClick={() => {
-              router.back();
-            }}
-          >
-            <Center
-              w={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
-              h={["2.5rem", "2.5rem", "4rem", "4rem", "4rem"]}
-              mb={["4.8rem"]}
-              bgColor={"#F7B70C"}
-              border={["5px solid white", "5px solid white", "4px solid white", "4px solid white", "4px solid white"]}
-              borderRadius={"full"}
-              shadow={"0px 4px 4px rgba(0,0,0,0.25)"}
-            >
-              <Img src={"https://storage.googleapis.com/mxm22-bucket-test/expandLeft.svg"} w={["2rem", "2rem", "2rem", "2rem", "2rem"]} h={["1.2rem", "1.2rem", "2rem", "2rem", "2rem"]} />
-            </Center>
-          </Button>
-        </Flex>
-      </>
-    );
-  };
 
   return (
     <Layout>
