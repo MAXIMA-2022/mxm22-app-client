@@ -88,7 +88,8 @@ const nonaktif: NextPage = () => {
                             {...register("name", {
                               required: "Nama harap diisi",
                             })}
-                            h={["4.5vh","2.25em","3em","2.25em","3em"]}
+                            // h={["4.5vh","2.25em","3em","2.25em","3em"]}
+                            size={"md"}
                             borderColor={"#1B417380"}
                             placeholder={"Nama Lengkap"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
@@ -114,7 +115,8 @@ const nonaktif: NextPage = () => {
                             {...register("email", {
                               required: "Email harap diisi",
                             })}
-                            h={["4.5vh","2.25em","3em","2.25em","3em"]}
+                            // h={["4.5vh","2.25em","3em","2.25em","3em"]}
+                            size={"md"}
                             borderColor={"#1B417380"}
                             placeholder={"Email"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}

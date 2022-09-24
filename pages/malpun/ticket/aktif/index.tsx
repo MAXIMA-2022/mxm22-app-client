@@ -100,7 +100,7 @@ const aktif: NextPage = () => {
                                 {...register("name", {
                                   required: "Nama harap diisi",
                                 })}
-                                h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                                size={"md"}
                                 borderColor={"#1B417380"}
                                 placeholder={"Nama Lengkap"}
                                 _placeholder={{ opacity: 1, color: "#CBD5E0" }}
@@ -122,12 +122,13 @@ const aktif: NextPage = () => {
                               NIM
                             </FormLabel>
                           <InputGroup>
-                            <InputLeftAddon fontSize={["sm","md","md","md","md"]} h={["auto","auto","auto","auto","3em"]} children={"000000"} bgColor={"#F7B70C"} color={"white"} borderRadius={"full"} />
+                            <InputLeftAddon fontSize={"sm"} m={"auto"} p={2} children='000000' bgColor={"#F7B70C"} color={"white"} borderRadius={"full"}/>
                             <Input
                               {...register("nim", {
                                 required: "NIM harap diisi",
                               })}
-                              h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                              // h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                              size={"md"}
                               borderLeft={"none"}
                               borderColor={"#1B417380"}
                               placeholder={"NIM"}
@@ -155,7 +156,8 @@ const aktif: NextPage = () => {
                             {...register("email", {
                               required: "Email harap diisi",
                             })}
-                            h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                            // h={["4.5vh","2.25em","3em","2.5em","3em"]}
+                            size={"md"}
                             borderColor={"#1B417380"}
                             placeholder={"Email Student"}
                             _placeholder={{ opacity: 1, color: "#CBD5E0" }}
