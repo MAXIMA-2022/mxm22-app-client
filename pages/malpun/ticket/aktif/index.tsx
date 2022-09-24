@@ -67,20 +67,20 @@ const aktif: NextPage = () => {
   const Body = () => {
     const router = useRouter();
     return(
-        <Flex mt={["35.5vh","42.5vh","32vh","40vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
+        <Flex mt={["35.5vh","42.5vh","32vh","39vh","35vh"]} display={["block", "block", "flex", "flex", "flex"]} w={"full"}>
         <Flex display={["block", "block", "flex", "flex", "flex"]} w={"full"} h={"auto"} justifyContent={"center"}>
           <Box
-            w={["full", "full", "35em", "50em", "59em"]}
-            h={["full", "auto"]}
-            maxH={["46vh","40vh","full","full","full",]}
+            w={["full", "full", "35em", "45em", "59em"]}
+            h={["full", "auto", "auto", "18.5em", "auto"]}
+            maxH={["46vh","60vh","full","full","full",]}
             padding={["0 0em", "0 0em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em"]}
             borderRadius={["none", "none", "lg", "lg", "lg"]}
             justifyContent={"center"}
             alignItems={"center"}
             zIndex={0}
-            overflowY={"auto"}
+            overflowY={["auto"]}
           >
-            <Center mt={["auto","40.5vh","2vh","-4vh","4vh"]}>
+            <Center mt={["auto","auto","2vh","-4vh","4vh"]}>
               <Text fontSize={["2xl", "2xl", "4xl", "3xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
                 Detail Pembeli
               </Text>
@@ -88,9 +88,9 @@ const aktif: NextPage = () => {
             <Box mt={"2vh"}>
               <form onSubmit={handleSubmit(onSubmit)} autoComplete={"off"}>
                 <Center>
-                  <FormControl w={["32.5vh","20em","30em","30em","32.5em"]}>
+                  <FormControl w={["15.5em","20em","30em","30em","32.5em"]}>
                     <Stack direction={["column"]} spacing={[3, 4, 4, 2, 4]}>
-                      <Stack direction={["column","row"]}>
+                      <Stack direction={["column","column","row"]}>
                           <Box w={"full"}>
                             <FormLabel display={["block"]} fontSize={["md","md","lg","sm","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
                               Nama Lengkap
@@ -177,7 +177,7 @@ const aktif: NextPage = () => {
                     </Stack>
                   </FormControl>
                 </Center>
-                <Flex justifyContent={["center","center","space-between","space-between","space-between"]} mt={["1.5vh","2em","2em","1em","1em"]} mb={"1em"}>
+                <Flex justifyContent={["center","center","space-between","space-between","space-between"]} mt={["1.5vh","2em","2em","0.85em","1em"]} mb={"1em"}>
                   <Stack display={["flex", "none"]} direction={["row"]} spacing={"1em"}>
                     <Button display={["flex", "none", "none"]} variant={"none"} w={["auto"]} p={["0 1.5em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}} onClick={() => { router.back();}}>
                           <Text fontSize={["md","lg","lg","lg","lg"]}>
@@ -206,7 +206,7 @@ const aktif: NextPage = () => {
                           Submit
                         </Button>
                       ) : (
-                        <Button display={["none", "none", "flex", "flex", "flex"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
+                        <Button display={["none", "flex", "flex", "flex", "flex"]} variant={"none"} w={["auto"]} p={["0 2em","0 2em","1.5em 2em", "0 2em", "0 2em"]} borderRadius={"full"} type={"submit"} color={"#1B4173"} border={"2px solid #1B417380"} _hover={{bgColor: "#1B4173", color: "#fff"}}>
                           <Text fontSize={["md","lg","lg","lg","lg"]}>
                               Submit
                           </Text>
