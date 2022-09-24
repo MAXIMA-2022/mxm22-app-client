@@ -61,7 +61,7 @@ const nonaktif: NextPage = () => {
           <Box
             w={["auto", "full", "35em", "48.5em", "59em"]}
             h={["full", "auto"]}
-            maxH={["45.5vh","40vh","full","full","full",]}
+            maxH={["45.5vh","60vh","full","full","full",]}
             padding={["0 0em", "0 0em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em", "1.5em 2.5em 1em 2.5em"]}
             borderRadius={["none", "none", "lg", "lg", "lg"]}
             justifyContent={"center"}
@@ -69,7 +69,7 @@ const nonaktif: NextPage = () => {
             zIndex={0}
             overflowY={"auto"}
           >
-            <Center mt={["full","40.5vh","2vh","2vh","4vh"]}>
+            <Center mt={["full","full","2vh","2vh","4vh"]}>
               <Text fontSize={["2xl", "2xl", "4xl", "2xl", "4xl"]} fontWeight={"bold"} color={"#1B4173"}>
                 Detail Pembeli
               </Text>
@@ -77,7 +77,7 @@ const nonaktif: NextPage = () => {
             <Box mt={"3vh"}>
               <form onSubmit={handleSubmit(onSubmit)} autoComplete={"off"}>
                 <Center>
-                  <FormControl w={["32.5vh","20em","30em","30em","30em"]}>
+                  <FormControl w={["15.5em","20em","30em","30em","30em"]}>
                     <Stack direction={["column"]} spacing={[4, 4]}>
                       <Box w={"full"}>
                         <FormLabel display={["block"]} fontSize={["md","md","lg","md","lg"]} textColor={"#1B4173"} fontWeight={"semibold"}>
